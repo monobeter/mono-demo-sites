@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>客製貼圖入門指南：做之前，先想好這 5 件事</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#14532D;
+    --green-deep:#0E3D21;
+    --green-soft:#E4EDE2;
+    --ivory:#F8F3EA;
+    --ivory-card:#FFFDF8;
+    --gold:#B08D4F;
+    --gold-soft:#EFE3CC;
+    --ink:#22301F;
+    --ink-2:#4A5546;
+    --line:#DDD3BE;
+    --chip:#14532D;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --green:#7FB98E;
+      --green-deep:#0B2A18;
+      --green-soft:#1C3524;
+      --ivory:#14211A;
+      --ivory-card:#1B2B21;
+      --gold:#D3AC6B;
+      --gold-soft:#33291A;
+      --ink:#F1EAD9;
+      --ink-2:#C4CDBB;
+      --line:#3A4A3A;
+      --chip:#7FB98E;
+      color-scheme: dark;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:"Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%}
+  a{color:var(--green)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--green-deep);
+    color:#F8F3EA;
+    padding:44px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;right:-70px;top:-70px;
+    width:220px;height:220px;border-radius:50%;
+    border:34px solid rgba(176,141,79,.28);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{
+    display:inline-block;
+    font-size:13px;font-weight:700;letter-spacing:.14em;
+    color:#E9D9B4;
+    border:1px solid rgba(233,217,180,.55);
+    padding:5px 14px;border-radius:999px;
+    margin-bottom:18px;
+  }
+  h1{
+    font-weight:900;
+    font-size:clamp(30px,7.4vw,44px);
+    line-height:1.28;
+    margin:0 0 14px;
+    letter-spacing:.01em;
+  }
+  h1 .gold{color:#D9B978}
+  .hero-sub{
+    font-size:clamp(16px,4.4vw,19px);
+    line-height:1.8;
+    color:#EDE6D3;
+    margin:0 0 24px;
+    max-width:34em;
+  }
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-chips span{
+    font-size:13.5px;font-weight:700;
+    background:rgba(248,243,234,.12);
+    border:1px solid rgba(248,243,234,.28);
+    color:#F8F3EA;
+    padding:7px 13px;border-radius:999px;
+  }
+  .hero-chips span b{color:#D9B978;font-weight:900}
+
+  /* ---------- Quick nav ---------- */
+  .quicknav{
+    position:sticky;top:0;z-index:20;
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+  }
+  .quicknav .wrap{
+    display:flex;gap:8px;flex-wrap:wrap;
+    padding-top:10px;padding-bottom:10px;
+  }
+  .quicknav a{
+    flex:0 0 auto;
+    min-height:36px;
+    display:inline-flex;align-items:center;
+    font-size:14px;font-weight:700;text-decoration:none;
+    color:var(--green);
+    border:1.5px solid var(--green);
+    border-radius:999px;
+    padding:6px 14px;
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:38px 0 6px}
+  .sec-head{margin-bottom:20px}
+  .sec-head .no{
+    font-family:"Noto Serif TC", serif;
+    color:var(--gold);font-weight:700;font-size:15px;letter-spacing:.2em;
+    display:block;margin-bottom:4px;
+  }
+  h2{
+    font-weight:900;
+    font-size:clamp(23px,6vw,30px);
+    line-height:1.4;
+    margin:0;
+    color:var(--ink);
+  }
+  h2 .g{color:var(--green)}
+  .sec-lead{color:var(--ink-2);margin:10px 0 0;font-size:15.5px}
+
+  /* ---------- Five things ---------- */
+  .thing{
+    background:var(--ivory-card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 20px 20px;
+    margin-bottom:16px;
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:6px 14px;
+  }
+  .thing .num{
+    grid-row:span 2;
+    width:52px;height:52px;border-radius:50%;
+    background:var(--green);color:#F8F3EA;
+    font-weight:900;font-size:21px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  @media (prefers-color-scheme: dark){
+    .thing .num{background:var(--green-soft);color:var(--green)}
+  }
+  .thing h3{
+    margin:2px 0 6px;
+    font-size:19px;font-weight:900;line-height:1.45;
+  }
+  .thing p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .thing p b{color:var(--ink)}
+  .price-inline{color:var(--green);font-weight:900;white-space:nowrap}
+  @media (prefers-color-scheme: dark){ .price-inline{color:var(--gold)} }
+
+  /* ---------- Price cards ---------- */
+  .price-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
+  @media (min-width:560px){ .price-grid{grid-template-columns:1fr 1fr} }
+  .pcard{
+    background:var(--ivory-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .pcard .name{font-weight:900;font-size:16.5px;line-height:1.4}
+  .pcard .count{font-size:13.5px;color:var(--ink-2);font-weight:500}
+  .pcard .price{
+    font-weight:900;font-size:19px;color:var(--green);white-space:nowrap;text-align:right;
+  }
+  @media (prefers-color-scheme: dark){ .pcard .price{color:var(--gold)} }
+  .pcard .price small{display:block;font-size:12px;color:var(--ink-2);font-weight:500}
+  .pcard.feature{
+    background:var(--green-deep);
+    border-color:var(--green-deep);
+    color:#F8F3EA;
+  }
+  .pcard.feature .count{color:#CFC7AE}
+  .pcard.feature .price{color:#D9B978}
+  .pcard.feature .price small{color:#CFC7AE}
+  .badge{
+    display:inline-block;font-size:12px;font-weight:900;letter-spacing:.06em;
+    background:var(--gold);color:#fff;
+    border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:2px;
+  }
+  .price-notes{
+    margin-top:14px;
+    background:var(--gold-soft);
+    border-radius:14px;
+    padding:14px 18px;
+    font-size:14.5px;
+  }
+  .price-notes ul{margin:0;padding-left:20px}
+  .price-notes li{margin:3px 0}
+  .price-notes b{font-weight:900}
+
+  /* ---------- Styles ---------- */
+  .style-grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media (min-width:560px){ .style-grid{grid-template-columns:repeat(3,1fr)} }
+  .scard{
+    background:var(--ivory-card);
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:18px 16px 16px;
+    text-align:center;
+    cursor:pointer;
+    min-height:44px;
+    transition:border-color .15s ease;
+  }
+  .scard[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+  .scard .art{
+    height:118px;display:flex;align-items:flex-end;justify-content:center;
+    margin-bottom:10px;
+  }
+  .scard h3{margin:0 0 4px;font-size:17.5px;font-weight:900}
+  .scard p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.6}
+  .style-pick{
+    margin-top:14px;text-align:center;font-size:15px;color:var(--ink-2);
+    min-height:1.8em;
+  }
+  .style-pick b{color:var(--green)}
+  @media (prefers-color-scheme: dark){ .style-pick b{color:var(--gold)} }
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:48px;
+    padding:10px 22px;border-radius:999px;
+    font-weight:900;font-size:15.5px;text-decoration:none;
+  }
+  .btn-solid{background:var(--green);color:#F8F3EA;border:2px solid var(--green)}
+  .btn-ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+  @media (prefers-color-scheme: dark){
+    .btn-solid{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+    .btn-ghost{color:var(--green);border-color:var(--green)}
+  }
+
+  /* ---------- Flow ---------- */
+  .flow{list-style:none;margin:0;padding:0;counter-reset:step}
+  .flow li{
+    position:relative;
+    padding:0 0 20px 52px;
+  }
+  .flow li::before{
+    counter-increment:step;
+    content:counter(step);
+    position:absolute;left:0;top:0;
+    width:36px;height:36px;border-radius:50%;
+    background:var(--gold);color:#fff;
+    font-weight:900;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flow li::after{
+    content:"";position:absolute;left:17px;top:42px;bottom:2px;
+    width:2px;background:var(--line);
+  }
+  .flow li:last-child::after{display:none}
+  .flow li b{display:block;font-size:16.5px;font-weight:900;line-height:1.5;padding-top:5px}
+  .flow li span{font-size:14.5px;color:var(--ink-2)}
+  .timeline{
+    display:grid;grid-template-columns:1fr;gap:10px;margin-top:6px;
+  }
+  @media (min-width:560px){ .timeline{grid-template-columns:repeat(3,1fr)} }
+  .tcard{
+    background:var(--green-soft);
+    border-radius:14px;padding:14px 16px;
+  }
+  .tcard .t{font-weight:900;font-size:20px;color:var(--green);line-height:1.3}
+  @media (prefers-color-scheme: dark){ .tcard .t{color:var(--gold)} }
+  .tcard .d{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+  .reports{
+    margin-top:18px;
+    background:var(--ivory-card);border:1px solid var(--line);border-radius:16px;
+    padding:18px;
+  }
+  .reports h3{margin:0 0 12px;font-size:16.5px;font-weight:900}
+  .reports ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  }
+  .reports li{
+    background:var(--gold-soft);border-radius:999px;
+    padding:7px 14px;font-size:14px;font-weight:700;
+    min-height:36px;display:inline-flex;align-items:center;
+  }
+  .reports .arrow{color:var(--gold);font-weight:900;padding:0}
+
+  /* ---------- FAQ ---------- */
+  details{
+    background:var(--ivory-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    margin-bottom:10px;
+  }
+  summary{
+    cursor:pointer;
+    font-weight:900;font-size:16px;line-height:1.5;
+    padding:15px 44px 15px 18px;
+    list-style:none;position:relative;
+    min-height:48px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"＋";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    color:var(--gold);font-weight:900;font-size:18px;
+  }
+  details[open ] summary::after{content:"－"}
+  details .a{padding:0 18px 16px;color:var(--ink-2);font-size:15px}
+  details .a b{color:var(--ink)}
+
+  /* ---------- Closing ---------- */
+  .closing{
+    margin-top:38px;
+    background:var(--green-deep);
+    color:#F8F3EA;
+    border-radius:22px;
+    padding:28px 22px;
+  }
+  .closing h2{color:#F8F3EA}
+  .closing h2 .gold{color:#D9B978}
+  .closing p{color:#EDE6D3;font-size:15.5px}
+  .course{
+    background:rgba(248,243,234,.08);
+    border:1px solid rgba(248,243,234,.3);
+    border-radius:16px;
+    padding:18px;margin-top:16px;
+  }
+  .course h3{margin:0 0 6px;font-size:18px;font-weight:900;color:#F8F3EA}
+  .course .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .course .facts span{
+    font-size:13.5px;font-weight:700;
+    border:1px solid rgba(233,217,180,.5);color:#E9D9B4;
+    border-radius:999px;padding:6px 12px;
+  }
+  .course .facts span b{color:#D9B978}
+
+  footer{
+    margin-top:44px;
+    border-top:1px solid var(--line);
+    padding:26px 0 40px;
+    text-align:center;
+  }
+  .foot-brand{
+    font-family:"Noto Serif TC", serif;
+    font-weight:700;font-size:18px;letter-spacing:.08em;color:var(--green);
+  }
+  @media (prefers-color-scheme: dark){ .foot-brand{color:var(--gold)} }
+  footer p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0}
+  footer a{font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">免費入門指南</span>
+    <h1>客製貼圖入門指南：<br>做之前，先想好這 <span class="gold">5 件事</span></h1>
+    <p class="hero-sub">把你的臉，做成全世界都能用的貼圖。先想好這 5 件事，定妝一次就對。</p>
+    <div class="hero-chips">
+      <span>已完成 <b>百組以上</b> 客製貼圖</span>
+      <span>每月只接 <b>5 單</b></span>
+      <span>整組製作 <b>7–10</b> 個工作天</span>
+    </div>
+  </div>
+</header>
+
+<nav class="quicknav" aria-label="本頁目錄">
+  <div class="wrap">
+    <a href="#five">5 件事</a>
+    <a href="#price">價目表</a>
+    <a href="#style">挑風格</a>
+    <a href="#flow">流程與交期</a>
+    <a href="#faq">常見問題</a>
+    <a href="#start">開始製作</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===== 五件事 ===== -->
+  <section id="five">
+    <div class="sec-head">
+      <span class="no">START HERE</span>
+      <h2>做之前，先想好這 <span class="g">5 件事</span></h2>
+      <p class="sec-lead">五件事想清楚再下單，照片不用重拍、句子不用重寫，定妝一次就對。</p>
+    </div>
+
+    <article class="thing">
+      <div class="num">1</div>
+      <h3>一個人，還是一起入鏡？</h3>
+      <p>一個人最簡單；情侶、家人、毛孩一起入鏡要加 <span class="price-inline">NT$1,500</span>（第二人）。<b>先決定誰是主角，臉才不會跑掉。</b></p>
+    </article>
+
+    <article class="thing">
+      <div class="num">2</div>
+      <h3>五種格式，選一種還是全套？</h3>
+      <p>靜態 40 張最常用；動態會動、表情貼大臉最好認；<b>全套 184 張一次做齊最划算</b>（<span class="price-inline">NT$19,800</span>，分開買 NT$27,000）。只想試試水溫，先拿體驗組 8 張 <span class="price-inline">NT$1,280</span>。完整價目在下方對照表。</p>
+    </article>
+
+    <article class="thing">
+      <div class="num">3</div>
+      <h3>句子先寫好，8–40 句。</h3>
+      <p>平常最常講的話、口頭禪、祝福語都可以。<b>寫不滿也沒關係，先寫 10 句，剩下的幫你補。</b></p>
+    </article>
+
+    <article class="thing">
+      <div class="num">4</div>
+      <h3>照片這樣拍才像。</h3>
+      <p><b>3–10 張清楚正面照</b>，光線足、不要戴墨鏡口罩；喜歡的衣服、配件或招牌動作也可以一起傳。照片越清楚，定妝越像。</p>
+    </article>
+
+    <article class="thing">
+      <div class="num">5</div>
+      <h3>自用、送禮，還是上架販售？</h3>
+      <p>自己用最快；送禮記得留時間（製作 7–10 個工作天＋LINE 審核 3–7 天）；<b>想上架販售，連送審都包了，審核沒過免費修 2 次。</b></p>
+    </article>
+  </section>
+
+  <!-- ===== 價目表 ===== -->
+  <section id="price">
+    <div class="sec-head">
+      <span class="no">PRICE LIST</span>
+      <h2>五種格式 <span class="g">價目對照表</span></h2>
+      <p class="sec-lead">價格一次看懂，沒有隱藏費用；最後以實際接單確認為準。</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="pcard">
+        <div><div class="name">靜態貼圖</div><div class="count">40 張・最常用</div></div>
+        <div class="price">NT$4,800</div>
+      </div>
+      <div class="pcard">
+        <div><div class="name">動態貼圖</div><div class="count">24 張・會動的貼圖</div></div>
+        <div class="price">NT$6,800</div>
+      </div>
+      <div class="pcard">
+        <div><div class="name">大貼圖</div><div class="count">40 張・畫面更大更搶眼</div></div>
+        <div class="price">NT$5,800</div>
+      </div>
+      <div class="pcard">
+        <div><div class="name">隨你填貼圖</div><div class="count">40 張・文字自己填</div></div>
+        <div class="price">NT$4,800</div>
+      </div>
+      <div class="pcard">
+        <div><div class="name">表情貼</div><div class="count">40 張・大臉最好認</div></div>
+        <div class="price">NT$4,800</div>
+      </div>
+      <div class="pcard">
+        <div><div class="name">體驗組</div><div class="count">8 張・先試試水溫</div></div>
+        <div class="price">NT$1,280</div>
+      </div>
+      <div class="pcard feature" style="grid-column:1/-1">
+        <div><div class="name">五種全套<span class="badge">最划算</span></div><div class="count">184 張一次做齊・分開買 NT$27,000</div></div>
+        <div class="price">NT$19,800<small>一次做齊，不用分次等</small></div>
+      </div>
+    </div>
+
+    <div class="price-notes">
+      <ul>
+        <li>第二人一起入鏡：<b>＋NT$1,500</b></li>
+        <li>急件：<b>＋30%</b>（5 天交件）</li>
+        <li><b>每月只接 5 單</b>，額滿順延下個月</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 挑風格 ===== -->
+  <section id="style">
+    <div class="sec-head">
+      <span class="no">STYLE</span>
+      <h2>怎麼挑風格：<span class="g">三種常見方向</span></h2>
+      <p class="sec-lead">點一張卡看看說明，再到示範頁看三種風格實際做起來的樣子，最後再決定。</p>
+    </div>
+
+    <div class="style-grid">
+      <div class="scard" role="button" tabindex="0" aria-pressed="false" data-style="Q 版可愛風" data-desc="圓臉大眼、親切好認——長輩、同事一眼就認出是你。">
+        <div class="art" aria-hidden="true">
+          <svg width="110" height="112" viewBox="0 0 110 112" role="img" aria-label="Q 版可愛風示意：圓臉大眼的虛構角色">
+            <circle cx="55" cy="58" r="40" fill="#F3D9B8"/>
+            <path d="M15 58 Q10 12 55 10 Q100 12 95 58 Q88 30 55 28 Q22 30 15 58Z" fill="#5B4632"/>
+            <circle cx="40" cy="60" r="6.5" fill="#22301F"/><circle cx="70" cy="60" r="6.5" fill="#22301F"/>
+            <circle cx="42.5" cy="57.5" r="2.2" fill="#fff"/><circle cx="72.5" cy="57.5" r="2.2" fill="#fff"/>
+            <circle cx="28" cy="72" r="6" fill="#EFA9A0" opacity=".75"/><circle cx="82" cy="72" r="6" fill="#EFA9A0" opacity=".75"/>
+            <path d="M45 76 Q55 84 65 76" stroke="#22301F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M30 104 Q55 92 80 104 L80 112 L30 112Z" fill="#14532D"/>
+          </svg>
+        </div>
+        <h3>Q 版可愛風</h3>
+        <p>圓臉大眼、親切好認</p>
+      </div>
+
+      <div class="scard" role="button" tabindex="0" aria-pressed="false" data-style="寫實淡彩風" data-desc="像本人、溫柔氣質——五官比例最接近真人，送禮最穩。">
+        <div class="art" aria-hidden="true">
+          <svg width="110" height="112" viewBox="0 0 110 112" role="img" aria-label="寫實淡彩風示意：柔和淡彩的虛構角色">
+            <ellipse cx="55" cy="60" rx="30" ry="38" fill="#F0DCC4"/>
+            <path d="M25 62 Q18 8 55 6 Q92 8 85 62 L78 96 Q74 40 55 36 Q36 40 32 96Z" fill="#7A5F45" opacity=".9"/>
+            <ellipse cx="44" cy="62" rx="3.4" ry="4.6" fill="#4A4238"/><ellipse cx="66" cy="62" rx="3.4" ry="4.6" fill="#4A4238"/>
+            <path d="M38 52 Q44 49 50 52 M60 52 Q66 49 72 52" stroke="#7A5F45" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M48 80 Q55 84 62 80" stroke="#B0765A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path d="M33 106 Q55 96 77 106 L77 112 L33 112Z" fill="#B08D4F" opacity=".85"/>
+          </svg>
+        </div>
+        <h3>寫實淡彩風</h3>
+        <p>像本人、溫柔氣質</p>
+      </div>
+
+      <div class="scard" role="button" tabindex="0" aria-pressed="false" data-style="扁平大頭風" data-desc="超大頭、超大亮眼、扁平向量——在聊天室裡最醒目、最吸睛。">
+        <div class="art" aria-hidden="true">
+          <svg width="110" height="112" viewBox="0 0 110 112" role="img" aria-label="扁平大頭風示意：超大頭扁平向量的虛構角色">
+            <circle cx="55" cy="52" r="44" fill="#F6CFA3"/>
+            <path d="M11 52 Q6 4 55 2 Q104 4 99 52 L90 52 Q88 22 55 20 Q22 22 20 52Z" fill="#2E2A26"/>
+            <circle cx="39" cy="54" r="8" fill="#14532D"/><circle cx="71" cy="54" r="8" fill="#14532D"/>
+            <circle cx="42" cy="51" r="3" fill="#fff"/><circle cx="74" cy="51" r="3" fill="#fff"/>
+            <path d="M42 74 Q55 82 68 74" stroke="#2E2A26" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <rect x="38" y="98" width="34" height="14" rx="4" fill="#B08D4F"/>
+          </svg>
+        </div>
+        <h3>扁平大頭風</h3>
+        <p>超大頭、超大亮眼、扁平向量</p>
+      </div>
+    </div>
+
+    <p class="style-pick" id="stylePick">還沒選？三種都適合做貼圖，先看示範再決定就好。</p>
+
+    <div class="cta-row">
+      <a class="btn btn-solid" href="https://monobeter.github.io/mono-demo-sites/ke-zhi-tie-tu-hui-bao-shi-fan.html" target="_blank" rel="noopener">看示範頁：三種風格的樣子</a>
+    </div>
+  </section>
+
+  <!-- ===== 流程與交期 ===== -->
+  <section id="flow">
+    <div class="sec-head">
+      <span class="no">PROCESS</span>
+      <h2>製作流程與交期：<span class="g">7 步</span></h2>
+      <p class="sec-lead">每一步都清清楚楚，錢付到哪、做到哪，一眼就知道。</p>
+    </div>
+
+    <ol class="flow">
+      <li><b>傳照片＋句子</b><span>3–10 張清楚正面照，加上你寫好的句子清單。</span></li>
+      <li><b>訂金 50%</b><span>確認格式與風格後，先付一半訂金才開工。</span></li>
+      <li><b>先做一張定妝圖確認</b><span>先確認像不像、風格對不對，再往下量產。</span></li>
+      <li><b>量產</b><span>整組照定妝的樣子一張一張做完，並逐張品管。</span></li>
+      <li><b>尾款 50%</b><span>整組完成、你確認過後，再付尾款。</span></li>
+      <li><b>交付檔案</b><span>完整檔案交到你手上，自用、送禮都能直接用。</span></li>
+      <li><b>代送審上架</b><span>要上架販售的，連送審都包了，一路送到上架。</span></li>
+    </ol>
+
+    <div class="timeline">
+      <div class="tcard"><div class="t">2–3 天</div><div class="d">定妝確認：先看一張像不像</div></div>
+      <div class="tcard"><div class="t">7–10 個工作天</div><div class="d">整組製作：自訂金入帳＋資料齊全起算</div></div>
+      <div class="tcard"><div class="t">3–7 天</div><div class="d">LINE 審核另計：LINE 官方時間，不可控</div></div>
+    </div>
+
+    <div class="reports">
+      <h3>做好之後，會這樣跟你回報（共 5 次）</h3>
+      <ol>
+        <li>風格確認</li><span class="arrow" aria-hidden="true">→</span>
+        <li>文字清單</li><span class="arrow" aria-hidden="true">→</span>
+        <li>製作品管</li><span class="arrow" aria-hidden="true">→</span>
+        <li>送審排程</li><span class="arrow" aria-hidden="true">→</span>
+        <li>上架通知</li>
+      </ol>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://monobeter.github.io/mono-demo-sites/ke-zhi-tie-tu-hui-bao-shi-fan.html" target="_blank" rel="noopener">先看回報示範</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="sec-head">
+      <span class="no">FAQ</span>
+      <h2>常見問題</h2>
+    </div>
+
+    <details>
+      <summary>照片要幾張？</summary>
+      <div class="a"><b>3–10 張清楚正面照</b>，光線足、不要戴墨鏡口罩；喜歡的衣服、配件或招牌動作也可以一起傳。</div>
+    </details>
+    <details>
+      <summary>句子寫不滿 40 句怎麼辦？</summary>
+      <div class="a">先寫 <b>10 句</b>就好，剩下的幫你補——平常最常講的話、口頭禪、祝福語都可以。</div>
+    </details>
+    <details>
+      <summary>定妝不像可以改嗎？</summary>
+      <div class="a">可以。<b>定妝階段 1 次免費大調</b>；全組完成後還有 <b>2 次免費小修</b>。</div>
+    </details>
+    <details>
+      <summary>審核沒過怎麼辦？</summary>
+      <div class="a"><b>免費修 2 次</b>，第 3 次起每張 NT$300。</div>
+    </details>
+    <details>
+      <summary>可以上架販售嗎？</summary>
+      <div class="a">可以，<b>代送審含在台灣套餐內</b>，從送審到上架都包了。</div>
+    </details>
+    <details>
+      <summary>急件多久？</summary>
+      <div class="a"><b>5 天交件，加 30%</b>。每月只接 5 單，急件先確認還有沒有名額。</div>
+    </details>
+  </section>
+
+  <!-- ===== 結尾 ===== -->
+  <section id="start" style="padding-top:14px">
+    <div class="closing">
+      <h2>想直接做客製？<br><span class="gold">準備好照片和句子就可以開始。</span></h2>
+      <p>3–10 張清楚正面照、10 句你最常講的話，先備好這兩樣，其他的照這頁一步一步來就好。</p>
+      <div class="course">
+        <h3>想自己學著做？《零成本貼圖變現課》</h3>
+        <p style="margin:0">教你用免費 AI 做第一組貼圖，不用花錢請人也能做。</p>
+        <div class="facts">
+          <span>首班 <b>11/21（六）14:00</b></span>
+          <span>早鳥 <b>NT$880</b> 到 11/28</span>
+          <span>原價 NT$1,280</span>
+          <span>每班 <b>30 人</b>封頂</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">MONO｜世界貼圖女王</div>
+    <p>本頁為免費入門指南，價目與交期以實際接單確認為準。</p>
+    <p>官方網站：<a href="https://mono-ai-studio.netlify.app/" target="_blank" rel="noopener">mono-ai-studio.netlify.app</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var cards = document.querySelectorAll('.scard');
+    var pick = document.getElementById('stylePick');
+    function choose(card){
+      cards.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      card.setAttribute('aria-pressed','true');
+      pick.innerHTML = '你選了 <b>' + card.getAttribute('data-style') + '</b>：' + card.getAttribute('data-desc');
+    }
+    cards.forEach(function(card){
+      card.addEventListener('click', function(){ choose(card); });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); choose(card); }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
