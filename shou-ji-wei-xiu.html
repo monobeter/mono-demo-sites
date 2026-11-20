@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>快修手機維修｜台中手機維修示範店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--navy:#0f2a4d; --navy-dark:#0a1e38; --navy-light:#e3edf7; --navy-mid:#bcd4ea;
+--orange:#ff7a1a; --orange-dark:#e05e00; --orange-light:#fff1e6;
+--bg:#f7f9fc; --card:#ffffff; --text:#1d2733; --muted:#5b6b7d; --line:#dde6ef; --chip:#eef3f9;
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#0d1826; --card:#152636; --text:#eef3f8; --muted:#b6c4d2; --line:#2a3f55; --chip:#1d3247; --navy-light:#1d3247; --orange-light:#3a2a1c;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--navy-dark);color:#ffd9b0;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--navy);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+@media(prefers-color-scheme:dark){.logo{color:#9cc3e8}}
+.logo i{width:38px;height:38px;flex:none;border-radius:12px;background:var(--orange);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--navy-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}.hero .lead{font-size:16px}.cta-row .btn{padding:11px 18px;font-size:15px;min-height:46px}}
+.eyebrow{display:inline-flex;background:var(--orange-light);color:var(--orange-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-family:"Noto Serif TC",serif;font-size:50px;line-height:1.08;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:18px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--orange-dark);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,122,26,.35)}
+.btn-secondary{background:var(--card);color:var(--navy);border:1.5px solid var(--navy)}
+@media(prefers-color-scheme:dark){.btn-secondary{color:#cfe2f3}}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(15,42,77,.20);background:linear-gradient(135deg,#0f2a4d 0%,#1d4e89 55%,#ff7a1a 130%);min-height:300px;display:flex;flex-direction:column;justify-content:center;padding:32px;color:#fff}
+@media(prefers-color-scheme:dark){.hero-img{border-color:#1d3247}}
+.hero-img .big{font-family:"Noto Serif TC",serif;font-size:34px;font-weight:900;line-height:1.3;margin:0 0 12px}
+.hero-img ul{margin:0;padding-left:20px;font-size:15px;line-height:2}
+.hero-img ul b{color:#ffd9b0}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px;color:var(--text)}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.item.hide{display:none}
+.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--orange-light);color:var(--orange-dark);white-space:nowrap}
+.price{font-size:21px;font-weight:900;color:var(--navy)}
+@media(prefers-color-scheme:dark){.price{color:#9cc3e8}}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.time{font-size:13px;font-weight:700;color:var(--orange-dark)}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--navy-light);color:var(--navy);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+@media(prefers-color-scheme:dark){.mini-btn{color:#d6e7f5}}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--navy);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.result{background:var(--navy);color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px}
+.result-line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.35);font-size:15px}
+.result-total{font-size:32px;font-weight:900;margin:14px 0 4px}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:var(--navy-dark);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:center}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--orange));color:#fff;display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:36px;font-weight:900;margin:0 auto 12px}
+.member h3{margin:0 0 4px;font-size:19px}
+.member .role{color:var(--orange-dark);font-weight:800;font-size:14px;margin:0 0 10px}
+.member p{color:var(--muted);margin:0;font-size:14px;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--orange);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--orange);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#10233c;color:#eaf2fb;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:150px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--orange-dark)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--orange-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--navy);color:#fff}
+.mobile-bar a:last-child{background:var(--orange);color:#fff}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>快</i> 快修手機維修</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#price">維修價目</a><a href="#calc">報價試算</a><a href="#flow">送修流程</a><a href="#team">維修團隊</a><a href="#faq">常見問題</a><a href="#order">預約維修</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・手機現場快修 ・ 檢測免費・報價先說清楚</span>
+<h1><small>QUICK FIX PHONE REPAIR</small>手機壞了，<br>今天就修好帶回家</h1>
+<p class="lead">螢幕破了、電池膨脹、掉進水裡——<strong>先免費檢測、報價確認後才動手</strong>，多數螢幕與電池維修 <strong>30–60 分鐘現場取件</strong>，零件享 90 天保固，修不好不收檢測費。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 10:00–21:00</span>
+<span class="pill">🔧 現場快修・當天取件</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🔧 立即預約維修</a>
+<a class="btn btn-secondary" href="#calc">先試算報價 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">不知道壞哪裡也沒關係：下面選品牌、機型與故障狀況，立刻算出預估費用區間與維修時間，再一鍵帶進預約表單。</p>
+</div>
+<div>
+<div class="hero-img">
+<p class="big">修之前先檢測，<br>報價確認才動手。</p>
+<ul>
+<li><b>免費檢測</b>：外觀、觸控、電池健康度、充電孔一次看完</li>
+<li><b>現場快修</b>：螢幕、電池多數 30–60 分鐘取件</li>
+<li><b>零件保固 90 天</b>：非人為損壞免費重修或換新</li>
+<li><b>資料不動</b>：維修不清除手機資料（進水機除外需先備份評估）</li>
+</ul>
+</div>
+<p class="hero-note">示範圖片為 CSS 漸層示意，非實景照片。</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="price">
+<div class="sec-head"><h2>維修價目表</h2><p>以下為示範價格區間，實際費用以現場免費檢測、確認機型與零件等級後報價為準。報價確認前不動手、不收費。</p></div>
+<div class="filters" role="group" aria-label="價目分類篩選">
+<button type="button" class="filter-btn active" data-filter="all">全部</button>
+<button type="button" class="filter-btn" data-filter="screen">螢幕維修</button>
+<button type="button" class="filter-btn" data-filter="battery">電池與充電</button>
+<button type="button" class="filter-btn" data-filter="other">其他維修／配件</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 12px"></p>
+<div class="menu-grid">
+<article class="item" data-cat="screen"><div class="item-top"><h3>iPhone 螢幕總成更換</h3><span class="tag">螢幕維修</span></div><p class="price">NT$2,500–6,800 <small>／依機型</small></p><p class="desc">含顯示面板＋觸控玻璃整組更換，換後校正觸控與原彩顯示，約 30–60 分鐘。</p><p class="time">⏱ 約 30–60 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('螢幕破裂／觸控失靈')">用這個故障試算 →</button></article>
+<article class="item" data-cat="screen"><div class="item-top"><h3>Android 螢幕總成更換</h3><span class="tag">螢幕維修</span></div><p class="price">NT$1,800–5,500 <small>／依機型</small></p><p class="desc">三星、Sony、Google、OPPO、小米等機型，換後測試指紋辨識與觸控邊緣。</p><p class="time">⏱ 約 40–90 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('螢幕破裂／觸控失靈')">用這個故障試算 →</button></article>
+<article class="item" data-cat="screen"><div class="item-top"><h3>螢幕玻璃單換（不換面板）</h3><span class="tag">螢幕維修</span></div><p class="price">NT$1,200–2,800 <small>／依機型</small></p><p class="desc">只破外層玻璃、顯示與觸控都正常時適用，保留原廠面板，畫質不打折。</p><p class="time">⏱ 約 60–120 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('螢幕破裂／觸控失靈')">用這個故障試算 →</button></article>
+<article class="item" data-cat="screen"><div class="item-top"><h3>背蓋玻璃更換</h3><span class="tag">螢幕維修</span></div><p class="price">NT$1,500–3,800 <small>／依機型</small></p><p class="desc">背蓋破裂、無線充電感應不良時更換，換後重新貼合防水膠條並測試無線充電。</p><p class="time">⏱ 約 60–90 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('背蓋／機身破裂')">用這個故障試算 →</button></article>
+<article class="item" data-cat="battery"><div class="item-top"><h3>電池更換</h3><span class="tag">電池與充電</span></div><p class="price">NT$900–2,200 <small>／依機型</small></p><p class="desc">耗電快、健康度低於 80%、電池膨脹或自動關機，換全新電池並校正電量顯示。</p><p class="time">⏱ 約 20–40 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('電池耗電／膨脹')">用這個故障試算 →</button></article>
+<article class="item" data-cat="battery"><div class="item-top"><h3>充電孔清潔／更換</h3><span class="tag">電池與充電</span></div><p class="price">NT$300–1,800 <small>／依狀況</small></p><p class="desc">插頭鬆動、充一下斷一下：先清棉絮與氧化物，清潔無效再換充電孔排線。</p><p class="time">⏱ 約 15–60 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('充電孔鬆動／充不進電')">用這個故障試算 →</button></article>
+<article class="item" data-cat="battery"><div class="item-top"><h3>無線充電模組維修</h3><span class="tag">電池與充電</span></div><p class="price">NT$1,200–2,500 <small>／依機型</small></p><p class="desc">有線能充、無線充不到電，或無線充電發燙斷充，檢測線圈與排線後更換。</p><p class="time">⏱ 約 40–80 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('充電孔鬆動／充不進電')">用這個故障試算 →</button></article>
+<article class="item" data-cat="battery"><div class="item-top"><h3>電池健康度檢測</h3><span class="tag">電池與充電</span></div><p class="price">免費 <small>／現場檢測</small></p><p class="desc">用專業儀器讀取循環次數與實際容量，10 分鐘告訴你該不該換電池，不換也不收費。</p><p class="time">⏱ 約 10 分鐘・免費</p><button type="button" class="mini-btn" onclick="pickFault('電池耗電／膨脹')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>進水處理＋主機板檢測</h3><span class="tag">其他維修</span></div><p class="price">NT$800–4,500 <small>／依損壞程度</small></p><p class="desc">掉進水裡先斷電、不要充電：拆機超音波清洗、烘乾、逐點量測主機板，報價後才修。</p><p class="time">⏱ 檢測約 1 天・視損壞而定</p><button type="button" class="mini-btn" onclick="pickFault('進水／泡水')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>主機板維修（不開機／重啟）</h3><span class="tag">其他維修</span></div><p class="price">NT$2,000–6,000 <small>／依故障點</small></p><p class="desc">無法開機、反覆重啟、Wi-Fi 或訊號異常：晶片級檢測，找出故障點後報價再修。</p><p class="time">⏱ 檢測約 1–2 天・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('無法開機／反覆重啟')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>喇叭／麥克風／聽筒更換</h3><span class="tag">其他維修</span></div><p class="price">NT$800–2,000 <small>／依部位</small></p><p class="desc">通話對方聽不到、擴音破音、聽筒小聲：逐項測試後更換對應模組，換後通話實測。</p><p class="time">⏱ 約 30–60 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('喇叭／麥克風異常')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>相機鏡頭／前後鏡頭更換</h3><span class="tag">其他維修</span></div><p class="price">NT$1,500–4,200 <small>／依機型</small></p><p class="desc">拍照模糊、無法對焦、鏡頭玻璃破裂：更換鏡頭模組，換後測試對焦與防手震。</p><p class="time">⏱ 約 40–80 分鐘・保固 90 天</p><button type="button" class="mini-btn" onclick="pickFault('相機無法對焦／拍照模糊')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>資料救援＋轉移</h3><span class="tag">其他維修</span></div><p class="price">NT$1,500–5,000 <small>／依難度</small></p><p class="desc">手機壞了但照片、聯絡人要救回：先評估可救程度，救回才收費，救不回只收檢測工本費。</p><p class="time">⏱ 約 1–3 天・救回才收費</p><button type="button" class="mini-btn" onclick="pickFault('無法開機／反覆重啟')">用這個故障試算 →</button></article>
+<article class="item" data-cat="other"><div class="item-top"><h3>鋼化玻璃貼＋手機殼</h3><span class="tag">配件</span></div><p class="price">NT$199–899 <small>／依款式</small></p><p class="desc">滿版鋼化膜現場貼到無氣泡，防摔殼、鏡頭貼一次配齊，貼壞當場重貼不加價。</p><p class="time">⏱ 約 10 分鐘・現場貼好</p><button type="button" class="mini-btn" onclick="pickFault('其他／不確定，先檢測')">用這個故障試算 →</button></article>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">※ 以上皆為示範價格。機型越新、零件成本越高；現場檢測後會給確切報價，確認後才開始維修。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head"><h2>維修報價試算</h2><p>選品牌、機型與故障狀況，立刻算出預估費用區間與維修時間。試算結果可以一鍵帶進下方預約表單。</p></div>
+<div class="calc-box">
+<div>
+<label for="calcBrand">品牌</label>
+<select id="calcBrand">
+<option value="Apple">Apple（iPhone）</option>
+<option value="Samsung">Samsung</option>
+<option value="Google">Google Pixel</option>
+<option value="Sony">Sony</option>
+<option value="OPPO">OPPO／realme</option>
+<option value="Xiaomi">小米／Redmi</option>
+<option value="Other">其他品牌</option>
+</select>
+<label for="calcModel">機型</label>
+<select id="calcModel">
+<option value="旗艦新機（近 2 年）">旗艦新機（近 2 年）</option>
+<option value="中階機型（2–4 年）">中階機型（2–4 年）</option>
+<option value="舊機型（4 年以上）">舊機型（4 年以上）</option>
+</select>
+<label>故障狀況</label>
+<div class="chips" id="calcFaults">
+<label class="chip"><input type="radio" name="cFault" value="螢幕破裂／觸控失靈" checked><span>螢幕破裂／觸控失靈</span></label>
+<label class="chip"><input type="radio" name="cFault" value="電池耗電／膨脹"><span>電池耗電／膨脹</span></label>
+<label class="chip"><input type="radio" name="cFault" value="充電孔鬆動／充不進電"><span>充電孔鬆動／充不進電</span></label>
+<label class="chip"><input type="radio" name="cFault" value="進水／泡水"><span>進水／泡水</span></label>
+<label class="chip"><input type="radio" name="cFault" value="無法開機／反覆重啟"><span>無法開機／反覆重啟</span></label>
+<label class="chip"><input type="radio" name="cFault" value="喇叭／麥克風異常"><span>喇叭／麥克風異常</span></label>
+<label class="chip"><input type="radio" name="cFault" value="相機無法對焦／拍照模糊"><span>相機無法對焦／拍照模糊</span></label>
+<label class="chip"><input type="radio" name="cFault" value="背蓋／機身破裂"><span>背蓋／機身破裂</span></label>
+<label class="chip"><input type="radio" name="cFault" value="其他／不確定，先檢測"><span>其他／不確定，先檢測</span></label>
+</div>
+<label>零件等級</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="cPart" value="副廠高品質" checked><span>副廠高品質（實惠）</span></label>
+<label class="chip"><input type="radio" name="cPart" value="原廠等級"><span>原廠等級（較貴）</span></label>
+</div>
+</div>
+<div class="result">
+<h3>預估報價</h3>
+<div class="result-line"><span>品牌</span><span id="rBrand">Apple</span></div>
+<div class="result-line"><span>機型</span><span id="rModel">旗艦新機（近 2 年）</span></div>
+<div class="result-line"><span>故障</span><span id="rFault">螢幕破裂／觸控失靈</span></div>
+<div class="result-line"><span>零件等級</span><span id="rPart">副廠高品質</span></div>
+<div class="result-line"><span>預估維修時間</span><span id="rTime">約 30–60 分鐘</span></div>
+<div class="result-total" id="rTotal">NT$2,500–6,800</div>
+<p class="result-sub" id="rNote">含檢測、零件與 90 天保固。現場檢測後以確切報價為準，確認後才動手。</p>
+<button type="button" class="btn" onclick="sendToOrder()">帶進預約表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>送修到取件，五個步驟</h2><p>從進門到拿回手機，全程透明：每一步都會先跟你說明、確認後才繼續。</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>免費檢測</h3><p>現場檢查外觀、觸控、電池健康度與充電孔，約 10 分鐘，檢測不收費。</p></div>
+<div class="step"><b>2</b><h3>報價確認</h3><p>說明壞掉的原因、零件等級與費用區間，你點頭後才開始修，不追加、不偷換。</p></div>
+<div class="step"><b>3</b><h3>現場維修</h3><p>技師在無塵工作檯拆機維修，螢幕、電池多數 30–60 分鐘完成，進水與主機板需留機檢測。</p></div>
+<div class="step"><b>4</b><h3>功能測試</h3><p>修好後逐項測試：觸控、顯示、充電、通話、相機、指紋與 Face ID，全部通過才交機。</p></div>
+<div class="step"><b>5</b><h3>取件保固</h3><p>當面驗機、開立保固單，零件保固 90 天，保固期內非人為損壞免費重修。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>維修團隊</h2><p>三位專職技師，不是兼差學徒——每位都有自己的專長領域，疑難雜症對症下藥。</p></div>
+<div class="team">
+<div class="member"><div class="avatar">阿</div><h3>阿哲</h3><p class="role">店長・主機板維修技師｜12 年經驗</p><p>從夜市修手機攤位做到開店，專攻不開機、進水與主機板晶片級維修。堅持「修不好就老實說，不硬修、不亂換零件」，是店裡最常被客人指定的人。</p></div>
+<div class="member"><div class="avatar">小</div><h3>小安</h3><p class="role">螢幕・電池快修技師｜7 年經驗</p><p>專攻 iPhone 與三星螢幕、電池現場快修，最快 20 分鐘交機。手路細，換完螢幕會逐格測觸控邊緣與原彩顯示，連保護貼都幫你貼到無氣泡。</p></div>
+<div class="member"><div class="avatar">阿</div><h3>阿凱</h3><p class="role">檢測・資料救援技師｜5 年經驗</p><p>負責進店第一關檢測與資料救援，擅長把「以為沒救了」的照片與聯絡人救回來。會先白紙黑字說明救援成功率，救不回來不收救援費。</p></div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head"><h2>客人怎麼說</h2><p>以下為示範評價，正式上線將換成真實客人回饋。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「iPhone 螢幕摔裂，檢測 10 分鐘就報好價，40 分鐘修好，觸控跟原來一樣順。價格先說清楚，沒有事後加價。」</p><footer>— 陳小姐・iPhone 螢幕更換（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「電池健康度剩 76%，換完續航回到新機的感覺。技師還順手清了充電孔的棉絮，充電終於不會斷斷續續。」</p><footer>— 林先生・電池更換（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「手機掉進馬桶以為沒救了，店家先斷電處理、隔天報價，照片全部救回來。救回才收費，這點很讓人安心。」</p><footer>— 王小姐・進水處理＋資料救援（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「充電孔鬆動來修，技師先清潔測試，清完就好了，只收清潔費，沒有硬推換零件。這種老實店不多見。」</p><footer>— 張先生・充電孔清潔（示範評價）</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>先看這裡，八成問題都有答案；沒寫到的，直接來電或用下方表單問。</p></div>
+<div class="faq">
+<details><summary>檢測要錢嗎？報價後不想修可以嗎？</summary><p>檢測完全免費。檢測後我們會說明故障原因與確切報價，你確認後才開始維修；不想修就把手機拿回去，不收任何檢測費。</p></details>
+<details><summary>價格怎麼算？為什麼同一故障每支手機價錢不同？</summary><p>費用主要看機型與零件等級：越新的旗艦機零件成本越高，原廠等級零件也比副廠高品質貴。試算器給的是費用區間，現場檢測後會給確切報價，報價確認前不動手。</p></details>
+<details><summary>要預約嗎？可以直接走進來嗎？</summary><p>都可以。直接來店現場排隊檢測即可；想省等待時間，建議先用下方表單預約，寫好機型與故障狀況，到店直接檢測，尖峰時段（週末下午）預約優先處理。</p></details>
+<details><summary>維修要多久？可以當天拿回手機嗎？</summary><p>螢幕、電池、充電孔、喇叭等常見維修多數 30–60 分鐘現場取件；進水處理與主機板維修需要留機檢測，約 1–2 天，檢測結果會電話通知，留機期間會開立保管單。</p></details>
+<details><summary>保固怎麼算？修完又壞了怎麼辦？</summary><p>更換的零件享 90 天保固，保固期內非人為損壞（非摔落、非進水）免費重修或換新。保固單請留好，憑保固單與手機序號即可辦理；人為損壞不在保固內，但會給優惠維修價。</p></details>
+<details><summary>預約了臨時不能來，可以取消或改期嗎？</summary><p>可以，完全免費。提前在 LINE 訊息或來電告知即可，取消不會收費、也不會影響下次預約；若已留機檢測，取消時可直接到店取回手機。</p></details>
+<details><summary>維修會清除手機資料嗎？要先備份嗎？</summary><p>一般維修（螢幕、電池、充電孔）不會清除資料；進水與主機板維修有資料遺失風險，建議送修前先備份，無法備份時我們會先評估救援方案，經你同意後才動手。</p></details>
+<details><summary>怎麼來？附近好停車嗎？</summary><p>本店位於台中市（詳細地址請洽詢），鄰近公車站，騎機車門口可臨停；開車可使用附近收費停車場，停車費用需自付，取件時可向店員詢問最近的停車位置。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head"><h2>預約維修</h2><p>填好表單，下方會自動產生一則 LINE 訊息，複製後貼到 LINE 傳給我們就完成預約。也可以直接來電 02-XXXX-XXXX。</p></div>
+<div class="form-box">
+<div class="form-grid">
+<div>
+<label for="fName">姓名 *</label>
+<input type="text" id="fName" placeholder="例：王小明">
+</div>
+<div>
+<label for="fPhone">電話 *</label>
+<input type="tel" id="fPhone" placeholder="例：09XX-XXX-XXX">
+</div>
+<div>
+<label for="fBrand">品牌</label>
+<select id="fBrand">
+<option value="Apple">Apple（iPhone）</option>
+<option value="Samsung">Samsung</option>
+<option value="Google">Google Pixel</option>
+<option value="Sony">Sony</option>
+<option value="OPPO">OPPO／realme</option>
+<option value="Xiaomi">小米／Redmi</option>
+<option value="Other">其他品牌</option>
+</select>
+</div>
+<div>
+<label for="fModel">機型</label>
+<select id="fModel">
+<option value="旗艦新機（近 2 年）">旗艦新機（近 2 年）</option>
+<option value="中階機型（2–4 年）">中階機型（2–4 年）</option>
+<option value="舊機型（4 年以上）">舊機型（4 年以上）</option>
+</select>
+</div>
+<div>
+<label for="fFault">故障狀況</label>
+<select id="fFault">
+<option value="螢幕破裂／觸控失靈">螢幕破裂／觸控失靈</option>
+<option value="電池耗電／膨脹">電池耗電／膨脹</option>
+<option value="充電孔鬆動／充不進電">充電孔鬆動／充不進電</option>
+<option value="進水／泡水">進水／泡水</option>
+<option value="無法開機／反覆重啟">無法開機／反覆重啟</option>
+<option value="喇叭／麥克風異常">喇叭／麥克風異常</option>
+<option value="相機無法對焦／拍照模糊">相機無法對焦／拍照模糊</option>
+<option value="背蓋／機身破裂">背蓋／機身破裂</option>
+<option value="其他／不確定，先檢測">其他／不確定，先檢測</option>
+</select>
+</div>
+<div>
+<label for="fDate">希望送修日期</label>
+<input type="date" id="fDate">
+</div>
+<div>
+<label for="fPart">零件等級</label>
+<select id="fPart">
+<option value="副廠高品質">副廠高品質（實惠）</option>
+<option value="原廠等級">原廠等級（較貴）</option>
+</select>
+</div>
+<div>
+<label for="fTime">希望時段</label>
+<select id="fTime">
+<option value="上午 10:00–12:00">上午 10:00–12:00</option>
+<option value="下午 13:00–17:00">下午 13:00–17:00</option>
+<option value="晚上 18:00–21:00">晚上 18:00–21:00</option>
+<option value="不指定">不指定</option>
+</select>
+</div>
+</div>
+<label for="fNote">故障描述（怎麼壞的、什麼時候開始的，越詳細檢測越快）</label>
+<textarea id="fNote" rows="3" placeholder="例：昨天摔到地上，右下角裂開，觸控下半部沒反應。"></textarea>
+<input type="hidden" id="fCalc" value="">
+<p style="color:var(--muted);font-size:14px;margin:14px 0 0">試算結果：<span id="calcEcho" style="font-weight:800;color:var(--text)">尚未試算（可先到上方「維修報價試算」算好再帶進來，或直接填表預約檢測）</span></p>
+<div class="msg-box" id="msgBox"></div>
+<div class="copy-row">
+<button type="button" class="btn btn-primary" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+
+<div class="info-grid">
+<div class="info"><h3>📍 地點（示範）</h3><p>台中市（詳細地址請洽詢）<br>鄰近公車站，騎機車門口可臨停</p></div>
+<div class="info"><h3>📞 電話（示範）</h3><p>02-XXXX-XXXX<br>示範營業時間 10:00–21:00</p></div>
+<div class="info"><h3>🛡 保固說明</h3><p>更換零件保固 90 天<br>檢測免費・報價確認後才動手</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>快修手機維修</strong>｜台中手機維修示範店</p>
+<p>全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。本站電話 02-XXXX-XXXX 與地址「台中市（詳細地址請洽詢）」皆為示範寫法，非真實聯絡資訊。</p>
+<p>© 2026 快修手機維修 DEMO 示範網站</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">📞 打電話</a>
+<a href="#order">🔧 立即預約</a>
+</div>
+
+<script>
+var FAULTS={
+"螢幕破裂／觸控失靈":{low:1800,high:6800,time:"約 30–60 分鐘",note:"含螢幕總成、觸控測試與原彩校正。"},
+"電池耗電／膨脹":{low:900,high:2200,time:"約 20–40 分鐘",note:"含全新電池、電量校正與電池健康度檢測。"},
+"充電孔鬆動／充不進電":{low:300,high:2500,time:"約 15–60 分鐘",note:"先清潔測試，清潔無效再換充電孔或無線充電模組。"},
+"進水／泡水":{low:800,high:4500,time:"檢測約 1 天",note:"拆機超音波清洗＋主機板逐點量測，報價後才修。"},
+"無法開機／反覆重啟":{low:2000,high:6000,time:"檢測約 1–2 天",note:"晶片級檢測，找出故障點後報價再修。"},
+"喇叭／麥克風異常":{low:800,high:2000,time:"約 30–60 分鐘",note:"逐項測試後更換對應模組，換後通話實測。"},
+"相機無法對焦／拍照模糊":{low:1500,high:4200,time:"約 40–80 分鐘",note:"更換鏡頭模組，換後測試對焦與防手震。"},
+"背蓋／機身破裂":{low:1500,high:3800,time:"約 60–90 分鐘",note:"更換背蓋玻璃，換後重貼防水膠條並測試無線充電。"},
+"其他／不確定，先檢測":{low:0,high:0,time:"檢測約 10 分鐘",note:"免費檢測後再報價，報價確認前不動手、不收費。"}
+};
+var BRAND_MULT={"Apple":1.0,"Samsung":0.9,"Google":0.85,"Sony":0.85,"OPPO":0.7,"Xiaomi":0.7,"Other":0.75};
+var MODEL_MULT={"旗艦新機（近 2 年）":1.0,"中階機型（2–4 年）":0.8,"舊機型（4 年以上）":0.65};
+
+function getCalc(){
+var brand=document.getElementById('calcBrand').value;
+var model=document.getElementById('calcModel').value;
+var fault=document.querySelector('input[name="cFault"]:checked').value;
+var part=document.querySelector('input[name="cPart"]:checked').value;
+var base=FAULTS[fault];
+var mult=BRAND_MULT[brand]*MODEL_MULT[model]*(part==="原廠等級"?1.35:1.0);
+var low=Math.round(base.low*mult/50)*50;
+var high=Math.round(base.high*mult/50)*50;
+if(base.low===0){low=0;high=0;}
+return {brand:brand,model:model,fault:fault,part:part,low:low,high:high,time:base.time,note:base.note};
+}
+function renderCalc(){
+var c=getCalc();
+document.getElementById('rBrand').textContent=c.brand;
+document.getElementById('rModel').textContent=c.model;
+document.getElementById('rFault').textContent=c.fault;
+document.getElementById('rPart').textContent=c.part;
+document.getElementById('rTime').textContent=c.time;
+document.getElementById('rTotal').textContent=(c.low===0?"免費檢測，檢測後報價":"NT$"+c.low.toLocaleString()+"–"+c.high.toLocaleString());
+document.getElementById('rNote').textContent=c.note+"含檢測、零件與 90 天保固。現場檢測後以確切報價為準，確認後才動手。";
+}
+document.getElementById('calcBrand').addEventListener('change',renderCalc);
+document.getElementById('calcModel').addEventListener('change',renderCalc);
+document.querySelectorAll('input[name="cFault"],input[name="cPart"]').forEach(function(el){el.addEventListener('change',renderCalc);});
+renderCalc();
+
+function pickFault(fault){
+document.querySelectorAll('input[name="cFault"]').forEach(function(r){r.checked=(r.value===fault);});
+renderCalc();
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.item').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 款維修項目（示範價目）';
+});
+});
+document.getElementById('menuCount').textContent='目前顯示 14 款維修項目（示範價目）';
+
+// --- Send calc to order form ---
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val){s.selectedIndex=i;return;}}}
+function calcSummary(c){
+if(c.low===0)return c.brand+" "+c.model+"／"+c.fault+"／"+c.part+"：免費檢測，檢測後報價，"+c.time;
+return c.brand+" "+c.model+"／"+c.fault+"／"+c.part+"：預估 NT$"+c.low.toLocaleString()+"–"+c.high.toLocaleString()+"，"+c.time;
+}
+function sendToOrder(){
+var c=getCalc();
+setSelect('fBrand',c.brand);
+setSelect('fModel',c.model);
+setSelect('fFault',c.fault);
+setSelect('fPart',c.part);
+var summary=calcSummary(c);
+document.getElementById('fCalc').value=summary;
+document.getElementById('calcEcho').textContent=summary;
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已把試算結果帶進預約表單，再填姓名與電話就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var brand=document.getElementById('fBrand').value;
+var model=document.getElementById('fModel').value;
+var fault=document.getElementById('fFault').value;
+var part=document.getElementById('fPart').value;
+var date=document.getElementById('fDate').value||'不指定';
+var time=document.getElementById('fTime').value;
+var note=document.getElementById('fNote').value.trim();
+var calc=document.getElementById('fCalc').value||'尚未試算（到店免費檢測後報價）';
+var lines=[
+'您好，我想預約快修手機維修 🔧',
+'姓名：'+name,
+'電話：'+phone,
+'品牌／機型：'+brand+'／'+model,
+'故障狀況：'+fault,
+'零件等級：'+part,
+'希望送修日期：'+date,
+'希望時段：'+time,
+'試算結果：'+calc
+];
+if(note)lines.push('故障描述：'+note);
+lines.push('（示範訊息，正式預約以店家確認為準）');
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fBrand','fModel','fFault','fPart','fDate','fTime','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE 傳給店家即可完成預約。';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+}
+</script>
+</body>
+</html>

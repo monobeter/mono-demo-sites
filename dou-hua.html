@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>豆香甜品店｜台中豆花・甜湯示範店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--brown:#6b4226;--brown-dark:#4a2c17;--caramel:#b7793c;--caramel-dark:#8f5a24;
+--cream:#fffaf0;--cream2:#f7ead2;--rice:#fdf6e9;--milk:#fffdf7;
+--bg:#fffaf0;--card:#ffffff;--text:#33261a;--muted:#75665a;--line:#eadfc8;--chip:#f6ead3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--brown-dark);color:#ffe9b8;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--brown-dark);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--caramel);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--cream2)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr.95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}.hero.lead{font-size:16px}}
+.eyebrow{display:inline-flex;background:var(--cream2);color:var(--caramel-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-family:"Noto Serif TC",serif;font-size:52px;line-height:1.05;margin:14px 0 8px}
+h1 small{display:block;font-size:20px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--caramel);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--brown);color:#fff;box-shadow:0 10px 24px rgba(107,66,38,.28)}
+.btn-secondary{background:var(--card);color:var(--brown-dark);border:1.5px solid var(--brown)}
+.btn-caramel{background:var(--caramel);color:#fff}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(74,44,23,.18);background:linear-gradient(150deg,#f3d9a4 0%,#d99a4e 45%,#8f5a24 100%);min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff}
+.hero-img.bowl{font-size:64px;line-height:1;text-align:center}
+.hero-img h3{margin:12px 0 4px;font-family:"Noto Serif TC",serif;font-size:24px;text-align:center}
+.hero-img p{margin:0;text-align:center;font-size:14px;opacity:.95}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--brown);color:#fff;border-color:var(--brown)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.dish.hide{display:none}
+.dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.dish h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--cream2);color:var(--caramel-dark);white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--brown-dark)}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--cream2);color:var(--brown-dark);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr.8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--brown);color:#fff}
+.toppings{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.toppings{grid-template-columns:1fr}}
+.top-item{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:12px;padding:10px 12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.top-item input{width:20px;height:20px;accent-color:var(--brown)}
+.qty-row{display:flex;align-items:center;gap:12px}
+.qty-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:900;cursor:pointer}
+.qty-num{font-size:20px;font-weight:900;min-width:36px;text-align:center}
+.result{background:var(--brown);color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px}
+.result-line{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.35);font-size:15px}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result.btn{background:#fff;color:var(--brown-dark);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--caramel);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.person{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;text-align:center}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#d99a4e,#6b4226);color:#fff;display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:36px;font-weight:900;margin:0 auto 12px}
+.person h3{margin:0 0 4px;font-size:18px}
+.person.role{color:var(--caramel-dark);font-weight:800;font-size:14px;margin:0 0 10px}
+.person p{color:var(--muted);font-size:14px;margin:0;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--caramel);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--brown);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#2b1d12;color:#fff3df;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:170px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--brown-dark)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--caramel-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--brown);color:#fff}
+.mobile-bar a:last-child{background:var(--cream2);color:var(--brown-dark);border:1.5px solid var(--caramel)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>豆</i> 豆香甜品店</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">甜品菜單</a><a href="#calc">配料試算</a><a href="#flow">訂購流程</a><a href="#faq">常見問題</a><a href="#order">訂購表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・現磨豆花 ・ 每天清晨現做</span>
+<h1><small>DOU XIANG DESSERT</small>豆香甜品店</h1>
+<p class="lead">一碗豆花，剛剛好的豆香與溫度。<br>黃豆每天清晨現磨、豆花現點現舀，<strong>黑糖慢熬、配料自己加、價格先算給你看</strong>——滑嫩、綿密、料多實在，就是這碗的日常。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 11:00–21:00</span>
+<span class="pill">🍮 人氣：黑糖珍珠豆花・芋圓豆花</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🍮 立即訂豆花</a>
+<a class="btn btn-secondary" href="#menu">看菜單</a>
+<a class="btn btn-caramel" href="#calc">先試算一碗 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">不用排隊猜價格——先在下面選底、加配料、算總價，喜歡再一鍵帶進訂購表單。</p>
+</div>
+<div>
+<div class="hero-img" role="img" aria-label="黑糖豆花示範圖">
+<div class="bowl">🍮</div>
+<h3>黑糖珍珠豆花</h3>
+<p>現舀豆花 200 克＋黑糖水＋珍珠 60 克，冰熱都好吃</p>
+</div>
+<p style="font-size:13px;color:var(--muted);margin-top:10px;text-align:center">豆花每天現做，售完為止；圖片為示範色塊，實際以現場為準。</p>
+</div>
+</div>
+
+<main class="wrap">
+
+<section id="menu">
+<div class="sec-head"><h2>甜品菜單</h2><p>每碗約 450 毫升，豆花現點現舀；配料現煮現加，甜度、冰熱都可以調整。</p></div>
+<div class="filters" role="group" aria-label="菜單篩選">
+<button class="filter-btn active" type="button" data-filter="all">全部</button>
+<button class="filter-btn" type="button" data-filter="douhua">傳統豆花</button>
+<button class="filter-btn" type="button" data-filter="soup">甜湯</button>
+<button class="filter-btn" type="button" data-filter="seasonal">季節限定</button>
+</div>
+<div class="menu-grid" id="menuGrid">
+<article class="dish" data-cat="douhua"><div class="dish-top"><h3>黑糖珍珠豆花</h3><span class="tag">招牌</span></div><div class="price">NT$55 <small>/ 碗</small></div><p class="desc">現舀豆花 200 克，淋慢熬 3 小時的黑糖水，配 Q 彈珍珠 60 克。</p><button class="mini-btn" type="button" data-pick="黑糖豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="douhua"><div class="dish-top"><h3>芋圓豆花</h3><span class="tag">人氣</span></div><div class="price">NT$60 <small>/ 碗</small></div><p class="desc">芋圓、地瓜圓各 40 克，芋頭香濃、嚼勁剛好，豆花滑嫩不搶味。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="douhua"><div class="dish-top"><h3>紅豆花生豆花</h3><span class="tag">經典</span></div><div class="price">NT$55 <small>/ 碗</small></div><p class="desc">紅豆熬 2 小時到綿密、花生去膜煮到入口即化，老客人最常點的組合。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="douhua"><div class="dish-top"><h3>豆漿豆花</h3><span class="tag">濃豆香</span></div><div class="price">NT$60 <small>/ 碗</small></div><p class="desc">不用糖水，改淋當天現磨的無糖豆漿，豆香更濃，適合不愛太甜的人。</p><button class="mini-btn" type="button" data-pick="豆漿豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="soup"><div class="dish-top"><h3>紅豆湯圓</h3><span class="tag">暖甜湯</span></div><div class="price">NT$60 <small>/ 碗</small></div><p class="desc">紅豆湯底加 6 顆小湯圓，芝麻餡 3 顆、花生餡 3 顆，熱熱吃最暖。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="soup"><div class="dish-top"><h3>綠豆薏仁湯</h3><span class="tag">清爽</span></div><div class="price">NT$50 <small>/ 碗</small></div><p class="desc">綠豆去殼煮到開花、薏仁先泡 4 小時再燉，冰的清爽、熱的順口。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="soup"><div class="dish-top"><h3>花生湯加豆花</h3><span class="tag">雙料</span></div><div class="price">NT$65 <small>/ 碗</small></div><p class="desc">花生湯底濃而不膩，再舀一勺豆花進去，熱湯裡的豆花特別滑。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="soup"><div class="dish-top"><h3>仙草凍豆花</h3><span class="tag">夏日</span></div><div class="price">NT$60 <small>/ 碗</small></div><p class="desc">仙草凍切塊 80 克配豆花，淋黑糖水、加碎冰，滑溜又消暑。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="seasonal"><div class="dish-top"><h3>芒果豆花</h3><span class="tag">夏季限定</span></div><div class="price">NT$75 <small>/ 碗</small></div><p class="desc">愛文芒果切丁 100 克鋪滿豆花，淋少許煉乳，芒果季才有，售完為止。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="seasonal"><div class="dish-top"><h3>草莓豆花</h3><span class="tag">冬季限定</span></div><div class="price">NT$80 <small>/ 碗</small></div><p class="desc">大湖草莓對切 8 顆，配豆花與煉乳，酸甜剛好，草莓季限定供應。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="seasonal"><div class="dish-top"><h3>桂圓紅棗豆花</h3><span class="tag">冬季限定</span></div><div class="price">NT$70 <small>/ 碗</small></div><p class="desc">桂圓、紅棗、枸杞慢燉成湯底，熱豆花淋上，冬天喝一碗手腳都暖。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+<article class="dish" data-cat="seasonal"><div class="dish-top"><h3>紫米豆花</h3><span class="tag">限量</span></div><div class="price">NT$65 <small>/ 碗</small></div><p class="desc">紫米先泡一夜再燉到軟糯，鋪在豆花上，配椰奶或黑糖水都好吃。</p><button class="mini-btn" type="button" data-pick="傳統豆花">選這碗試算 →</button></article>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">以上皆為示範價目。外帶附蓋碗與湯匙，內用可續一次黑糖水。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head"><h2>豆花配料試算</h2><p>先選豆花底，再加配料、選甜度與冰熱，總價即時算給你看，結果可以直接帶進訂購表單。</p></div>
+<div class="calc-box">
+<div>
+<label>1. 選豆花底</label>
+<div class="chips" id="baseChips">
+<label class="chip"><input type="radio" name="base" value="傳統豆花" data-price="45" checked><span>傳統豆花 NT$45</span></label>
+<label class="chip"><input type="radio" name="base" value="豆漿豆花" data-price="55"><span>豆漿豆花 NT$55</span></label>
+<label class="chip"><input type="radio" name="base" value="黑糖豆花" data-price="55"><span>黑糖豆花 NT$55</span></label>
+</div>
+<label>2. 加配料（每項加價，可多選）</label>
+<div class="toppings">
+<label class="top-item"><input type="checkbox" class="topping" value="紅豆" data-price="10"> 紅豆 ＋NT$10</label>
+<label class="top-item"><input type="checkbox" class="topping" value="花生" data-price="10"> 花生 ＋NT$10</label>
+<label class="top-item"><input type="checkbox" class="topping" value="珍珠" data-price="10"> 珍珠 ＋NT$10</label>
+<label class="top-item"><input type="checkbox" class="topping" value="芋圓" data-price="15"> 芋圓 ＋NT$15</label>
+<label class="top-item"><input type="checkbox" class="topping" value="地瓜圓" data-price="15"> 地瓜圓 ＋NT$15</label>
+<label class="top-item"><input type="checkbox" class="topping" value="仙草凍" data-price="10"> 仙草凍 ＋NT$10</label>
+<label class="top-item"><input type="checkbox" class="topping" value="綠豆" data-price="10"> 綠豆 ＋NT$10</label>
+<label class="top-item"><input type="checkbox" class="topping" value="湯圓 3 顆" data-price="15"> 湯圓 3 顆 ＋NT$15</label>
+</div>
+<label>3. 甜度</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="sweet" value="無糖" checked><span>無糖</span></label>
+<label class="chip"><input type="radio" name="sweet" value="三分糖"><span>三分糖</span></label>
+<label class="chip"><input type="radio" name="sweet" value="半糖"><span>半糖</span></label>
+<label class="chip"><input type="radio" name="sweet" value="正常糖"><span>正常糖</span></label>
+</div>
+<label>4. 冰熱</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="temp" value="冰的" checked><span>冰的（加碎冰）</span></label>
+<label class="chip"><input type="radio" name="temp" value="去冰"><span>去冰</span></label>
+<label class="chip"><input type="radio" name="temp" value="熱的"><span>熱的</span></label>
+</div>
+<label>5. 份數</label>
+<div class="qty-row">
+<button class="qty-btn" type="button" id="qtyMinus" aria-label="減少一份">－</button>
+<span class="qty-num" id="qtyNum">1</span>
+<button class="qty-btn" type="button" id="qtyPlus" aria-label="增加一份">＋</button>
+<span style="color:var(--muted);font-size:14px">每碗約 450 毫升</span>
+</div>
+</div>
+<div class="result" aria-live="polite">
+<h3>試算結果</h3>
+<div class="result-line"><span>豆花底</span><span id="rBase">傳統豆花 NT$45</span></div>
+<div class="result-line"><span>配料</span><span id="rToppings">未加配料</span></div>
+<div class="result-line"><span>甜度／冰熱</span><span id="rStyle">無糖・冰的</span></div>
+<div class="result-line"><span>單碗小計</span><span id="rUnit">NT$45</span></div>
+<div class="result-line"><span>份數</span><span id="rQty">1 碗</span></div>
+<div class="result-total" id="rTotal">NT$45</div>
+<div class="result-sub" id="rSummary">傳統豆花・無糖・冰的 × 1 碗</div>
+<button class="btn" type="button" id="bringBtn">帶進訂購表單 ↓</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>訂購流程</h2><p>從選一碗到拿到手，五個步驟，現場大約 5 分鐘。</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>選豆花底</h3><p>傳統、豆漿、黑糖三種底，先決定今天想吃哪一種口感。</p></div>
+<div class="step"><b>2</b><h3>加配料算價</h3><p>用上面試算器加配料、選甜度冰熱，總價先算好再決定。</p></div>
+<div class="step"><b>3</b><h3>填表單傳 LINE</h3><p>填姓名、電話、取貨時間，產生訊息後複製貼到 LINE 傳給我們。</p></div>
+<div class="step"><b>4</b><h3>我們回覆確認</h3><p>店內確認豆花與配料份量後，回覆你取貨時間與總金額。</p></div>
+<div class="step"><b>5</b><h3>到店取貨付款</h3><p>現場現舀豆花、現加配料，內用或外帶都可以，付款後帶走。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>豆香團隊</h2><p>豆花是每天清晨現做的手藝，背後是三個人的分工。</p></div>
+<div class="team">
+<div class="person"><div class="avatar">阿</div><h3>阿香</h3><p class="role">創辦人・豆花主廚</p><p>做了 12 年豆花，堅持每天清晨 5 點磨豆、現點現舀。她說豆花好不好吃，看的是黃豆泡得夠不夠、凝固的火候穩不穩，急不得。</p></div>
+<div class="person"><div class="avatar">志</div><h3>阿志</h3><p class="role">配料師傅</p><p>負責紅豆、花生、芋圓與珍珠。紅豆熬 2 小時、芋圓每天手搓現煮，配料煮好 4 小時內沒賣完就不再出，寧可少賣也不放隔夜。</p></div>
+<div class="person"><div class="avatar">小</div><h3>小滿</h3><p class="role">店長・訂單窗口</p><p>負責接單、確認取貨時間與現場出餐。熟客的甜度她都記得，第一次來的客人她會先問冰熱，再問要不要加料。</p></div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head"><h2>客人怎麼說</h2><p>以下皆為示範評價，正式上線將換成真實客人回饋。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「黑糖珍珠豆花黑糖味很香，珍珠是熱的、Q 度剛好，豆花滑到不用咬就化開。」</p><footer>— 示範客人・陳小姐・冰的・半糖</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「芋圓是真的芋頭味，不是只有顏色。豆漿豆花配芋圓，豆香濃、又不會太甜。」</p><footer>— 示範客人・林先生・豆漿豆花</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「紅豆花生豆花料給得很大方，紅豆綿、花生軟，冬天點熱的，整碗吃完很暖。」</p><footer>— 示範客人・王小姐・熱的・正常糖</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「用試算器先算好再訂很方便，帶小孩來點四碗，總價跟現場一模一樣，沒有落差。」</p><footer>— 示範客人・張太太・外帶四碗</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>價格、訂購、取消與交通，先看這裡。</p></div>
+<div class="faq">
+<details><summary>豆花一碗多少錢？配料怎麼加價？</summary><p>豆花底傳統豆花 NT$45、豆漿豆花與黑糖豆花 NT$55。配料每項加 NT$10–15，例如紅豆、花生、珍珠、仙草凍各 NT$10，芋圓、地瓜圓、湯圓 3 顆各 NT$15；上面試算器會即時算出總價。</p></details>
+<details><summary>要怎麼訂購？可以先預訂再取貨嗎？</summary><p>可以。先用試算器選好，再填下方訂購表單、產生 LINE 訊息後複製貼到 LINE 傳給我們，店內回覆確認取貨時間與總金額後才算訂好。現場直接點也可以，約等 5 分鐘。</p></details>
+<details><summary>可以指定甜度、冰熱或不加冰嗎？</summary><p>可以。甜度有無糖、三分糖、半糖、正常糖；冰熱有冰的、去冰、熱的。豆漿豆花本身不加糖水，想再甜一點可以備註加黑糖水。</p></details>
+<details><summary>訂了可以取消或改時間嗎？</summary><p>可以。取貨前 1 小時前用 LINE 告訴我們就能取消或改時間，不收費用；取貨前 1 小時內豆花已經現舀、配料已經現加，就不能取消，改請當天取貨或轉給朋友。</p></details>
+<details><summary>豆花可以外帶嗎？外帶會不會很快化掉？</summary><p>可以外帶，附蓋碗與湯匙。冰豆花外帶建議 30 分鐘內吃完，熱豆花建議 1 小時內吃完；夏天外帶冰豆花可以請店員多加一點碎冰。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>店在台中市，詳細地址請洽詢。附近有路邊機車格，汽車建議停周邊收費停車場；騎機車或步行來最方便，取貨停一下就可以走。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head"><h2>訂購表單</h2><p>填完按「產生 LINE 訊息」，再一鍵複製貼到 LINE 傳給我們。</p></div>
+<div class="form-box">
+<div class="form-grid">
+<div><label for="fName">姓名 *</label><input id="fName" type="text" placeholder="例如：陳小明" autocomplete="name"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" type="tel" placeholder="例如：09XX-XXX-XXX" autocomplete="tel"></div>
+<div><label for="fDate">取貨日期 *</label><input id="fDate" type="date"></div>
+<div><label for="fMethod">取貨方式 *</label><select id="fMethod"><option>現場取貨（內用）</option><option>現場取貨（外帶）</option><option>請店員確認是否可外送</option></select></div>
+<div><label for="fBase">豆花底</label><select id="fBase"><option>傳統豆花 NT$45</option><option>豆漿豆花 NT$55</option><option>黑糖豆花 NT$55</option></select></div>
+<div><label for="fQty">份數</label><input id="fQty" type="number" min="1" max="20" value="1"></div>
+<div><label for="fSweet">甜度</label><select id="fSweet"><option>無糖</option><option>三分糖</option><option>半糖</option><option>正常糖</option></select></div>
+<div><label for="fTemp">冰熱</label><select id="fTemp"><option>冰的</option><option>去冰</option><option>熱的</option></select></div>
+</div>
+<div><label for="fTop">配料（可直接填寫，例如：珍珠、芋圓）</label><input id="fTop" type="text" placeholder="例如：珍珠、芋圓"></div>
+<div><label for="fNote">備註</label><textarea id="fNote" rows="3" placeholder="例如：其中一碗不要珍珠、要多加碎冰"></textarea></div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" id="genBtn">產生 LINE 訊息</button>
+<button class="btn btn-secondary" type="button" id="copyBtn">一鍵複製</button>
+<span class="copy-feedback" id="copyFeedback" aria-live="polite"></span>
+</div>
+<div class="msg-box" id="msgBox">還沒有訊息。請先填姓名、電話與取貨日期，再按「產生 LINE 訊息」。</div>
+</div>
+<div class="info-grid">
+<div class="info"><h3>營業時間（示範）</h3><p>每天 11:00–21:00<br>豆花售完為止，週一公休請見公告</p></div>
+<div class="info"><h3>電話（示範）</h3><p>02-XXXX-XXXX<br>訂購請用 LINE 訊息，電話僅供洽詢</p></div>
+<div class="info"><h3>地點（示範）</h3><p>台中市（詳細地址請洽詢）<br>附近有機車格，汽車請停周邊停車場</p></div>
+</div>
+</section>
+
+</main>
+
+<footer class="site">
+<p><strong>豆香甜品店｜DEMO 示範網站</strong></p>
+<p>全部是假設訂單示範：店名、價目、地點、評價皆為示範。正式上線將換成店家真實資料。</p>
+<p>電話 02-XXXX-XXXX 為示範寫法；地址為「台中市（詳細地址請洽詢）」，未使用真實門牌。</p>
+<p>© 2026 豆香甜品店（示範）・ MONO AI 影像工作室示範站第 49 間</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">☎ 打電話</a>
+<a href="#order">🍮 立即訂購</a>
+</div>
+
+<script>
+(function(){
+var qty=1;
+var basePrices={"傳統豆花":45,"豆漿豆花":55,"黑糖豆花":55};
+function $(id){return document.getElementById(id);}
+function checkedValue(name){
+var els=document.querySelectorAll('input[name="'+name+'"]');
+for(var i=0;i<els.length;i++){if(els[i].checked){return els[i].value;}}
+return "";
+}
+function calc(){
+var base=checkedValue("base")||"傳統豆花";
+var basePrice=basePrices[base]||45;
+var tops=[];var topPrice=0;
+var boxes=document.querySelectorAll(".topping");
+for(var i=0;i<boxes.length;i++){
+if(boxes[i].checked){tops.push(boxes[i].value);topPrice+=parseInt(boxes[i].getAttribute("data-price"),10)||0;}
+}
+var sweet=checkedValue("sweet")||"無糖";
+var temp=checkedValue("temp")||"冰的";
+var unit=basePrice+topPrice;
+var total=unit*qty;
+$("rBase").textContent=base+" NT$"+basePrice;
+$("rToppings").textContent=tops.length?tops.join("、")+"（＋NT$"+topPrice+"）":"未加配料";
+$("rStyle").textContent=sweet+"・"+temp;
+$("rUnit").textContent="NT$"+unit;
+$("rQty").textContent=qty+" 碗";
+$("rTotal").textContent="NT$"+total;
+$("rSummary").textContent=base+"・"+(tops.length?tops.join("、"):"無配料")+"・"+sweet+"・"+temp+" × "+qty+" 碗";
+return {base:base,basePrice:basePrice,toppings:tops,topPrice:topPrice,sweet:sweet,temp:temp,unit:unit,total:total};
+}
+function bindCalc(){
+var inputs=document.querySelectorAll('#calc input');
+for(var i=0;i<inputs.length;i++){inputs[i].addEventListener("change",calc);}
+$("qtyMinus").addEventListener("click",function(){if(qty>1){qty--;}$("qtyNum").textContent=qty;calc();});
+$("qtyPlus").addEventListener("click",function(){if(qty<20){qty++;}$("qtyNum").textContent=qty;calc();});
+$("bringBtn").addEventListener("click",function(){
+var r=calc();
+$("fBase").value=r.base+" NT$"+r.basePrice;
+$("fQty").value=qty;
+$("fSweet").value=r.sweet;
+$("fTemp").value=r.temp;
+$("fTop").value=r.toppings.join("、");
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+generate();
+});
+}
+function generate(){
+var r=calc();
+var name=$("fName").value.trim()||"（未填）";
+var phone=$("fPhone").value.trim()||"（未填）";
+var date=$("fDate").value||"（未填）";
+var method=$("fMethod").value;
+var note=$("fNote").value.trim()||"無";
+var msg="\n"
++"姓名："+name+"\n"
++"電話："+phone+"\n"
++"取貨日期："+date+"\n"
++"取貨方式："+method+"\n"
++"豆花底："+r.base+" NT$"+r.basePrice+"\n"
++"配料："+(r.toppings.length?r.toppings.join("、")+"（＋NT$"+r.topPrice+"）":"無")+"\n"
++"甜度："+r.sweet+"\n"
++"冰熱："+r.temp+"\n"
++"份數："+qty+" 碗\n"
++"單碗小計：NT$"+r.unit+"\n"
++"試算總價：NT$"+r.total+"\n"
++"備註："+note+"\n"
++"（以上為示範訂單，請店家回覆確認）";
+$("msgBox").textContent=msg;
+$("copyFeedback").textContent="";
+return msg;
+}
+function copyMsg(){
+var text=$("msgBox").textContent;
+if(!text||text.indexOf("還沒有訊息")===0){$("copyFeedback").textContent="請先按「產生 LINE 訊息」。";return;}
+function done(){$("copyFeedback").textContent="已複製";}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(text).then(done,function(){fallbackCopy(text);done();});
+}else{fallbackCopy(text);done();}
+}
+function fallbackCopy(text){
+var ta=document.createElement("textarea");
+ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+document.body.appendChild(ta);ta.select();
+try{document.execCommand("copy");}catch(e){}
+document.body.removeChild(ta);
+}
+function bindFilters(){
+var btns=document.querySelectorAll(".filter-btn");
+for(var i=0;i<btns.length;i++){
+btns[i].addEventListener("click",function(){
+for(var j=0;j<btns.length;j++){btns[j].classList.remove("active");}
+this.classList.add("active");
+var f=this.getAttribute("data-filter");
+var dishes=document.querySelectorAll(".dish");
+for(var k=0;k<dishes.length;k++){
+var cat=dishes[k].getAttribute("data-cat");
+if(f==="all"||cat===f){dishes[k].classList.remove("hide");}else{dishes[k].classList.add("hide");}
+}
+});
+}
+}
+function bindPick(){
+var btns=document.querySelectorAll("[data-pick]");
+for(var i=0;i<btns.length;i++){
+btns[i].addEventListener("click",function(){
+var want=this.getAttribute("data-pick");
+var radios=document.querySelectorAll('input[name="base"]');
+for(var j=0;j<radios.length;j++){radios[j].checked=(radios[j].value===want);}
+calc();
+document.getElementById("calc").scrollIntoView({behavior:"smooth"});
+});
+}
+}
+$("genBtn").addEventListener("click",generate);
+$("copyBtn").addEventListener("click",copyMsg);
+$("fQty").addEventListener("change",function(){
+var v=parseInt($("fQty").value,10);
+if(!isNaN(v)&&v>=1&&v<=20){qty=v;$("qtyNum").textContent=qty;calc();}
+});
+bindCalc();bindFilters();bindPick();calc();
+})();
+</script>
+</body>
+</html>

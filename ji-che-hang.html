@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,">
+<title>順騎機車行｜台中機車保養維修示範店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--char:#22252a; --char2:#31353c; --char3:#17191c; --yellow:#ffc800; --yellow2:#ffe14d; --yellow-dark:#c79a00;
+--bg:#f6f5f2; --card:#ffffff; --text:#22252a; --muted:#666a70; --line:#e4e1da; --chip:#f0eee8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input:not([type="checkbox"],[type="radio"]),textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--char3);color:var(--yellow);text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{color:#e8e6e0;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--char);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:38px;height:38px;flex:none;border-radius:10px;background:var(--yellow);color:var(--char);display:grid;place-items:center;font-style:normal;font-size:19px}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:#ece9e0}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:38px}}
+.eyebrow{display:inline-flex;background:var(--char);color:var(--yellow);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-family:"Noto Serif TC",serif;font-size:50px;line-height:1.08;margin:14px 0 8px}
+h1 small{display:block;font-size:18px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--yellow-dark);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--yellow);color:var(--char);box-shadow:0 10px 24px rgba(255,200,0,.35)}
+.btn-secondary{background:var(--card);color:var(--char);border:1.5px solid var(--char)}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(34,37,42,.18);background:linear-gradient(135deg,#31353c 0%,#17191c 55%,#ffc800 130%);min-height:280px}
+.hero-img img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head h2::before{content:"";display:inline-block;width:12px;height:28px;background:var(--yellow);border-radius:3px;margin-right:10px;vertical-align:-4px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--char);color:var(--yellow);border-color:var(--char)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.item.hide{display:none}
+.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:#fff6c9;color:#7a5c00;white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--char)}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:#fff6c9;color:var(--char);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.calc-box{background:var(--char);color:#f2f1ec;border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+.calc-box label{color:#fff}
+.calc-box select,.calc-box input{background:#fff;color:var(--text)}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent;color:var(--text)}
+.chip input:checked+span{background:var(--yellow);color:var(--char)}
+.calc-box .chip span{background:#3a3e45;color:#f2f1ec}
+.calc-box .chip input:checked+span{background:var(--yellow);color:var(--char)}
+.check-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.check-list{grid-template-columns:1fr}}
+.check-item{display:flex;align-items:center;gap:10px;background:#3a3e45;border-radius:12px;padding:10px 12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.check-item input{width:20px;height:20px;accent-color:var(--yellow)}
+.check-item small{color:#cfd0d3;font-weight:400}
+.result{background:var(--yellow);color:var(--char);border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px}
+.result-line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(34,37,42,.35);font-size:15px}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px}
+.result-sub{font-size:14px;margin-bottom:16px}
+.result .btn{background:var(--char);color:var(--yellow);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--yellow);color:var(--char);display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.person{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;text-align:center}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#31353c,#17191c);color:var(--yellow);display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:36px;font-weight:900;margin:0 auto 12px;border:4px solid var(--yellow)}
+.person h3{margin:0 0 4px;font-size:19px}
+.person .role{color:var(--yellow-dark);font-weight:800;font-size:14px;margin:0 0 8px}
+.person p{color:var(--muted);font-size:14px;margin:0;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:#e6a800;letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--yellow-dark);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#17191c;color:#ffe14d;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:170px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:#7a5c00}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:#7a5c00}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--char);color:var(--yellow)}
+.mobile-bar a:last-child{background:var(--yellow);color:var(--char)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>順</i> 順騎機車行</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#price">價目表</a><a href="#calc">保養試算</a><a href="#flow">保養流程</a><a href="#faq">常見問題</a><a href="#order">線上預約</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・機車保養維修 ・ 18 年老店功夫</span>
+<h1><small>SHUN CHI MOTO</small>順騎機車行</h1>
+<p class="lead">騎得順，才騎得遠。<br>機油番號、皮帶里程、煞車厚度，<strong>每一項都量給你看、報價先說清楚才動工</strong>——通勤代步、跑山出遊，交給順騎就對了。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 09:00–20:00（週日公休）</span>
+<span class="pill">🔧 免費 21 項行車安全檢測</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🛵 立即預約保養</a>
+<a class="btn btn-secondary" href="#calc">先試算費用 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">不用怕被亂報價——先在下面選車種、里程與項目試算，喜歡再一鍵帶進預約表單。</p>
+</div>
+<div>
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="機車示範照片" loading="lazy" onerror="this.style.display='none'">
+</div>
+<p class="hero-note">示範圖片僅供版面參考。店內備有原廠機油 10W-40、5W-40、10W-50 全合成油品。</p>
+</div>
+</div>
+
+<main class="wrap">
+
+<section id="price">
+<div class="sec-head"><h2>價目表</h2><p>以下為示範價目，實際報價以到店檢測、師傅確認車況後為準；價格皆含工資，零件另有保固。</p></div>
+<div class="filters" role="group" aria-label="價目分類篩選">
+<button class="filter-btn active" type="button" data-filter="all">全部 12 項</button>
+<button class="filter-btn" type="button" data-filter="maint">定期保養</button>
+<button class="filter-btn" type="button" data-filter="repair">維修更換</button>
+<button class="filter-btn" type="button" data-filter="custom">改裝精品</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 14px">目前顯示 12 項（示範價目）</p>
+<div class="menu-grid">
+<article class="item" data-cat="maint"><div class="item-top"><h3>機油更換 10W-40 全合成</h3><span class="tag">定期保養</span></div><p class="price">NT$450 <small>／次・含機油濾心檢查</small></p><p class="desc">適合 125cc 以下通勤車，每 1,000 公里更換一次；換油前量油尺、換後檢查有無滲漏。</p><button class="mini-btn" type="button" onclick="pickService('機油更換 10W-40')">選這項試算 →</button></article>
+<article class="item" data-cat="maint"><div class="item-top"><h3>機油＋齒輪油套餐</h3><span class="tag">定期保養</span></div><p class="price">NT$750 <small>／次・省 NT$100</small></p><p class="desc">10W-40 全合成機油＋85W-140 齒輪油一次搞定，齒輪油建議每 3,000 公里更換。</p><button class="mini-btn" type="button" onclick="pickService('機油＋齒輪油套餐')">選這項試算 →</button></article>
+<article class="item" data-cat="maint"><div class="item-top"><h3>空氣濾芯更換</h3><span class="tag">定期保養</span></div><p class="price">NT$350 <small>／個・含進氣管清潔</small></p><p class="desc">濾芯每 5,000 公里檢查、10,000 公里更換；髒了不換，油耗變差、加速變鈍。</p><button class="mini-btn" type="button" onclick="pickService('空氣濾芯更換')">選這項試算 →</button></article>
+<article class="item" data-cat="maint"><div class="item-top"><h3>傳動系統清潔保養</h3><span class="tag">定期保養</span></div><p class="price">NT$600 <small>／次・約 40 分鐘</small></p><p class="desc">拆傳動蓋清粉塵、量皮帶寬度與普利珠磨耗，皮帶建議每 20,000 公里檢查更換。</p><button class="mini-btn" type="button" onclick="pickService('傳動系統清潔保養')">選這項試算 →</button></article>
+<article class="item" data-cat="repair"><div class="item-top"><h3>前煞車來令片更換</h3><span class="tag">維修更換</span></div><p class="price">NT$800 <small>／組・含煞車油檢查</small></p><p class="desc">來令片厚度低於 2mm 就該換；換完會試煞車、檢查碟盤有無吃溝，保固 3 個月。</p><button class="mini-btn" type="button" onclick="pickService('前煞車來令片更換')">選這項試算 →</button></article>
+<article class="item" data-cat="repair"><div class="item-top"><h3>輪胎更換（前輪 100/90-10）</h3><span class="tag">維修更換</span></div><p class="price">NT$1,200 <small>／條・含安裝平衡</small></p><p class="desc">胎紋深度低於 1.6mm 或胎壁龜裂就該換；提供晴雨兩用胎，換胎後做胎壓與氣嘴檢查。</p><button class="mini-btn" type="button" onclick="pickService('輪胎更換（前輪）')">選這項試算 →</button></article>
+<article class="item" data-cat="repair"><div class="item-top"><h3>電瓶更換（7 號／9 號）</h3><span class="tag">維修更換</span></div><p class="price">NT$1,500 <small>／顆・舊電瓶回收</small></p><p class="desc">發動無力、電壓低於 12.4V 就量給你看；新電瓶保固 6 個月，含充電系統檢測。</p><button class="mini-btn" type="button" onclick="pickService('電瓶更換')">選這項試算 →</button></article>
+<article class="item" data-cat="repair"><div class="item-top"><h3>火星塞＋煞車油更換</h3><span class="tag">維修更換</span></div><p class="price">NT$650 <small>／次・含點火檢查</small></p><p class="desc">火星塞每 10,000 公里更換、煞車油每 2 年更換；換完量點火電壓，發動一次就順。</p><button class="mini-btn" type="button" onclick="pickService('火星塞＋煞車油更換')">選這項試算 →</button></article>
+<article class="item" data-cat="custom"><div class="item-top"><h3>LED 大燈升級</h3><span class="tag">改裝精品</span></div><p class="price">NT$2,800 <small>／組・含線組與調整</small></p><p class="desc">白光 6,000K、亮度提升約 2 倍，夜騎看得更遠；調好切線不打鳥，保固 1 年。</p><button class="mini-btn" type="button" onclick="pickService('LED 大燈升級')">選這項試算 →</button></article>
+<article class="item" data-cat="custom"><div class="item-top"><h3>前後行車記錄器</h3><span class="tag">改裝精品</span></div><p class="price">NT$3,500 <small>／組・含安裝與走線</small></p><p class="desc">前後 1080p、夜視加強、碰撞自動鎖檔；走線藏進車殼不外露，保固 1 年。</p><button class="mini-btn" type="button" onclick="pickService('前後行車記錄器')">選這項試算 →</button></article>
+<article class="item" data-cat="custom"><div class="item-top"><h3>可調式後避震器</h3><span class="tag">改裝精品</span></div><p class="price">NT$4,800 <small>／支・含安裝調校</small></p><p class="desc">預載五段可調，雙載、載貨都穩；依體重與用途調到最適合你的軟硬度，保固 1 年。</p><button class="mini-btn" type="button" onclick="pickService('可調式後避震器')">選這項試算 →</button></article>
+<article class="item" data-cat="custom"><div class="item-top"><h3>手機架＋USB 充電座</h3><span class="tag">改裝精品</span></div><p class="price">NT$1,150 <small>／組・含安裝</small></p><p class="desc">鋁合金防震手機架＋防水 USB 充電座，導航、外送都方便；裝完實測充電與夾持力。</p><button class="mini-btn" type="button" onclick="pickService('手機架＋USB 充電座')">選這項試算 →</button></article>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">※ 以上皆為示範價目。125cc 以上、黃牌／紅牌與電動車，因油品與零件規格不同，報價另計，以到店確認為準。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head"><h2>保養費用試算</h2><p>選車種、里程與項目，預估總價馬上算給你看；算完一鍵帶進預約表單，不用重打一次。</p></div>
+<div class="calc-box">
+<div>
+<label for="calcBike">車種／排氣量</label>
+<select id="calcBike">
+<option value="125" data-mult="1">125cc 以下（通勤速克達）</option>
+<option value="150" data-mult="1.15">126–250cc（白牌大車／檔車）</option>
+<option value="300" data-mult="1.3">251cc 以上（黃牌／紅牌）</option>
+<option value="ev" data-mult="0.9">電動車（免機油，僅檢測與耗材）</option>
+</select>
+<label for="calcMile">目前里程數</label>
+<select id="calcMile">
+<option value="5000">5,000 公里以下</option>
+<option value="10000">5,001–10,000 公里</option>
+<option value="20000">10,001–20,000 公里</option>
+<option value="30000">20,000 公里以上</option>
+</select>
+<label>機油（擇一）</label>
+<div class="chips" id="calcOil">
+<label class="chip"><input type="radio" name="cOil" value="不換機油" data-price="0"><span>不換機油</span></label>
+<label class="chip"><input type="radio" name="cOil" value="10W-40 全合成" data-price="450" checked><span>10W-40・NT$450</span></label>
+<label class="chip"><input type="radio" name="cOil" value="5W-40 全合成" data-price="650"><span>5W-40・NT$650</span></label>
+<label class="chip"><input type="radio" name="cOil" value="10W-50 全合成" data-price="750"><span>10W-50・NT$750</span></label>
+</div>
+<label>其他保養／更換項目（可複選）</label>
+<div class="check-list" id="calcItems">
+<label class="check-item"><input type="checkbox" value="齒輪油更換" data-price="150"> 齒輪油 <small>NT$150</small></label>
+<label class="check-item"><input type="checkbox" value="空氣濾芯更換" data-price="350"> 空氣濾芯 <small>NT$350</small></label>
+<label class="check-item"><input type="checkbox" value="火星塞更換" data-price="250"> 火星塞 <small>NT$250</small></label>
+<label class="check-item"><input type="checkbox" value="煞車油更換" data-price="400"> 煞車油 <small>NT$400</small></label>
+<label class="check-item"><input type="checkbox" value="前煞車來令片" data-price="800"> 前煞車來令片 <small>NT$800</small></label>
+<label class="check-item"><input type="checkbox" value="傳動皮帶更換" data-price="900"> 傳動皮帶 <small>NT$900</small></label>
+<label class="check-item"><input type="checkbox" value="前輪胎更換" data-price="1200"> 前輪胎 <small>NT$1,200</small></label>
+<label class="check-item"><input type="checkbox" value="電瓶更換" data-price="1500"> 電瓶 <small>NT$1,500</small></label>
+<label class="check-item"><input type="checkbox" value="21 項安全檢測" data-price="0"> 21 項安全檢測 <small>免費</small></label>
+</div>
+</div>
+<div class="result" aria-live="polite">
+<h3>試算結果</h3>
+<div class="result-line"><span id="rBike">車種</span><span id="rBikeV">125cc 以下</span></div>
+<div class="result-line"><span>機油</span><span id="rOil">10W-40 全合成・NT$450</span></div>
+<div class="result-line"><span>其他項目</span><span id="rItems">無</span></div>
+<div class="result-line"><span>排氣量加成</span><span id="rMult">× 1.0</span></div>
+<div class="result-total" id="rTotal">NT$450</div>
+<div class="result-sub" id="rNote">里程 5,000 公里以下：建議先做基礎保養即可。</div>
+<button class="btn" type="button" onclick="sendToOrder()">帶進預約表單 →</button>
+<p style="font-size:13px;margin:12px 0 0">預估價為示範價格，含工資；實際金額以到店檢測、師傅報價為準。</p>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>保養流程</h2><p>從預約到交車，五個步驟、每一步都讓你看得見。</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上預約</h3><p>填表單或打電話，說車種、里程與想做的項目，先幫你留時段、估好費用。</p></div>
+<div class="step"><b>2</b><h3>到店 21 項檢測</h3><p>胎壓、胎紋、煞車、燈光、電瓶電壓、皮帶寬度逐項量，檢測單給你一份。</p></div>
+<div class="step"><b>3</b><h3>報價確認才動工</h3><p>師傅先報價、說明為什麼要換，同意才施工；臨時加項目一定先問你。</p></div>
+<div class="step"><b>4</b><h3>施工＋換下舊品留存</h3><p>換下的機油濾心、來令片、舊皮帶都留給你看，施工過程可現場看。</p></div>
+<div class="step"><b>5</b><h3>交車複檢＋保固單</h3><p>試發動、試煞車、量胎壓，交車給你保固單與下次保養里程提醒貼紙。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>師傅團隊</h2><p>修車不靠話術，靠手上功夫與證照。</p></div>
+<div class="team">
+<div class="person"><div class="avatar">順</div><h3>阿順</h3><p class="role">店長・18 年資歷</p><p>順騎創辦人，機車修護乙級技術士。專修速克達傳動與引擎異音，堅持「報價先說、舊品留給客人看」，台中在地修了 18 年，老客人都是騎了十幾年的鄰居。</p></div>
+<div class="person"><div class="avatar">凱</div><h3>阿凱</h3><p class="role">技師・10 年資歷</p><p>機車修護丙級技術士，專長電系與噴射供油系統。電瓶、整流器、行車記錄器走線都由他負責，裝完一定量電壓、實測充電才交車。</p></div>
+<div class="person"><div class="avatar">宇</div><h3>小宇</h3><p class="role">技師・6 年資歷</p><p>專長輪胎、煞車與避震調校，熟悉各廠牌 125–250cc 車款。換胎一定做胎壓與氣嘴檢查，避震會依你的體重與載重習慣調到最順。</p></div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head"><h2>客人評價</h2><p>以下為示範評價，正式上線將換成真實客人回饋。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「機油 10W-40 換完，引擎聲音真的變順。師傅還量皮帶給我看，說還能再騎 5,000 公里，不用急著換——這種店才敢再來。」</p><footer>陳先生・125cc 通勤車・定期保養</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「早上發不動，推車進來量電壓才 11.8V，換電瓶加檢測充電系統，半小時搞定。價格先報好，沒多收一毛錢。」</p><footer>林小姐・125cc・電瓶更換</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「前輪胎紋磨到快見鋼絲，師傅直接拿胎紋規量給我看，換胎含安裝 1,200 元，換完還幫我檢查煞車跟胎壓，很細心。」</p><footer>王先生・150cc・輪胎更換</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「裝前後行車記錄器走線藏得很好，完全看不到線。唯一小缺點是假日要先預約，現場來要等，建議先填表單留時段。」</p><footer>張小姐・125cc・行車記錄器安裝</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>價格、預約、保固、停車，先在這裡一次說清楚。</p></div>
+<div class="faq">
+<details><summary>價目表上的價格含工資嗎？會不會到店又加價？</summary><p>價目表價格皆含工資，為示範價格。師傅檢測後會先報價、說明原因，經你同意才施工；施工中發現要加項目，一定先問你，不會先做再收錢。</p></details>
+<details><summary>怎麼預約？一定要先預約嗎？</summary><p>填下方預約表單、複製 LINE 訊息傳給我們，或打電話 02-XXXX-XXXX 預約皆可。平日可直接到店，假日與換胎、改裝建議先預約，幫你留工位、不用現場久等。</p></details>
+<details><summary>保養與零件有保固嗎？</summary><p>機油與耗材施工保固 3 個月；電瓶保固 6 個月；LED 大燈、行車記錄器、避震器保固 1 年。保固期內同一零件非人為故障，免費檢修或更換，交車時會給你保固單。</p></details>
+<details><summary>預約後臨時有事，可以取消或改期嗎？</summary><p>可以。請於預約時間前 2 小時來電或傳 LINE 告知，免費取消或改期一次；未告知且未到店，時段會保留 15 分鐘，之後順延給現場客人。</p></details>
+<details><summary>可以自備機油或零件來換嗎？</summary><p>可以自備機油（請提供未開封、符合原廠番號者），僅收工資 NT$200；自備零件僅收安裝工資，零件本身不保固，安裝工資保固 1 個月。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>本店位於台中市（詳細地址請洽詢），騎車可直接停店門口機車格；開車前來的客人，附近有路邊停車格與收費停車場，步行約 3 分鐘，停車費請自理。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head"><h2>線上預約</h2><p>填完表單，訊息自動產生，複製貼到 LINE 傳給我們就完成預約。</p></div>
+<div class="form-box">
+<div class="form-grid">
+<div><label for="fName">姓名 *</label><input type="text" id="fName" placeholder="例如：陳小明" autocomplete="name"></div>
+<div><label for="fPhone">電話 *</label><input type="tel" id="fPhone" placeholder="例如：09XX-XXX-XXX" autocomplete="tel"></div>
+<div><label for="fBike">車種</label><select id="fBike"><option>125cc 以下（速克達）</option><option>126–250cc</option><option>251cc 以上（黃牌／紅牌）</option><option>電動車</option></select></div>
+<div><label for="fPlate">車牌末 3 碼</label><input type="text" id="fPlate" placeholder="例如：123（僅末 3 碼即可）" maxlength="3"></div>
+<div><label for="fDate">希望日期</label><input type="date" id="fDate"></div>
+<div><label for="fTime">希望時段</label><select id="fTime"><option>09:00–11:00</option><option>11:00–13:00</option><option>13:00–15:00</option><option>15:00–17:00</option><option>17:00–20:00</option></select></div>
+</div>
+<label for="fService">保養／維修項目</label>
+<select id="fService">
+<option>機油更換 10W-40</option>
+<option>機油＋齒輪油套餐</option>
+<option>空氣濾芯更換</option>
+<option>傳動系統清潔保養</option>
+<option>前煞車來令片更換</option>
+<option>輪胎更換（前輪）</option>
+<option>電瓶更換</option>
+<option>火星塞＋煞車油更換</option>
+<option>LED 大燈升級</option>
+<option>前後行車記錄器</option>
+<option>可調式後避震器</option>
+<option>手機架＋USB 充電座</option>
+<option>其他（請寫在備註）</option>
+</select>
+<label for="fNote">備註（車況、異音、想問的問題）</label>
+<textarea id="fNote" rows="3" placeholder="例如：起步有異音、煞車有點軟、想順便檢查皮帶"></textarea>
+<div class="msg-box" id="msgBox">請先填寫姓名與電話，訊息會自動產生在這裡。</div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+<div class="info-grid">
+<div class="info"><h3>電話預約（示範）</h3><p>02-XXXX-XXXX<br>示範營業時間 09:00–20:00（週日公休）</p></div>
+<div class="info"><h3>地點（示範）</h3><p>台中市（詳細地址請洽詢）<br>騎車可停店門口機車格</p></div>
+<div class="info"><h3>保養提醒</h3><p>機油每 1,000 公里、齒輪油每 3,000 公里、皮帶每 20,000 公里檢查；交車會貼下次保養里程提醒。</p></div>
+</div>
+</section>
+
+</main>
+
+<footer class="site">
+<p><strong>順騎機車行｜DEMO 示範網站</strong></p>
+<p>全部是假設訂單示範：店名、價目、地點、評價皆為示範。電話 02-XXXX-XXXX 與地址「台中市（詳細地址請洽詢）」皆為示範寫法，正式上線將換成店家真實資料。</p>
+<p>© 2026 順騎機車行（示範）・本頁由 MONO AI 影像工作室示範製作</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">📞 打電話</a>
+<a href="#order">🛵 立即預約</a>
+</div>
+
+<script>
+var lastCalc={total:450,summary:"機油 10W-40 全合成"};
+function getCalc(){
+var bikeSel=document.getElementById("calcBike");
+var bikeOpt=bikeSel.options[bikeSel.selectedIndex];
+var mult=parseFloat(bikeOpt.getAttribute("data-mult"));
+var bikeText=bikeOpt.text;
+var mileSel=document.getElementById("calcMile");
+var mileText=mileSel.options[mileSel.selectedIndex].text;
+var mileVal=parseInt(mileSel.value,10);
+var oil=document.querySelector('input[name="cOil"]:checked');
+var oilName=oil.value;
+var oilPrice=parseInt(oil.getAttribute("data-price"),10);
+var items=[];var itemSum=0;
+document.querySelectorAll("#calcItems input:checked").forEach(function(cb){items.push(cb.value);itemSum+=parseInt(cb.getAttribute("data-price"),10);});
+var subtotal=oilPrice+itemSum;
+var total=Math.round(subtotal*mult);
+var note="里程 5,000 公里以下：建議先做基礎保養即可。";
+if(mileVal>=20000){note="里程 20,000 公里以上：建議加做傳動皮帶與輪胎、煞車檢查，安全不能省。";}
+else if(mileVal>=10000){note="里程 10,000 公里以上：建議檢查空氣濾芯、火星塞與皮帶寬度。";}
+else if(mileVal>=5000){note="里程 5,000–10,000 公里：建議檢查空氣濾芯與煞車來令片厚度。";}
+if(bikeSel.value==="ev"){note+="（電動車免換機油，機油項目請選「不換機油」。）";}
+return {bikeText:bikeText,mult:mult,mileText:mileText,oilName:oilName,oilPrice:oilPrice,items:items,itemSum:itemSum,subtotal:subtotal,total:total,note:note};
+}
+function renderCalc(){
+var c=getCalc();
+lastCalc={total:c.total,summary:c.oilName+(c.items.length?"＋"+c.items.join("、"):"")};
+document.getElementById("rBikeV").textContent=c.bikeText;
+document.getElementById("rOil").textContent=c.oilName+"・NT$"+c.oilPrice;
+document.getElementById("rItems").textContent=(c.items.length?c.items.join("、")+"（NT$"+c.itemSum+"）":"無");
+document.getElementById("rMult").textContent="× "+c.mult.toFixed(2)+"（"+c.bikeText+"）";
+document.getElementById("rTotal").textContent="NT$"+c.total;
+document.getElementById("rNote").textContent=c.note;
+updateMsg();
+}
+document.getElementById("calcBike").addEventListener("change",renderCalc);
+document.getElementById("calcMile").addEventListener("change",renderCalc);
+document.querySelectorAll('input[name="cOil"]').forEach(function(el){el.addEventListener("change",renderCalc);});
+document.querySelectorAll("#calcItems input").forEach(function(el){el.addEventListener("change",renderCalc);});
+var filterBtns=document.querySelectorAll(".filter-btn");
+filterBtns.forEach(function(btn){
+btn.addEventListener("click",function(){
+filterBtns.forEach(function(b){b.classList.remove("active");});
+btn.classList.add("active");
+var f=btn.getAttribute("data-filter");var n=0;
+document.querySelectorAll(".item").forEach(function(card){
+var show=(f==="all"||card.getAttribute("data-cat")===f);
+card.classList.toggle("hide",!show);
+if(show)n++;
+});
+document.getElementById("menuCount").textContent="目前顯示 "+n+" 項（示範價目）";
+});
+});
+function pickService(name){
+var sel=document.getElementById("fService");
+for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===name||sel.options[i].text===name){sel.selectedIndex=i;break;}}
+document.getElementById("calc").scrollIntoView({behavior:"smooth"});
+updateMsg();
+}
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function sendToOrder(){
+var c=getCalc();
+var bikeMap={"125cc 以下（通勤速克達）":"125cc 以下（速克達）","126–250cc（白牌大車／檔車）":"126–250cc","251cc 以上（黃牌／紅牌）":"251cc 以上（黃牌／紅牌）","電動車（免機油，僅檢測與耗材）":"電動車"};
+setSelect("fBike",bikeMap[c.bikeText]||c.bikeText);
+var first=c.items.length?c.items[0]:null;
+if(first){
+var map={"齒輪油更換":"機油＋齒輪油套餐","空氣濾芯更換":"空氣濾芯更換","火星塞更換":"火星塞＋煞車油更換","煞車油更換":"火星塞＋煞車油更換","前煞車來令片":"前煞車來令片更換","傳動皮帶更換":"傳動系統清潔保養","前輪胎更換":"輪胎更換（前輪）","電瓶更換":"電瓶更換"};
+if(map[first]){setSelect("fService",map[first]);}
+}
+updateMsg();
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+document.getElementById("copyFeedback").textContent="✓ 已把試算結果帶進預約表單，再填姓名就能複製訊息。";
+}
+function updateMsg(){
+var name=document.getElementById("fName").value.trim()||"（請填姓名）";
+var phone=document.getElementById("fPhone").value.trim()||"（請填電話）";
+var bike=document.getElementById("fBike").value;
+var plate=document.getElementById("fPlate").value.trim()||"（未填）";
+var date=document.getElementById("fDate").value||"（未填）";
+var time=document.getElementById("fTime").value;
+var service=document.getElementById("fService").value;
+var note=document.getElementById("fNote").value.trim();
+var c=getCalc();
+var lines=[
+"您好，我想預約順騎機車行 🛵",
+"姓名："+name,
+"電話："+phone,
+"車種："+bike,
+"車牌末 3 碼："+plate,
+"希望日期："+date,
+"希望時段："+time,
+"預約項目："+service,
+"試算內容："+c.oilName+(c.items.length?"＋"+c.items.join("、"):""),
+"試算車種／里程："+c.bikeText+"／"+c.mileText,
+"預估總價：NT$"+c.total+"（示範價格，以到店檢測報價為準）"
+];
+if(note){lines.push("備註："+note);}
+document.getElementById("msgBox").textContent=lines.join("\n");
+}
+["fName","fPhone","fBike","fPlate","fDate","fTime","fService","fNote"].forEach(function(id){
+var el=document.getElementById(id);
+el.addEventListener("input",updateMsg);
+el.addEventListener("change",updateMsg);
+});
+renderCalc();
+function copyMsg(){
+var text=document.getElementById("msgBox").textContent;
+var fb=document.getElementById("copyFeedback");
+function done(){fb.textContent="✓ 已複製！貼到 LINE 傳給順騎機車行即可。";}
+function fallback(){var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done();}catch(e){fb.textContent="複製失敗，請長按訊息框手動複製。";}document.body.removeChild(ta);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+}
+</script>
+</body>
+</html>

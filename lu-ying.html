@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>山野露營戶外｜台中露營用品・裝備租借示範店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--green:#2e5d43; --green-dark:#1d4530; --green-light:#e6f0e8; --green-mid:#c8dccb;
+--clay:#c05f33; --clay-dark:#9a4a26; --clay-light:#fbeadd;
+--cream:#fffaf3; --brown:#3a2f28;
+--bg:#fffaf3; --card:#ffffff; --text:#2d2a26; --muted:#6f6a61; --line:#e9dfcd; --chip:#f3ead8;
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#16211a; --card:#1f2d25; --text:#f2ece1; --muted:#c9c2b4; --line:#33473a; --chip:#2a3d31; --cream:#1f2d25; --green-light:#243d2f; --clay-light:#3a2a22;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--brown);color:#ffe9b8;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--green-dark);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+@media(prefers-color-scheme:dark){.logo{color:#a8d8bd}}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--green-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}.hero .lead{font-size:16px}.hero-meta{margin:12px 0 14px}.cta-row .btn{padding:11px 18px;font-size:15px;min-height:46px}}
+.eyebrow{display:inline-flex;background:var(--green-light);color:var(--green-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+@media(prefers-color-scheme:dark){.eyebrow{color:#bfe6cf}}
+h1{font-family:"Noto Serif TC",serif;font-size:52px;line-height:1.05;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:20px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--clay);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 24px rgba(46,93,67,.28)}
+.btn-secondary{background:var(--card);color:var(--green-dark);border:1.5px solid var(--green)}
+@media(prefers-color-scheme:dark){.btn-secondary{color:#cfe8d8}}
+.btn-clay{background:var(--clay);color:#fff}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(58,47,40,.18);background:linear-gradient(135deg,#2e5d43,#7a9b6d 55%,#c05f33);min-height:280px}
+@media(prefers-color-scheme:dark){.hero-img{border-color:#2a3d31}}
+.hero-img img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.item.hide{display:none}
+.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--clay-light);color:var(--clay-dark);white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--green-dark)}
+@media(prefers-color-scheme:dark){.price{color:#a8d8bd}}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--green-light);color:var(--green-dark);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+@media(prefers-color-scheme:dark){.mini-btn{color:#d6f0df}}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--green);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--clay);outline-offset:2px}
+.gear-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.gear-list{grid-template-columns:1fr}}
+.gear-item{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:12px;padding:10px 12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.gear-item input{width:20px;height:20px;accent-color:var(--green)}
+.qty-row{display:flex;align-items:center;gap:12px}
+.qty-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:900;cursor:pointer}
+.qty-num{font-size:20px;font-weight:900;min-width:36px;text-align:center}
+.result{background:var(--green);color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px}
+.result-line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.35);font-size:15px}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:var(--green-dark);width:100%}
+.result ul{margin:6px 0 0;padding-left:20px;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--clay);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.team{grid-template-columns:1fr}}
+.member{background:linear-gradient(135deg,var(--green-light),var(--clay-light));border-radius:24px;padding:26px;border:1px solid var(--line);text-align:center}
+.avatar{width:110px;height:110px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:42px;font-weight:900;margin:0 auto 14px}
+.member:nth-child(2) .avatar{background:var(--clay)}
+.member h3{font-family:"Noto Serif TC",serif;font-size:22px;margin:0 0 4px}
+.member .role{font-weight:800;color:var(--clay-dark);font-size:14px;margin:0 0 10px}
+@media(prefers-color-scheme:dark){.member .role{color:#f0b98a}}
+.member p{color:var(--muted);margin:0;font-size:14px;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--clay);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0;color:var(--text)}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--green);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#1e2b23;color:#eafff1;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:150px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--green-dark)}
+@media(prefers-color-scheme:dark){.copy-feedback{color:#a8d8bd}}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--clay-dark)}
+@media(prefers-color-scheme:dark){.info h3{color:#f0c98a}}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--green);color:#fff}
+.mobile-bar a:last-child{background:var(--clay-light);color:var(--brown);border:1.5px solid var(--clay)}
+@media(prefers-color-scheme:dark){.mobile-bar a:last-child{color:#f2ece1}}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>山</i> 山野露營戶外</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">裝備價目</a><a href="#calc">租借試算</a><a href="#flow">租借流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">預約表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・露營用品＋裝備租借 ・ 新手友善</span>
+<h1><small>SHAN YE CAMPING &amp; OUTDOOR</small>山野露營戶外</h1>
+<p class="lead">第一次露營，也能睡得像在家一樣。<br>帳篷防水係數、睡袋耐寒溫度、爐具火力全部寫清楚，<strong>買或租都行：租借先試用、喜歡再買回家</strong>——裝備我們幫你檢查好，你只要帶著好心情上山。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 10:00–20:00（週二公休）</span>
+<span class="pill">⛺ 租借裝備出發前一日可取貨</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">⛺ 立即預約租借</a>
+<a class="btn btn-secondary" href="#menu">看裝備價目</a>
+<a class="btn btn-clay" href="#calc">先試算租借 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">不用怕買錯、不用一次買齊——先在下面試算租借總價，含押金與歸還方式一次看懂。</p>
+</div>
+<div>
+<div class="hero-img"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="山野露營戶外：湖畔帳篷營地示意" loading="lazy" onerror="this.style.display='none'"></div>
+<p class="hero-note">帳篷區每週消毒晾曬，租借裝備出貨前逐項檢查（示範照片）</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="menu">
+<div class="sec-head"><h2>裝備價目</h2><p>買斷價與租借價分開標示，租借按次計費、押金另計；點分類只看該類裝備。</p></div>
+<div class="filters" role="group" aria-label="價目分類篩選">
+<button class="filter-btn active" data-filter="all" type="button">全部 12 款</button>
+<button class="filter-btn" data-filter="tent" type="button">帳篷露營裝備</button>
+<button class="filter-btn" data-filter="hike" type="button">登山戶外用品</button>
+<button class="filter-btn" data-filter="rent" type="button">租借方案</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 14px">目前顯示 12 款裝備（示範價目）</p>
+<div class="menu-grid">
+<article class="item" data-cat="tent">
+<div class="item-top"><h3>山野四人隧道帳篷</h3><span class="tag">人氣</span></div>
+<div class="price">NT$6,800 <small>／頂・買斷</small></div>
+<p class="desc">300×300×190cm 四人睡得開，防水係數 3000mm、抗 UV 50+，鋁合金營柱 15 分鐘可搭好，附地布與收納袋。</p>
+<button class="mini-btn" type="button" onclick="addRent('四人隧道帳篷')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="tent">
+<div class="item-top"><h3>雙人輕量登山帳</h3><span class="tag">輕量</span></div>
+<div class="price">NT$4,980 <small>／頂・買斷</small></div>
+<p class="desc">全重 1.9kg、打包後僅 40cm，防水係數 2000mm，適合百岳與縱走；雙門雙前庭，背包可收前庭不淋雨。</p>
+<button class="mini-btn" type="button" onclick="addRent('雙人輕量登山帳')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="tent">
+<div class="item-top"><h3>天幕帳 4×4m</h3><span class="tag">客廳帳</span></div>
+<div class="price">NT$2,680 <small>／頂・買斷</small></div>
+<p class="desc">4×4m 大遮蔭，防水係數 2000mm、銀膠塗層隔熱，六人桌椅加爐具都放得下，附 2 支營柱與 8 支營釘。</p>
+<button class="mini-btn" type="button" onclick="addRent('天幕帳 4×4m')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="tent">
+<div class="item-top"><h3>木乃伊睡袋 -5°C</h3><span class="tag">保暖</span></div>
+<div class="price">NT$1,880 <small>／個・買斷</small></div>
+<p class="desc">舒適溫度 0°C、極限 -5°C，填充 800g 中空棉，收納後 30×18cm；內裡刷毛，冬天高山露營也不怕冷醒。</p>
+<button class="mini-btn" type="button" onclick="addRent('木乃伊睡袋 -5°C')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="hike">
+<div class="item-top"><h3>60L 登山背包</h3><span class="tag">百岳</span></div>
+<div class="price">NT$3,280 <small>／個・買斷</small></div>
+<p class="desc">60L 主袋＋可拆頂袋，背負系統可調 3 段背長，附防雨罩與水袋倉；腰帶口袋放手機、行動糧隨手可拿。</p>
+<button class="mini-btn" type="button" onclick="addRent('60L 登山背包')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="hike">
+<div class="item-top"><h3>碳纖維三節登山杖</h3><span class="tag">一對</span></div>
+<div class="price">NT$1,280 <small>／對・買斷</small></div>
+<p class="desc">單支 210g、長度 105–130cm 三節快扣，碳纖維杖身吸震，下坡膝蓋少受力，附泥托與橡膠杖尖套。</p>
+<button class="mini-btn" type="button" onclick="addRent('碳纖維三節登山杖')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="hike">
+<div class="item-top"><h3>400 流明頭燈</h3><span class="tag">夜行必備</span></div>
+<div class="price">NT$680 <small>／個・買斷</small></div>
+<p class="desc">400 流明、照射距離 90m，紅光夜視模式不刺眼，IPX5 防潑水，續航最長 60 小時，USB-C 充電。</p>
+<button class="mini-btn" type="button" onclick="addRent('400 流明頭燈')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="hike">
+<div class="item-top"><h3>折疊登山椅</h3><span class="tag">輕量</span></div>
+<div class="price">NT$980 <small>／張・買斷</small></div>
+<p class="desc">全重 780g、承重 120kg，椅面 600D 牛津布耐磨，收納後 35cm 可掛背包外側，營地、溪邊、山頂都坐得舒服。</p>
+<button class="mini-btn" type="button" onclick="addRent('折疊登山椅')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="rent">
+<div class="item-top"><h3>帳篷租借・2 天 1 夜</h3><span class="tag">租借</span></div>
+<div class="price">NT$600 <small>／次・含營釘地布</small></div>
+<p class="desc">四人隧道帳＋地布＋營釘營繩整組，押金 NT$2,000；出發前一日取貨、回來隔日歸還，逾期每日加收 NT$150。</p>
+<button class="mini-btn" type="button" onclick="addRent('四人隧道帳篷')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="rent">
+<div class="item-top"><h3>睡袋租借・2 天 1 夜</h3><span class="tag">租借</span></div>
+<div class="price">NT$150 <small>／個・按人數計</small></div>
+<p class="desc">-5°C 木乃伊睡袋，每次出租前皆清洗烘乾、附一次性內襯；押金每顆 NT$300，歸還時檢查拉鍊與填充。</p>
+<button class="mini-btn" type="button" onclick="addRent('木乃伊睡袋 -5°C')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="rent">
+<div class="item-top"><h3>桌椅組租借・2 天 1 夜</h3><span class="tag">租借</span></div>
+<div class="price">NT$350 <small>／組・含 1 桌 4 椅</small></div>
+<p class="desc">蛋捲桌 120×60cm＋折疊椅 4 張，押金 NT$1,000；桌板可拆洗，椅布可拆換，適合六人以下小團體。</p>
+<button class="mini-btn" type="button" onclick="addRent('蛋捲桌椅組')">加入租借試算 →</button>
+</article>
+<article class="item" data-cat="rent">
+<div class="item-top"><h3>卡式爐具組租借・2 天 1 夜</h3><span class="tag">租借</span></div>
+<div class="price">NT$250 <small>／組・含鍋具</small></div>
+<p class="desc">雙口卡式爐＋湯鍋＋平底鍋＋餐具組，押金 NT$800；瓦斯罐另購 NT$80／罐，爐具歸還前請擦淨油漬。</p>
+<button class="mini-btn" type="button" onclick="addRent('卡式爐具組')">加入租借試算 →</button>
+</article>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">租借押金於歸還檢查無損後全額退還；裝備損壞依維修價賠償、遺失依買斷價 7 折計（示範規則，以店家現場公告為準）。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head"><h2>露營裝備租借試算</h2><p>選天數、人數、季節與裝備組合，總價與建議清單馬上算出來；按「帶進預約表單」就能直接預約。</p></div>
+<div class="calc-box">
+<div>
+<label for="calcDays">租借天數</label>
+<div class="qty-row">
+<button class="qty-btn" type="button" onclick="changeDays(-1)" aria-label="減少天數">−</button>
+<span class="qty-num" id="calcDaysNum">2</span>
+<button class="qty-btn" type="button" onclick="changeDays(1)" aria-label="增加天數">＋</button>
+<span style="color:var(--muted);font-size:14px">天（1–7 天，含取還日計算）</span>
+</div>
+<label for="calcPeople">同行人數</label>
+<div class="qty-row">
+<button class="qty-btn" type="button" onclick="changePeople(-1)" aria-label="減少人數">−</button>
+<span class="qty-num" id="calcPeopleNum">4</span>
+<button class="qty-btn" type="button" onclick="changePeople(1)" aria-label="增加人數">＋</button>
+<span style="color:var(--muted);font-size:14px">人（睡袋、椅子按人數計）</span>
+</div>
+<label>季節</label>
+<div class="chips" id="calcSeason">
+<label class="chip"><input type="radio" name="cSeason" value="淡季" checked><span>淡季 ×0.85</span></label>
+<label class="chip"><input type="radio" name="cSeason" value="平季"><span>平季 ×1.0</span></label>
+<label class="chip"><input type="radio" name="cSeason" value="旺季"><span>旺季 ×1.2</span></label>
+</div>
+<p style="color:var(--muted);font-size:13px;margin:8px 0 0">旺季：連假、跨年、櫻花季；淡季：非假日平日。季節係數僅影響租金，押金不變。</p>
+<label>裝備組合（租金為每日單價）</label>
+<div class="gear-list" id="calcGear">
+<label class="gear-item"><input type="checkbox" value="四人隧道帳篷" data-price="300" data-per="組" checked> 四人隧道帳篷 NT$300／天</label>
+<label class="gear-item"><input type="checkbox" value="天幕帳 4×4m" data-price="150" data-per="組"> 天幕帳 4×4m NT$150／天</label>
+<label class="gear-item"><input type="checkbox" value="木乃伊睡袋 -5°C" data-price="75" data-per="人" checked> 木乃伊睡袋 NT$75／人／天</label>
+<label class="gear-item"><input type="checkbox" value="蛋捲桌椅組" data-price="175" data-per="組" checked> 蛋捲桌椅組 NT$175／天</label>
+<label class="gear-item"><input type="checkbox" value="卡式爐具組" data-price="125" data-per="組" checked> 卡式爐具組 NT$125／天</label>
+<label class="gear-item"><input type="checkbox" value="60L 登山背包" data-price="100" data-per="人"> 60L 登山背包 NT$100／人／天</label>
+<label class="gear-item"><input type="checkbox" value="碳纖維三節登山杖" data-price="60" data-per="人"> 登山杖 NT$60／人／天</label>
+<label class="gear-item"><input type="checkbox" value="400 流明頭燈" data-price="40" data-per="人"> 頭燈 NT$40／人／天</label>
+</div>
+</div>
+<div class="result" aria-live="polite">
+<h3>試算結果</h3>
+<div class="result-line"><span>租借天數</span><span id="rDays">2 天</span></div>
+<div class="result-line"><span>同行人數</span><span id="rPeople">4 人</span></div>
+<div class="result-line"><span>季節係數</span><span id="rSeason">淡季 ×0.85</span></div>
+<div class="result-line"><span>裝備租金小計</span><span id="rSub">NT$0</span></div>
+<div class="result-line"><span>押金（歸還後全退）</span><span id="rDeposit">NT$0</span></div>
+<div class="result-total" id="rTotal">NT$0</div>
+<div class="result-sub" id="rUnit">租金總計（示範價格，以店家確認為準）</div>
+<h3 style="margin-top:6px">建議清單</h3>
+<ul id="rSuggest"></ul>
+<button class="btn" type="button" onclick="sendToOrder()">帶進預約表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>租借流程・五步搞定</h2><p>從試算到歸還，全程不用跑兩趟；取貨時店員會陪你把帳篷搭一次。</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上試算</h3><p>選天數、人數、季節與裝備，總價與押金先算給你看，喜歡再預約。</p></div>
+<div class="step"><b>2</b><h3>填表預約</h3><p>填姓名、電話與租借日期，訊息一鍵複製貼到 LINE，店家確認檔期後回覆。</p></div>
+<div class="step"><b>3</b><h3>取貨教學</h3><p>出發前一日到店取貨，店員逐項點交、現場教你搭帳與收帳，約 20 分鐘。</p></div>
+<div class="step"><b>4</b><h3>上山露營</h3><p>裝備皆附收納袋與說明卡；山上遇到問題，營業時間內可打電話問店員。</p></div>
+<div class="step"><b>5</b><h3>歸還退押金</h3><p>回來隔日歸還，帳篷請先晾乾再收；檢查無損當場退押金，全程約 10 分鐘。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>認識山野團隊</h2><p>三個人、三種專長：店裡挑裝備、山上有人帶、問題有人回。</p></div>
+<div class="team">
+<div class="member"><div class="avatar">林</div><h3>林山野</h3><p class="role">店長・裝備顧問</p><p>露營 12 年、走過全台 40 座營地。專長是幫新手配裝備：不推最貴的，只推最適合你這趟行程的；帳篷防水、睡袋溫度、爐具火力，問他最清楚。</p></div>
+<div class="member"><div class="avatar">陳</div><h3>陳岳</h3><p class="role">戶外嚮導・登山領隊</p><p>持有登山嚮導證，帶過百岳縱走與親子登山團。負責每季的新手登山團與營地導覽，出發前會先看天氣、評估路線難度，不硬走、不冒險。</p></div>
+<div class="member"><div class="avatar">凱</div><h3>阿凱</h3><p class="role">裝備維修・租借管理</p><p>店裡所有租借裝備都經他手：清洗、烘乾、檢查拉鍊與營柱。帳篷哪裡破了、爐具點不著，交給他修；歸還檢查也是他，標準一致、不刁難。</p></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>客人怎麼說</h2><p>以下評價皆為示範內容，正式上線將換成真實客人回饋。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「第一次露營完全不知道要帶什麼，店長看我們 4 個人、2 天 1 夜，直接配好帳篷加睡袋加爐具，取貨還現場教搭帳。晚上睡袋真的夠暖，隔天收帳也不狼狽。」</p><footer>— 小慧・2 天 1 夜租借（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「租之前先試用，喜歡再買，這點很實在。先租了雙人登山帳去合歡山，防水係數 2000mm 遇到午後陣雨也沒漏水，回來直接買同一頂。」</p><footer>— 阿哲・登山帳租借轉購買（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「帶 6 歲女兒去親子營地，嚮導陳岳先幫我們看路線難度，還提醒要帶頭燈跟保暖外套。小朋友玩到不想回家，桌椅組租借比想像中乾淨。」</p><footer>— 美玲・親子露營團（示範評價）</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「公司 12 人部門露營，一次租 3 頂帳篷加 2 組桌椅，押金退還很快，歸還檢查 10 分鐘就好。爐具組的鍋子洗得很乾淨，這點加分。」</p><footer>— 家豪・公司團體租借（示範評價）</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>價格、預約、取消、交通一次說清楚；現場公告為準。</p></div>
+<div class="faq">
+<details><summary>租借怎麼計價？押金多少？</summary><p>租金按天計算，睡袋、背包、登山杖、頭燈按人數計，其餘按組計；季節係數淡季 ×0.85、平季 ×1.0、旺季 ×1.2。押金依裝備而定（帳篷 NT$2,000、桌椅組 NT$1,000、爐具組 NT$800、睡袋每顆 NT$300），歸還檢查無損後全額退還。</p></details>
+<details><summary>怎麼預約租借？要先付錢嗎？</summary><p>先用本頁試算工具算好總價，填預約表單、把 LINE 訊息複製貼給店家，店家確認檔期後回覆。預約不需先付租金，取貨時一次付清租金＋押金；旺季連假建議提前 7 天預約。</p></details>
+<details><summary>可以取消或改期嗎？</summary><p>取貨前 3 天以上取消或改期不收費；取貨前 1–2 天取消收租金 30% 手續費；取貨當日取消收租金 50%。改期以同季節檔期為限，旺季改期需視空檔而定。</p></details>
+<details><summary>租借裝備怎麼取貨、怎麼歸還？</summary><p>出發前一日 10:00–20:00 到店取貨，店員逐項點交並教你搭帳、收帳；回來隔日 20:00 前歸還。帳篷請先晾乾再收納，睡袋不需清洗（店內統一清洗烘乾），爐具請擦淨油漬再歸還。</p></details>
+<details><summary>裝備弄壞或遺失怎麼辦？</summary><p>小損壞（如營釘遺失、椅布小破損）依維修價賠償；帳篷布面破損、營柱斷裂依維修報價計；遺失依買斷價 7 折賠償。取貨時請先檢查，有問題當場提出，離店後才發現的損壞以歸還檢查為準。</p></details>
+<details><summary>交通與停車方便嗎？</summary><p>店面位於台中市（詳細地址請洽詢），鄰近公車站，步行約 5 分鐘；開車前來可停附近合作停車場，取貨當日憑租借單可折抵停車費 1 小時。取貨裝備較多時，店員可協助搬上車。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head"><h2>預約／租借表單</h2><p>填完自動產生 LINE 訊息，複製貼給店家就完成預約；試算結果會自動帶入。</p></div>
+<div class="form-box">
+<div class="form-grid">
+<div><label for="fName">姓名 *</label><input type="text" id="fName" placeholder="例：王小明"></div>
+<div><label for="fPhone">電話 *</label><input type="tel" id="fPhone" placeholder="例：09XX-XXX-XXX"></div>
+<div><label for="fDate">租借日期 *</label><input type="date" id="fDate"></div>
+<div><label for="fDays">天數</label><select id="fDays"><option value="1">1 天</option><option value="2" selected>2 天</option><option value="3">3 天</option><option value="4">4 天</option><option value="5">5 天</option><option value="6">6 天</option><option value="7">7 天</option></select></div>
+<div><label for="fPeople">人數</label><select id="fPeople"><option value="1">1 人</option><option value="2">2 人</option><option value="3">3 人</option><option value="4" selected>4 人</option><option value="5">5 人</option><option value="6">6 人</option><option value="7">7 人</option><option value="8">8 人</option><option value="9">9 人</option><option value="10">10 人</option><option value="11">11 人</option><option value="12">12 人</option></select></div>
+<div><label for="fSeason">季節</label><select id="fSeason"><option value="淡季">淡季（×0.85）</option><option value="平季">平季（×1.0）</option><option value="旺季">旺季（×1.2）</option></select></div>
+</div>
+<label>租借裝備（可複選）</label>
+<div class="gear-list" id="orderGear">
+<label class="gear-item"><input type="checkbox" value="四人隧道帳篷"> 四人隧道帳篷</label>
+<label class="gear-item"><input type="checkbox" value="天幕帳 4×4m"> 天幕帳 4×4m</label>
+<label class="gear-item"><input type="checkbox" value="木乃伊睡袋 -5°C"> 木乃伊睡袋 -5°C</label>
+<label class="gear-item"><input type="checkbox" value="蛋捲桌椅組"> 蛋捲桌椅組</label>
+<label class="gear-item"><input type="checkbox" value="卡式爐具組"> 卡式爐具組</label>
+<label class="gear-item"><input type="checkbox" value="60L 登山背包"> 60L 登山背包</label>
+<label class="gear-item"><input type="checkbox" value="碳纖維三節登山杖"> 碳纖維三節登山杖</label>
+<label class="gear-item"><input type="checkbox" value="400 流明頭燈"> 400 流明頭燈</label>
+</div>
+<label for="fNote">備註</label>
+<textarea id="fNote" rows="3" placeholder="例：第一次露營，請多教我們搭帳；需要 2 頂帳篷"></textarea>
+<div class="msg-box" id="msgBox">請填寫上方欄位，LINE 訊息會自動產生在這裡。</div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+<div class="info-grid">
+<div class="info"><h3>📍 店面位置</h3><p>台中市（詳細地址請洽詢）<br>鄰近公車站，步行約 5 分鐘</p></div>
+<div class="info"><h3>📞 聯絡電話</h3><p>02-XXXX-XXXX<br>營業時間 10:00–20:00（週二公休）</p></div>
+<div class="info"><h3>⛺ 取貨提醒</h3><p>出發前一日取貨、回來隔日歸還<br>取貨時店員現場教搭帳、收帳</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>山野露營戶外</strong>｜露營用品・登山戶外・裝備租借（示範）</p>
+<p>本頁為 DEMO 示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。電話與地址皆為示範寫法，請以店家現場公告為準。</p>
+<p>© 2026 山野露營戶外（示範站）・MONO AI 影像工作室示範作品</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">📞 打電話</a>
+<a href="#order">⛺ 立即預約</a>
+</div>
+
+<script>
+var GEAR={
+"四人隧道帳篷":{price:300,per:"組",deposit:2000},
+"天幕帳 4×4m":{price:150,per:"組",deposit:1000},
+"木乃伊睡袋 -5°C":{price:75,per:"人",deposit:300},
+"蛋捲桌椅組":{price:175,per:"組",deposit:1000},
+"卡式爐具組":{price:125,per:"組",deposit:800},
+"60L 登山背包":{price:100,per:"人",deposit:500},
+"碳纖維三節登山杖":{price:60,per:"人",deposit:200},
+"400 流明頭燈":{price:40,per:"人",deposit:150}
+};
+var SEASON_RATE={"淡季":0.85,"平季":1.0,"旺季":1.2};
+var calcDays=2, calcPeople=4;
+var lastCalc=null;
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.item').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 款裝備（示範價目）';
+});
+});
+
+// --- Calculator ---
+function getSeason(){
+var el=document.querySelector('input[name="cSeason"]:checked');
+return el?el.value:'淡季';
+}
+function getCalc(){
+var season=getSeason();
+var rate=SEASON_RATE[season];
+var items=[], sub=0, deposit=0;
+document.querySelectorAll('#calcGear input:checked').forEach(function(cb){
+var g=GEAR[cb.value]; if(!g)return;
+var qty=(g.per==='人')?calcPeople:1;
+var line=g.price*qty*calcDays;
+items.push({name:cb.value,per:g.per,qty:qty,line:line});
+sub+=line;
+deposit+=g.deposit*qty;
+});
+var total=Math.round(sub*rate);
+return {days:calcDays,people:calcPeople,season:season,rate:rate,items:items,sub:sub,deposit:deposit,total:total};
+}
+function renderCalc(){
+var c=getCalc(); lastCalc=c;
+document.getElementById('calcDaysNum').textContent=c.days;
+document.getElementById('calcPeopleNum').textContent=c.people;
+document.getElementById('rDays').textContent=c.days+' 天';
+document.getElementById('rPeople').textContent=c.people+' 人';
+document.getElementById('rSeason').textContent=c.season+' ×'+c.rate;
+document.getElementById('rSub').textContent='NT$'+c.sub+'（未乘季節係數）';
+document.getElementById('rDeposit').textContent='NT$'+c.deposit;
+document.getElementById('rTotal').textContent='NT$'+c.total;
+document.getElementById('rUnit').textContent='租金 NT$'+c.sub+' × '+c.rate+'（'+c.season+'）＝ NT$'+c.total+'，押金歸還後全退（示範價格）';
+var sug=document.getElementById('rSuggest');
+sug.innerHTML='';
+if(!c.items.length){sug.innerHTML='<li>請先勾選至少一項裝備。</li>';}
+else{
+c.items.forEach(function(it){
+var li=document.createElement('li');
+li.textContent=it.name+' × '+it.qty+(it.per==='人'?' 人':' 組')+'：NT$'+it.line;
+sug.appendChild(li);
+});
+var tips=[];
+if(c.people>4)tips.push('人數超過 4 人：建議再加一頂帳篷或天幕，分睡更舒服。');
+if(c.days>=3)tips.push('3 天以上行程：建議加租頭燈與登山杖，夜行與長程更安全。');
+if(c.season==='旺季')tips.push('旺季檔期熱門：建議提前 7 天預約，避免想租的裝備被借走。');
+if(c.people<=2&&c.days<=2)tips.push('2 人 2 天輕裝行程：目前組合已足夠，不需再加裝備。');
+tips.forEach(function(t){var li=document.createElement('li');li.textContent=t;sug.appendChild(li);});
+}
+}
+function changeDays(d){calcDays=Math.min(7,Math.max(1,calcDays+d));renderCalc();}
+function changePeople(d){calcPeople=Math.min(12,Math.max(1,calcPeople+d));renderCalc();}
+document.querySelectorAll('input[name="cSeason"],#calcGear input').forEach(function(el){el.addEventListener('change',renderCalc);});
+renderCalc();
+
+function addRent(name){
+var found=false;
+document.querySelectorAll('#calcGear input').forEach(function(cb){if(cb.value===name){cb.checked=true;found=true;}});
+if(found){renderCalc();}
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+
+// --- Send calc to order form ---
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function sendToOrder(){
+var c=getCalc();
+setSelect('fDays',String(c.days));
+setSelect('fPeople',String(c.people));
+setSelect('fSeason',c.season);
+document.querySelectorAll('#orderGear input').forEach(function(cb){
+cb.checked=c.items.some(function(it){return it.name===cb.value;});
+});
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');
+fb.textContent='✓ 已把試算結果帶進預約表單（'+c.days+' 天／'+c.people+' 人／'+c.season+'／租金 NT$'+c.total+'），再填姓名與電話就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var date=document.getElementById('fDate').value||'（請填日期）';
+var days=document.getElementById('fDays').value;
+var people=document.getElementById('fPeople').value;
+var season=document.getElementById('fSeason').value;
+var note=document.getElementById('fNote').value.trim();
+var gear=[];
+document.querySelectorAll('#orderGear input:checked').forEach(function(cb){gear.push(cb.value);});
+var c=lastCalc;
+var lines=[
+'您好，我想預約山野露營戶外裝備租借 ⛺',
+'姓名：'+name,
+'電話：'+phone,
+'租借日期：'+date,
+'天數：'+days+' 天',
+'人數：'+people+' 人',
+'季節：'+season,
+'租借裝備：'+(gear.length?gear.join('、'):'（尚未選擇）'),
+'試算租金：NT$'+(c?c.total:0)+'（押金 NT$'+(c?c.deposit:0)+'，歸還後全退；示範價格，以店家確認為準）'
+];
+if(note)lines.push('備註：'+note);
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fDate','fDays','fPeople','fSeason','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+document.querySelectorAll('#orderGear input').forEach(function(cb){cb.addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE／私訊送出即可。';}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+}
+</script>
+</body>
+</html>

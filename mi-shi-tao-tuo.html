@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>密室逃脫｜台中實境解謎・密室／桌遊示範店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--purple:#3b1d5e; --purple-dark:#241038; --purple-deep:#170a26; --purple-light:#efe7f7; --purple-mid:#d9c8ee;
+--gold:#d9a441; --gold-dark:#a97a1e; --gold-light:#f6e7c1; --amber:#f2c14e;
+--bg:#faf7f1; --card:#ffffff; --text:#241a2e; --muted:#6d6478; --line:#e6dcef; --chip:#f3ecfa;
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#150a22; --card:#221238; --text:#f3ecfa; --muted:#c4b6d4; --line:#3d2a56; --chip:#2e1c47; --purple-light:#2e1c47; --gold-light:#3a2c14;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--purple-deep);color:var(--gold-light);text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--purple);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+@media(prefers-color-scheme:dark){.logo{color:#e3c8f7}}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--purple);color:var(--amber);display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--purple-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr.95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}.hero .lead{font-size:16px}.hero-meta{margin:12px 0 14px}.cta-row .btn{padding:11px 18px;font-size:15px;min-height:46px}}
+.eyebrow{display:inline-flex;background:var(--purple-light);color:var(--purple);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+@media(prefers-color-scheme:dark){.eyebrow{color:#e3c8f7}}
+h1{font-family:"Noto Serif TC",serif;font-size:52px;line-height:1.05;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:20px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--gold-dark);letter-spacing:.18em;margin-bottom:8px}
+@media(prefers-color-scheme:dark){h1 small{color:var(--amber)}}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--purple);color:#fff;box-shadow:0 10px 24px rgba(59,29,94,.35)}
+.btn-secondary{background:var(--card);color:var(--purple);border:1.5px solid var(--purple)}
+@media(prefers-color-scheme:dark){.btn-secondary{color:#e3c8f7}}
+.btn-gold{background:var(--gold);color:#241038}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(36,16,56,.25);background:linear-gradient(135deg,#241038 0%,#3b1d5e 45%,#6b3aa0 75%,#d9a441 130%);min-height:300px;position:relative}
+@media(prefers-color-scheme:dark){.hero-img{border-color:#2e1c47}}
+.hero-img img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-img .hero-art{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;padding:24px}
+.hero-art .key{font-size:72px;line-height:1}
+.hero-art p{margin:10px 0 0;font-size:15px;opacity:.92}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.item.hide{display:none}
+.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--gold-light);color:var(--gold-dark);white-space:nowrap}
+@media(prefers-color-scheme:dark){.tag{color:var(--amber)}}
+.tag.purple{background:var(--purple-light);color:var(--purple)}
+@media(prefers-color-scheme:dark){.tag.purple{color:#e3c8f7}}
+.price{font-size:22px;font-weight:900;color:var(--purple)}
+@media(prefers-color-scheme:dark){.price{color:#e3c8f7}}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.meta-line{font-size:13px;color:var(--muted);margin:0}
+.meta-line b{color:var(--text)}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--purple-light);color:var(--purple);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+@media(prefers-color-scheme:dark){.mini-btn{color:#e3c8f7}}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr.8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--purple);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.result{background:var(--purple);color:#fff;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px}
+.result-line{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.35);font-size:15px}
+.result-line span:last-child{text-align:right}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:var(--purple);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--gold);color:#241038;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:center}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#6b3aa0);color:var(--amber);display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:38px;font-weight:900;margin:0 auto 12px}
+.member h3{margin:0 0 4px;font-size:19px}
+.member .role{color:var(--gold-dark);font-weight:800;font-size:14px;margin:0 0 10px}
+@media(prefers-color-scheme:dark){.member .role{color:var(--amber)}}
+.member p{color:var(--muted);font-size:14px;margin:0;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0;color:var(--text)}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--purple);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#1c1030;color:#f3ecfa;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:170px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--purple)}
+@media(prefers-color-scheme:dark){.copy-feedback{color:#e3c8f7}}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--gold-dark)}
+@media(prefers-color-scheme:dark){.info h3{color:var(--amber)}}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--purple);color:#fff}
+.mobile-bar a:last-child{background:var(--gold-light);color:#241038;border:1.5px solid var(--gold)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>🔑</i> 密室逃脫</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">主題價目</a><a href="#calc">主題配對試算</a><a href="#flow">遊戲流程</a><a href="#faq">常見問題</a><a href="#order">預約表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・實境解謎館 ・ 8 大主題密室＋桌遊包廂</span>
+<h1><small>MYSTERY ESCAPE ROOM</small>密室逃脫</h1>
+<p class="lead">一扇鎖住的門、六十分鐘、和一群你最信任的人。<br>從古宅夜話的燭光暗號，到時空管理局的最後一道密碼——<strong>先配對最適合你們的主題、票價先算給你看</strong>，再帶著線索進場。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 11:00–22:00</span>
+<span class="pill">🔐 主題 60 分鐘・2–8 人成團</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🔐 立即預約密室</a>
+<a class="btn btn-secondary" href="#menu">看主題價目</a>
+<a class="btn btn-gold" href="#calc">先配對主題 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">不知道玩哪一間？先做 30 秒配對，推薦主題＋總票價一次算好，再一鍵帶進預約表單。</p>
+</div>
+<div>
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" alt="密室逃脫氛圍示意" onerror="this.style.display='none'">
+<div class="hero-art" aria-hidden="true"><div><div class="key">🗝️</div><p>60 分鐘，解開最後一道鎖</p></div></div>
+</div>
+<p class="hero-note">圖片為氛圍示意；場景細節以現場為準（示範網站）</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="menu">
+<div class="sec-head">
+<h2>主題價目</h2>
+<p>8 間密室主題、桌遊包廂與團體包場，票價皆為示範價格，實際以店家公告為準。</p>
+</div>
+<div class="filters" role="group" aria-label="價目篩選">
+<button class="filter-btn active" data-filter="all">全部</button>
+<button class="filter-btn" data-filter="escape">密室主題</button>
+<button class="filter-btn" data-filter="board">桌遊包廂</button>
+<button class="filter-btn" data-filter="group">團體包場</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 12px"></p>
+<div class="menu-grid">
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>古宅夜話</h3><span class="tag">恐怖・新手</span></div>
+<p class="price">NT$550 <small>/ 人・60 分鐘</small></p>
+<p class="desc">百年古宅的燭光暗號與家族遺囑：翻開祖母的日記、對照牆上的舊照片，找出藏在壁爐後的密道鑰匙。機關以觸發式為主，嚇點溫和，第一次玩密室的首選。</p>
+<p class="meta-line">人數 <b>2–6 人</b>｜謎題：找物＋密碼鎖｜亮點：真人 NPC 管家現身提示</p>
+<button class="mini-btn" type="button" onclick="pickTheme('古宅夜話')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>午夜列車</h3><span class="tag">恐怖・進階</span></div>
+<p class="price">NT$580 <small>/ 人・60 分鐘</small></p>
+<p class="desc">末班車停在無人月台，車廂燈光一節一節熄滅。你們要在列車「再次發車」前，拼出車票上的座位密碼、打開行李架暗格，查出失蹤列車長的真相。</p>
+<p class="meta-line">人數 <b>2–6 人</b>｜謎題：邏輯推理＋機關連動｜亮點：車廂搖晃音效與燈光秀</p>
+<button class="mini-btn" type="button" onclick="pickTheme('午夜列車')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>消失的畫廊</h3><span class="tag">解謎・新手</span></div>
+<p class="price">NT$520 <small>/ 人・60 分鐘</small></p>
+<p class="desc">開展前夜，一幅名畫憑空消失。畫框背後的顏料編號、調色盤上的色票順序、展覽手冊裡被圈起的年代，都是線索。零驚嚇、純解謎，親子與同事聚會都適合。</p>
+<p class="meta-line">人數 <b>2–8 人</b>｜謎題：圖像解碼＋色彩排序｜亮點：可拍照的擬真畫廊場景</p>
+<button class="mini-btn" type="button" onclick="pickTheme('消失的畫廊')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>鍊金術士的密室</h3><span class="tag">解謎・進階</span></div>
+<p class="price">NT$550 <small>/ 人・60 分鐘</small></p>
+<p class="desc">鍊金術士留下一桌試管、天秤與一本寫滿符號的手稿。量出正確比例調出「賢者之水」，天秤的兩端會自己說話；最後一步要用元素週期表排出開門密碼。</p>
+<p class="meta-line">人數 <b>2–6 人</b>｜謎題：配比實驗＋符號解碼｜亮點：可動手操作的實驗機關</p>
+<button class="mini-btn" type="button" onclick="pickTheme('鍊金術士的密室')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>海盜寶藏島</h3><span class="tag">冒險・新手</span></div>
+<p class="price">NT$520 <small>/ 人・60 分鐘</small></p>
+<p class="desc">船長的藏寶圖被撕成五片，散落在船艙、瞭望台與藏酒窖。照著羅盤方位與星象圖拼回航線，撬開寶箱前還得先過「水手誓約」的真假話機關。</p>
+<p class="meta-line">人數 <b>3–8 人</b>｜謎題：拼圖＋方位推理｜亮點：人多越好玩的團隊型主題</p>
+<button class="mini-btn" type="button" onclick="pickTheme('海盜寶藏島')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>時空管理局</h3><span class="tag">解謎・挑戰</span></div>
+<p class="price">NT$600 <small>/ 人・75 分鐘</small></p>
+<p class="desc">本館難度最高的一間：時空裂縫把三個年代的證物混在同一個房間。你們要先分年代歸檔，再用時間軸排出事件順序，最後在倒數歸零前輸入時空座標。建議玩過兩間以上再挑戰。</p>
+<p class="meta-line">人數 <b>4–8 人</b>｜謎題：多線敘事＋時間軸排序｜亮點：75 分鐘、三段式劇情反轉</p>
+<button class="mini-btn" type="button" onclick="pickTheme('時空管理局')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>亡靈醫院</h3><span class="tag">恐怖・挑戰</span></div>
+<p class="price">NT$600 <small>/ 人・60 分鐘</small></p>
+<p class="desc">廢棄醫院的病歷室裡，病床編號與藥櫃標籤對不上。跟著心電圖的節奏解開病歷密碼，過程中會有「巡房」的身影經過——怕黑、怕突然出現的人請先選古宅夜話。</p>
+<p class="meta-line">人數 <b>2–6 人</b>｜謎題：病歷推理＋感應機關｜亮點：全館最強沉浸感，含真人演出</p>
+<button class="mini-btn" type="button" onclick="pickTheme('亡靈醫院')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="escape">
+<div class="item-top"><h3>地下賭場風雲</h3><span class="tag">冒險・進階</span></div>
+<p class="price">NT$580 <small>/ 人・60 分鐘</small></p>
+<p class="desc">假扮賭客潛入地下賭場，目標是保險庫裡的帳本。籌碼面額是密碼、輪盤轉到特定數字會彈出暗格，保險庫最後一道鎖要用三個人的籌碼同時按下才開得了。</p>
+<p class="meta-line">人數 <b>3–8 人</b>｜謎題：數字推理＋多人協作機關｜亮點：可分組對抗的雙線任務</p>
+<button class="mini-btn" type="button" onclick="pickTheme('地下賭場風雲')">選這間主題 →</button>
+</article>
+
+<article class="item" data-cat="board">
+<div class="item-top"><h3>桌遊包廂・平日</h3><span class="tag purple">桌遊・2 小時</span></div>
+<p class="price">NT$150 <small>/ 人・2 小時</small></p>
+<p class="desc">獨立包廂、300 款以上桌遊任選，含阿瓦隆、璀璨寶石、卡坦島等熱門款。店員會依人數與喜好推薦，第一次玩也有專人帶規則，新手不用怕冷場。</p>
+<p class="meta-line">人數 <b>2–10 人</b>｜含：包廂＋桌遊任選｜加購：飲料 NT$50 起</p>
+<button class="mini-btn" type="button" onclick="pickTheme('桌遊包廂・平日')">選這個方案 →</button>
+</article>
+
+<article class="item" data-cat="board">
+<div class="item-top"><h3>桌遊包廂・假日</h3><span class="tag purple">桌遊・2 小時</span></div>
+<p class="price">NT$200 <small>/ 人・2 小時</small></p>
+<p class="desc">週五晚間、週六日與國定假日適用。包廂、桌遊任選之外，加贈每人一杯飲料；想玩久一點可現場加時，每人每小時 NT$80，包廂保留 15 分鐘緩衝不趕人。</p>
+<p class="meta-line">人數 <b>2–10 人</b>｜含：包廂＋桌遊＋每人一杯飲料｜加時 NT$80／人／小時</p>
+<button class="mini-btn" type="button" onclick="pickTheme('桌遊包廂・假日')">選這個方案 →</button>
+</article>
+
+<article class="item" data-cat="board">
+<div class="item-top"><h3>桌遊＋飲料暢飲</h3><span class="tag purple">桌遊・3 小時</span></div>
+<p class="price">NT$280 <small>/ 人・3 小時</small></p>
+<p class="desc">3 小時包廂＋飲料無限暢飲（紅茶、綠茶、可樂、氣泡水任選），另附一份小點心拼盤。生日、謝師宴、社團聚會最常點的方案，蛋糕可免費寄放冰箱。</p>
+<p class="meta-line">人數 <b>4–12 人</b>｜含：包廂＋飲料暢飲＋小點心｜適合：慶生、社團聚會</p>
+<button class="mini-btn" type="button" onclick="pickTheme('桌遊＋飲料暢飲')">選這個方案 →</button>
+</article>
+
+<article class="item" data-cat="group">
+<div class="item-top"><h3>整館包場・平日</h3><span class="tag">包場・3 小時</span></div>
+<p class="price">NT$8,800 <small>/ 場・3 小時</small></p>
+<p class="desc">平日整館包場：8 間密室任選 2 間輪流玩＋桌遊區全開，最多容納 40 人。附專屬遊戲主持人 2 位、飲料 20 杯，適合系學會、公司部門聚會與包班活動。</p>
+<p class="meta-line">人數 <b>最多 40 人</b>｜含：2 間密室＋桌遊區＋主持人 2 位｜需提前 7 天預約</p>
+<button class="mini-btn" type="button" onclick="pickTheme('整館包場・平日')">選這個方案 →</button>
+</article>
+
+<article class="item" data-cat="group">
+<div class="item-top"><h3>整館包場・假日</h3><span class="tag">包場・3 小時</span></div>
+<p class="price">NT$12,800 <small>/ 場・3 小時</small></p>
+<p class="desc">假日整館包場：8 間密室任選 3 間輪流玩＋桌遊區全開，最多容納 40 人。附專屬遊戲主持人 3 位、飲料 30 杯與小點心 2 盤，慶生佈置可免費協助。</p>
+<p class="meta-line">人數 <b>最多 40 人</b>｜含：3 間密室＋桌遊區＋主持人 3 位｜需提前 7 天預約</p>
+<button class="mini-btn" type="button" onclick="pickTheme('整館包場・假日')">選這個方案 →</button>
+</article>
+
+<article class="item" data-cat="group">
+<div class="item-top"><h3>企業團建包場</h3><span class="tag">包場・客製</span></div>
+<p class="price">NT$18,000 <small>起／場・半日</small></p>
+<p class="desc">半日團建客製方案：密室競賽＋桌遊積分賽雙線進行，附主持人、計分板與頒獎環節，可依公司需求設計主題任務與隊名。40 人以上可分梯次進行，報價依人數與時長另議。</p>
+<p class="meta-line">人數 <b>20–80 人</b>｜含：客製任務＋主持＋頒獎｜需提前 14 天預約</p>
+<button class="mini-btn" type="button" onclick="pickTheme('企業團建包場')">選這個方案 →</button>
+</article>
+
+</div>
+</section>
+
+<section id="calc">
+<div class="sec-head">
+<h2>密室主題配對＋票價試算</h2>
+<p>選人數、偏好與難度，我們推薦最適合你們的主題並算出總票價；結果可以一鍵帶進下面的預約表單。</p>
+</div>
+<div class="calc-box">
+<div>
+<label for="calcPeople">你們有幾個人？</label>
+<select id="calcPeople">
+<option value="2">2 人</option><option value="3">3 人</option><option value="4" selected>4 人</option><option value="5">5 人</option><option value="6">6 人</option><option value="7">7 人</option><option value="8">8 人</option>
+</select>
+<label>偏好哪種感覺？</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="cPref" value="恐怖" checked><span>😱 恐怖刺激</span></label>
+<label class="chip"><input type="radio" name="cPref" value="解謎"><span>🧩 純粹解謎</span></label>
+<label class="chip"><input type="radio" name="cPref" value="冒險"><span>🗺️ 冒險團隊</span></label>
+</div>
+<label>難度想選哪一級？</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="cDiff" value="新手" checked><span>新手・第一次玩</span></label>
+<label class="chip"><input type="radio" name="cDiff" value="進階"><span>進階・玩過 1–2 間</span></label>
+<label class="chip"><input type="radio" name="cDiff" value="挑戰"><span>挑戰・想被考倒</span></label>
+</div>
+<p style="color:var(--muted);font-size:14px;margin:16px 0 0">優惠：6 人以上 9 折、8 人 85 折（示範優惠，以店家公告為準）。恐怖主題 12 歲以下不建議、16 歲以下需成人陪同。</p>
+</div>
+<div class="result">
+<h3>推薦結果</h3>
+<div class="result-line"><span>推薦主題</span><span id="rTheme">—</span></div>
+<div class="result-line"><span>類型／難度</span><span id="rType">—</span></div>
+<div class="result-line"><span>遊戲時長</span><span id="rTime">—</span></div>
+<div class="result-line"><span>單人票價</span><span id="rUnit">—</span></div>
+<div class="result-line"><span>人數</span><span id="rPeople">—</span></div>
+<div class="result-line"><span>團體折扣</span><span id="rDisc">—</span></div>
+<div class="result-total" id="rTotal">NT$0</div>
+<div class="result-sub" id="rNote">請選擇人數、偏好與難度。</div>
+<button class="btn" type="button" onclick="sendToOrder()">帶進預約表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head">
+<h2>遊戲流程</h2>
+<p>從預約到逃出密室，五個步驟，第一次來也完全不用緊張。</p>
+</div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上預約</h3><p>選主題、日期時段與人數，填表單產生 LINE 訊息傳給我們，店員 2 小時內回覆確認。</p></div>
+<div class="step"><b>2</b><h3>提早 10 分鐘到場</h3><p>報到、寄放包包與手機（恐怖主題建議全程寄放），主持人說明規則與求救方式。</p></div>
+<div class="step"><b>3</b><h3>聽故事、進密室</h3><p>主持人講 3 分鐘背景故事，門一關、計時開始。卡關隨時可按鈴求提示，不扣分。</p></div>
+<div class="step"><b>4</b><h3>60 分鐘解謎</h3><p>找線索、解機關、開最後一道鎖。成功逃出有專屬合照，失敗也能聽完整劇情解析。</p></div>
+<div class="step"><b>5</b><h3>合照＋下一場</h3><p>到打卡牆拍逃出合照，現場加購第二間主題享 9 折，當天玩第二間不用再等。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head">
+<h2>認識我們的團隊</h2>
+<p>每一場遊戲都有一位主持人全程顧著你們的安全與節奏。</p>
+</div>
+<div class="team">
+<div class="member"><div class="avatar">哲</div><h3>林哲宇</h3><p class="role">店長・密室設計師</p><p>玩過全台 60 間以上密室，親手設計了館內 5 間主題。最在意「謎題要難得剛好」：卡關 10 分鐘給提示、卡關 20 分鐘主動敲門，絕不讓任何一組帶著挫折離開。</p></div>
+<div class="member"><div class="avatar">彤</div><h3>陳彤彤</h3><p class="role">遊戲主持人・NPC 演員</p><p>古宅夜話的管家、亡靈醫院的巡房護士，都是她。演過 400 場以上，嚇點拿捏精準：膽小的會先輕拍肩膀打招呼，膽大的才會被「認真對待」。</p></div>
+<div class="member"><div class="avatar">凱</div><h3>吳承凱</h3><p class="role">遊戲主持人・桌遊帶領員</p><p>桌遊區的活字典，300 款桌遊規則倒背如流，5 分鐘就能讓一桌完全沒玩過的人開局。企業團建的計分賽與頒獎流程都由他一手包辦。</p></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head">
+<h2>玩家評價</h2>
+<p>以下為示範評價，正式上線將換成真實玩家回饋。</p>
+</div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「第一次玩密室就選古宅夜話，管家 NPC 一出現全場尖叫，但謎題真的設計得很好，最後開密道的瞬間大家一起歡呼。主持人提示給得剛剛好，不會直接破梗。」</p><footer>— 雅婷・4 人小隊・古宅夜話</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「時空管理局真的很硬，我們四個玩過五間的人也被考倒，最後 3 分鐘才輸入座標成功。75 分鐘三段反轉，劇情完整度是我玩過前三名的。」</p><footer>— 家豪・公司同事 6 人・時空管理局</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「帶 12 歲的兒子玩消失的畫廊，零驚嚇、謎題又夠他動腦，父子倆分工找線索玩得很開心。唯一缺點是假日場次很搶手，建議提早一週約。」</p><footer>— 志明・親子 3 人・消失的畫廊</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「部門 24 人包場玩地下賭場＋桌遊積分賽，主持人控場超穩，頒獎還幫我們準備小獎牌。同事到現在午餐還在聊那天的輪盤暗格，團建效果滿分。」</p><footer>— 佩珊・企業團建 24 人・包場</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>價格、預約、取消與交通，一次說清楚。</p></div>
+<div class="faq">
+<details><summary>密室票價怎麼算？有團體優惠嗎？</summary><p>密室主題按人收費，每人 NT$520–600（示範價格），60 分鐘、75 分鐘主題為 NT$600。6 人以上 9 折、8 人 85 折，優惠以現場公告為準；桌遊包廂與包場為整場／每人另計，詳見上方價目表。</p></details>
+<details><summary>怎麼預約？一定要先付訂金嗎？</summary><p>填寫下方預約表單，產生 LINE 訊息傳給我們，店員確認時段後會回覆保留成功。密室主題需先付 NT$500 訂金保留時段（可轉帳或現場付），桌遊包廂免訂金、現場付費即可；包場需付 30% 訂金。</p></details>
+<details><summary>臨時不能來，可以取消或改期嗎？</summary><p>可以。活動 48 小時前取消或改期，訂金全額退還或保留一次改期；24–48 小時前取消退 50%；24 小時內取消或未到，訂金不退還。改期請直接用 LINE 告知原訂日期與想改的時段。</p></details>
+<details><summary>幾個人才能玩？人數不夠或太多怎麼辦？</summary><p>密室主題 2–8 人成團（各主題上限不同，見價目表），2 人也能玩，只是謎題分工會比較忙。人數超過 8 人建議分兩間同時進行，或直接選整館包場，最多可容納 40 人。</p></details>
+<details><summary>恐怖主題會不會很可怕？小朋友可以玩嗎？</summary><p>恐怖主題（古宅夜話、午夜列車、亡靈醫院）含有突然出現的 NPC 與音效，12 歲以下不建議，16 歲以下需成人陪同。怕黑或容易受驚的玩家建議先選「消失的畫廊」或「海盜寶藏島」，零驚嚇、純解謎。</p></details>
+<details><summary>交通與停車方便嗎？</summary><p>本店位於台中市（詳細地址請洽詢），鄰近公車站，步行約 3 分鐘可達。開車的玩家可使用附近收費停車場，憑當日消費可折抵 1 小時停車費（以現場公告為準）；騎機車門口有機車格。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head">
+<h2>預約表單</h2>
+<p>填完自動產生 LINE 訊息，複製貼到 LINE 傳給我們就完成預約。試算結果會一起帶進訊息裡。</p>
+</div>
+<div class="form-box">
+<div class="form-grid">
+<div>
+<label for="fName">姓名</label>
+<input type="text" id="fName" placeholder="例：王小明" autocomplete="name">
+</div>
+<div>
+<label for="fPhone">電話</label>
+<input type="tel" id="fPhone" placeholder="例：09XX-XXX-XXX" autocomplete="tel">
+</div>
+<div>
+<label for="fDate">預約日期</label>
+<input type="date" id="fDate">
+</div>
+<div>
+<label for="fTime">時段</label>
+<select id="fTime">
+<option value="">請選擇時段</option>
+<option>11:00</option><option>12:30</option><option>14:00</option><option>15:30</option><option>17:00</option><option>18:30</option><option>20:00</option>
+</select>
+</div>
+<div>
+<label for="fPeople">人數</label>
+<select id="fPeople">
+<option value="2">2 人</option><option value="3">3 人</option><option value="4" selected>4 人</option><option value="5">5 人</option><option value="6">6 人</option><option value="7">7 人</option><option value="8">8 人</option><option value="9">9 人以上（包場請洽詢）</option>
+</select>
+</div>
+<div>
+<label for="fTheme">主題／方案</label>
+<select id="fTheme">
+<option>古宅夜話</option><option>午夜列車</option><option>消失的畫廊</option><option>鍊金術士的密室</option><option>海盜寶藏島</option><option>時空管理局</option><option>亡靈醫院</option><option>地下賭場風雲</option><option>桌遊包廂・平日</option><option>桌遊包廂・假日</option><option>桌遊＋飲料暢飲</option><option>整館包場・平日</option><option>整館包場・假日</option><option>企業團建包場</option>
+</select>
+</div>
+</div>
+<label for="fNote">備註（慶生、團建需求、怕黑請先說等）</label>
+<textarea id="fNote" rows="3" placeholder="例：其中一位是壽星，想安排簡單慶生佈置。"></textarea>
+<input type="hidden" id="fCalc" value="">
+<div class="msg-box" id="msgBox"></div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>店家資訊</h2></div>
+<div class="info-grid">
+<div class="info"><h3>📍 地點</h3><p>台中市（詳細地址請洽詢）<br>鄰近公車站，步行約 3 分鐘</p></div>
+<div class="info"><h3>📞 電話</h3><p>02-XXXX-XXXX<br>示範營業時間 11:00–22:00（週二公休）</p></div>
+<div class="info"><h3>🚗 交通停車</h3><p>附近有收費停車場，憑當日消費折抵 1 小時；門口有機車格</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>密室逃脫｜台中實境解謎示範站</strong></p>
+<p>本網站為 DEMO 示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。電話與地址皆為示範寫法，請勿以此聯繫。</p>
+<p>© 2026 密室逃脫（示範）・MONO AI 影像工作室示範作品</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">📞 打電話</a>
+<a href="#order">🔐 立即預約</a>
+</div>
+
+<script>
+var THEMES=[
+{name:"古宅夜話",pref:"恐怖",diff:"新手",min:2,max:6,price:550,mins:"60 分鐘"},
+{name:"午夜列車",pref:"恐怖",diff:"進階",min:2,max:6,price:580,mins:"60 分鐘"},
+{name:"亡靈醫院",pref:"恐怖",diff:"挑戰",min:2,max:6,price:600,mins:"60 分鐘"},
+{name:"消失的畫廊",pref:"解謎",diff:"新手",min:2,max:8,price:520,mins:"60 分鐘"},
+{name:"鍊金術士的密室",pref:"解謎",diff:"進階",min:2,max:6,price:550,mins:"60 分鐘"},
+{name:"時空管理局",pref:"解謎",diff:"挑戰",min:4,max:8,price:600,mins:"75 分鐘"},
+{name:"海盜寶藏島",pref:"冒險",diff:"新手",min:3,max:8,price:520,mins:"60 分鐘"},
+{name:"地下賭場風雲",pref:"冒險",diff:"進階",min:3,max:8,price:580,mins:"60 分鐘"}
+];
+var lastCalc=null;
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.item').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 個品項（示範價目）';
+});
+});
+document.getElementById('menuCount').textContent='目前顯示 14 個品項（示範價目）';
+
+// --- Theme matcher + price calculator ---
+function getCalc(){
+var people=parseInt(document.getElementById('calcPeople').value,10);
+var pref=document.querySelector('input[name="cPref"]:checked').value;
+var diff=document.querySelector('input[name="cDiff"]:checked').value;
+var pool=THEMES.filter(function(t){return t.pref===pref&&t.diff===diff&&people>=t.min&&people<=t.max;});
+if(!pool.length)pool=THEMES.filter(function(t){return t.pref===pref&&people>=t.min&&people<=t.max;});
+if(!pool.length)pool=THEMES.filter(function(t){return people>=t.min&&people<=t.max;});
+var theme=pool[0];
+var disc=1,discLabel='無折扣';
+if(people>=8){disc=0.85;discLabel='85 折（8 人以上）';}
+else if(people>=6){disc=0.9;discLabel='9 折（6 人以上）';}
+var total=Math.round(theme.price*people*disc);
+return {theme:theme,pref:pref,diff:diff,people:people,disc:disc,discLabel:discLabel,total:total};
+}
+function renderCalc(){
+var c=getCalc();
+lastCalc=c;
+document.getElementById('rTheme').textContent=c.theme.name;
+document.getElementById('rType').textContent=c.theme.pref+'・'+c.theme.diff;
+document.getElementById('rTime').textContent=c.theme.mins+'・'+c.theme.min+'–'+c.theme.max+' 人';
+document.getElementById('rUnit').textContent='NT$'+c.theme.price+'／人';
+document.getElementById('rPeople').textContent=c.people+' 人';
+document.getElementById('rDisc').textContent=c.discLabel;
+document.getElementById('rTotal').textContent='NT$'+c.total.toLocaleString('en-US');
+document.getElementById('rNote').textContent='推薦「'+c.theme.name+'」：'+c.theme.mins+'、'+c.theme.min+'–'+c.theme.max+' 人，'+c.people+' 人共 NT$'+c.total.toLocaleString('en-US')+'（示範價格）。';
+}
+document.getElementById('calcPeople').addEventListener('change',renderCalc);
+document.querySelectorAll('input[name="cPref"],input[name="cDiff"]').forEach(function(el){el.addEventListener('change',renderCalc);});
+renderCalc();
+
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function pickTheme(name){
+setSelect('fTheme',name);
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已選「'+name+'」，填好姓名電話就能複製訊息。';
+}
+function sendToOrder(){
+var c=getCalc();
+setSelect('fTheme',c.theme.name);
+setSelect('fPeople',String(c.people));
+document.getElementById('fCalc').value='推薦主題：'+c.theme.name+'（'+c.theme.pref+'・'+c.theme.diff+'，'+c.theme.mins+'）／單人 NT$'+c.theme.price+'／'+c.people+' 人／'+c.discLabel+'／總票價 NT$'+c.total.toLocaleString('en-US')+'（示範價格）';
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已把「'+c.theme.name+'」與試算結果帶進預約表單，再填姓名就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var date=document.getElementById('fDate').value||'（請選日期）';
+var time=document.getElementById('fTime').value||'（請選時段）';
+var people=document.getElementById('fPeople').value;
+var theme=document.getElementById('fTheme').value;
+var note=document.getElementById('fNote').value.trim();
+var calc=document.getElementById('fCalc').value;
+var lines=[
+'您好，我想預約密室逃脫 🔐',
+'姓名：'+name,
+'電話：'+phone,
+'預約日期：'+date,
+'時段：'+time,
+'人數：'+people+' 人',
+'主題／方案：'+theme
+];
+if(calc)lines.push('試算結果：'+calc);
+if(note)lines.push('備註：'+note);
+lines.push('（以上為示範預約訊息，價目以店家確認為準）');
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fDate','fTime','fPeople','fTheme','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE 傳給店家即可完成預約。';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+}
+</script>
+</body>
+</html>

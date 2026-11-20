@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>墨痕刺青｜台中刺青工作室・細線／日式／歐美／水彩</title>
+<meta name="description" content="墨痕刺青示範網站：細線小圖、彩色大圖、改圖遮蓋。拋棄式針具、滅菌流程公開，僅服務年滿 18 歲者。">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#141210; --ink2:#1e1b17; --gold:#c9a24b; --gold-dark:#a8842f; --gold-light:#f3e8cf;
+--cream:#faf6ec; --cream2:#f3ecd9; --paper:#fffdf6; --text:#221e19; --muted:#6d6558; --line:#e3d9c2;
+--red:#8c2f2f;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--cream);color:var(--text);line-height:1.7;padding-bottom:78px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input,textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#e8c979;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:"Noto Serif TC",serif;font-weight:900;font-size:22px;color:var(--ink);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-style:normal;font-size:19px;border:1.5px solid var(--gold)}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--gold-light)}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr.95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}.hero.lead{font-size:16px}}
+.eyebrow{display:inline-flex;background:var(--ink);color:var(--gold);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-family:"Noto Serif TC",serif;font-size:50px;line-height:1.08;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:18px;font-family:"Noto Sans TC",sans-serif;font-weight:700;color:var(--gold-dark);letter-spacing:.22em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--ink);color:var(--gold);box-shadow:0 10px 24px rgba(20,18,16,.28)}
+.btn-secondary{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
+.btn-gold{background:var(--gold);color:#fff}
+.age-note{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:#fdf0e8;border:1.5px solid var(--red);color:var(--red);font-weight:800;font-size:14px;border-radius:10px;padding:9px 12px}
+.hero-art{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(20,18,16,.2);background:linear-gradient(150deg,#141210 0%,#2a251f 45%,#8c6d2f 78%,#c9a24b 100%);min-height:340px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:#f7efdc}
+.hero-art.big{font-family:"Noto Serif TC",serif;font-size:64px;font-weight:900;line-height:1.05;letter-spacing:.08em;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.hero-art.sub{font-size:15px;opacity:.92;margin-top:8px;max-width:420px}
+.hero-art.flash{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hero-art.flash span{border:1.5px solid rgba(247,239,220,.7);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-family:"Noto Serif TC",serif;font-size:32px;margin:0 0 6px}
+.sec-head h2::after{content:"";display:block;width:56px;height:3px;background:var(--gold);margin-top:8px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--ink);color:var(--gold);border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.item.hide{display:none}
+.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--gold-light);color:var(--gold-dark);white-space:nowrap}
+.price{font-size:20px;font-weight:900;color:var(--ink);white-space:nowrap}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.meta-line{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--gold-light);color:var(--ink);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.hygiene{background:var(--ink);color:#f3ead2;border-radius:24px;padding:26px}
+.hygiene h2{font-family:"Noto Serif TC",serif;font-size:26px;margin:0 0 6px;color:var(--gold)}
+.hygiene p{opacity:.9;margin:0 0 16px}
+.hygiene-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:700px){.hygiene-grid{grid-template-columns:1fr}}
+.hygiene-grid div{background:rgba(255,255,255,.07);border:1px solid rgba(201,162,75,.4);border-radius:14px;padding:14px}
+.hygiene-grid b{color:var(--gold);display:block;margin-bottom:4px}
+.hygiene-grid p{margin:0;font-size:14px;opacity:.92}
+.calc-box{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr.8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--paper);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--cream2);font-weight:700;font-size:14px;border:1.5px solid transparent;cursor:pointer}
+.chip input:checked+span{background:var(--ink);color:var(--gold)}
+.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.result{background:var(--ink);color:#f3ead2;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px;color:var(--gold)}
+.result-line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(243,234,210,.35);font-size:15px}
+.result-total{font-size:30px;font-weight:900;margin:14px 0 4px;color:#fff}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result.btn{background:var(--gold);color:#fff;width:100%}
+.quiz-note{font-size:14px;color:var(--muted);margin:10px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px}
+.avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(150deg,#141210,#8c6d2f);color:var(--gold);display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:32px;font-weight:900;margin-bottom:12px;border:2px solid var(--gold)}
+.member h3{margin:0 0 4px;font-size:19px}
+.member.role{color:var(--gold-dark);font-weight:800;font-size:14px;margin:0 0 8px}
+.member p{color:var(--muted);font-size:14px;margin:0 0 8px}
+.member.exp{font-size:13px;color:var(--text);background:var(--cream2);border-radius:10px;padding:8px 10px}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--gold-dark);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--gold-dark);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#1e1b17;color:#f3ead2;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:170px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--gold-dark)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--gold-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--ink);color:var(--gold)}
+.mobile-bar a:last-child{background:var(--gold);color:#fff}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>墨</i> 墨痕刺青</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#price">價目表</a><a href="#quiz">風格測驗</a><a href="#flow">刺青流程</a><a href="#team">刺青師</a><a href="#faq">常見問題</a><a href="#book">預約諮詢</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">台中・預約制刺青工作室 ・ 僅服務年滿 18 歲者</span>
+<h1><small>MO HEN TATTOO</small>墨痕刺青</h1>
+<p class="lead">一針一針，把故事留在身上。<br>細線、日式、歐美、水彩四種風格，<strong>拋棄式針具、滅菌流程全程公開，圖先畫給你看、價格先算給你聽</strong>——不催、不趕、不將就，第一次刺青也安心。</p>
+<div class="hero-meta">
+<span class="pill">📍 台中市（詳細地址請洽詢）</span>
+<span class="pill">🕙 示範營業時間 13:00–21:00（週一公休）</span>
+<span class="pill">✒️ 預約制・一對一獨立包廂</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#book">✒️ 預約諮詢</a>
+<a class="btn btn-secondary" href="#price">看價目表</a>
+<a class="btn btn-gold" href="#quiz">先做風格測驗 →</a>
+</div>
+<span class="age-note">⚠️ 本工作室僅服務年滿 18 歲者，諮詢與施作當日請攜帶身分證件核對年齡。</span>
+</div>
+<div class="hero-art" role="img" aria-label="墨黑與金色漸層的刺青工作室主視覺">
+<div class="big">墨落成痕<br>一生不褪</div>
+<p class="sub">細線如髮絲、日式如浮世繪——每一張圖，都是先畫在紙上、再三確認後，才落到皮膚上。</p>
+<div class="flash"><span>細線小圖</span><span>日式傳統</span><span>歐美寫實</span><span>水彩暈染</span><span>改圖遮蓋</span></div>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="price">
+<div class="sec-head"><h2>價目表</h2><p>以下為示範價目。實際費用依圖稿複雜度、部位與尺寸，諮詢後由刺青師報價為準；報價後不另收設計費。</p></div>
+<div class="filters" role="group" aria-label="價目篩選">
+<button class="filter-btn active" type="button" data-filter="all" onclick="filterItems('all',this)">全部</button>
+<button class="filter-btn" type="button" data-filter="fine" onclick="filterItems('fine',this)">細線小圖</button>
+<button class="filter-btn" type="button" data-filter="color" onclick="filterItems('color',this)">彩色大圖</button>
+<button class="filter-btn" type="button" data-filter="cover" onclick="filterItems('cover',this)">改圖／遮蓋</button>
+</div>
+<div class="menu-grid" id="menuGrid">
+<article class="item" data-cat="fine"><div class="item-top"><h3>細線・一字一句</h3><span class="tag">細線小圖</span></div><div class="price">NT$2,500–4,000</div><p class="desc">單行英文或中文小字，約 3–5 公分。0.18mm 極細針，字距先排版給你看，歪斜免費重排。</p><p class="meta-line">約 40–60 分鐘｜適合手腕、鎖骨、耳後</p><button class="mini-btn" type="button" onclick="pickItem('細線小圖','細線・一字一句','NT$2,500–4,000')">選這個風格 →</button></article>
+<article class="item" data-cat="fine"><div class="item-top"><h3>細線・小花小草</h3><span class="tag">細線小圖</span></div><div class="price">NT$3,000–5,000</div><p class="desc">單枝花、葉脈或小草，線條不斷、留白乾淨。含一次免費補色（3 個月內）。</p><p class="meta-line">約 60–90 分鐘｜適合前臂、手腕、腳踝</p><button class="mini-btn" type="button" onclick="pickItem('細線小圖','細線・小花小草','NT$3,000–5,000')">選這個風格 →</button></article>
+<article class="item" data-cat="fine"><div class="item-top"><h3>細線・星座星圖</h3><span class="tag">細線小圖</span></div><div class="price">NT$3,500–5,500</div><p class="desc">依生日排星座連線圖，可加小星星或日期數字。轉印貼紙先貼上身確認位置再下針。</p><p class="meta-line">約 60–90 分鐘｜適合肩膀、背部、上臂</p><button class="mini-btn" type="button" onclick="pickItem('細線小圖','細線・星座星圖','NT$3,500–5,500')">選這個風格 →</button></article>
+<article class="item" data-cat="fine"><div class="item-top"><h3>細線・寵物剪影</h3><span class="tag">細線小圖</span></div><div class="price">NT$4,000–6,500</div><p class="desc">依寵物照片描出剪影線稿，耳朵與尾巴比例先對稿。建議提供正面、光線清楚的照片。</p><p class="meta-line">約 1.5–2 小時｜適合前臂、小腿</p><button class="mini-btn" type="button" onclick="pickItem('細線小圖','細線・寵物剪影','NT$4,000–6,500')">選這個風格 →</button></article>
+<article class="item" data-cat="color"><div class="item-top"><h3>日式・錦鯉半甲</h3><span class="tag">彩色大圖</span></div><div class="price">NT$28,000–45,000</div><p class="desc">傳統日式錦鯉配浪花與楓葉，黑色打霧＋紅金配色，分 3–4 次完成，每次間隔至少 3 週。</p><p class="meta-line">每次約 3–4 小時｜適合上臂至胸口</p><button class="mini-btn" type="button" onclick="pickItem('日式','日式・錦鯉半甲','NT$28,000–45,000')">選這個風格 →</button></article>
+<article class="item" data-cat="color"><div class="item-top"><h3>歐美・寫實花卉</h3><span class="tag">彩色大圖</span></div><div class="price">NT$18,000–32,000</div><p class="desc">牡丹或玫瑰寫實風，黑灰打霧加彩色漸層，Magnum 排針鋪色，陰影層次先畫色稿確認。</p><p class="meta-line">分 2–3 次｜每次約 3 小時｜適合大腿、前臂</p><button class="mini-btn" type="button" onclick="pickItem('歐美','歐美・寫實花卉','NT$18,000–32,000')">選這個風格 →</button></article>
+<article class="item" data-cat="color"><div class="item-top"><h3>水彩・暈染飛鳥</h3><span class="tag">彩色大圖</span></div><div class="price">NT$12,000–20,000</div><p class="desc">水彩潑墨感飛鳥或花朵，色料以 Eternal、World Famous 為主，暈染邊界不描黑框，輕盈不厚重。</p><p class="meta-line">約 2.5–3.5 小時｜適合肩胛、側腰、小腿</p><button class="mini-btn" type="button" onclick="pickItem('水彩','水彩・暈染飛鳥','NT$12,000–20,000')">選這個風格 →</button></article>
+<article class="item" data-cat="cover"><div class="item-top"><h3>改圖・舊圖翻新</h3><span class="tag">改圖／遮蓋</span></div><div class="price">NT$6,000–15,000</div><p class="desc">舊圖線條加粗、補色或局部改構圖。先評估舊圖暈開程度，太深的會誠實建議改走遮蓋。</p><p class="meta-line">約 2–3 小時｜需先傳舊圖照片評估</p><button class="mini-btn" type="button" onclick="pickItem('改圖/遮蓋','改圖・舊圖翻新','NT$6,000–15,000')">選這個風格 →</button></article>
+<article class="item" data-cat="cover"><div class="item-top"><h3>遮蓋・疤痕遮蓋</h3><span class="tag">改圖／遮蓋</span></div><div class="price">NT$10,000–22,000</div><p class="desc">以花卉或黑工線條遮蓋疤痕，僅接已完全癒合滿一年以上的疤痕，施作前先現場觸診評估。</p><p class="meta-line">分 2 次｜每次約 2.5 小時｜需現場評估</p><button class="mini-btn" type="button" onclick="pickItem('改圖/遮蓋','遮蓋・疤痕遮蓋','NT$10,000–22,000')">選這個風格 →</button></article>
+<article class="item" data-cat="cover"><div class="item-top"><h3>遮蓋・黑工重生</h3><span class="tag">改圖／遮蓋</span></div><div class="price">NT$15,000–30,000</div><p class="desc">以大面積黑工幾何或黑灰打霧，完整蓋掉舊圖。會先做小範圍測試，確認遮蓋力再約正式施作。</p><p class="meta-line">分 2–3 次｜每次約 3 小時｜適合手臂、背部</p><button class="mini-btn" type="button" onclick="pickItem('改圖/遮蓋','遮蓋・黑工重生','NT$15,000–30,000')">選這個風格 →</button></article>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">※ 以上皆為示範價目。預約時付訂金 NT$1,000（可抵施作費用），報價以諮詢後確認的圖稿為準。</p>
+</section>
+
+<section id="hygiene">
+<div class="hygiene">
+<h2>衛生流程，先說清楚再下針</h2>
+<p>刺青是侵入皮膚的施作，衛生不是加分項，是基本款。以下流程每一位客人都一樣，不因圖大小打折。</p>
+<div class="hygiene-grid">
+<div><b>1｜拋棄式針具，當面拆封</b><p>針具一律使用單次拋棄式針（3RL、5RL、7RS、Magnum 排針依圖選用），每位客人面前拆封，用完立即丟入醫療利器盒，絕不重複使用。</p></div>
+<div><b>2｜色料與耗材單人單份</b><p>色料以 Dynamic 黑、Eternal、World Famous 彩色為主，每次取用小量分裝於拋棄式色料杯；手套、刮鬍刀、保鮮膜、床單皆為一次性。</p></div>
+<div><b>3｜器械高壓滅菌＋工作檯消毒</b><p>可重複器械以高壓蒸氣滅菌鍋滅菌，工作檯、握把、電源線全程包覆屏障膜，每位客人結束後以醫療級消毒液全面擦拭。</p></div>
+<div><b>4｜術後照顧包帶回家</b><p>施作完附術後照顧包：抗菌修護膏、透氣保鮮膜、照顧說明卡。72 小時內有紅腫異常，拍照傳 LINE，刺青師當天回覆。</p></div>
+</div>
+</div>
+</section>
+
+<section id="quiz">
+<div class="sec-head"><h2>刺青風格測驗＋尺寸試算</h2><p>選風格、部位、尺寸，馬上算出預估費用區間與所需時數。結果可以直接帶進下面的預約表單，不用重填。</p></div>
+<div class="calc-box">
+<div>
+<label>1．你喜歡哪一種風格？</label>
+<div class="chips" id="styleChips">
+<label class="chip"><input type="radio" name="qStyle" value="日式" checked onchange="renderQuiz()"><span>日式傳統</span></label>
+<label class="chip"><input type="radio" name="qStyle" value="歐美" onchange="renderQuiz()"><span>歐美寫實</span></label>
+<label class="chip"><input type="radio" name="qStyle" value="細線" onchange="renderQuiz()"><span>細線小圖</span></label>
+<label class="chip"><input type="radio" name="qStyle" value="水彩" onchange="renderQuiz()"><span>水彩暈染</span></label>
+</div>
+<label for="qPart">2．想刺在哪個部位？</label>
+<select id="qPart" onchange="renderQuiz()">
+<option value="手腕／前臂">手腕／前臂</option>
+<option value="上臂／肩膀">上臂／肩膀</option>
+<option value="背部／肩胛">背部／肩胛</option>
+<option value="大腿／小腿">大腿／小腿</option>
+<option value="鎖骨／胸口">鎖骨／胸口</option>
+<option value="側腰／肋骨">側腰／肋骨（較痛，建議先小圖）</option>
+</select>
+<label for="qSize">3．圖大概多大？（最長邊，公分）</label>
+<select id="qSize" onchange="renderQuiz()">
+<option value="5">約 5 公分以內（硬幣到名片大小）</option>
+<option value="10" selected>約 10 公分（手掌大小）</option>
+<option value="15">約 15 公分（手掌半個前臂）</option>
+<option value="25">約 25 公分以上（半甲／大圖）</option>
+</select>
+<p class="quiz-note" id="quizNote">日式大圖講究構圖與留白，建議先約諮詢看全身比例再定尺寸。</p>
+</div>
+<div class="result">
+<h3>你的試算結果</h3>
+<div class="result-line"><span>推薦風格</span><b id="rStyle">日式傳統</b></div>
+<div class="result-line"><span>部位</span><b id="rPart">手腕／前臂</b></div>
+<div class="result-line"><span>尺寸</span><b id="rSize">約 10 公分</b></div>
+<div class="result-line"><span>預估時數</span><b id="rHours">約 2–3 小時</b></div>
+<div class="result-total" id="rPrice">NT$8,000–15,000</div>
+<div class="result-sub" id="rTip">日式圖建議留白與流向，第一次可先做 10 公分試水溫。</div>
+<button class="btn" type="button" onclick="sendToForm()">帶進預約表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>從諮詢到完成，五個步驟</h2><p>第一次刺青不知道從哪開始？照這五步走，圖、價格、時間都先確認好再下針。</p></div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上諮詢</h3><p>填表單或傳 LINE，說風格、部位、尺寸，附參考圖。刺青師 24 小時內回覆、先給粗估價。</p></div>
+<div class="step"><b>2</b><h3>畫圖定稿</h3><p>付訂金 NT$1,000 後開始畫圖，圖稿傳給你確認，可改兩次；第三次起酌收改圖費 NT$500。</p></div>
+<div class="step"><b>3</b><h3>轉印定位</h3><p>當天到店，先量尺寸、貼轉印貼紙，對鏡子確認位置與角度，滿意才開始，位置不對就重貼。</p></div>
+<div class="step"><b>4</b><h3>施作刺青</h3><p>拋棄式針具當面拆封，中途可休息、喝水、看進度；大圖分次完成，每次間隔至少 3 週。</p></div>
+<div class="step"><b>5</b><h3>術後追蹤</h3><p>包上透氣膜、領照顧包回家；3 個月內免費補色一次，結痂期有問題隨時拍照傳 LINE。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>刺青師介紹</h2><p>三位駐店刺青師，各有專長。預約時可以指定，指定不加價，但檔期要等比較久。</p></div>
+<div class="team">
+<div class="member"><div class="avatar">阿墨</div><h3>阿墨 Mo</h3><p class="role">主理人・日式傳統／黑工</p><p>入行 12 年，早期在日本學徒三年，專攻錦鯉、般若、浪花等傳統日式構圖，也接大面積黑工遮蓋。堅持圖稿手繪、不套現成圖。</p><p class="exp">代表作：錦鯉半甲、黑工幾何全背｜每週三、五、六駐店</p></div>
+<div class="member"><div class="avatar">小夏</div><h3>小夏 Xia</h3><p class="role">細線／水彩專長</p><p>入行 7 年，細線小圖是她的招牌，0.18mm 極細針走線穩、暈開率低；水彩暈染以輕透配色見長，很多客人的第一個刺青都是找她。</p><p class="exp">代表作：細線花草、寵物剪影、水彩飛鳥｜每週二、四、日駐店</p></div>
+<div class="member"><div class="avatar">阿傑</div><h3>阿傑 Jay</h3><p class="role">歐美寫實／改圖遮蓋</p><p>入行 9 年，專攻黑灰寫實人像與花卉，Magnum 排針打霧層次細；改圖評估很直接——遮得掉就接，遮不掉會先說，不硬接。</p><p class="exp">代表作：寫實玫瑰、舊圖翻新、疤痕遮蓋｜每週一、三、六駐店</p></div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head"><h2>客人怎麼說</h2><p>以下為示範評價。正式上線將換成真實客人回饋。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「第一次刺青超緊張，小夏先貼轉印讓我對鏡子看半天，位置喬到滿意才下針。細線小花三個月了，線還是很細、沒有暈開。」</p><footer>— 陳小姐・細線小花・前臂</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「手臂上的舊圖跟了我十年，阿傑老實說只能黑工蓋，沒硬推。分三次做完，現在看起來像全新的圖，補色也免費。」</p><footer>— 林先生・黑工遮蓋・上臂</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「錦鯉半甲是阿墨手繪的，浪花的流向有配合手臂肌肉線條。針具當面拆封、流程講得很清楚，術後照顧包也很完整。」</p><footer>— 黃先生・日式錦鯉・半甲</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「水彩飛鳥的顏色比想像中淡一點，但小夏事前就有先說水彩風格本來就輕透，補色後剛剛好。唯一缺點是假日檔期真的要提早約。」</p><footer>— 吳小姐・水彩飛鳥・肩胛</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2><p>價格、預約、取消、術後照顧、交通，一次問清楚。</p></div>
+<div class="faq">
+<details><summary>刺青怎麼計價？可以先知道大概多少錢嗎？</summary><p>以圖稿複雜度、尺寸與部位計價，細線小圖約 NT$2,500 起，大圖依面積與次數報價。先做上方「風格測驗＋尺寸試算」會有費用區間，諮詢時附參考圖，刺青師會給正式報價；報價後不另收設計費，改圖兩次內免費。</p></details>
+<details><summary>怎麼預約？要先付訂金嗎？</summary><p>填下方預約表單或直接加 LINE，說明風格、部位、尺寸並附參考圖。確認圖稿方向後付訂金 NT$1,000（可抵施作費用）才保留檔期與開始畫圖；未付訂金只算諮詢，不保留時間。</p></details>
+<details><summary>臨時有事可以改期或取消嗎？</summary><p>施作前 72 小時以上改期一次免費，訂金可保留改期一次；72 小時內取消或當天未到，訂金不退還（圖已畫好、檔期已保留）。改期請直接傳 LINE，工作室會回覆確認新的時間。</p></details>
+<details><summary>刺完要怎麼照顧？多久可以碰水、運動？</summary><p>施作完會包透氣膜並附照顧包：前 3 天保持乾燥、薄擦修護膏；結痂期不要摳、不要泡澡游泳、不要曬太陽，約 2 週脫痂。3 個月內免費補色一次，補色前先拍照給刺青師確認狀態。</p></details>
+<details><summary>刺青會很痛嗎？可以擦麻藥嗎？</summary><p>痛感因部位而異，肋骨、腳踝、鎖骨較敏感，前臂、大腿相對好忍。工作室不主動提供麻藥膏（可能影響上色與癒合），若你有使用需求請先諮詢刺青師；施作中途可隨時喊停休息。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>工作室位於台中市（詳細地址請洽詢，預約成功後 LINE 傳送定位）。附近有公車站，開車可停鄰近收費停車場，騎車門口有機車格。為保護客人隱私，工作室不掛招牌、採預約制，請勿直接 walk-in。</p></details>
+</div>
+</section>
+
+<section id="book">
+<div class="sec-head"><h2>預約諮詢</h2><p>填完表單會自動產生一則 LINE 訊息，複製後貼到官方 LINE 傳送即可。我們會在 24 小時內回覆報價與檔期。</p></div>
+<div class="form-box">
+<div class="form-grid">
+<div><label for="fName">姓名 *</label><input type="text" id="fName" placeholder="例：王小明" oninput="updateMsg()"></div>
+<div><label for="fPhone">電話 *</label><input type="tel" id="fPhone" placeholder="例：09XX-XXX-XXX" oninput="updateMsg()"></div>
+<div><label for="fStyle">喜歡的風格 *</label><select id="fStyle" onchange="updateMsg()"><option value="日式傳統">日式傳統</option><option value="歐美寫實">歐美寫實</option><option value="細線小圖">細線小圖</option><option value="水彩暈染">水彩暈染</option><option value="改圖／遮蓋">改圖／遮蓋</option><option value="還不確定，想請刺青師建議">還不確定，想請刺青師建議</option></select></div>
+<div><label for="fArtist">指定刺青師</label><select id="fArtist" onchange="updateMsg()"><option value="不指定">不指定</option><option value="阿墨（日式／黑工）">阿墨（日式／黑工）</option><option value="小夏（細線／水彩）">小夏（細線／水彩）</option><option value="阿傑（歐美寫實／改圖）">阿傑（歐美寫實／改圖）</option></select></div>
+<div><label for="fPart">部位 *</label><select id="fPart" onchange="updateMsg()"><option value="手腕／前臂">手腕／前臂</option><option value="上臂／肩膀">上臂／肩膀</option><option value="背部／肩胛">背部／肩胛</option><option value="大腿／小腿">大腿／小腿</option><option value="鎖骨／胸口">鎖骨／胸口</option><option value="側腰／肋骨">側腰／肋骨</option><option value="其他（請寫在備註）">其他（請寫在備註）</option></select></div>
+<div><label for="fSize">尺寸（最長邊，公分）*</label><select id="fSize" onchange="updateMsg()"><option value="約 5 公分以內">約 5 公分以內</option><option value="約 10 公分" selected>約 10 公分</option><option value="約 15 公分">約 15 公分</option><option value="約 25 公分以上">約 25 公分以上</option></select></div>
+<div><label for="fDate">希望日期</label><input type="text" id="fDate" placeholder="例：11/29 下午、平日晚上" oninput="updateMsg()"></div>
+<div><label for="fAge">年齡確認 *</label><select id="fAge" onchange="updateMsg()"><option value="已滿 18 歲，當日可出示證件">已滿 18 歲，當日可出示證件</option><option value="未滿 18 歲">未滿 18 歲（本工作室僅服務年滿 18 歲者）</option></select></div>
+</div>
+<label for="fNote">想刺的內容／備註</label>
+<textarea id="fNote" rows="3" placeholder="例：想刺一朵牡丹配一句英文，參考圖已準備好，LINE 再傳給你們。" oninput="updateMsg()"></textarea>
+<label>自動產生的 LINE 訊息</label>
+<div class="msg-box" id="msgBox">請先填寫姓名與電話，訊息會自動產生在這裡。</div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:12px">※ 送出前請確認已滿 18 歲。未滿 18 歲者恕不提供諮詢與施作服務。</p>
+</div>
+<div class="info-grid">
+<div class="info"><h3>📍 工作室位置</h3><p>台中市（詳細地址請洽詢）<br>預約制・一對一獨立包廂，預約成功後 LINE 傳送定位。</p></div>
+<div class="info"><h3>📞 聯絡電話</h3><p>02-XXXX-XXXX<br>示範營業時間 13:00–21:00（週一公休）</p></div>
+<div class="info"><h3>💬 預約方式</h3><p>填上方表單 → 複製訊息 → 貼到官方 LINE 傳送，24 小時內回覆報價與檔期。</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>墨痕刺青 MO HEN TATTOO</strong>｜台中市（詳細地址請洽詢）｜02-XXXX-XXXX</p>
+<p>本頁為示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。僅服務年滿 18 歲者。</p>
+<p>© 2026 墨痕刺青（示範）・MONO AI 影像工作室示範站第 57 間</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:02-XXXX-XXXX">📞 打電話</a>
+<a href="#book">✒️ 預約諮詢</a>
+</div>
+
+<script>
+var quizResult = {style:'日式', part:'手腕／前臂', size:'約 10 公分', price:'NT$8,000–15,000', hours:'約 2–3 小時'};
+function filterItems(cat, btn){
+var btns = document.querySelectorAll('.filter-btn');
+for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('active');}
+btn.classList.add('active');
+var items = document.querySelectorAll('#menuGrid.item');
+for (var j = 0; j < items.length; j++) {
+var show = (cat === 'all' || items[j].getAttribute('data-cat') === cat);
+items[j].classList.toggle('hide',!show);
+}
+}
+function getStyle(){
+var radios = document.getElementsByName('qStyle');
+for (var i = 0; i < radios.length; i++) { if (radios[i].checked) return radios[i].value;}
+return '日式';
+}
+function renderQuiz(){
+var style = getStyle();
+var part = document.getElementById('qPart').value;
+var sizeVal = parseInt(document.getElementById('qSize').value, 10);
+var sizeLabel = document.getElementById('qSize').options[document.getElementById('qSize').selectedIndex].text;
+var base = {'日式': 9000, '歐美': 8000, '細線': 3000, '水彩': 7000};
+var mult = sizeVal <= 5? 0.5: (sizeVal <= 10? 1: (sizeVal <= 15? 1.8: 3.2));
+var low = Math.round(base[style] * mult / 500) * 500;
+var high = Math.round(low * 1.8 / 500) * 500;
+var hours = sizeVal <= 5? '約 40–90 分鐘': (sizeVal <= 10? '約 2–3 小時': (sizeVal <= 15? '約 3–4 小時，分 1–2 次': '約 9–12 小時，分 3–4 次'));
+var tips = {
+'日式': '日式圖建議留白與流向，第一次可先做 10 公分試水溫。',
+'歐美': '歐美寫實吃打霧層次，建議先看色稿再定尺寸。',
+'細線': '細線圖線條極細，建議避開手指關節等易暈開的部位。',
+'水彩': '水彩風格輕透，顏色會比色稿淡一階，補色後最剛好。'
+};
+var notes = {
+'日式': '日式大圖講究構圖與留白，建議先約諮詢看全身比例再定尺寸。',
+'歐美': '歐美寫實建議提供清晰參考照片，刺青師會先畫色稿給你確認。',
+'細線': '細線小圖最快當週可約，第一次刺青很適合從 5–10 公分開始。',
+'水彩': '水彩暈染不描黑框，適合喜歡輕盈感、不想要厚重線條的人。'
+};
+document.getElementById('rStyle').textContent = style + (style === '日式'? '傳統': style === '歐美'? '寫實': style === '細線'? '小圖': '暈染');
+document.getElementById('rPart').textContent = part;
+document.getElementById('rSize').textContent = sizeLabel;
+document.getElementById('rHours').textContent = hours;
+document.getElementById('rPrice').textContent = 'NT$' + low.toLocaleString('en-US') + '–' + high.toLocaleString('en-US');
+document.getElementById('rTip').textContent = tips[style];
+document.getElementById('quizNote').textContent = notes[style];
+quizResult = {style: style, part: part, size: sizeLabel, price: 'NT$' + low.toLocaleString('en-US') + '–' + high.toLocaleString('en-US'), hours: hours};
+}
+function pickItem(style, name, price){
+var styleSel = document.getElementById('fStyle');
+var map = {'細線小圖':'細線小圖','日式':'日式傳統','歐美':'歐美寫實','水彩':'水彩暈染','改圖/遮蓋':'改圖／遮蓋'};
+if (map[style]) { styleSel.value = map[style];}
+var note = document.getElementById('fNote');
+note.value = '想做：' + name + '（' + price + '）';
+updateMsg();
+document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
+function sendToForm(){
+renderQuiz();
+var styleMap = {'日式':'日式傳統','歐美':'歐美寫實','細線':'細線小圖','水彩':'水彩暈染'};
+document.getElementById('fStyle').value = styleMap[quizResult.style] || '日式傳統';
+document.getElementById('fPart').value = quizResult.part;
+var sizeSel = document.getElementById('fSize');
+var sizeVal = document.getElementById('qSize').value;
+sizeSel.value = sizeVal === '5'? '約 5 公分以內': sizeVal === '10'? '約 10 公分': sizeVal === '15'? '約 15 公分': '約 25 公分以上';
+updateMsg();
+document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
+function buildMsg(){
+var name = document.getElementById('fName').value.trim();
+var phone = document.getElementById('fPhone').value.trim();
+var style = document.getElementById('fStyle').value;
+var artist = document.getElementById('fArtist').value;
+var part = document.getElementById('fPart').value;
+var size = document.getElementById('fSize').value;
+var date = document.getElementById('fDate').value.trim();
+var age = document.getElementById('fAge').value;
+var note = document.getElementById('fNote').value.trim();
+if (!name ||!phone) { return '';}
+var lines = [];
+lines.push('');
+lines.push('姓名：' + name);
+lines.push('電話：' + phone);
+lines.push('風格：' + style);
+lines.push('指定刺青師：' + artist);
+lines.push('部位：' + part);
+lines.push('尺寸：' + size);
+lines.push('希望日期：' + (date || '未指定'));
+lines.push('年齡確認：' + age);
+lines.push('試算結果：風格 ' + quizResult.style + '／部位 ' + quizResult.part + '／' + quizResult.size + '／預估 ' + quizResult.price + '／' + quizResult.hours);
+lines.push('想刺的內容／備註：' + (note || '無'));
+return lines.join('\n');
+}
+function updateMsg(){
+var msg = buildMsg();
+var box = document.getElementById('msgBox');
+if (msg) { box.textContent = msg;} else { box.textContent = '請先填寫姓名與電話，訊息會自動產生在這裡。';}
+document.getElementById('copyFeedback').textContent = '';
+}
+function copyMsg(){
+var msg = buildMsg();
+var fb = document.getElementById('copyFeedback');
+if (!msg) { fb.textContent = '請先填寫姓名與電話再複製。'; return;}
+function done(){ fb.textContent = '已複製！貼到官方 LINE 傳送即可。';}
+function fallback(){
+var ta = document.createElement('textarea');
+ta.value = msg;
+document.body.appendChild(ta);
+ta.select();
+try { document.execCommand('copy'); done();} catch (e) { fb.textContent = '複製失敗，請手動選取訊息複製。';}
+document.body.removeChild(ta);
+}
+if (navigator.clipboard && navigator.clipboard.writeText) {
+navigator.clipboard.writeText(msg).then(done).catch(fallback);
+} else { fallback();}
+}
+renderQuiz();
+updateMsg();
+</script>
+</body>
+</html>
