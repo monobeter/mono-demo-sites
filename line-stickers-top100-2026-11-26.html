@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>LINE 貼圖按讚・人氣前 100 名（台灣）市調｜風格拆解與 MONO 的原創點子</title>
+    <meta name="description" content="發文日期 2026-11-26。台灣 LINE 貼圖市調：LINE STORE 沒有公開的按讚數排行榜，本報告以 2026-11-26 台灣人氣前 100 名代替（81 名已驗證、19 名留空），拆解最熱賣貼圖的角色、畫風與文字公式，並給 MONO 12 個只學公式、不抄襲的原創貼圖點子。" />
+    <meta name="keywords" content="LINE 貼圖,按讚,人氣前 100 名,台灣,貼圖市調,LINE STORE,原創貼圖" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "LINE 有公開的貼圖按讚數排行榜嗎？",
+          "acceptedAnswer": { "@type": "Answer", "text": "沒有。LINE STORE 台灣沒有公開的按讚（愛心）數排行榜，愛心數只顯示在每一組貼圖自己的商品頁，無法排序或一次看全部。本市調以 2026-11-26 的台灣人氣／暢銷前 100 名代替，其中 81 名已驗證、19 名查不到留空。" }
+        },
+        {
+          "@type": "Question",
+          "name": "台灣 LINE 貼圖人氣前 100 名最多的是什麼風格？",
+          "acceptedAnswer": { "@type": "Answer", "text": "簡單扁平線條、粗描邊、Q 版比例是主流畫風；角色以貓最多（台灣前 500 名中貓佔 19.8%），其次是人類 16.8%、狗 8.4%、熊 7.8%、兔 7.8%。幾乎每一組都帶繁體中文短句，主題以日常生活、戀愛、家人與職場為主。" }
+        },
+        {
+          "@type": "Question",
+          "name": "熱門 LINE 貼圖是靜態多還是動態多？",
+          "acceptedAnswer": { "@type": "Answer", "text": "靜態明顯較多：台灣前 500 名中靜態佔 79.4%、動態 19.2%；前 50 名裡靜態佔 76%、動態佔 24%。只做靜態貼圖完全站得住。" }
+        },
+        {
+          "@type": "Question",
+          "name": "熱門 LINE 貼圖的價格大概多少？",
+          "acceptedAnswer": { "@type": "Answer", "text": "靜態貼圖主流價格是 NT$42，動態是 NT$60。台灣前 500 名的價格帶以 US$1.69 級距最大宗（38.6%），且最便宜的級距排名反而最差，價格不是賣得好的關鍵。" }
+        },
+        {
+          "@type": "Question",
+          "name": "新手做 LINE 貼圖該學熱門貼圖的什麼？",
+          "acceptedAnswer": { "@type": "Answer", "text": "學公式、不抄角色：主角只放一個且辨識度高；畫風簡單扁平、粉彩乾淨；用繁體中文短句加台灣日常口語幫使用者說話；一組包辦一整天（早安、吃飯、上班、累了、晚安）再加戀愛、家人與禮貌職場回覆；定價 NT$42 即可，靜態就夠。" }
+        }
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #faf6ee;
+        --bg-soft: #f3ecdd;
+        --card: #fffdf8;
+        --ink: #3b2f23;
+        --ink-soft: #6f5f4c;
+        --ink-faint: #97836a;
+        --gold: #a97f3f;
+        --gold-soft: #d9c193;
+        --line: #e4d8c2;
+        --accent-bg: #efe3cb;
+        --warn-bg: #f7ead9;
+        --warn-ink: #7a4d16;
+        --chip-bg: #efe7d6;
+        --shadow: 0 1px 2px rgba(90, 66, 30, .06), 0 8px 24px rgba(90, 66, 30, .05);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #221a12;
+          --bg-soft: #2a2115;
+          --card: #2e2517;
+          --ink: #f0e6d4;
+          --ink-soft: #c9b896;
+          --ink-faint: #a08a68;
+          --gold: #d3ab63;
+          --gold-soft: #8a6f3e;
+          --line: #453723;
+          --accent-bg: #3a2d1a;
+          --warn-bg: #3d2c14;
+          --warn-ink: #eec27e;
+          --chip-bg: #382c1b;
+          --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.75;
+        font-size: 16px;
+      }
+      .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px 72px; }
+      h1, h2, h3 { font-family: "Noto Serif TC", "Songti TC", serif; line-height: 1.35; margin: 0; }
+      h2 { font-size: 1.55rem; font-weight: 900; letter-spacing: .02em; }
+      h3 { font-size: 1.12rem; font-weight: 700; }
+      p { margin: 0; }
+      a { color: var(--gold); text-underline-offset: 3px; }
+      section { margin-top: 56px; }
+      .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+      .sec-no {
+        font-family: "Noto Serif TC", serif; font-weight: 900; font-size: .95rem;
+        color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px;
+        padding: 2px 12px; white-space: nowrap;
+      }
+      .sec-sub { color: var(--ink-soft); font-size: .95rem; margin-bottom: 20px; max-width: 46em; }
+
+      /* ---------- Hero ---------- */
+      .hero { padding: 48px 0 8px; }
+      .hero .date-line { color: var(--gold); font-weight: 700; letter-spacing: .14em; font-size: .82rem; }
+      .hero h1 { font-size: clamp(1.9rem, 5.4vw, 3rem); font-weight: 900; margin: 12px 0 14px; }
+      .hero .lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 44em; }
+      .hero .lede strong { color: var(--ink); }
+      .verdict {
+        margin-top: 26px; background: var(--warn-bg); border: 1px solid var(--gold-soft);
+        border-radius: 14px; padding: 20px 22px;
+      }
+      .verdict h3 { color: var(--warn-ink); margin-bottom: 6px; font-size: 1.05rem; }
+      .verdict p { color: var(--ink); font-size: .98rem; }
+      .verdict p + p { margin-top: 8px; }
+      .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+      .stat {
+        background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+        padding: 16px 14px; box-shadow: var(--shadow);
+      }
+      .stat .num { font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 1.7rem; color: var(--gold); line-height: 1.15; }
+      .stat .lbl { font-size: .83rem; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
+      @media (max-width: 720px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+
+      /* ---------- Pattern cards ---------- */
+      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+      @media (max-width: 820px) { .grid2 { grid-template-columns: 1fr; } }
+      .card {
+        background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+        padding: 22px; box-shadow: var(--shadow);
+      }
+      .card h3 { margin-bottom: 10px; }
+      .card p, .card li { font-size: .95rem; color: var(--ink-soft); }
+      .card p strong, .card li strong { color: var(--ink); }
+      .card ul { margin: 0; padding-left: 1.25em; }
+      .card li + li { margin-top: 6px; }
+      .card .note { font-size: .82rem; color: var(--ink-faint); margin-top: 12px; }
+      .chart-title { font-size: .9rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+      .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px; font-size: .85rem; color: var(--ink-soft); }
+      .legend span { display: inline-flex; align-items: center; gap: 6px; }
+      .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+      /* ---------- Table ---------- */
+      .tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0 14px; }
+      .tools input[type="search"] {
+        flex: 1 1 220px; min-height: 44px; padding: 8px 14px; border-radius: 10px;
+        border: 1px solid var(--line); background: var(--card); color: var(--ink);
+        font: inherit; font-size: .95rem;
+      }
+      .chip {
+        min-height: 40px; padding: 6px 16px; border-radius: 999px; cursor: pointer;
+        border: 1px solid var(--line); background: var(--chip-bg); color: var(--ink-soft);
+        font: inherit; font-size: .9rem; font-weight: 500;
+      }
+      .chip[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: #fff8ea; }
+      @media (prefers-color-scheme: dark) { .chip[aria-pressed="true"] { color: #241a0d; } }
+      .count-line { font-size: .88rem; color: var(--ink-faint); margin-bottom: 10px; }
+      .tbl-wrap { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card); box-shadow: var(--shadow); }
+      table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+      thead th {
+        text-align: left; background: var(--bg-soft); color: var(--ink-soft);
+        font-size: .8rem; letter-spacing: .06em; padding: 10px 12px; white-space: nowrap;
+      }
+      tbody td { padding: 10px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+      tbody tr:hover { background: var(--bg-soft); }
+      td.rank { font-family: "Noto Serif TC", serif; font-weight: 900; color: var(--gold); font-size: 1.05rem; white-space: nowrap; }
+      td .zh { display: block; font-weight: 700; color: var(--ink); }
+      td .en { display: block; color: var(--ink-soft); font-size: .86rem; }
+      td .creator { white-space: nowrap; }
+      .fmt { display: inline-block; font-size: .78rem; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: var(--accent-bg); color: var(--warn-ink); white-space: nowrap; }
+      .fmt.anim { background: var(--gold); color: #fff8ea; }
+      @media (prefers-color-scheme: dark) { .fmt.anim { color: #241a0d; } }
+      .heart { white-space: nowrap; font-weight: 700; }
+      .heart small { display: block; font-weight: 400; color: var(--ink-faint); font-size: .75rem; }
+      tr.unverified td { color: var(--ink-faint); font-style: italic; }
+      tr.unverified td.rank { color: var(--ink-faint); }
+      .tbl-note { font-size: .84rem; color: var(--ink-faint); margin-top: 10px; }
+      @media (max-width: 720px) {
+        table, thead, tbody, tr, td { display: block; }
+        thead { position: absolute; left: -9999px; }
+        tbody tr { padding: 12px 14px; border-top: 1px solid var(--line); }
+        tbody td { border-top: none; padding: 2px 0; }
+        td.rank { font-size: 1rem; }
+        td.rank::after { content: " 名"; font-size: .8rem; color: var(--ink-faint); font-family: "Noto Sans TC", sans-serif; font-weight: 400; }
+        td .creator::before { content: "創作者："; color: var(--ink-faint); font-size: .82rem; }
+        td.theme-cell::before { content: "角色・主題："; color: var(--ink-faint); font-size: .82rem; display: block; }
+      }
+
+      /* ---------- Ideas ---------- */
+      .ideas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+      @media (max-width: 820px) { .ideas { grid-template-columns: 1fr; } }
+      .idea { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+      .idea .no { font-family: "Noto Serif TC", serif; font-weight: 900; color: var(--gold-soft); font-size: 1.5rem; line-height: 1; }
+      .idea h3 { margin: 8px 0 4px; font-size: 1.18rem; }
+      .idea .en-title { color: var(--ink-faint); font-size: .85rem; margin-bottom: 10px; }
+      .idea p { font-size: .94rem; color: var(--ink-soft); }
+      .idea dl { margin: 12px 0 0; font-size: .88rem; }
+      .idea dt { font-weight: 700; color: var(--gold); margin-top: 8px; }
+      .idea dd { margin: 2px 0 0; color: var(--ink-soft); }
+
+      /* ---------- Notes / caveats / sources ---------- */
+      .plain-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; box-shadow: var(--shadow); }
+      .plain-card ul { margin: 0; padding-left: 1.3em; }
+      .plain-card li { font-size: .95rem; color: var(--ink-soft); }
+      .plain-card li + li { margin-top: 8px; }
+      .plain-card li strong { color: var(--ink); }
+      .faq h3 { margin-top: 20px; }
+      .faq h3:first-child { margin-top: 0; }
+      .faq p { font-size: .95rem; color: var(--ink-soft); margin-top: 4px; }
+      .faq p strong { color: var(--ink); }
+      .sources { font-size: .9rem; }
+      .sources li { word-break: break-all; }
+      footer { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 18px; color: var(--ink-faint); font-size: .85rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+
+      <!-- ================= HERO ================= -->
+      <header class="hero">
+        <p class="date-line">發文日期：2026-11-26｜市調報告</p>
+        <h1>LINE 貼圖前 100 名：<br />大家到底在買什麼風格？</h1>
+        <p class="lede">
+          先講最重要的結論：<strong>LINE STORE 台灣沒有公開的「按讚數排行榜」</strong>——愛心數只顯示在每一組貼圖自己的商品頁，沒辦法排序、也沒辦法一次看全部。
+          所以這份市調用最接近的公開榜單替代：<strong>2026 年 11 月 26 日當天的台灣人氣／暢銷榜</strong>，拆解前 100 名的角色、畫風、主題與文字用法，再給 MONO 一份「學公式、不抄角色」的原創點子清單。
+        </p>
+
+        <div class="verdict">
+          <h3>為什麼不能直接說這是「按讚前 100 名」</h3>
+          <p>人氣榜第 1 名「貓貓蟲咖波 x 初音未來」的愛心數，2026-11-26 即時查證只有 <strong>2,739</strong>；但一組不在當天前 50 名內的「貓貓蟲咖波－名人堂紀念貼圖」，搜尋結果顯示有 <strong>11.5k</strong> 愛心。也就是說，<strong>按讚排名和暢銷排名是兩份完全不同的名單</strong>，真正的按讚前 100 名無法從公開來源取得——除非逐一打開上千個商品頁人工記錄。</p>
+          <p>以下名單請當作「今天台灣最熱賣的 100 組」來看待，不要當作按讚排名引用。</p>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat"><div class="num">81 / 100</div><div class="lbl">名次已驗證（前 50 名全數＋第 51–100 名中的 31 名）；其餘 19 名查不到，留空不杜撰</div></div>
+          <div class="stat"><div class="num">2,739</div><div class="lbl">第 1 名「貓貓蟲咖波 x 初音未來」的愛心數（唯一即時驗證的一組）</div></div>
+          <div class="stat"><div class="num">76%</div><div class="lbl">前 50 名是靜態貼圖——靜態仍是主流，動態佔 24%</div></div>
+          <div class="stat"><div class="num">NT$42</div><div class="lbl">靜態貼圖的主流價格（動態 NT$60），與 MONO 現行定價完全同級</div></div>
+        </div>
+      </header>
+
+      <!-- ================= 1. PATTERNS ================= -->
+      <section id="patterns">
+        <div class="sec-head"><span class="sec-no">01</span><h2>風格拆解：前 100 名的共同公式</h2></div>
+        <p class="sec-sub">資料來自追蹤器 LineStickerRanking 的台灣前 500 名統計（2026-11-26）與已驗證的前 100 名名單。角色標籤是追蹤器依縮圖自動偵測，屬概略值。</p>
+
+        <div class="grid2">
+          <div class="card">
+            <p class="chart-title">角色類型占比（台灣前 500 名）</p>
+            <svg id="charChart" viewBox="0 0 520 300" width="100%" role="img" aria-label="角色類型占比長條圖：其他 23.8%、貓 19.8%、人類 16.8%、狗 8.4%、熊 7.8%、兔 7.8%、鳥 4.4%、熊貓 4.2%"></svg>
+            <p class="note">八類合計 93.0%，其餘約 7% 是未逐項列出的其他角色。<strong>貓是單一最大類</strong>；但「其他」在前 50 名升到 30%——夠有辨識度的非貓角色，反而更容易衝到最前面。</p>
+          </div>
+
+          <div class="card">
+            <p class="chart-title">形式占比（台灣前 500 名）</p>
+            <svg id="fmtChart" viewBox="0 0 520 64" width="100%" role="img" aria-label="形式占比：靜態 79.4%、動態 19.2%、彈出 1.2%、自訂 0.2%"></svg>
+            <div class="legend" id="fmtLegend"></div>
+            <p class="note">前 50 名裡動態佔 24%（12 組），比整體略高，但<strong>靜態仍拿下 76% 的席位</strong>。只做靜態的創作者完全站得住。</p>
+            <p class="chart-title" style="margin-top:20px;">價格帶占比（台灣前 500 名，美元級距）</p>
+            <svg id="priceChart" viewBox="0 0 520 118" width="100%" role="img" aria-label="價格帶占比：1.69 美元 38.6%、1.99 美元 33.2%、0.99 美元 27.9%"></svg>
+            <p class="note">NT$42 正是 $1.69 這個最大宗的級距。三個價格帶的中位排名：最便宜的 $0.99 反而最差（#313），$1.69 是 #229——<strong>便宜不會賣得比較好，價格不是決勝點</strong>。</p>
+          </div>
+
+          <div class="card">
+            <h3>畫風：簡單、扁平、粗線條</h3>
+            <ul>
+              <li><strong>主流是簡單扁平線條</strong>：粗描邊、幾乎不上陰影、Q 版比例、大眼睛小嘴巴，粉彩或高對比平塗。白爛貓、小花皮皮、GOKIGEN PANDA、FRIC 青蛙都是這一型。</li>
+              <li><strong>水彩／手繪柔和風是少數</strong>：前 50 名裡最明顯的是第 33 名「花仙子與小鳥」。寫實／照片風更少，3D 幾乎缺席。</li>
+              <li><strong>「醜萌塗鴉系」是真實存在的子風格</strong>：潦草白人、醜女孩、迷因胖灰貓靠自嘲感上榜。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>主題：日常第一，再來是愛、工作、家人</h3>
+            <ul>
+              <li><strong>日常生活觀察是核心</strong>：標題直接寫「生活觀察家」「Daily Life」的比比皆是——一組貼圖包辦早安、吃飯、上班、累了、晚安的一整天。</li>
+              <li><strong>戀愛與情侶</strong>：LOVE RABBIT 靠情侶到家人的情境＋半開玩笑的「情勒」用語走紅；幼犬情侶系列在前 100 名佔了 4 組。</li>
+              <li><strong>社畜與工作</strong>：辦公室女孩、投資長、股市語錄——禮貌回覆底下藏著疲憊，是台灣上班族的共鳴點。</li>
+              <li><strong>家人線很強</strong>：阿嬤（第 2 名）、熊貓媽媽、媽媽努力系列——媽媽與阿嬤是獨立且強勢的一條賽道。</li>
+              <li><strong>直白毒舌靠動物代言</strong>：PP 鴨的「你有什麼問題」「不要再唸了」、呆狗的嗆辣回嘴——話很直，但由可愛動物說出口就變得可以傳。</li>
+              <li><strong>台灣在地味是差異化武器</strong>：虎爺、海豹台語版、統一獅棒球、股市語錄——日本進口貼圖做不到的本地梗。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>文字：貼圖的工作就是「幫你說那句話」</h3>
+            <ul>
+              <li><strong>幾乎每一組都帶字</strong>，標題甚至直接主打「With Text」「帶字幕」——無字版只出現在榜單後段，是配角不是主角。</li>
+              <li><strong>繁體中文短句為主</strong>，多是 2–6 字的日常口語；很多日本角色還特別推出「台灣版」重新配上台灣中文。</li>
+              <li><strong>台語與網路語加分</strong>：像「阿嬤ㄎㄧㄤ到沒人擋」的ㄎㄧㄤ；諧音梗也常見（鴨／呀）。</li>
+              <li>英文多半只出現在標題與品牌名（LOVE RABBIT、FRIC），不是貼圖上的主要語言。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>創作者：少數高產作者佔了很多席位</h3>
+            <ul>
+              <li>台灣前 500 名裡，<strong>前 10 名創作者就佔了 31.6% 的席位</strong>：NishimuraYuji 有 34 組、Poo Poo Princess 17 組、WoooooooooW 17 組、Dylan 16 組、A-way 15 組。</li>
+              <li>前 50 名裡 WoooooooooW 一人佔 6 席、Dylan 與 NishimuraYuji 各 4 席——多是個人或小型工作室，品牌授權（萬代、明日方舟、NIKKE、統一獅）是少數。</li>
+              <li><strong>但續作本身沒有排名優勢</strong>：約 20% 的標題是編號續作，追蹤器的中位排名檢驗顯示續作（#288）還略輸原創（#243）。每一集都要靠新情境、新句子自己站住。</li>
+              <li>年度榜（2024／2025）則由名人堂級長青創作者主導：白爛貓、好想兔、貓貓蟲咖波、野生喵喵怪、胖鯊魚鯊西米、晴天P莉、卡娜赫拉——長期經營與持續出集數，是年度尺度的勝負手。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. TOP 100 ================= -->
+      <section id="top100">
+        <div class="sec-head"><span class="sec-no">02</span><h2>前 100 名完整名單</h2></div>
+        <p class="sec-sub">2026-11-26 台灣人氣／暢銷榜快照（來源：LineStickerRanking 每小時擷取 LINE Store 公開榜單；此站為獨立追蹤器，與 LINE 官方無關）。榜單每小時都在變，這是當天的定格。名稱以追蹤器的英文標題為主，有從 LINE STORE 商品頁驗證到中文名的才附上。「角色・主題」是依標題、縮圖與商品說明推斷，不是逐張貼圖的內容審查。</p>
+
+        <div class="tools">
+          <input type="search" id="q" placeholder="搜尋貼圖名或創作者…" aria-label="搜尋貼圖名或創作者" />
+          <button class="chip" data-fmt="all" aria-pressed="true">全部</button>
+          <button class="chip" data-fmt="S" aria-pressed="false">靜態</button>
+          <button class="chip" data-fmt="A" aria-pressed="false">動態</button>
+          <button class="chip" data-fmt="P" aria-pressed="false">彈出</button>
+        </div>
+        <p class="count-line" id="countLine"></p>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>名次</th><th>貼圖組</th><th>創作者</th><th>形式</th><th>愛心數</th><th>角色・主題</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <p class="tbl-note">＊ 形式標記者（第 68、71、75、77、78、91、92 名），其靜態／動態是依它出現的分類榜推斷，屬暫定。第 67、72–74、79、83–90、93–95、97、99、100 名在免費檢視中無法驗證，名稱留空、不杜撰。愛心數只有第 1 名即時驗證，其餘未逐一查核——不要把名次當按讚數引用。已驗證價格：第 2、4、17 名 NT$42；第 3 名 NT$60；第 1 名瀏覽顯示 US$1.99（台灣定價為動態級距 NT$60）。</p>
+      </section>
+
+      <!-- ================= 3. IDEAS ================= -->
+      <section id="ideas">
+        <div class="sec-head"><span class="sec-no">03</span><h2>給 MONO 的 12 個原創點子</h2></div>
+        <p class="sec-sub">全部只借「公式」，不借角色、不借組名、不借原句：換角色、換情境、換說法。每個點子都照 MONO 的規格設計——可愛柔和風、40 張靜態、NT$42、主要給台灣女性日常和家人、朋友、另一半聊天用。</p>
+
+        <div class="ideas">
+          <article class="idea">
+            <div class="no">01</div>
+            <h3>軟豆腐鄰居</h3>
+            <p class="en-title">Soft Tofu Neighbour</p>
+            <p>一塊軟綿綿的豆腐方塊女孩，住在你隔壁，隨時探頭過來，用最溫柔的語氣包辦早安、吃飯、晚安的日常回覆。</p>
+            <dl>
+              <dt>借的公式</dt><dd>「生活觀察家」式日常全包組＋柔和簡單線條主角。</dd>
+              <dt>不一樣在哪</dt><dd>主角是食物不是貓狗；個性是低戲劇性的鄰家溫暖，不走嗆辣或毒舌路線，所有回覆都是軟的。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">02</div>
+            <h3>小小曬衣繩</h3>
+            <p class="en-title">The Little Laundry Line</p>
+            <p>一家人是襪子、毛巾和衣夾，掛在曬衣繩上過日子，說的都是曬乾、等待、回家這些家裡的話。</p>
+            <dl>
+              <dt>借的公式</dt><dd>家庭組＋日常組＋多角色小劇場。</dd>
+              <dt>不一樣在哪</dt><dd>完全沒有動物臉，主角是居家用品；情境是家事與回家，不是辦公室也不是戀愛。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">03</div>
+            <h3>稻田邊的白鷺鷥</h3>
+            <p class="en-title">Egret at the Rice Field</p>
+            <p>一隻站在稻田裡的白鷺鷥，步調很慢，專門送不疾不徐的晨昏問候，給家族群組裡的長輩也完全合適。</p>
+            <dl>
+              <dt>借的公式</dt><dd>台灣在地味＋溫柔祝福系＋阿嬤／媽媽線的溫暖。</dd>
+              <dt>不一樣在哪</dt><dd>主角是田野裡的野生鳥，不是寵物；節奏是慢與安定，跟迷因式的快節奏完全相反。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">04</div>
+            <h3>刨冰攤小熊</h3>
+            <p class="en-title">Shaved-Ice Bear Cub</p>
+            <p>一隻在夜市擺刨冰攤的小熊，專門回覆熱天、吃點心、分食、消暑的夏夜情境。</p>
+            <dl>
+              <dt>借的公式</dt><dd>食物系貼圖＋台灣夜市在地味＋熊／熊貓賽道。</dd>
+              <dt>不一樣在哪</dt><dd>熊是攤商不是寵物或小孩；每個情境都綁在熱、分享食物和夏夜上，不是泛用日常。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">05</div>
+            <h3>跟著你的毛線球</h3>
+            <p class="en-title">The Yarn Ball That Follows You</p>
+            <p>一顆圓圓的毛線球一路滾著跟你，為小事情加油：做完一件小事、休息一下、明天再試一次。</p>
+            <dl>
+              <dt>借的公式</dt><dd>鼓勵系貼圖＋「小小的但還在努力」的共鳴。</dd>
+              <dt>不一樣在哪</dt><dd>主角是物品不是媽媽也不是動物；鼓勵的對象是日常小任務，不是育兒也不是職場崩潰。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">06</div>
+            <h3>燈塔守燈女孩</h3>
+            <p class="en-title">Lighthouse Keeper Girl</p>
+            <p>一位在台灣海岸守燈塔的年輕女孩，送出穩穩的、讓人安心的回覆：夜深了、等你、平安到家。</p>
+            <dl>
+              <dt>借的公式</dt><dd>人類女孩組＋關心／康復系的安撫感＋海岸在地風景。</dd>
+              <dt>不一樣在哪</dt><dd>燈塔與海岸是前 100 名沒人用過的職業與場景；給的是安心感，不帶戀愛套路，夜間情境為主。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">07</div>
+            <h3>三顆粉圓</h3>
+            <p class="en-title">Three Tapioca Pearls</p>
+            <p>三顆個性不同的粉圓，輕輕吵架、和好、分飲料分點心，三個人的友情小劇場。</p>
+            <dl>
+              <dt>借的公式</dt><dd>情侶／朋友組的互動感＋食物系＋小團體動態。</dd>
+              <dt>不一樣在哪</dt><dd>是三顆食物的三人組，不是情侶也不是單一吉祥物；笑點在三方友情，不在情侶情勒。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">08</div>
+            <h3>愛睏的馬來貘列車長</h3>
+            <p class="en-title">The Sleepy Tapir Conductor</p>
+            <p>一隻很想睡的馬來貘當列車長，包辦通勤、遲到、醒來、回家的交通日常。</p>
+            <dl>
+              <dt>借的公式</dt><dd>上班／通勤族貼圖＋動物吉祥物日常。</dd>
+              <dt>不一樣在哪</dt><dd>馬來貘在前 100 名裡很罕見，又是交通職業；情境是通勤路上，不是辦公桌前。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">09</div>
+            <h3>窗邊的多肉說哈囉</h3>
+            <p class="en-title">Potted Succulent Says Hi</p>
+            <p>窗台上一盆小多肉，每天長大一點點，送出安安靜靜、低壓力的哈囉和謝謝。</p>
+            <dl>
+              <dt>借的公式</dt><dd>日常問候組＋溫柔祝福系＋柔和畫風。</dd>
+              <dt>不一樣在哪</dt><dd>主角是植物，幾乎沒有表情鬧劇；刻意走慢、走安靜，跟大聲的迷因組正好相反。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">10</div>
+            <h3>菜市場阿姨的蔬菜朋友</h3>
+            <p class="en-title">Market Auntie's Veggie Friends</p>
+            <p>一位親切的市場攤位阿姨和她的蔬菜朋友們，包辦買菜、一起煮飯、家族聚餐的話。</p>
+            <dl>
+              <dt>借的公式</dt><dd>家庭／媽媽組＋台灣市場在地味＋食物系。</dd>
+              <dt>不一樣在哪</dt><dd>年長女性是「溫暖」的主角，不是失控搞笑的阿嬤；情境在市場和廚房，不是辦公室也不是約會。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">11</div>
+            <h3>先道歉的小雲朵</h3>
+            <p class="en-title">Cloud Who Apologises First</p>
+            <p>一朵軟軟的小雲飄進來收拾場面：輕輕的道歉、謝謝、還有「我們不要吵架」的和好回覆，給另一半和朋友。</p>
+            <dl>
+              <dt>借的公式</dt><dd>情侶組的需求＋把毒舌回覆公式「反過來用」。</dd>
+              <dt>不一樣在哪</dt><dd>雲的工作是修復關係，不是虧人也不是嗆辣回嘴；沒有動物、沒有戀愛老梗，全程柔和。</dd>
+            </dl>
+          </article>
+
+          <article class="idea">
+            <div class="no">12</div>
+            <h3>螢火蟲夜班</h3>
+            <p class="en-title">Firefly Night Shift</p>
+            <p>一隻上夜班的小螢火蟲，整組照夜晚的時間排：熬夜、說晚安、想念某人、清晨。</p>
+            <dl>
+              <dt>借的公式</dt><dd>日常組的完整覆蓋＋鼓勵系＋夜間情境的空缺。</dd>
+              <dt>不一樣在哪</dt><dd>主角是夜行性昆蟲；整組用「夜晚幾點」來組織，不是泛用的情緒分類，專攻深夜和另一半的對話。</dd>
+            </dl>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>做每一組時的設計筆記（從公式反推出來的）</h3>
+          <ul>
+            <li><strong>主角只放一個</strong>（或緊密的三人組），辨識度先贏一半。</li>
+            <li>畫風維持<strong>簡單、扁平、粉彩</strong>，線條乾淨——這是榜上的共同語言。</li>
+            <li>文字用<strong>繁體中文短句＋台灣日常口語</strong>帶頭，台味詞和諧音適量就好。</li>
+            <li>40 張要<strong>包辦一整天</strong>：早安 → 上班上學 → 吃飯 → 累了 → 晚安，再加上戀愛、家人、禮貌職場回覆。</li>
+            <li>價格就定 <strong>NT$42</strong>，正好是靜態的主流級距，不用降價求生。</li>
+            <li><strong>不用為了上榜做動態</strong>：前 50 名有 76% 是靜態。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 4. CAVEATS ================= -->
+      <section id="caveats">
+        <div class="sec-head"><span class="sec-no">04</span><h2>查證限制（先講清楚的部分）</h2></div>
+        <div class="plain-card">
+          <ul>
+            <li><strong>這不是按讚前 100 名。</strong>LINE STORE 台灣沒有公開的按讚排行榜；本頁名單是 2026-11-26 的人氣／暢銷榜。按讚排名會長得不一樣——第 1 名只有 2,739 愛心，榜外的一組卻有 11.5k，就是證據。</li>
+            <li><strong>第 51–100 名是拼湊重建的。</strong>前 50 名來自追蹤器的台灣 Top 50 頁；其餘名次是同日從它的靜態／動態／彈出分類榜、角色榜與綜合榜交叉比對出來的。第 67、72–74、79、83–90、93–95、97、99、100 名無法驗證，留空處理，沒有編名字。第 90 名曾有兩天前的舊資料顯示其他貼圖，但名次已變動，所以不採用舊資料填補。</li>
+            <li><strong>愛心數只驗證了第 1 名（2,739）。</strong>其他組別標示為未查核——搜尋索引抓不到商品頁的愛心數字，逐一即時查 100 個商品頁在這次市調中不可行。11.5k 那個數字來自搜尋結果片段，未經即時複驗。</li>
+            <li><strong>價格只驗證了 5 組</strong>（第 1、2、3、4、17 名），其餘沒有逐一查核，不寫進表格。</li>
+            <li><strong>名稱以追蹤器的英文標題為主。</strong>LINE STORE 上的中文名常不同（例如第 2 名英文是 Granny's Lost Her Marbles!，中文是「阿嬤ㄎㄧㄤ到沒人擋」）；只有標示為已驗證的中文名可以當商店正式名稱引用。</li>
+            <li><strong>「角色・主題」欄是推斷</strong>，依據標題、縮圖與商品說明，不是逐張看完每組 40 張貼圖的內容審查；追蹤器的角色標籤也是依縮圖自動偵測。</li>
+            <li><strong>這是單日快照。</strong>榜單每小時在動：11-25 的第 1 名和 11-26 不同，兩天前的搜尋資料就已經和當天名次對不上。想看穩定格局，請看 LINE 官方年度榜（只有前 10／前 5 名）。</li>
+            <li><strong>每組的張數沒有驗證。</strong>商品頁擷取文字不含張數，所以本頁不對「榜上貼圖多為 40 張」做任何主張；MONO 的 40 張規格既不被這份資料證實、也不被否定。</li>
+            <li>全程只看公開頁面，沒有登入任何帳號、沒有購買。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 5. FAQ ================= -->
+      <section id="faq">
+        <div class="sec-head"><span class="sec-no">05</span><h2>常見問題</h2></div>
+        <div class="plain-card faq">
+          <h3>Q：LINE 有公開的貼圖按讚數排行榜嗎？</h3>
+          <p><strong>沒有。</strong>LINE STORE 台灣沒有公開的按讚（愛心）數排行榜——愛心數只顯示在每一組貼圖自己的商品頁，沒辦法排序、也沒辦法一次看全部。本市調以 <strong>2026-11-26 的台灣人氣／暢銷前 100 名</strong>代替，其中 <strong>81 名已驗證、19 名查不到留空</strong>。證據是：人氣第 1 名的愛心數只有 <strong>2,739</strong>，榜外一組卻有 <strong>11.5k</strong>，按讚排名和暢銷排名是兩份不同的名單。</p>
+
+          <h3>Q：台灣 LINE 貼圖人氣前 100 名，最多的是什麼風格？</h3>
+          <p>畫風以<strong>簡單扁平線條、粗描邊、Q 版比例</strong>為主流，水彩柔和風是少數，3D 幾乎缺席。角色以<strong>貓最多</strong>（台灣前 500 名中貓佔 <strong>19.8%</strong>），其次是人類 16.8%、狗 8.4%、熊 7.8%、兔 7.8%。幾乎每一組都帶<strong>繁體中文短句</strong>，主題以日常生活、戀愛、家人與職場為主。</p>
+
+          <h3>Q：熱門 LINE 貼圖是靜態多還是動態多？</h3>
+          <p><strong>靜態明顯較多。</strong>台灣前 500 名中靜態佔 <strong>79.4%</strong>、動態 19.2%、彈出 1.2%；前 50 名裡靜態佔 <strong>76%</strong>、動態 24%。動態在榜首略占優勢，但只做靜態貼圖完全站得住。</p>
+
+          <h3>Q：熱門 LINE 貼圖的價格大概多少？</h3>
+          <p>靜態貼圖主流價格是 <strong>NT$42</strong>，動態是 <strong>NT$60</strong>。台灣前 500 名的價格帶以 US$1.69 級距最大宗（38.6%），而且最便宜的 US$0.99 級距中位排名反而最差（#313）——<strong>便宜不會賣得比較好，價格不是決勝點</strong>。</p>
+
+          <h3>Q：新手做 LINE 貼圖，該學熱門貼圖的什麼？</h3>
+          <p><strong>學公式、不抄角色。</strong>主角只放一個、辨識度要高；畫風簡單扁平、粉彩乾淨；文字用繁體中文短句加台灣日常口語，幫使用者把那句話說出口；一組 40 張包辦一整天（早安、吃飯、上班、累了、晚安），再加戀愛、家人與禮貌職場回覆；定價 NT$42 即可，靜態就夠。本頁第 03 區有 12 個照這個公式設計的原創點子。</p>
+        </div>
+      </section>
+
+      <!-- ================= SOURCES ================= -->
+      <section id="sources">
+        <div class="sec-head"><span class="sec-no">06</span><h2>資料來源</h2></div>
+        <div class="plain-card sources">
+          <p style="margin-bottom:14px;"><strong>說明：</strong>LINE 沒有公開的按讚數排行榜，本報告以人氣前 100 名代替；<strong>81 名已驗證、19 名查不到留空</strong>，沒有杜撰。以下來源皆於 2026-11-26 查核。</p>
+          <ul>
+            <li>LINE STORE 台灣（store.line.me，2026-11-26 查核；首頁僅策展區塊、無按讚排行榜）：<a href="https://store.line.me/home/zh-Hant" target="_blank" rel="noopener">https://store.line.me/home/zh-Hant</a></li>
+            <li>獨立排行榜追蹤站 LineStickerRanking 台灣榜（2026-11-26 14:31 更新，每小時擷取 LINE Store 公開榜單，與 LINE 官方無關）：<a href="https://linestickerranking.com/country/tw" target="_blank" rel="noopener">https://linestickerranking.com/country/tw</a></li>
+            <li>LineStickerRanking Insights 頁（台灣前 500 名的形式／角色／價格占比與創作者統計，2026-11-26 查核）：<a href="https://linestickerranking.com/insights" target="_blank" rel="noopener">https://linestickerranking.com/insights</a></li>
+            <li>LineStickerRanking 分類榜（靜態／動態／彈出）：<a href="https://linestickerranking.com/categories" target="_blank" rel="noopener">https://linestickerranking.com/categories</a></li>
+            <li>LineStickerRanking 綜合 Top Stickers：<a href="https://linestickerranking.com/top-stickers" target="_blank" rel="noopener">https://linestickerranking.com/top-stickers</a></li>
+            <li>LineStickerRanking 角色榜：<a href="https://linestickerranking.com/characters" target="_blank" rel="noopener">https://linestickerranking.com/characters</a></li>
+            <li>LINE STORE 首頁（繁中，僅策展區塊、無排行榜）：<a href="https://store.line.me/home/zh-Hant" target="_blank" rel="noopener">https://store.line.me/home/zh-Hant</a></li>
+            <li>LINE STORE 商品頁・第 1 名 貓貓蟲咖波 x 初音未來（愛心 2,739 即時驗證）：<a href="https://store.line.me/stickershop/product/33994553/zh-Hant" target="_blank" rel="noopener">https://store.line.me/stickershop/product/33994553/zh-Hant</a></li>
+            <li>LINE STORE 商品頁・第 2 名 阿嬤ㄎㄧㄤ到沒人擋（NT$42）：<a href="https://store.line.me/stickershop/product/37863846/zh-Hant" target="_blank" rel="noopener">https://store.line.me/stickershop/product/37863846/zh-Hant</a></li>
+            <li>LINE STORE 商品頁・第 3 名 白爛貓88☆超愛動☆（NT$60）：<a href="https://store.line.me/stickershop/product/35731120/zh-Hant" target="_blank" rel="noopener">https://store.line.me/stickershop/product/35731120/zh-Hant</a></li>
+            <li>LINE STORE 商品頁・第 4 名 小花皮皮 生活觀察家（NT$42）：<a href="https://store.line.me/stickershop/product/38066912/zh-Hant" target="_blank" rel="noopener">https://store.line.me/stickershop/product/38066912/zh-Hant</a></li>
+            <li>LINE STORE 商品頁・第 17 名 "LOVE RABBIT" 滿滿是愛 台灣版（NT$42）：<a href="https://store.line.me/stickershop/product/23719655/zh-Hant" target="_blank" rel="noopener">https://store.line.me/stickershop/product/23719655/zh-Hant</a></li>
+            <li>LINE STORE 社群熱門話題商品排行榜（官方，每小時／每日，前 20 名）：<a href="https://store.line.me/trending/daily/zh-Hant" target="_blank" rel="noopener">https://store.line.me/trending/daily/zh-Hant</a></li>
+            <li>LINE 2024 年度排行榜新聞稿：<a href="https://www.linecorp.com/tw/pr/news/2024/1205" target="_blank" rel="noopener">https://www.linecorp.com/tw/pr/news/2024/1205</a></li>
+            <li>2026 貼圖趨勢觀察（社畜、牽牽、潦草系）：<a href="https://chtouch.com/line-sticker-trends-2026/" target="_blank" rel="noopener">https://chtouch.com/line-sticker-trends-2026/</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>市調日期：2026-11-26（台北時間）。榜單為當日快照，名次會隨時間變動；引用數字時請連同日期與來源一起寫。</footer>
+    </main>
+
+    <script>
+    (function () {
+      "use strict";
+      var NS = "http://www.w3.org/2000/svg";
+      function el(tag, attrs, text) {
+        var n = document.createElementNS(NS, tag);
+        for (var k in attrs) n.setAttribute(k, attrs[k]);
+        if (text != null) n.textContent = text;
+        return n;
+      }
+      var GOLD = "#a97f3f", TAN = "#c9a86a", PALE = "#dcc493", DEEP = "#7d5f2a", FAINT = "#e7dcc4";
+
+      /* ---------- Character mix chart (top 500) ---------- */
+      var chars = [
+        ["其他", 23.8], ["貓", 19.8], ["人類", 16.8], ["狗", 8.4],
+        ["熊", 7.8], ["兔", 7.8], ["鳥", 4.4], ["熊貓", 4.2]
+      ];
+      (function () {
+        var svg = document.getElementById("charChart");
+        var x0 = 52, x1 = 452, max = 25, rowH = 32, top = 8;
+        [0, 5, 10, 15, 20, 25].forEach(function (v) {
+          var x = x0 + (x1 - x0) * v / max;
+          svg.appendChild(el("line", { x1: x, y1: top, x2: x, y2: top + rowH * 8 - 6, stroke: "var(--line)", "stroke-width": 1 }));
+          var t = el("text", { x: x, y: top + rowH * 8 + 12, "text-anchor": "middle", "font-size": 10, fill: "var(--ink-faint)" }, v + "%");
+          svg.appendChild(t);
+        });
+        chars.forEach(function (d, i) {
+          var y = top + i * rowH;
+          svg.appendChild(el("text", { x: x0 - 8, y: y + 16, "text-anchor": "end", "font-size": 12.5, fill: "var(--ink)" }, d[0]));
+          var w = (x1 - x0) * d[1] / max;
+          svg.appendChild(el("rect", { x: x0, y: y + 3, width: w, height: 18, rx: 4, fill: i === 1 ? GOLD : (i === 0 ? FAINT : TAN) }));
+          svg.appendChild(el("text", { x: x0 + w + 7, y: y + 17, "font-size": 12, "font-weight": 700, fill: "var(--ink)" }, d[1].toFixed(1) + "%"));
+        });
+      })();
+
+      /* ---------- Format mix stacked bar (top 500) ---------- */
+      var fmts = [
+        ["靜態", 79.4, GOLD], ["動態", 19.2, TAN], ["彈出", 1.2, PALE], ["自訂", 0.2, DEEP]
+      ];
+      (function () {
+        var svg = document.getElementById("fmtChart");
+        var x0 = 4, W = 512, y = 8, h = 34, acc = 0;
+        fmts.forEach(function (d) {
+          var w = W * d[1] / 100;
+          svg.appendChild(el("rect", { x: x0 + acc, y: y, width: Math.max(w - 1.5, 1), height: h, rx: 3, fill: d[2] }));
+          if (d[1] >= 10) {
+            svg.appendChild(el("text", { x: x0 + acc + w / 2, y: y + 22, "text-anchor": "middle", "font-size": 12.5, "font-weight": 700, fill: "#fff8ea" }, d[1].toFixed(1) + "%"));
+          }
+          acc += w;
+        });
+        var legend = document.getElementById("fmtLegend");
+        fmts.forEach(function (d) {
+          var s = document.createElement("span");
+          var sw = document.createElement("i"); sw.className = "swatch"; sw.style.background = d[2];
+          s.appendChild(sw);
+          s.appendChild(document.createTextNode(d[0] + " " + d[1].toFixed(1) + "%"));
+          legend.appendChild(s);
+        });
+      })();
+
+      /* ---------- Price tiers chart (top 500) ---------- */
+      (function () {
+        var svg = document.getElementById("priceChart");
+        var data = [["US$1.69（≈NT$42）", 38.6], ["US$1.99（≈NT$60）", 33.2], ["US$0.99", 27.9]];
+        var x0 = 128, x1 = 452, max = 40, rowH = 34, top = 4;
+        [0, 10, 20, 30, 40].forEach(function (v) {
+          var x = x0 + (x1 - x0) * v / max;
+          svg.appendChild(el("line", { x1: x, y1: top, x2: x, y2: top + rowH * 3 - 8, stroke: "var(--line)", "stroke-width": 1 }));
+          svg.appendChild(el("text", { x: x, y: top + rowH * 3 + 10, "text-anchor": "middle", "font-size": 10, fill: "var(--ink-faint)" }, v + "%"));
+        });
+        data.forEach(function (d, i) {
+          var y = top + i * rowH;
+          svg.appendChild(el("text", { x: x0 - 8, y: y + 16, "text-anchor": "end", "font-size": 11.5, fill: "var(--ink)" }, d[0]));
+          var w = (x1 - x0) * d[1] / max;
+          svg.appendChild(el("rect", { x: x0, y: y + 3, width: w, height: 18, rx: 4, fill: i === 0 ? GOLD : TAN }));
+          svg.appendChild(el("text", { x: x0 + w + 7, y: y + 17, "font-size": 12, "font-weight": 700, fill: "var(--ink)" }, d[1].toFixed(1) + "%"));
+        });
+      })();
+
+      /* ---------- Top 100 table ---------- */
+      // [rank, english title, verified chinese title, creator, format(S/A/P), format inferred?, character & theme]
+      var DATA = [
+        [1,"BugCat-Capoo x Hatsune Miku","貓貓蟲咖波 x 初音未來","Yara / 亞拉","A",0,"Q 版粗線條；藍色貓蟲怪＋初音未來（授權聯名）・一起玩、友情"],
+        [2,"Granny's Lost Her Marbles!","阿嬤ㄎㄧㄤ到沒人擋","ToeyYoey","S",0,"簡單卡通；阿嬤・失控搞笑、日常混亂，繁中＋台語俚語"],
+        [3,"Lan Lan Cat 88","白爛貓88☆超愛動☆","麻糬爸 Mochi dad","A",0,"簡單線條白貓・白爛日常反應，繁中帶字"],
+        [4,"Huapipi life Observer","小花皮皮 生活觀察家","Dylan","S",0,"柔和簡單線條白貓・觀察日常、溫和幽默，繁中"],
+        [5,"silly white cousin6-I'll hit you!","","Mini hao","S",0,"塗鴉風白色人形・朋友互虧、假裝要打人，繁中＋英文標題"],
+        [6,"leko's life Observer","","Dylan","S",0,"柔和簡單線條狗狗・日常觀察，繁中（推斷）"],
+        [7,"Mimi Everyday Reactions With Text","","007","A",0,"灰貓・帶字的日常反應，文字主導"],
+        [8,"Kid \"GOKIGEN PANDA\" Taiwan Version","","NishimuraYuji","S",0,"Q 版熊貓小孩・開朗、親子，繁中台灣版"],
+        [9,"Baoji -Dear *eyes*","","Poo Poo Princess","S",0,"柔和可愛狗狗・深情眼神、撒嬌，短句繁中（推斷）"],
+        [10,"Shahimi shark Borrow and repay","","YI-LING","A",0,"可愛鯊魚・有借有還、金錢與人情日常，繁中"],
+        [11,"The PP duck: What's your problem","","OMT","S",0,"簡單白鴨・直白毒舌回覆，繁中"],
+        [12,"Roti Uncle Goes Full Send","","ToeyYoey","S",0,"卡通大叔・超投入、街頭小吃生活，英文標題＋繁中（推斷）"],
+        [13,"The Leko is talking!","","Dylan","S",0,"柔和狗狗・聊天日常用語，繁中"],
+        [14,"Derpy Pup-Little Moments","","Poo Poo Princess","S",0,"柔和呆萌小狗・日常小片刻，繁中（推斷）"],
+        [15,"(L) Tuxedo cat_ 12-2","","WoooooooooW","S",0,"簡單線條賓士貓・日常反應，繁中（推斷）"],
+        [16,"Baby Doggy Couple (RetrieverTD)","","Moonlab","A",0,"Q 版黃金獵犬幼犬情侶・戀愛日常，短句繁中（推斷）"],
+        [17,"\"LOVE RABBIT\" Full of Love Taiwan ver.","\"LOVE RABBIT\" 滿滿是愛 台灣版","NishimuraYuji","S",0,"粉紅兔簡單風・戀愛、情侶情勒幽默，繁中台灣版"],
+        [18,"LV.80 Meow meow Monster (dog)","","A-way","S",0,"遊戲等級梗的貓怪（狗）・日常，繁中（推斷）"],
+        [19,"Baby Doggy Couple (MalteseTD)","","Moonlab","A",0,"Q 版馬爾濟斯幼犬情侶・戀愛，短句繁中（推斷）"],
+        [20,"Shahimi shark Get well soon","","YI-LING","A",0,"可愛鯊魚・早日康復、關心鼓勵，繁中"],
+        [21,"fat grey meme cat1L","","buygoodbento","S",0,"迷因風灰貓・迷因反應，繁中（推斷）"],
+        [22,"BOBOG (BABY-G and Hood-G)","","_libouli_","S",0,"Q 版嬰兒角色・可愛日常，短字（推斷）"],
+        [23,"Lan Lan Cat 86","","Mochi dad","A",0,"簡單線條白貓・白爛日常，繁中"],
+        [24,"(M) Daily life seal-Taiwanese (dynamic)","","WoooooooooW","A",0,"簡單風海豹・台味日常，繁中"],
+        [25,"Quickly fooling around \"GOKIGEN PANDA\" TW","","NishimuraYuji","S",0,"Q 版熊貓・玩鬧，繁中台灣版"],
+        [26,"Cute little lizard!!","","Candy","S",0,"可愛小蜥蜴・動物日常，短字（推斷）"],
+        [27,"piggy - food blind box","","chuntzu","A",0,"小豬＋食物・食物盲盒玩法，繁中（推斷）"],
+        [28,"zoomie lego","","Dylan","S",0,"簡單風狗狗・暴衝玩鬧，短字（推斷）"],
+        [29,"Cute office sticker 02","","MOMO Fish","S",0,"可愛上班族女孩・職場回覆，繁中"],
+        [30,"TamaAnimation LINE stickers","","BANDAI CO.,LTD.","S",0,"電子雞授權角色、像素可愛風・日常，少量混合文字"],
+        [31,"Twohairs is Awesome","","TWOHAIRS","S",0,"簡單風雙髮女孩・女孩日常，繁中（推斷）"],
+        [32,"The Tiger God","","ATU","S",0,"虎爺、台灣民俗・祝福與幽默，繁中"],
+        [33,"Flower fairies and a little bird","","layy bigwords","S",0,"水彩柔和風花仙子＋小鳥・溫柔祝福，繁中（推斷）"],
+        [34,"(K) Miss Slow_Vintage Days","","WoooooooooW","S",0,"復古人物・懷舊日常，繁中（推斷）"],
+        [35,"Arknights: Endfield Official Stickers #11","","Arknights: Endfield","S",0,"遊戲美術人物・授權遊戲日常，混合文字"],
+        [36,"\"GOKIGEN PANDA\" Mama Taiwan Version","","NishimuraYuji","S",0,"Q 版熊貓媽媽・家庭、關懷，繁中台灣版"],
+        [37,"FRIC 30","","dric","A",0,"極簡線條綠青蛙・日常反應，短句繁中"],
+        [38,"girls little moments11","","buygoodbento","S",0,"柔和風女孩・女孩日常小片刻，繁中（推斷）"],
+        [39,"(R) Nostalgic Daily Life 04","","WoooooooooW","S",0,"復古懷舊簡單風・老台灣日常，繁中（推斷）"],
+        [40,"QQQQQQQQQQugly girl37","","gulugulu","S",0,"醜萌塗鴉女孩・自嘲幽默，繁中（推斷）"],
+        [41,"(R) Nostalgic Daily Life_2","","WoooooooooW","S",0,"復古懷舊・日常，繁中（推斷）"],
+        [42,"(R) Nostalgic Daily Life","","WoooooooooW","S",0,"復古懷舊・日常，繁中（推斷）"],
+        [43,"Best Friend Monkey (Daily)","","A-way","S",0,"猴子・友情日常，繁中（推斷）"],
+        [44,"Daily Life of Shugo","","SANSAN","S",0,"狗狗 Shugo・狗狗日常，繁中（推斷）"],
+        [45,"Derpy Pup-Spicy Comebacks 3","","Poo Poo Princess","S",0,"呆萌小狗・嗆辣回嘴，繁中"],
+        [46,">Handy Daily . Family< __C (Part 2)","","The two","S",0,"簡單風人類家庭・家庭日常，繁中（推斷）"],
+        [47,"Cute friend sticker 18","","MOMO Fish","S",0,"可愛人類朋友・友情日常，繁中（推斷）"],
+        [48,"The PP duck: I'm out.","","OMT","S",0,"白鴨・「我先走了」、受夠了的回覆，繁中"],
+        [49,"Mama2hard: Tiny but Still Trying!","","Supermama","S",0,"小小人類媽媽・育兒、努力、鼓勵，英文標題＋繁中（推斷）"],
+        [50,"NIKKE Official Sticker [8th Batch]","","GODDESS OF VICTORY: NIKKE","A",0,"遊戲美術少女・授權遊戲，混合文字"],
+        [51,"The Huapipi is talking!","","Dylan","S",0,"白貓・聊天用語，繁中"],
+        [52,"VITA VITA No.41","","VITA VITA","S",0,"貓（VITA 系列）・貓日常，繁中（推斷）"],
+        [53,"The PP duck: Stop lecturing","","OMT","S",0,"白鴨・「不要再念了」直白回覆，繁中"],
+        [54,"Chezhe's Stock Market Quotes Part 2","","Cheche","P",0,"人類・股市金句、工作理財幽默，繁中"],
+        [55,"Uni-Lions x Tony Stan Baseball Stickers","","Tony Stan","S",0,"棒球隊聯名・運動應援，繁中"],
+        [56,"Bai Se Der Wan Yee aka BSDWYee Gen.37","","Kimi Bro.","S",0,"人類・在地幽默日常，繁中（推斷）"],
+        [57,"QQQ…ape2","","gulugulu","S",0,"醜萌人類女孩・自嘲幽默，繁中（推斷）"],
+        [58,"Misa hyper 23","","Misa.Q","A",0,"人類女孩 Misa・嗨翻日常，繁中（推斷）"],
+        [59,"Robber's Daily Life 5","","bears.cartoon","S",0,"卡通搶匪・荒謬日常幽默，繁中（推斷）"],
+        [60,"My friend rabbit 15 — Traditional Chinese","","himari","S",0,"兔子・兔子朋友日常，繁中"],
+        [61,"Peach Cat 17","","BU JUE XIAO XIAO","A",0,"蜜桃色貓・可愛貓日常，繁中（推斷）"],
+        [62,"Mimi in Motion with Captions","","007","A",0,"灰貓・帶字幕的貓反應，文字主導"],
+        [63,"What's up, Kid?35","","MAKOTO","S",0,"人類小孩・小孩日常招呼，繁中（推斷）"],
+        [64,"\"LOVE RABBIT\" - Pressure Taiwan Ver.","","NishimuraYuji","S",0,"粉紅兔・戀愛施壓、情侶情勒，繁中台灣版"],
+        [65,"Lan Lan Cat 36","","Mochi dad","S",0,"白貓・白爛貓日常，繁中"],
+        [66,"Chiikawa (usagi TC version)","","nagano","S",0,"吉伊卡哇兔兔烏薩奇・授權可愛日常，繁中版"],
+        [68,"Lan Lan Cat 87","","Mochi dad","S",1,"白貓・白爛貓日常，繁中"],
+        [69,"Orange Kitty Out of Control With Text","","007","A",0,"橘貓・失控反應，帶字、文字主導"],
+        [70,"Niu niu Nuoml gou 6","","niuniu","A",0,"狗（牛牛）・狗狗日常幽默，繁中（推斷）"],
+        [71,"Macaque's Gone Nuts","","ToeyYoey","S",1,"獼猴・失控搞笑，短字（推斷）"],
+        [75,"Close-Up Hamster 3","","Aji","A",1,"特寫倉鼠・可愛倉鼠日常，少量短字"],
+        [76,"Couple doggy Winter story","","Moonlab","A",0,"幼犬情侶・冬季戀愛，短句繁中（推斷）"],
+        [77,"Silly Goofy Dip Catto V.3","","1Eggs","S",1,"傻貓・搞笑反應，短字（推斷）"],
+        [78,"Emo Mono","","SANSAN","S",1,"貓（Mono）・情緒反應，繁中（推斷）"],
+        [80,"Daisy Lop Rabbit: Daily Wiggles (TWN)","","INTEND","A",0,"垂耳兔・兔子日常扭動，繁中（推斷）"],
+        [81,"Here Comes Pico 01","","akane","A",0,"角色 Pico・可愛日常，短字（推斷）"],
+        [82,"Couple doggy 12 (maltese)","","Moonlab","A",0,"馬爾濟斯幼犬情侶・情侶日常，短句繁中（推斷）"],
+        [91,"Retro celebrity cat: Sister is so …","","Yang Pei-Yung","S",1,"復古明星戲仿貓・復古幽默，繁中"],
+        [92,"Kitty's Daily Life With Text","","007","S",1,"貓・帶字貓日常，文字主導"],
+        [96,"Niu niu Nuoml gou 7","","niuniu","A",0,"狗・狗狗日常幽默，繁中（推斷）"],
+        [98,"Chief Investment Officer","","Zhezhe","A",0,"人類・職場／投資幽默，繁中（推斷）"]
+      ];
+      var UNVERIFIED = {67:1,72:1,73:1,74:1,79:1,83:1,84:1,85:1,86:1,87:1,88:1,89:1,90:1,93:1,94:1,95:1,97:1,99:1,100:1};
+      var FMT_LABEL = { S: "靜態", A: "動態", P: "彈出" };
+      var byRank = {};
+      DATA.forEach(function (r) { byRank[r[0]] = r; });
+
+      var tbody = document.getElementById("tbody");
+      var countLine = document.getElementById("countLine");
+      var q = document.getElementById("q");
+      var curFmt = "all";
+
+      function esc(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      }
+      function render() {
+        var kw = q.value.trim().toLowerCase();
+        var html = "", shown = 0, shownV = 0;
+        for (var rank = 1; rank <= 100; rank++) {
+          var r = byRank[rank];
+          if (!r) {
+            if (curFmt !== "all" || kw) continue;
+            html += '<tr class="unverified"><td class="rank">' + rank + '</td><td colspan="5">未驗證——免費檢視未涵蓋此名次，名稱留空不杜撰</td></tr>';
+            shown++;
+            continue;
+          }
+          if (curFmt !== "all" && r[4] !== curFmt) continue;
+          var hay = (r[1] + " " + r[2] + " " + r[3]).toLowerCase();
+          if (kw && hay.indexOf(kw) === -1) continue;
+          shown++; shownV++;
+          var name = (r[2] ? '<span class="zh">' + esc(r[2]) + '</span>' : "") + '<span class="en">' + esc(r[1]) + "</span>";
+          var fmt = '<span class="fmt' + (r[4] === "A" ? " anim" : "") + '">' + FMT_LABEL[r[4]] + (r[5] ? "＊" : "") + "</span>";
+          var heart = rank === 1
+            ? '<span class="heart">♥ 2,739<small>2026-11-26 即時驗證</small></span>'
+            : '<span style="color:var(--ink-faint)">未查核</span>';
+          html += "<tr><td class=\"rank\">" + rank + "</td><td>" + name + '</td><td><span class="creator">' + esc(r[3]) +
+                  "</span></td><td>" + fmt + '</td><td>' + heart + '</td><td class="theme-cell">' + esc(r[6]) + "</td></tr>";
+        }
+        tbody.innerHTML = html;
+        countLine.textContent = "目前顯示 " + shown + " 列（已驗證 " + shownV + " 組）。全榜共 100 名：已驗證 81 組、未驗證 19 名。";
+      }
+      q.addEventListener("input", render);
+      var chips = document.querySelectorAll(".chip");
+      chips.forEach(function (c) {
+        c.addEventListener("click", function () {
+          chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+          c.setAttribute("aria-pressed", "true");
+          curFmt = c.getAttribute("data-fmt");
+          render();
+        });
+      });
+      render();
+    })();
+    </script>
+  </body>
+</html>
