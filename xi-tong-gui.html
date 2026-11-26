@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>匠心系統櫃廚具｜系統櫃・廚具訂製示範站</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:#3d3a35;background:#f7f4ef;line-height:1.7}
+a{color:inherit}
+.demo-bar{background:#8a6d3b;color:#fff;text-align:center;padding:8px 12px;font-size:14px;letter-spacing:2px}
+header{background:linear-gradient(135deg,#6b655c,#8a8378 55%,#b08d57);color:#fff;padding:26px 20px;text-align:center}
+header.logo{font-size:15px;letter-spacing:6px;color:#f3e6c8}
+header h1{font-size:34px;margin:10px 0 6px;letter-spacing:4px}
+header p{color:#f0e9dc;max-width:640px;margin:0 auto}
+.hero{background:linear-gradient(120deg,#efe8db,#e3d5bd 60%,#d9c49a);padding:56px 20px;text-align:center}
+.hero h2{font-size:30px;color:#4a443c;margin-bottom:12px}
+.hero p{max-width:620px;margin:0 auto 22px;color:#5d564a}
+.btn{display:inline-block;background:#8a6d3b;color:#fff;padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:16px}
+.btn.ghost{background:transparent;color:#6b5636;border:2px solid #8a6d3b;margin-left:10px}
+section{max-width:1020px;margin:0 auto;padding:48px 20px}
+h2.sec{font-size:26px;color:#4a443c;text-align:center;margin-bottom:8px}
+p.sub{text-align:center;color:#8a8175;margin-bottom:28px}
+.filters{text-align:center;margin-bottom:24px}
+.filters button{background:#fff;border:2px solid #c9b896;color:#6b5636;padding:9px 20px;border-radius:24px;margin:4px;cursor:pointer;font-size:15px}
+.filters button.active{background:#8a6d3b;color:#fff;border-color:#8a6d3b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.08)}
+.card.pic{height:150px;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,#d8cfc0,#b08d57)}
+.card.body{padding:18px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card.tag{display:inline-block;background:#efe8db;color:#8a6d3b;font-size:12px;padding:2px 10px;border-radius:12px;margin-bottom:8px}
+.card.price{color:#8a6d3b;font-weight:700;font-size:19px;margin-top:8px}
+.tool{background:#fff;border:2px solid #c9b896;border-radius:16px;padding:28px;max-width:760px;margin:0 auto}
+.tool label{display:block;font-weight:700;margin:14px 0 6px}
+.tool input,.tool select{width:100%;padding:11px;border:1.5px solid #cbbfa5;border-radius:8px;font-size:16px;background:#fff}
+.tool.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.result{background:#f3ecdd;border-radius:10px;padding:16px;margin-top:18px;font-size:17px}
+.result b{color:#8a6d3b;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.step{background:#fff;border-radius:12px;padding:20px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.step.num{width:44px;height:44px;border-radius:50%;background:#8a6d3b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;margin:0 auto 10px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.member{background:#fff;border-radius:14px;padding:22px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.member.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#b08d57,#6b655c);display:flex;align-items:center;justify-content:center;font-size:34px;color:#fff}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.review{background:#fff;border-radius:14px;padding:22px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.review.stars{color:#b08d57;font-size:18px;letter-spacing:2px}
+.faq details{background:#fff;border-radius:10px;padding:16px 20px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+form.order{background:#fff;border-radius:16px;padding:28px;max-width:760px;margin:0 auto;box-shadow:0 3px 16px rgba(0,0,0,.08)}
+form.order label{display:block;font-weight:700;margin:14px 0 6px}
+form.order input,form.order select,form.order textarea{width:100%;padding:11px;border:1.5px solid #cbbfa5;border-radius:8px;font-size:16px}
+#msgBox{margin-top:20px;background:#f3ecdd;border-radius:10px;padding:18px;display:none}
+#msgBox pre{white-space:pre-wrap;font-family:inherit;font-size:15px;background:#fff;border-radius:8px;padding:14px;margin:10px 0}
+.copy-btn{background:#6b655c;color:#fff;border:none;padding:10px 22px;border-radius:24px;cursor:pointer;font-size:15px}
+footer{background:#4a443c;color:#d8cfc0;text-align:center;padding:34px 20px;font-size:14px}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;display:flex;z-index:99;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
+.mobile-bar a{flex:1;text-align:center;padding:15px 0;text-decoration:none;font-weight:700;font-size:16px}
+.mobile-bar a:first-child{background:#efe8db;color:#6b5636}
+.mobile-bar a:last-child{background:#8a6d3b;color:#fff}
+@media(min-width:769px){.mobile-bar{display:none}}
+@media(max-width:768px){
+header h1{font-size:26px}
+.hero h2{font-size:23px}
+.tool.row{grid-template-columns:1fr}
+body{padding-bottom:56px}
+.btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站｜本頁為一頁式網站示範，店名、價目與評價皆為假設內容</div>
+<header>
+<div class="logo">CRAFT CABINET</div>
+<h1>匠心系統櫃廚具</h1>
+<p>量身訂製的系統櫃與廚具，讓每一寸空間都剛剛好</p>
+</header>
+
+<div class="hero">
+<h2>廚房換新，從一張丈量圖開始</h2>
+<p>免費到府丈量、3D 模擬圖先看再決定。板材、五金、檯面全部透明報價，不怕做到一半才加價。</p>
+<a class="btn" href="#order">免費預約丈量</a>
+<a class="btn ghost" href="#calc">廚房尺寸試算</a>
+</div>
+
+<section id="menu">
+<h2 class="sec">價目表</h2>
+<p class="sub">以下為示範價目，實際報價以到府丈量與選材為準</p>
+<div class="filters">
+<button class="active" data-filter="all">全部</button>
+<button data-filter="kitchen">廚具系列</button>
+<button data-filter="storage">收納系統</button>
+<button data-filter="hardware">檯面與五金</button>
+<button data-filter="service">加值服務</button>
+</div>
+<div class="grid" id="priceGrid">
+<div class="card" data-cat="kitchen"><div class="pic">🍳</div><div class="body"><span class="tag">廚具系列</span><h3>一字型廚具組</h3><p>小坪數首選，瓦斯爐、水槽、收納一次到位。</p><div class="price">NT$ 68,000 起</div></div></div>
+<div class="card" data-cat="kitchen"><div class="pic">🔲</div><div class="body"><span class="tag">廚具系列</span><h3>L 型廚具組</h3><p>轉角空間不浪費，動線順暢好做菜。</p><div class="price">NT$ 98,000 起</div></div></div>
+<div class="card" data-cat="kitchen"><div class="pic">🏝️</div><div class="body"><span class="tag">廚具系列</span><h3>中島廚具組</h3><p>中島吧台＋備餐區，開放式廚房的靈魂。</p><div class="price">NT$ 148,000 起</div></div></div>
+<div class="card" data-cat="kitchen"><div class="pic">🔌</div><div class="body"><span class="tag">廚具系列</span><h3>電器櫃組合</h3><p>烤箱、微波爐、電鍋各有專屬位置。</p><div class="price">NT$ 32,000 起</div></div></div>
+<div class="card" data-cat="storage"><div class="pic">👟</div><div class="body"><span class="tag">收納系統</span><h3>玄關鞋櫃</h3><p>穿鞋椅＋全身鏡，進出門從容優雅。</p><div class="price">NT$ 28,000 起</div></div></div>
+<div class="card" data-cat="storage"><div class="pic">📺</div><div class="body"><span class="tag">收納系統</span><h3>電視牆收納櫃</h3><p>展示＋收納兼具，客廳整齊不雜亂。</p><div class="price">NT$ 56,000 起</div></div></div>
+<div class="card" data-cat="storage"><div class="pic">👗</div><div class="body"><span class="tag">收納系統</span><h3>衣櫃系統</h3><p>吊掛、抽屜、層板依衣物習慣配置。</p><div class="price">NT$ 48,000 起</div></div></div>
+<div class="card" data-cat="hardware"><div class="pic">🪨</div><div class="body"><span class="tag">檯面與五金</span><h3>石英石檯面</h3><p>耐刮耐熱好清潔，廚房檯面升級首選。</p><div class="price">NT$ 12,000 起／組</div></div></div>
+<div class="card" data-cat="hardware"><div class="pic">⚙️</div><div class="body"><span class="tag">檯面與五金</span><h3>緩衝五金組</h3><p>緩衝鉸鏈＋滑軌，開關安靜不夾手。</p><div class="price">NT$ 6,800 起／組</div></div></div>
+<div class="card" data-cat="hardware"><div class="pic">⬆️</div><div class="body"><span class="tag">檯面與五金</span><h3>智能升降櫃</h3><p>高處吊櫃一鍵升降，拿取不再踮腳。</p><div class="price">NT$ 18,000 起／組</div></div></div>
+<div class="card" data-cat="service"><div class="pic">📏</div><div class="body"><span class="tag">加值服務</span><h3>到府丈量</h3><p>專業師傅到府丈量，出圖報價都免費。</p><div class="price">免費</div></div></div>
+<div class="card" data-cat="service"><div class="pic">🖥️</div><div class="body"><span class="tag">加值服務</span><h3>3D 模擬設計</h3><p>先看模擬圖再施工，完工樣子心裡有底。</p><div class="price">NT$ 3,000（簽約可抵）</div></div></div>
+<div class="card" data-cat="service"><div class="pic">🛡️</div><div class="body"><span class="tag">加值服務</span><h3>五年保固服務</h3><p>板材與五金五年保固，售後有人接電話。</p><div class="price">簽約即享</div></div></div>
+</div>
+</section>
+
+<section id="calc">
+<h2 class="sec">廚房尺寸試算</h2>
+<p class="sub">輸入櫃體總長與系列，立刻算出預估費用，結果可直接帶入預約表單</p>
+<div class="tool">
+<div class="row">
+<div>
+<label for="cabLen">櫃體總長（公尺）</label>
+<input type="number" id="cabLen" min="1" max="12" step="0.5" value="4.5" placeholder="例如 4.5">
+</div>
+<div>
+<label for="series">選擇系列</label>
+<select id="series">
+<option value="18000">經濟型｜NT$18,000／米</option>
+<option value="25000" selected>標準型｜NT$25,000／米</option>
+<option value="36000">精品型｜NT$36,000／米</option>
+</select>
+</div>
+</div>
+<label><input type="checkbox" id="addCounter" checked> 加購石英石檯面 ＋NT$12,000</label>
+<label><input type="checkbox" id="addHardware"> 加購緩衝五金組 ＋NT$6,800</label>
+<div style="margin-top:18px"><button class="btn" type="button" onclick="calcKitchen()">開始試算</button></div>
+<div class="result" id="calcResult">請輸入櫃體總長後點「開始試算」。</div>
+<div style="margin-top:14px"><button class="btn ghost" type="button" onclick="bringToForm()">把試算結果帶入預約表單 ↓</button></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">服務流程</h2>
+<p class="sub">從丈量到完工，五個步驟清清楚楚</p>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>預約丈量</h3><p>填表或來電預約，約定到府時間。</p></div>
+<div class="step"><div class="num">2</div><h3>現場丈量</h3><p>師傅到府量尺寸、確認水電位置。</p></div>
+<div class="step"><div class="num">3</div><h3>設計報價</h3><p>3D 模擬圖＋逐項報價，確認再簽約。</p></div>
+<div class="step"><div class="num">4</div><h3>工廠製作</h3><p>板材裁切、封邊、組裝，約 2–3 週。</p></div>
+<div class="step"><div class="num">5</div><h3>到府安裝</h3><p>專業安裝＋清潔交屋，五年保固開始。</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">我們的團隊</h2>
+<p class="sub">設計、丈量、安裝，各有專人負責</p>
+<div class="team">
+<div class="member"><div class="avatar">👨‍🎨</div><h3>陳師傅｜設計總監</h3><p>15 年系統櫃設計經驗，專長小坪數收納規劃。</p></div>
+<div class="member"><div class="avatar">👩‍💼</div><h3>林小姐｜專案顧問</h3><p>從丈量到交屋全程跟進，報價透明不囉嗦。</p></div>
+<div class="member"><div class="avatar">👨‍🔧</div><h3>阿國｜安裝領班</h3><p>帶領安裝團隊，細節收尾是他的堅持。</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">客人怎麼說</h2>
+<p class="sub">以下為示範評價</p>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「L 型廚具做完，煮飯動線順很多，師傅收尾很細心。」</p><p>— 王小姐｜廚具翻新</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「3D 圖先看過再施工，完工跟圖幾乎一模一樣，很安心。」</p><p>— 李先生｜中島廚具</p></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「玄關鞋櫃＋衣櫃一起做，報價逐項列得很清楚。」</p><p>— 張小姐｜全室收納</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「升降櫃裝了之後，媽媽拿高處的東西不用再踮腳了。」</p><p>— 陳小姐｜智能升降櫃</p></div>
+</div>
+</section>
+
+<section class="faq">
+<h2 class="sec">常見問題</h2>
+<p class="sub">價格、預約、保固一次問清楚</p>
+<details><summary>丈量真的免費嗎？需要先付訂金嗎？</summary><p>到府丈量與初步報價免費，不需先付訂金，確認簽約後才收訂金。</p></details>
+<details><summary>從丈量到完工大概要多久？</summary><p>一般約 3–4 週，含設計確認、工廠製作與到府安裝，實際依工程規模而定。</p></details>
+<details><summary>可以只做單一櫃體，不做整套廚具嗎？</summary><p>可以，單一電器櫃、鞋櫃、衣櫃都可單獨訂製，依尺寸報價。</p></details>
+<details><summary>板材有環保等級可以選嗎？</summary><p>有，提供不同等級板材可選，報價單會註明板材等級與產地。</p></details>
+<details><summary>保固內容包含哪些？</summary><p>板材與五金享五年保固，人為損壞與耗材不在保固範圍內。</p></details>
+<details><summary>可以取消或更改預約嗎？</summary><p>可以，施工前來電或以 LINE 告知即可，簽約後更改以合約約定為準。</p></details>
+</section>
+
+<section id="order">
+<h2 class="sec">免費預約丈量</h2>
+<p class="sub">填完表單會自動產生 LINE 訊息，複製貼到 LINE 就能傳給我們</p>
+<form class="order" id="orderForm">
+<label for="fName">姓名</label>
+<input type="text" id="fName" required placeholder="請輸入姓名">
+<label for="fPhone">電話</label>
+<input type="tel" id="fPhone" required placeholder="例如 09xx-xxx-xxx">
+<label for="fType">想做的項目</label>
+<select id="fType">
+<option>一字型廚具組</option>
+<option>L 型廚具組</option>
+<option>中島廚具組</option>
+<option>電器櫃組合</option>
+<option>收納系統（鞋櫃／電視櫃／衣櫃）</option>
+<option>檯面與五金升級</option>
+<option>其他，請看備註</option>
+</select>
+<label for="fDate">希望丈量日期</label>
+<input type="date" id="fDate">
+<label for="fNote">備註（試算結果會自動帶入這裡）</label>
+<textarea id="fNote" rows="3" placeholder="例如：廚房約 4.5 米，想做 L 型"></textarea>
+<div style="margin-top:20px"><button class="btn" type="submit">產生 LINE 預約訊息</button></div>
+<div id="msgBox">
+<strong>複製以下訊息，貼到 LINE 傳給我們：</strong>
+<pre id="lineMsg"></pre>
+<button class="copy-btn" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製訊息</button>
+<span id="copyTip" style="margin-left:10px;color:#2e7d32"></span>
+</div>
+</form>
+<p style="text-align:center;margin-top:16px;color:#8a8175">電話請來電確認｜營業時間請來電確認</p>
+</section>
+
+<footer>
+<p>匠心系統櫃廚具｜一頁式網站示範站</p>
+<p>本頁為示範網站，店名、價目、評價與成交內容皆為假設，正式使用前請換成真實資料。電話、地址與營業時間請來電確認。</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">免費預約丈量</a>
+<a href="#calc">廚房尺寸試算</a>
+</div>
+
+<script>
+var calcText='';
+document.querySelectorAll('.filters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('.filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+document.querySelectorAll('#priceGrid.card').forEach(function(card){
+card.style.display=(f==='all'||card.getAttribute('data-cat')===f)?'':'none';
+});
+});
+});
+function calcKitchen(){
+var len=parseFloat(document.getElementById('cabLen').value);
+if(!len||len<=0){document.getElementById('calcResult').textContent='請輸入正確的櫃體總長（公尺）。';return;}
+var unit=parseInt(document.getElementById('series').value,10);
+var seriesName=document.getElementById('series').selectedOptions[0].textContent.split('｜')[0];
+var total=len*unit;
+var parts=['櫃體 '+len+' 米 × '+seriesName+' NT$'+unit.toLocaleString()+'/米 = NT$'+(len*unit).toLocaleString()];
+if(document.getElementById('addCounter').checked){total+=12000;parts.push('石英石檯面 NT$12,000');}
+if(document.getElementById('addHardware').checked){total+=6800;parts.push('緩衝五金組 NT$6,800');}
+calcText='櫃體總長 '+len+' 米，系列：'+seriesName+'，'+parts.join('；')+'，預估總價 NT$'+total.toLocaleString()+'（示範估價，實際以丈量報價為準）';
+document.getElementById('calcResult').innerHTML='預估總價：<b>NT$'+total.toLocaleString()+'</b><br><span style="font-size:15px;color:#5d564a">'+parts.join('<br>')+'</span><br><span style="font-size:14px;color:#8a8175">示範估價，實際以到府丈量報價為準。</span>';
+}
+function bringToForm(){
+if(!calcText){calcKitchen();}
+var note=document.getElementById('fNote');
+note.value=(note.value?note.value+'\n':'')+calcText;
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var type=document.getElementById('fType').value;
+var date=document.getElementById('fDate').value||'未指定';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n想做的項目：'+type+'\n希望丈量日期：'+date+'\n備註：'+note+'\n（本訊息由示範網站表單產生）';
+document.getElementById('lineMsg').textContent=msg;
+document.getElementById('msgBox').style.display='block';
+document.getElementById('copyTip').textContent='';
+});
+function copyMsg(){
+var text=document.getElementById('lineMsg').textContent;
+function done(){document.getElementById('copyTip').textContent='已複製';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallbackCopy(text);done();});}
+else{fallbackCopy(text);done();}
+}
+function fallbackCopy(text){
+var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');}catch(e){}
+document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

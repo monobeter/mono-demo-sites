@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>港都茶餐廳｜港式茶餐廳示範店</title>
+<style>
+:root{
+--red:#8e1f28; --red-dark:#6b141b; --red-light:#f6e3dd;
+--gold:#c9a227; --gold-light:#f7ecd0;
+--rice:#fbf7ee; --rice2:#f3ead3; --ink:#241a17; --ink-dark:#1a1210;
+--bg:#fbf7ee; --card:#fffdf6; --text:#2c211d; --muted:#7a6a5f; --line:#e8dcc0; --chip:#f3ead3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden;max-width:100%}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--ink-dark);color:#f5d9a8;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:900;font-size:22px;color:var(--ink);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--red-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}}
+.eyebrow{display:inline-flex;background:var(--red-light);color:var(--red-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-size:52px;line-height:1.05;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:20px;font-weight:700;color:var(--red);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(142,31,40,.28)}
+.btn-secondary{background:var(--card);color:var(--red-dark);border:1.5px solid var(--red)}
+.btn-ink{background:var(--ink);color:#fff}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(36,26,23,.22);background:linear-gradient(135deg,#6b141b,#8e1f28 45%,#c9a227 80%,#f3ead3);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff}
+.hero-img .big{font-size:64px;line-height:1.1}
+.hero-img p{margin:12px 0 0;font-size:16px;font-weight:700}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--ink);color:#f5ead2;border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.dish.hide{display:none}
+.dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.dish h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--gold-light);color:var(--red-dark);white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--red)}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--red-light);color:var(--red-dark);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="time"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--red);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.toppings{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.toppings{grid-template-columns:1fr}}
+.top-item{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:12px;padding:10px 12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.top-item input{width:20px;height:20px;accent-color:var(--red)}
+.qty-row{display:flex;align-items:center;gap:12px}
+.qty-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:900;cursor:pointer}
+.qty-num{font-size:20px;font-weight:900;min-width:36px;text-align:center}
+.result{background:var(--ink);color:#f5ead2;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px;color:#f5ead2}
+.result-line{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(245,234,210,.35);font-size:15px}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px;color:#fff}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:var(--ink-dark);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:linear-gradient(135deg,var(--red-light),var(--rice2));border-radius:24px;padding:26px;border:1px solid var(--line)}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--ink);color:#f5ead2;display:grid;place-items:center;font-size:36px;font-weight:900;margin-bottom:14px}
+.member h3{font-size:22px;margin:0 0 4px}
+.member .role{color:var(--red);font-weight:800;font-size:14px;margin:0 0 10px}
+.member p{color:var(--muted);margin:0 0 8px;font-size:15px}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--red);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0;color:var(--text)}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--red);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#1a1210;color:#faf6ee;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:150px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--red)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--red-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--red);color:#fff}
+.mobile-bar a:last-child{background:var(--gold-light);color:var(--ink);border:1.5px solid var(--red)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>港</i> 港都茶餐廳</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">茶餐廳菜單</a><a href="#calc">套餐試算</a><a href="#flow">用餐流程</a><a href="#team">廚房團隊</a><a href="#faq">常見問題</a><a href="#order">訂購表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">示範地區・港式茶餐廳 ・ 現點現做（示範）</span>
+<h1><small>GANG DU CHA CAN TING</small>港都茶餐廳</h1>
+<p class="lead">一盅兩件，一杯絲襪奶茶，就是港都的日常。<br>燒臘現切、點心現蒸、奶茶現沖——<strong>套餐先選、人數先算、加點先加，總價算好再訂</strong>，不用到現場才猜價錢。</p>
+<div class="hero-meta">
+<span class="pill">📍 示範地區（詳細地址請來電確認）</span>
+<span class="pill">🕙 營業時間：請來電確認</span>
+<span class="pill">🍜 人氣：黯然銷魂飯・蝦餃皇</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🍜 立即訂購</a>
+<a class="btn btn-secondary" href="#menu">看茶餐廳菜單</a>
+<a class="btn btn-ink" href="#calc">先套餐試算 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">先在下面選套餐、填人數、挑加點，總價即時算給你看，喜歡再一鍵帶進訂購表單。</p>
+</div>
+<div>
+<div class="hero-img"><div class="big">🍜<br>燒臘・點心・奶茶</div><p>招牌組合：黯然銷魂飯＋蝦餃皇＋絲襪奶茶（示範圖片為色塊示意）</p></div>
+<p class="hero-note">招牌組合：燒臘飯、現蒸點心、港式飲品（示範）</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="menu">
+<div class="sec-head">
+<h2>茶餐廳菜單</h2>
+<p>主食現炒現做，點心現蒸出籠；以下為示範價目。</p>
+</div>
+<div class="filters" role="group" aria-label="菜單分類篩選">
+<button class="filter-btn active" type="button" data-filter="all">全部</button>
+<button class="filter-btn" type="button" data-filter="staple">主食</button>
+<button class="filter-btn" type="button" data-filter="dimsum">點心</button>
+<button class="filter-btn" type="button" data-filter="drink">飲品</button>
+<button class="filter-btn" type="button" data-filter="dessert">甜品</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 14px"></p>
+<div class="menu-grid" id="menuGrid">
+
+<article class="dish" data-cat="staple">
+<div class="dish-top"><h3>黯然銷魂飯</h3><span class="tag">店內第一名</span></div>
+<div class="price">NT$180</div>
+<p class="desc">叉燒、煎蛋、青江菜鋪在白飯上，淋甜豉油；叉燒現切，蛋黃半熟最對味。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="staple">
+<div class="dish-top"><h3>港式燒鵝飯</h3><span class="tag">燒臘招牌</span></div>
+<div class="price">NT$200</div>
+<p class="desc">燒鵝皮脆肉嫩，配酸梅醬與薑蔥；燒臘每天現烤，賣完就收。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="staple">
+<div class="dish-top"><h3>叉燒雲吞麵</h3><span class="tag">經典</span></div>
+<div class="price">NT$160</div>
+<p class="desc">雲吞包整隻鮮蝦，麵條爽口彈牙；湯底用大地魚與豬骨熬，喝得到鮮味。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="staple">
+<div class="dish-top"><h3>乾炒牛河</h3><span class="tag">鑊氣十足</span></div>
+<div class="price">NT$180</div>
+<p class="desc">牛肉滑嫩、河粉鑊氣香，豆芽與韭菜現炒；喜歡重口味的直接點這道。</p>
+<button class="mini-btn" type="button" onclick="pickSet('雙人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dimsum">
+<div class="dish-top"><h3>蝦餃皇</h3><span class="tag">點心第一名</span></div>
+<div class="price">NT$120 <small>/ 3 顆</small></div>
+<p class="desc">整隻鮮蝦入餡，澄麵皮薄透；現蒸出籠，趁熱吃蝦肉最彈。</p>
+<button class="mini-btn" type="button" onclick="pickSet('雙人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dimsum">
+<div class="dish-top"><h3>港式燒賣</h3><span class="tag">經典</span></div>
+<div class="price">NT$100 <small>/ 4 顆</small></div>
+<p class="desc">豬肉加蝦仁手工包，上面一顆蟹籽；配辣椒醬與醋，港味就對了。</p>
+<button class="mini-btn" type="button" onclick="pickSet('雙人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dimsum">
+<div class="dish-top"><h3>鮮蝦腸粉</h3><span class="tag">現拉現蒸</span></div>
+<div class="price">NT$110</div>
+<p class="desc">腸粉現拉現蒸，皮滑蝦鮮；淋甜豉油與芝麻醬，滑嫩順口。</p>
+<button class="mini-btn" type="button" onclick="pickSet('四人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>絲襪奶茶</h3><span class="tag">鎮店之寶</span></div>
+<div class="price">NT$70</div>
+<p class="desc">紅茶撞奶、來回拉三次，茶香濃、奶味滑；冰的熱的都好喝，冰的要少冰。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>咸檸七</h3><span class="tag">清爽解膩</span></div>
+<div class="price">NT$65</div>
+<p class="desc">鹹檸檬現壓加七喜，鹹甜帶氣泡；吃完燒臘來一杯，剛好解膩。</p>
+<button class="mini-btn" type="button" onclick="pickSet('雙人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>凍檸茶</h3><span class="tag">經典</span></div>
+<div class="price">NT$60</div>
+<p class="desc">紅茶加新鮮檸檬，酸香清爽；檸檬現切現壓，茶澀味不會跑出來。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dessert">
+<div class="dish-top"><h3>楊枝甘露</h3><span class="tag">甜品第一名</span></div>
+<div class="price">NT$90</div>
+<p class="desc">芒果、西柚、椰奶、西米露，酸甜清爽；冰冰涼涼，飯後一碗剛剛好。</p>
+<button class="mini-btn" type="button" onclick="pickSet('四人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dessert">
+<div class="dish-top"><h3>芝麻糊</h3><span class="tag">暖心熱甜品</span></div>
+<div class="price">NT$80</div>
+<p class="desc">黑芝麻現磨現煮，香濃滑順；冬天熱熱喝，夏天也可以點冰的。</p>
+<button class="mini-btn" type="button" onclick="pickSet('雙人套餐')">用套餐試算 →</button>
+</article>
+
+<article class="dish" data-cat="dessert">
+<div class="dish-top"><h3>港式蛋撻</h3><span class="tag">現烤出爐</span></div>
+<div class="price">NT$55 <small>/ 顆</small></div>
+<p class="desc">酥皮層層分明、蛋餡滑嫩，現烤出爐最香；一次點兩顆比較保險。</p>
+<button class="mini-btn" type="button" onclick="pickSet('個人套餐')">用套餐試算 →</button>
+</article>
+
+</div>
+<p style="color:var(--muted);font-size:13px;margin-top:14px">以上皆為示範價目，正式價目以店家現場公告為準。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head">
+<h2>套餐人數試算</h2>
+<p>選套餐、填組數、挑加點，總價即時算給你看；算好一鍵帶進下方訂購表單。</p>
+</div>
+<div class="calc-box">
+<div>
+<label>1. 選套餐（示範價）</label>
+<div class="chips" id="setChips">
+<label class="chip"><input type="radio" name="cSet" value="個人套餐" data-price="280" checked><span>個人套餐 NT$280</span></label>
+<label class="chip"><input type="radio" name="cSet" value="雙人套餐" data-price="520"><span>雙人套餐 NT$520</span></label>
+<label class="chip"><input type="radio" name="cSet" value="四人套餐" data-price="980"><span>四人套餐 NT$980</span></label>
+</div>
+<p style="color:var(--muted);font-size:13px;margin:8px 0 0">個人套餐：主食 1 份＋飲品 1 杯；雙人套餐：主食 2 份＋點心 2 份＋飲品 2 杯；四人套餐：主食 4 份＋點心 4 份＋飲品 4 杯＋甜品 2 份（示範內容）。</p>
+
+<label>2. 組數</label>
+<div class="qty-row">
+<button class="qty-btn" type="button" onclick="changeQty(-1)" aria-label="減少一組">−</button>
+<span class="qty-num" id="calcQtyNum">1</span>
+<button class="qty-btn" type="button" onclick="changeQty(1)" aria-label="增加一組">＋</button>
+<span style="color:var(--muted);font-size:14px">組（加點以每組計）</span>
+</div>
+
+<label>3. 加點（每組加點價）</label>
+<div class="toppings" id="calcToppings">
+<label class="top-item"><input type="checkbox" value="蝦餃皇" data-price="120"> 蝦餃皇 ＋NT$120</label>
+<label class="top-item"><input type="checkbox" value="港式燒賣" data-price="100"> 港式燒賣 ＋NT$100</label>
+<label class="top-item"><input type="checkbox" value="港式蛋撻" data-price="55"> 港式蛋撻 ＋NT$55</label>
+<label class="top-item"><input type="checkbox" value="絲襪奶茶" data-price="70"> 絲襪奶茶 ＋NT$70</label>
+<label class="top-item"><input type="checkbox" value="楊枝甘露" data-price="90"> 楊枝甘露 ＋NT$90</label>
+<label class="top-item"><input type="checkbox" value="凍檸茶" data-price="60"> 凍檸茶 ＋NT$60</label>
+</div>
+</div>
+
+<div class="result">
+<h3>🍜 你的港都套餐</h3>
+<div class="result-line"><span>套餐</span><span id="rSet">個人套餐</span></div>
+<div class="result-line"><span>套餐單價</span><span id="rBase">NT$280</span></div>
+<div class="result-line"><span>組數</span><span id="rQty">1 組</span></div>
+<div class="result-line"><span>加點（每組）</span><span id="rTop">無加點 ＋NT$0</span></div>
+<div class="result-total" id="rTotal">NT$280</div>
+<div class="result-sub" id="rUnit">每組 NT$280 × 1 組（示範價格）</div>
+<button class="btn" type="button" onclick="sendToOrder()">一鍵帶進訂購表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head">
+<h2>用餐流程</h2>
+<p>從進門到吃完，五個步驟，平均約 40 分鐘。</p>
+</div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上試算訂購</h3><p>選套餐、填人數、挑加點，總價先算好；表單填完傳 LINE，店家回覆確認。</p></div>
+<div class="step"><b>2</b><h3>到店入座點餐</h3><p>到店先告知姓名與訂購內容，店員帶位；想加點的，點心紙上直接勾。</p></div>
+<div class="step"><b>3</b><h3>主食現做上桌</h3><p>燒臘現切、麵飯現炒，熱騰騰上桌；奶茶現沖，冰的記得說少冰。</p></div>
+<div class="step"><b>4</b><h3>點心現蒸續上</h3><p>蝦餃、燒賣、腸粉一籠一籠蒸好送上；趁熱吃，涼了口感會差。</p></div>
+<div class="step"><b>5</b><h3>甜品收尾結帳</h3><p>楊枝甘露或芝麻糊收尾，櫃台結帳；吃不完的主食可打包，點心建議現場吃完。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head">
+<h2>廚房團隊</h2>
+<p>三個人，一間茶餐廳。燒臘、點心、奶茶，各有人顧。</p>
+</div>
+<div class="team">
+<div class="member">
+<div class="avatar">權</div>
+<h3>阿權師傅</h3>
+<p class="role">店主・燒臘主廚</p>
+<p>在香港茶餐廳學燒臘 18 年，叉燒、燒鵝、燒肉每天現烤。黯然銷魂飯的叉燒醃料，是他調了十年才定下來的比例。</p>
+<p>「燒臘這行，火候差一分鐘，皮就脆不起來。」</p>
+</div>
+<div class="member">
+<div class="avatar">玲</div>
+<h3>玲姐</h3>
+<p class="role">點心師傅</p>
+<p>負責蝦餃、燒賣、腸粉，澄麵皮的厚薄全靠手感。每天早上五點進廚房備料，點心賣完就收，絕不賣隔夜的。</p>
+<p>「蝦餃皮要薄到看得見蝦，捏下去不能破。」</p>
+</div>
+<div class="member">
+<div class="avatar">傑</div>
+<h3>阿傑</h3>
+<p class="role">外場・奶茶手</p>
+<p>負責沖奶茶、帶位與上菜節奏，絲襪奶茶一天拉上百杯。記得八成常客的固定點法，熟客一坐下就知道要什麼。</p>
+<p>「奶茶拉三次，茶香才撞得出來。」</p>
+</div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head">
+<h2>客人評價</h2>
+<p>以下為示範評價，正式上線將換成真實客人回饋。</p>
+</div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「黯然銷魂飯的叉燒很香，蛋黃半熟拌飯剛剛好。雙人套餐兩個人吃很飽，加點蝦餃皇現蒸出籠，蝦肉很彈。」</p><footer>— 阿傑・上班族・雙人套餐</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「帶爸媽來吃四人套餐，燒鵝飯、雲吞麵、點心一次吃到，爸媽說絲襪奶茶跟香港喝到的一樣滑。」</p><footer>— 小芬・家庭聚餐・四人套餐</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「平日中午不用排太久，乾炒牛河鑊氣很夠。蛋撻現烤出爐最香，建議多點一顆，真的會不夠吃。」</p><footer>— 志明・第一次來・個人套餐</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「咸檸七配燒鵝飯剛好解膩，楊枝甘露飯後一碗很清爽。店員會提醒點心趁熱吃，服務很細心。」</p><footer>— 雅婷・港式愛好者・雙人套餐</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head">
+<h2>常見問題</h2>
+<p>價格、訂購、取消、交通，一次說清楚。</p>
+</div>
+<div class="faq">
+<details><summary>套餐一份多少錢？加點怎麼算？</summary><p>個人套餐 NT$280、雙人套餐 NT$520、四人套餐 NT$980。加點以每組計：蝦餃皇 +NT$120、港式燒賣 +NT$100、港式蛋撻 +NT$55、絲襪奶茶 +NT$70、楊枝甘露 +NT$90、凍檸茶 +NT$60。以上為示範價目，以店家現場公告為準。</p></details>
+<details><summary>怎麼訂購？一定要先訂嗎？</summary><p>填寫下方訂購表單，產生 LINE 訊息後複製傳給店家，店家回覆確認才算訂購成功。平日離峰可直接到店，週五晚上與週末建議先訂購；現場保留一半座位給現場客人。</p></details>
+<details><summary>訂購後可以取消或改時間嗎？</summary><p>可以。用餐前 3 小時以上，LINE 傳訊告知姓名與原訂時間即可免費取消或改期一次；3 小時內取消請來電告知，店家會把座位釋出給現場客人。無故未到兩次，之後訂購需先付訂金。</p></details>
+<details><summary>可以外帶或外送嗎？</summary><p>主食與飲品可以外帶，點心建議現場吃，涼了口感會差。外送目前只接店家周邊範圍，請 LINE 詢問是否在外送區內；燒鵝等燒臘品項外帶請儘快食用。</p></details>
+<details><summary>有素食或不吃蝦的選擇嗎？</summary><p>有。乾炒牛河可改素菜河粉，腸粉可點素菜餡；對蝦過敏請在備註寫明，師傅會避開蝦餃、雲吞等含蝦品項，點餐時店員也會再確認一次。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>店址在示範地區（詳細地址請來電確認），鄰近公車站，步行約 3 分鐘。開車請停附近收費停車場，店門口無專用停車位；騎機車可停店前機車格，假日一位難求，建議搭公車或騎車來。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head">
+<h2>訂購表單</h2>
+<p>填完自動產生 LINE 訊息，複製貼到 LINE 傳給店家，店家回覆確認才算訂購成功。</p>
+</div>
+<div class="form-box">
+<div class="form-grid">
+<div>
+<label for="fName">姓名 *</label>
+<input type="text" id="fName" placeholder="例如：王小明">
+</div>
+<div>
+<label for="fPhone">電話 *</label>
+<input type="tel" id="fPhone" placeholder="例如：09XX-XXX-XXX">
+</div>
+<div>
+<label for="fDate">用餐日期</label>
+<input type="date" id="fDate">
+</div>
+<div>
+<label for="fTime">用餐時間</label>
+<select id="fTime">
+<option value="11:30">11:30（午餐）</option>
+<option value="12:00">12:00（午餐）</option>
+<option value="12:30">12:30（午餐）</option>
+<option value="13:00">13:00（午餐）</option>
+<option value="17:30">17:30（晚餐）</option>
+<option value="18:00">18:00（晚餐）</option>
+<option value="18:30">18:30（晚餐）</option>
+<option value="19:00">19:00（晚餐）</option>
+<option value="19:30">19:30（晚餐）</option>
+<option value="20:00">20:00（晚餐）</option>
+</select>
+</div>
+<div>
+<label for="fPeople">用餐人數</label>
+<select id="fPeople">
+<option value="1 位">1 位</option>
+<option value="2 位" selected>2 位</option>
+<option value="3 位">3 位</option>
+<option value="4 位">4 位</option>
+<option value="5 位">5 位</option>
+<option value="6 位以上">6 位以上（請於備註說明人數）</option>
+</select>
+</div>
+<div>
+<label for="fSet">套餐</label>
+<select id="fSet">
+<option value="個人套餐">個人套餐 NT$280</option>
+<option value="雙人套餐">雙人套餐 NT$520</option>
+<option value="四人套餐">四人套餐 NT$980</option>
+</select>
+</div>
+<div>
+<label for="fQty">組數</label>
+<select id="fQty">
+<option value="1 組">1 組</option>
+<option value="2 組">2 組</option>
+<option value="3 組">3 組</option>
+<option value="4 組">4 組</option>
+</select>
+</div>
+<div>
+<label for="fSeat">座位偏好</label>
+<select id="fSeat">
+<option value="靠窗座位">靠窗座位</option>
+<option value="一般桌位">一般桌位</option>
+<option value="不指定">不指定</option>
+</select>
+</div>
+</div>
+<label>加點（可複選，每組計）</label>
+<div class="toppings" id="orderToppings">
+<label class="top-item"><input type="checkbox" value="蝦餃皇"> 蝦餃皇 ＋NT$120</label>
+<label class="top-item"><input type="checkbox" value="港式燒賣"> 港式燒賣 ＋NT$100</label>
+<label class="top-item"><input type="checkbox" value="港式蛋撻"> 港式蛋撻 ＋NT$55</label>
+<label class="top-item"><input type="checkbox" value="絲襪奶茶"> 絲襪奶茶 ＋NT$70</label>
+<label class="top-item"><input type="checkbox" value="楊枝甘露"> 楊枝甘露 ＋NT$90</label>
+<label class="top-item"><input type="checkbox" value="凍檸茶"> 凍檸茶 ＋NT$60</label>
+</div>
+<label for="fNote">備註（過敏、不吃蝦、素食、兒童座椅、其他需求）</label>
+<textarea id="fNote" rows="3" placeholder="例如：對蝦過敏、不吃辣"></textarea>
+<div class="msg-box" id="msgBox"></div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+
+<div class="info-grid">
+<div class="info"><h3>📍 店址（示範）</h3><p>示範地區（詳細地址請來電確認）</p></div>
+<div class="info"><h3>📞 電話（示範）</h3><p>請來電確認</p></div>
+<div class="info"><h3>🕙 營業時間（示範）</h3><p>請來電確認<br>每週一公休（示範）</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>港都茶餐廳｜一頁式示範網站</strong></p>
+<p>本頁為示範網站：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。全部是假設訂單示範，電話與地址皆為示範寫法（請來電確認），請勿以此聯繫。</p>
+<p>© 2026 港都茶餐廳（示範）・MONO AI 影像工作室示範站第 73 間</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">🍜 立即訂購</a>
+<a href="#menu">看茶餐廳菜單</a>
+</div>
+
+<script>
+var SET_PRICES={"個人套餐":280,"雙人套餐":520,"四人套餐":980};
+var TOP_PRICES={"蝦餃皇":120,"港式燒賣":100,"港式蛋撻":55,"絲襪奶茶":70,"楊枝甘露":90,"凍檸茶":60};
+var calcQty=1;
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.dish').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 款品項（示範價目）';
+});
+});
+document.getElementById('menuCount').textContent='目前顯示 '+document.querySelectorAll('.dish').length+' 款品項（示範價目）';
+
+// --- Calculator ---
+function getCalc(){
+var setEl=document.querySelector('input[name="cSet"]:checked');
+var set=setEl.value;
+var base=parseInt(setEl.getAttribute('data-price'),10);
+var tops=[]; var topSum=0;
+document.querySelectorAll('#calcToppings input:checked').forEach(function(cb){tops.push(cb.value);topSum+=parseInt(cb.getAttribute('data-price'),10);});
+var unit=base+topSum;
+return {set:set,base:base,tops:tops,topSum:topSum,qty:calcQty,unit:unit,total:unit*calcQty};
+}
+function renderCalc(){
+var c=getCalc();
+document.getElementById('rSet').textContent=c.set;
+document.getElementById('rBase').textContent='NT$'+c.base;
+document.getElementById('rQty').textContent=c.qty+' 組';
+document.getElementById('rTop').textContent=(c.tops.length?c.tops.join('、'):'無加點')+' ＋NT$'+c.topSum;
+document.getElementById('rTotal').textContent='NT$'+c.total;
+document.getElementById('rUnit').textContent='每組 NT$'+c.unit+' × '+c.qty+' 組（示範價格）';
+document.getElementById('calcQtyNum').textContent=c.qty;
+}
+function changeQty(d){calcQty=Math.min(6,Math.max(1,calcQty+d));renderCalc();}
+document.querySelectorAll('input[name="cSet"],#calcToppings input').forEach(function(el){el.addEventListener('change',renderCalc);});
+renderCalc();
+
+function pickSet(set){
+var radios=document.querySelectorAll('input[name="cSet"]');
+radios.forEach(function(r){if(r.value===set)r.checked=true;});
+renderCalc();
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+
+// --- Send calc to order form ---
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function sendToOrder(){
+var c=getCalc();
+setSelect('fSet',c.set);
+setSelect('fQty',c.qty+' 組');
+document.querySelectorAll('#orderToppings input').forEach(function(cb){cb.checked=c.tops.indexOf(cb.value)>-1;});
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已把試算結果帶進訂購表單，再填姓名、電話就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var date=document.getElementById('fDate').value||'（請選日期）';
+var time=document.getElementById('fTime').value;
+var people=document.getElementById('fPeople').value;
+var set=document.getElementById('fSet').value;
+var qty=document.getElementById('fQty').value;
+var seat=document.getElementById('fSeat').value;
+var note=document.getElementById('fNote').value.trim();
+var tops=[];
+document.querySelectorAll('#orderToppings input:checked').forEach(function(cb){tops.push(cb.value);});
+var base=SET_PRICES[set]||0;
+var topSum=0; tops.forEach(function(t){topSum+=TOP_PRICES[t]||0;});
+var qtyNum=parseInt(qty,10)||1;
+var unit=base+topSum;
+var total=unit*qtyNum;
+var lines=[
+'您好，我想訂購港式套餐🍜',
+'姓名：'+name,
+'電話：'+phone,
+'用餐日期：'+date,
+'用餐時間：'+time,
+'用餐人數：'+people,
+'套餐：'+set,
+'組數：'+qty,
+'座位偏好：'+seat,
+'加點：'+(tops.length?tops.join('、'):'無加點'),
+'套餐試算：每組 NT$'+unit+'（套餐 NT$'+base+'＋加點 NT$'+topSum+'）× '+qtyNum+' 組＝NT$'+total+'（示範價格）'
+];
+if(note)lines.push('備註：'+note);
+lines.push('（以上為示範訂購，請店家回覆確認）');
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fDate','fTime','fPeople','fSet','fQty','fSeat','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+document.querySelectorAll('#orderToppings input').forEach(function(cb){cb.addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE 傳給店家即可。';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+}
+</script>
+</body>
+</html>

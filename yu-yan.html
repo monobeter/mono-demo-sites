@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>暢言語言學校｜英文程度測驗・英文課程（示範站）</title>
+<style>
+
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:#faf6ec;color:#232a33;line-height:1.7;padding-bottom:76px}
+@media(min-width:769px){body{padding-bottom:0}}
+:root{--a:#16324f;--ad:#16324fD;--b:#f2b705;--bd:#f2b705D;--cream:#fdf3d0;--card:#fff;--muted:#6b7280;--line:#e3dcc8}
+a{color:inherit}
+button,select,input,textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#f2b705;color:#16324fD;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:var(--a);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--a);color:var(--b);display:grid;place-items:center;font-style:normal;font-size:19px}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--cream)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}}
+.eyebrow{display:inline-flex;background:#fdf3d0;color:var(--a);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px}
+.hero h1{font-size:44px;line-height:1.25;margin:12px 0 10px}
+.hero .lead{font-size:17px;color:#444c57}
+.hero-visual{border-radius:20px;min-height:300px;background:linear-gradient(150deg,#16324f 0%,#2e5a84 50%,#f2b705 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.hero-visual b{font-size:26px}
+.hero-visual p{margin:6px 0 0;opacity:.92}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;border:0;cursor:pointer}
+.btn-a{background:var(--a);color:#fff}
+.btn-line{background:#fff;border:2px solid var(--a);color:var(--a)}
+section{max-width:1120px;margin:0 auto;padding:28px 20px}
+h2{font-size:28px;margin:0 0 6px;color:var(--a)}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:820px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid var(--a);background:#fff;color:var(--a);border-radius:999px;padding:9px 18px;font-weight:800;cursor:pointer;font-size:15px}
+.filters button.active{background:var(--a);color:#fff}
+.svc .cover{height:130px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:12px}
+.svc h3{margin:0 0 4px;font-size:18px}
+.svc p{margin:0;color:var(--muted);font-size:14px}
+.price{font-weight:900;color:var(--bd);font-size:18px;margin-top:8px}
+.tag{display:inline-block;font-size:12px;font-weight:800;background:#e8eef4;color:var(--a);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.calc label{display:block;font-weight:800;margin:14px 0 6px}
+.calc select,.calc input{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.calc .opt{display:block;font-weight:400;margin:6px 0}
+.calc .opt input{min-height:20px;width:18px;vertical-align:middle;margin-right:8px}
+.result{background:#eef2f7;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;display:none}
+.result.show{display:block}
+.result h3{margin:0 0 6px;color:var(--a)}
+.result .total{font-size:24px;font-weight:900;color:var(--bd)}
+.disclaimer{font-size:13px;color:var(--muted);margin-top:10px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{text-align:center}
+.step .num{width:52px;height:52px;border-radius:50%;background:var(--a);color:var(--b);display:grid;place-items:center;font-size:22px;font-weight:900;margin:0 auto 10px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;margin-bottom:10px}
+.review{font-size:15px}
+.review .stars{color:var(--bd);font-size:18px;letter-spacing:2px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;font-size:16px}
+form label{display:block;font-weight:800;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.msgbox{background:#fdf3d0;border:1px dashed var(--bd);border-radius:12px;padding:16px;white-space:pre-wrap;margin-top:16px;display:none}
+.msgbox.show{display:block}
+.feedback{color:var(--a);font-weight:800;margin-top:8px;min-height:24px}
+footer{background:var(--ad);color:#d8dee8;padding:32px 20px;text-align:center;font-size:14px}
+footer p{max-width:760px;margin:8px auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--a);color:#fff}
+.mobile-bar a:last-child{background:#fff;border:2px solid var(--a);color:var(--a)}
+
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+<header class="topnav">
+<div class="logo"><i>暢</i>暢言語言學校</div>
+<nav class="navlinks"><a href="#quiz">程度測驗</a><a href="#services">課程</a><a href="#steps">流程</a><a href="#team">師資</a><a href="#faq">常見問題</a><a href="#order">預約試聽</a></nav>
+</header>
+
+<section class="hero">
+<div>
+<span class="eyebrow">📖 示範語言學校・英文課程</span>
+<h1>開口說英文，<br>從第一句就敢講</h1>
+<p class="lead">先做 4 題程度測驗，馬上知道你適合哪一級；小班教學、老師逐句帶，學英文不用怕開口。</p>
+<p style="color:var(--muted);font-size:14px">📍 示範地區（詳細地址請來電確認）・營業時間請來電確認・電話請來電確認</p>
+<div class="cta-row">
+<a class="btn btn-a" href="#quiz">做程度測驗</a>
+<a class="btn btn-line" href="#services">看課程價目</a>
+</div>
+</div>
+<div class="hero-visual"><b>「英文不是背出來的，是講出來的。」</b><p>每堂課至少一半時間開口練習，測驗分級後直接進最適合你的班。</p></div>
+</section>
+
+<section id="quiz">
+<h2>英文程度測驗</h2>
+<p class="sub">4 題選一題答案，測完立即配對建議課程等級，並可把結果帶進預約表單。</p>
+<div class="card calc">
+<label>第 1 題：請選出正確的自我介紹</label>
+<label class="opt"><input type="radio" name="q1" value="1"> My name is Amy. I am from Taipei.</label>
+<label class="opt"><input type="radio" name="q1" value="0"> My name is Amy. I from Taipei.</label>
+<label class="opt"><input type="radio" name="q1" value="0"> I name Amy. I am from Taipei.</label>
+<label>第 2 題：Yesterday I ______ to the market.</label>
+<label class="opt"><input type="radio" name="q2" value="1"> went</label>
+<label class="opt"><input type="radio" name="q2" value="0"> go</label>
+<label class="opt"><input type="radio" name="q2" value="0"> going</label>
+<label>第 3 題：If it rains tomorrow, we ______ the picnic.</label>
+<label class="opt"><input type="radio" name="q3" value="1"> will cancel</label>
+<label class="opt"><input type="radio" name="q3" value="0"> cancel</label>
+<label class="opt"><input type="radio" name="q3" value="0"> cancelled</label>
+<label>第 4 題：The word "confident" means ______.</label>
+<label class="opt"><input type="radio" name="q4" value="1"> sure of yourself</label>
+<label class="opt"><input type="radio" name="q4" value="0"> afraid of people</label>
+<label class="opt"><input type="radio" name="q4" value="0"> good at cooking</label>
+<p class="disclaimer">配對規則（示範）：答對 4 題＝進階班，3 題＝中級班，2 題＝初級班，0–1 題＝入門班。測驗僅供分級參考，正式分級以試聽課老師評估為準。</p>
+<div style="margin-top:18px"><button class="btn btn-a" type="button" onclick="doQuiz()" style="width:100%">看我的建議等級</button></div>
+<div class="result" id="quizResult"></div>
+</div>
+</section>
+
+<section id="services">
+<h2>課程價目</h2>
+<p class="sub">以下課程與收費皆為示範。點品類按鈕可以篩選課程。</p>
+<div class="filters" id="svcFilters">
+<button class="active" data-cat="all">全部</button>
+<button data-cat="兒童英文">兒童英文</button>
+<button data-cat="成人英文">成人英文</button>
+<button data-cat="檢定考試">檢定考試</button>
+<button data-cat="商務英文">商務英文</button>
+</div>
+<div class="grid g4" id="svcGrid">
+<div class="card svc" data-cat="兒童英文"><div class="cover" style="background:linear-gradient(135deg,#f2b705,#fbe08a)">🧒</div><span class="tag">兒童英文</span><h3>兒童美語啟蒙班</h3><p>歌謠、遊戲、繪本帶孩子開口說英文，每班不超過 8 人。</p><div class="price">NT$3,200／月（示範）</div></div><div class="card svc" data-cat="兒童英文"><div class="cover" style="background:linear-gradient(135deg,#16324f,#2e5a84)">📚</div><span class="tag">兒童英文</span><h3>國小英文加強班</h3><p>學校進度同步複習，單字、句型、閱讀一次補齊。</p><div class="price">NT$2,800／月（示範）</div></div><div class="card svc" data-cat="兒童英文"><div class="cover" style="background:linear-gradient(135deg,#f2b705,#f6c945)">🎤</div><span class="tag">兒童英文</span><h3>兒童英文演講班</h3><p>小班上台練習，從自我介紹講到主題短講。</p><div class="price">NT$3,600／月（示範）</div></div><div class="card svc" data-cat="成人英文"><div class="cover" style="background:linear-gradient(135deg,#2e5a84,#7ba7c9)">💬</div><span class="tag">成人英文</span><h3>成人生活會話班</h3><p>旅遊、點餐、問路、閒聊，學了馬上用得上。</p><div class="price">NT$3,800／月（示範）</div></div><div class="card svc" data-cat="成人英文"><div class="cover" style="background:linear-gradient(135deg,#16324f,#3a5a80)">🗣️</div><span class="tag">成人英文</span><h3>成人一對一口說課</h3><p>依你的目標客製主題，每堂 50 分鐘全程開口。</p><div class="price">NT$1,200／堂（示範）</div></div><div class="card svc" data-cat="成人英文"><div class="cover" style="background:linear-gradient(135deg,#f2b705,#fbe08a)">✈️</div><span class="tag">成人英文</span><h3>出國旅遊英文班</h3><p>機場、飯店、問路、購物，行前 4 堂密集班。</p><div class="price">NT$2,400／4 堂（示範）</div></div><div class="card svc" data-cat="檢定考試"><div class="cover" style="background:linear-gradient(135deg,#2e5a84,#5b8ab0)">📝</div><span class="tag">檢定考試</span><h3>多益 TOEIC 衝刺班</h3><p>聽力、閱讀題型拆解，附模擬測驗與錯題檢討。</p><div class="price">NT$4,500／期（示範）</div></div><div class="card svc" data-cat="檢定考試"><div class="cover" style="background:linear-gradient(135deg,#16324f,#2e5a84)">🎓</div><span class="tag">檢定考試</span><h3>雅思 IELTS 準備班</h3><p>寫作、口說一對一批改，目標 6.5 分以上。</p><div class="price">NT$5,800／期（示範）</div></div><div class="card svc" data-cat="檢定考試"><div class="cover" style="background:linear-gradient(135deg,#f2b705,#f6c945)">🏫</div><span class="tag">檢定考試</span><h3>全民英檢 GEPT 班</h3><p>初級到中高級分級開班，聽說讀寫四項全練。</p><div class="price">NT$3,900／期（示範）</div></div><div class="card svc" data-cat="商務英文"><div class="cover" style="background:linear-gradient(135deg,#16324f,#3a5a80)">💼</div><span class="tag">商務英文</span><h3>商務英文簡報班</h3><p>會議、簡報、Email 寫法，職場英文一次到位。</p><div class="price">NT$4,800／期（示範）</div></div><div class="card svc" data-cat="商務英文"><div class="cover" style="background:linear-gradient(135deg,#2e5a84,#7ba7c9)">🤝</div><span class="tag">商務英文</span><h3>職場會議口說班</h3><p>開會發言、談判、提案的實用句型與演練。</p><div class="price">NT$4,200／期（示範）</div></div><div class="card svc" data-cat="商務英文"><div class="cover" style="background:linear-gradient(135deg,#f2b705,#fbe08a)">📧</div><span class="tag">商務英文</span><h3>商務 Email 寫作班</h3><p>詢價、報價、客訴回信模板，寫完老師逐句改。</p><div class="price">NT$2,600／4 堂（示範）</div></div>
+</div>
+</section>
+
+<section id="steps">
+<h2>報名流程</h2>
+<p class="sub">從測驗到開課，五個步驟。</p>
+<div class="steps">
+<div class="card step"><div class="num">1</div><h3>程度測驗</h3><p>線上做 4 題測驗，知道自己的建議等級。</p></div>
+<div class="card step"><div class="num">2</div><h3>預約試聽</h3><p>填表單預約一堂免費試聽課。</p></div>
+<div class="card step"><div class="num">3</div><h3>老師評估</h3><p>試聽後老師確認最適合的班級與時段。</p></div>
+<div class="card step"><div class="num">4</div><h3>選課繳費</h3><p>選定課程與期別，完成報名繳費。</p></div>
+<div class="card step"><div class="num">5</div><h3>開始上課</h3><p>按課表上課，期中還有進度小測驗。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>師資介紹</h2>
+<p class="sub">以下人名皆為示範。</p>
+<div class="team">
+<div class="card"><div class="avatar" style="background:#16324f">👩‍🏫</div><h3>陳怡君（示範人名）</h3><p><b>校長・兒童英文主任</b><br>教學 12 年（示範），專長兒童美語與親子共學，最會讓孩子敢開口。</p></div>
+<div class="card"><div class="avatar" style="background:#f2b705">👨‍🏫</div><h3>David Lin（示範人名）</h3><p><b>成人英文・商務英文老師</b><br>多益 990 分（示範成績），曾任外商業務，教你職場真正用得到的英文。</p></div>
+<div class="card"><div class="avatar" style="background:#2e5a84">👩‍🎓</div><h3>王詩涵（示範人名）</h3><p><b>檢定考試老師</b><br>雅思 8.0 分（示範成績），帶過 300 位以上考生（示範數字），寫作批改最仔細。</p></div>
+</div>
+</section>
+
+<section>
+<h2>學員評價</h2>
+<p class="sub">以下評價皆為示範內容。</p>
+<div class="grid g3">
+<div class="card review"><div class="stars">★★★★★</div><p>「女兒以前不敢開口，來這裡三個月，現在會主動用英文跟老師打招呼。」</p><p><b>— 林媽媽（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★★</div><p>「測驗分級很準，我直接進中級班，兩個月後開會敢用英文發言了。」</p><p><b>— 張先生（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★☆</div><p>「多益衝刺班的模擬考跟正式考試很像，錯題檢討讓我少走很多彎路。」</p><p><b>— 陳小姐（示範評價）</b></p></div>
+</div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<div>
+<details><summary>課程費用怎麼算？可以分期嗎？</summary><p>示範價目表以月費或期費計價，實際費用以現場公告為準。示範規則：單期一次繳清享 95 折，是否可分期請來電確認。</p></details>
+<details><summary>怎麼預約免費試聽？</summary><p>先做上方程度測驗，再填寫下方表單產生 LINE 訊息，複製後貼到 LINE 傳給我們即完成預約（示範流程）。</p></details>
+<details><summary>請假或缺課可以補課嗎？取消規則是什麼？</summary><p>示範規則：開課前 7 天可免費改期或退費；開課後請假可看錄影補課（示範），細節以報名須知為準。</p></details>
+<details><summary>學校在哪裡？交通與停車方便嗎？</summary><p>本校位於示範地區，詳細地址請來電確認。示範地區鄰近捷運站與公車站，附近有示範停車場，實際交通資訊以現場公告為準。</p></details>
+<details><summary>營業時間是幾點？</summary><p>營業時間請來電確認。週末採預約制，建議先以 LINE 預約試聽時間。</p></details>
+<details><summary>沒有英文基礎也可以報名嗎？</summary><p>可以。測驗答對 0–1 題會配對入門班，從字母、發音、簡單句型開始，老師會逐句帶，不用怕跟不上。</p></details>
+</div>
+</section>
+
+<section id="order">
+<h2>預約試聽表單</h2>
+<p class="sub">填完按下「產生 LINE 訊息」，複製後貼到 LINE 傳給我們即可（示範表單，不會真的送出報名）。</p>
+<div class="card">
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label for="fName">姓名</label>
+<input id="fName" required placeholder="例如：王小明">
+<label for="fPhone">電話</label>
+<input id="fPhone" type="tel" required placeholder="例如：09xx-xxx-xxx">
+<label for="fCourse">想報名的課程</label>
+<select id="fCourse"><option>兒童美語啟蒙班</option><option>國小英文加強班</option><option>兒童英文演講班</option><option>成人生活會話班</option><option>成人一對一口說課</option><option>出國旅遊英文班</option><option>多益 TOEIC 衝刺班</option><option>雅思 IELTS 準備班</option><option>全民英檢 GEPT 班</option><option>商務英文簡報班</option><option>職場會議口說班</option><option>商務 Email 寫作班</option></select>
+<label for="fTime">希望試聽時段</label>
+<select id="fTime"><option>平日晚上</option><option>週六上午</option><option>週六下午</option><option>週日上午</option></select>
+<label for="fNote">備註（例如：完全沒基礎、想先試聽一堂）</label>
+<textarea id="fNote" rows="3" placeholder="選填"></textarea>
+<div style="margin-top:18px"><button class="btn btn-a" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msgbox" id="msgBox"></div>
+<button class="btn btn-line" type="button" id="copyBtn" style="display:none;margin-top:12px;width:100%" onclick="copyMsg()">一鍵複製訊息</button>
+<div class="feedback" id="copyFb"></div>
+</div>
+</section>
+
+<footer>
+<p><b>暢言語言學校（示範站）</b></p>
+<p>本頁為 DEMO 示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。電話與營業時間請來電確認，地址為示範地區寫法，請以現場公告為準。測驗結果僅供分級參考。</p>
+<p>示範製作：MONO AI 影像工作室一頁式網站示範產線</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">📞 請來電確認</a>
+<a href="#order">📖 預約試聽</a>
+</div>
+
+<script>
+var quizText="";
+function doQuiz(){
+var score=0,answered=0;
+for(var q=1;q<=4;q++){
+var sel=document.querySelector('input[name="q'+q+'"]:checked');
+if(sel){answered++;score+=parseInt(sel.value,10);}
+}
+var r=document.getElementById('quizResult');
+if(answered<4){r.classList.add('show');r.innerHTML="<h3>還有題目沒作答</h3><p>請把 4 題都選完再看結果。</p>";return;}
+var level,rec;
+if(score===4){level="進階班";rec="成人生活會話班或商務英文簡報班";}
+else if(score===3){level="中級班";rec="成人生活會話班或多益 TOEIC 衝刺班";}
+else if(score===2){level="初級班";rec="成人生活會話班或出國旅遊英文班";}
+else{level="入門班";rec="成人生活會話班（入門）或兒童美語啟蒙班";}
+quizText="程度測驗結果（示範）：4 題答對 "+score+" 題，建議等級 "+level+"，推薦課程 "+rec+"。";
+r.classList.add('show');
+r.innerHTML="<h3>你的建議等級："+level+"</h3><p>4 題答對 "+score+" 題</p><p>推薦課程："+rec+"</p><p class=\"total\">建議等級 "+level+"</p><p class=\"disclaimer\">以上為示範分級，正式分級以試聽課老師評估為準。</p><button class=\"btn btn-a\" type=\"button\" onclick=\"useQuiz()\">把測驗結果帶進預約表單</button>";
+r.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function useQuiz(){
+var sel=document.getElementById('fCourse');
+var rec=quizText.indexOf("多益")>=0?"多益 TOEIC 衝刺班":(quizText.indexOf("商務英文簡報")>=0?"商務英文簡報班":"成人生活會話班");
+for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===rec){sel.selectedIndex=i;break;}}
+document.getElementById('order').scrollIntoView({behavior:"smooth"});
+}
+
+document.querySelectorAll('#svcFilters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('#svcFilters button').forEach(function(b){b.classList.remove('active');});
+btn.classList.add('active');
+var cat=btn.getAttribute('data-cat');
+document.querySelectorAll('#svcGrid .svc').forEach(function(card){
+card.style.display=(cat==='all'||card.getAttribute('data-cat')===cat)?'':'none';
+});
+});
+});
+
+var lastMsg="";
+function makeMsg(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var course=document.getElementById('fCourse').value;
+var time=document.getElementById('fTime').value;
+var note=document.getElementById('fNote').value.trim()||"無";
+var quiz=quizText?quizText:"程度測驗：未使用測驗";
+lastMsg="\n姓名："+name+"\n電話："+phone+"\n想報名的課程："+course+"\n希望試聽時段："+time+"\n"+quiz+"\n備註："+note;
+var box=document.getElementById('msgBox');
+box.textContent=lastMsg;box.classList.add('show');
+document.getElementById('copyBtn').style.display="block";
+document.getElementById('copyFb').textContent="";
+box.scrollIntoView({behavior:"smooth",block:"center"});
+return false;
+}
+
+var lastMsg="";
+function copyMsg(){
+var fb=document.getElementById('copyFb');
+function done(){fb.textContent="\u2713 \u5df2\u8907\u88fd\uff01\u8cbc\u5230 LINE \u50b3\u7d66\u6211\u5011\u5373\u53ef\u3002";}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(lastMsg).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){
+var ta=document.createElement('textarea');ta.value=lastMsg;document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');done();}catch(err){fb.textContent="\u8907\u88fd\u5931\u6557\uff0c\u8acb\u624b\u52d5\u9577\u6309\u8a0a\u606f\u8907\u88fd\u3002";}
+document.body.removeChild(ta);
+}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浪花游泳教學中心｜課程配對示範站</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:#F4FAFB;color:#1F2A33;line-height:1.7}
+.demo{background:#0369A1;color:#fff;text-align:center;padding:10px 14px;font-size:14px;font-weight:700;letter-spacing:1px}
+header{background:#0C4A6E;color:#F4FAFB;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+header.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+header.logo span{color:#FDE68A}
+header nav a{color:#DCEEF7;text-decoration:none;margin-left:18px;font-size:15px}
+.hero{background:linear-gradient(135deg,#0C4A6E 50%,#0284C7 80%,#38BDF8 100%);color:#fff;padding:64px 20px 72px;text-align:center}
+.hero.badge{display:inline-block;background:#FDE68A;color:#0C4A6E;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.25;margin-bottom:14px}
+.hero p{max-width:640px;margin:0 auto 26px;color:#D6ECF8;font-size:17px}
+.btn{display:inline-block;background:#FDE68A;color:#0C4A6E;font-weight:800;padding:14px 30px;border-radius:999px;text-decoration:none;font-size:17px;border:none;cursor:pointer}
+.btn.ghost{background:transparent;color:#fff;border:2px solid #FDE68A;margin-left:10px}
+section{padding:56px 20px;max-width:1080px;margin:0 auto}
+h2{font-size:28px;margin-bottom:8px;text-align:center}
+.sub{text-align:center;color:#5B7183;margin-bottom:32px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #D9E8EE;border-radius:16px;padding:22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card.price{color:#0369A1;font-weight:900;font-size:20px}
+.card.tag{display:inline-block;background:#E0F2FE;color:#0369A1;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.filters{text-align:center;margin-bottom:24px}
+.filters button{background:#fff;border:2px solid #0284C7;color:#0C4A6E;padding:9px 20px;border-radius:999px;margin:4px;cursor:pointer;font-size:15px;font-weight:700}
+.filters button.active{background:#0C4A6E;color:#fff;border-color:#0C4A6E}
+.quiz{background:#0C4A6E;color:#fff;border-radius:20px;padding:32px 24px;max-width:760px;margin:0 auto}
+.quiz h2{color:#fff}
+.quiz.q{margin-bottom:20px}
+.quiz.q p{font-weight:700;margin-bottom:10px}
+.quiz label{display:block;background:#155E83;border:1px solid #2E7CA3;border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer}
+.quiz label:hover{border-color:#FDE68A}
+.quiz input{margin-right:8px}
+.quiz select{width:100%;padding:12px;border-radius:10px;font-size:16px;margin-top:6px}
+#quizResult{display:none;background:#FDE68A;color:#0C4A6E;border-radius:12px;padding:18px;margin-top:16px;font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:#fff;border-top:5px solid #0284C7;border-radius:12px;padding:20px;text-align:center}
+.step.num{font-size:34px;font-weight:900;color:#0284C7}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.member{background:#fff;border-radius:16px;padding:22px;text-align:center;border:1px solid #D9E8EE}
+.member.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#0284C7,#FDE68A);display:flex;align-items:center;justify-content:center;font-size:34px;color:#fff}
+.review{background:#fff;border-left:5px solid #0284C7;border-radius:12px;padding:20px;margin-bottom:14px}
+.review.stars{color:#B45309;letter-spacing:2px}
+details{background:#fff;border:1px solid #D9E8EE;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+details summary{font-weight:700;cursor:pointer}
+form{background:#fff;border:1px solid #D9E8EE;border-radius:20px;padding:28px 24px;max-width:680px;margin:0 auto}
+form label{display:block;font-weight:700;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;padding:12px;border:1.5px solid #C3D8E2;border-radius:10px;font-size:16px}
+form button{width:100%;margin-top:20px}
+#msgBox{display:none;margin-top:18px}
+#msgBox textarea{width:100%;min-height:150px;padding:12px;border:1.5px solid #0284C7;border-radius:10px;font-size:15px;background:#F0F9FF}
+.copyBtn{background:#0C4A6E;color:#fff;margin-top:10px}
+.calc{background:#FFF7E0;border:1px solid #FDE68A;border-radius:12px;padding:18px 20px;margin-top:16px;color:#0C4A6E}
+footer{background:#0C4A6E;color:#A9C6D8;text-align:center;padding:32px 20px 110px;font-size:14px}
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:99;background:#0C4A6E;padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mobile-bar a{flex:1;text-align:center;background:#FDE68A;color:#0C4A6E;font-weight:800;padding:13px 6px;border-radius:12px;text-decoration:none;font-size:16px}
+.mobile-bar a.alt{background:#fff;color:#0C4A6E}
+@media(max-width:640px){
+.mobile-bar{display:flex}
+header nav{display:none}
+section{padding:40px 16px}
+.btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo">⚠ DEMO 示範網站｜店名、價目、評價皆為示範內容，非真實教學中心</div>
+<header>
+<div class="logo">浪花游泳 <span>教學中心</span></div>
+<nav><a href="#quiz">課程配對</a><a href="#price">課程價目</a><a href="#team">教練團隊</a><a href="#faq">常見問題</a><a href="#order">立即報名</a></nav>
+</header>
+
+<section class="hero" style="max-width:none">
+<div class="badge">🌊 從怕水，到愛上水</div>
+<h1>找到適合你的那一班，<br>下水就不怕。</h1>
+<p>3 歲幼兒到成人、零基礎到泳隊培訓都有班。先用年齡 × 程度配對課程，再試算學費，報名一次搞定。電話請來電確認，地址與營業時間請來電確認。</p>
+<a class="btn" href="#quiz">先做課程配對</a>
+<a class="btn ghost" href="#order">立即報名</a>
+</section>
+
+<section id="quiz">
+<h2>課程配對｜年齡 × 程度，一次配好</h2>
+<p class="sub">選年齡與程度，我們會推薦最適合的課程；結果會自動帶入下方報名表單。</p>
+<div class="quiz">
+<div class="q"><p>1. 學員年齡</p>
+<select id="qAge">
+<option value="">請選擇年齡</option>
+<option value="toddler">3–6 歲（幼兒）</option>
+<option value="kid">7–12 歲（兒童）</option>
+<option value="adult">13 歲以上（青少年／成人）</option>
+</select>
+</div>
+<div class="q"><p>2. 現在的游泳程度？</p>
+<label><input type="radio" name="qLevel" value="zero">完全不會／怕水，沒下過水或只玩過水</label>
+<label><input type="radio" name="qLevel" value="basic">會漂浮、踢水，但還不會換氣游 25 公尺</label>
+<label><input type="radio" name="qLevel" value="mid">會換氣游 25 公尺以上，想學第二種泳姿</label>
+<label><input type="radio" name="qLevel" value="adv">四式都會，想精進速度或考救生員</label>
+</div>
+<div class="q"><p>3. 希望的上課方式？</p>
+<label><input type="radio" name="qMode" value="group">團體班，和同學一起學比較有動力</label>
+<label><input type="radio" name="qMode" value="group">團體班，預算優先</label>
+<label><input type="radio" name="qMode" value="private">一對一，想照自己的進度學</label>
+<label><input type="radio" name="qMode" value="intensive">密集班，暑假或短期內想學會</label>
+</div>
+<button class="btn" type="button" onclick="doQuiz()">看我的推薦課程</button>
+<div id="quizResult"></div>
+<div class="calc" id="calcBox" style="display:none">
+<strong>學費試算：</strong><span id="calcText"></span><br>
+<label style="font-weight:700">想上幾堂？
+<select id="calcN" onchange="recalc()" style="width:120px;padding:8px;border-radius:8px">
+<option value="1">1 堂</option><option value="4">4 堂</option>
+<option value="8" selected>8 堂</option><option value="10">10 堂</option>
+</select>
+</label>
+<div id="calcResult" style="font-weight:900;font-size:19px;margin-top:8px"></div>
+</div>
+</div>
+</section>
+
+<section id="price">
+<h2>課程價目</h2>
+<p class="sub">點下方分類篩選課程。價格為示範價目，實際價格請來電確認。</p>
+<div class="filters">
+<button class="active" data-filter="all" onclick="filterItems(this)">全部</button>
+<button data-filter="toddler" onclick="filterItems(this)">幼兒課程</button>
+<button data-filter="kid" onclick="filterItems(this)">兒童課程</button>
+<button data-filter="adult" onclick="filterItems(this)">成人課程</button>
+<button data-filter="adv" onclick="filterItems(this)">進階專項</button>
+</div>
+<div class="cards" id="priceList">
+<div class="card" data-cat="toddler"><span class="tag">幼兒課程</span><h3>親子水中適應（3–4 歲）</h3><p>家長陪同下水，玩水建立安全感。單堂</p><p class="price">NT$600／堂</p></div>
+<div class="card" data-cat="toddler"><span class="tag">幼兒課程</span><h3>幼兒漂浮班（4–6 歲）</h3><p>漂浮、踢水、憋氣，幼兒的第一堂游泳課。單堂</p><p class="price">NT$650／堂</p></div>
+<div class="card" data-cat="toddler"><span class="tag">幼兒課程</span><h3>幼兒團體班（4–6 歲）</h3><p>小班 4–6 人，8 堂學會基礎水中自救。</p><p class="price">NT$4,800／8 堂</p></div>
+<div class="card" data-cat="kid"><span class="tag">兒童課程</span><h3>兒童初學班（7–12 歲）</h3><p>零基礎入門，8 堂學會換氣游 25 公尺。</p><p class="price">NT$5,200／8 堂</p></div>
+<div class="card" data-cat="kid"><span class="tag">兒童課程</span><h3>兒童進階班（7–12 歲）</h3><p>自由式＋蛙式，8 堂打好兩式基礎。</p><p class="price">NT$5,600／8 堂</p></div>
+<div class="card" data-cat="kid"><span class="tag">兒童課程</span><h3>兒童暑期密集班（7–12 歲）</h3><p>兩週 10 堂密集學，暑假一次學會。</p><p class="price">NT$6,800／10 堂</p></div>
+<div class="card" data-cat="adult"><span class="tag">成人課程</span><h3>成人零基礎班</h3><p>怕水也沒關係，從漂浮開始慢慢來。8 堂</p><p class="price">NT$5,600／8 堂</p></div>
+<div class="card" data-cat="adult"><span class="tag">成人課程</span><h3>成人自由式班</h3><p>換氣、划手、打水一次練到位。8 堂</p><p class="price">NT$6,000／8 堂</p></div>
+<div class="card" data-cat="adult"><span class="tag">成人課程</span><h3>成人蛙式班</h3><p>蛙式動作拆解，游得輕鬆又省力。8 堂</p><p class="price">NT$6,000／8 堂</p></div>
+<div class="card" data-cat="adv"><span class="tag">進階專項</span><h3>救生員訓練班</h3><p>救生四式＋救生技能，為考照做準備。</p><p class="price">NT$12,000／期</p></div>
+<div class="card" data-cat="adv"><span class="tag">進階專項</span><h3>泳隊培訓班</h3><p>四式精進＋出發轉身，適合想比賽的學員。月費</p><p class="price">NT$4,500／月</p></div>
+<div class="card" data-cat="adv"><span class="tag">進階專項</span><h3>一對一私人教練</h3><p>完全客製進度，任何年齡與程度皆可。單堂</p><p class="price">NT$1,500／堂</p></div>
+<div class="card" data-cat="adv"><span class="tag">進階專項</span><h3>鐵人三項游泳班</h3><p>開放水域技巧＋長泳配速，備戰鐵人賽。</p><p class="price">NT$7,200／8 堂</p></div>
+</div>
+<p style="text-align:center;color:#5B7183;margin-top:16px;font-size:14px">以上為示範價目，實際價格與開課時間請來電確認。</p>
+</section>
+
+<section>
+<h2>報名流程｜五步下水</h2>
+<p class="sub">從配對到第一堂課，最快一週內就能開始。</p>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>做配對</h3><p>年齡 × 程度，配到適合的班別。</p></div>
+<div class="step"><div class="num">02</div><h3>填表報名</h3><p>選課程與時段，送出即產生 LINE 訊息。</p></div>
+<div class="step"><div class="num">03</div><h3>確認分班</h3><p>教練確認程度，安排最適合的班級。</p></div>
+<div class="step"><div class="num">04</div><h3>準備泳具</h3><p>泳帽、泳鏡、毛巾，第一次來先備齊。</p></div>
+<div class="step"><div class="num">05</div><h3>開心下水</h3><p>第一堂課從認識水開始，不怕、不急。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>教練團隊</h2>
+<p class="sub">皆具救生員與游泳教練證照，報名時可指定教練。</p>
+<div class="team">
+<div class="member"><div class="avatar">🏊</div><h3>阿浪</h3><p>總教練｜15 年經驗<br>專長：成人零基礎、救生員訓練</p></div>
+<div class="member"><div class="avatar">🐬</div><h3>小帆</h3><p>幼兒教練｜9 年經驗<br>專長：幼兒水中適應、親子班</p></div>
+<div class="member"><div class="avatar">🌊</div><h3>阿哲</h3><p>兒童教練｜7 年經驗<br>專長：兒童初學、暑期密集班</p></div>
+<div class="member"><div class="avatar">🏅</div><h3>家豪</h3><p>進階教練｜11 年經驗<br>專長：泳隊培訓、鐵人游泳</p></div>
+</div>
+</section>
+
+<section>
+<h2>學員怎麼說</h2>
+<div class="review"><div class="stars">★★★★★</div><p>「我 35 歲才學游泳，本來超怕水，阿浪教練第一堂只叫我泡水聊天，第三堂我就敢漂浮了。」—— 上班族阿傑（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「女兒 5 歲上親子班，現在每週都問什麼時候要去游泳，暑假密集班 10 堂真的學會換氣了。」—— 陳媽媽（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「兒子從初學班一路升到進階班，教練每堂都會寫小卡告訴家長今天練了什麼，很安心。」—— 林爸爸（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「一對一教練幫我把自由式換氣改好，游 1 公里不再喘，備戰鐵人很有感。」—— 鐵人選手小安（示範評價）</p></div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<details><summary>完全不會游泳、很怕水，可以報名嗎？</summary><p>可以，零基礎班就是為怕水的學員設計的，第一堂從認識水開始，不會直接要求下水游泳。</p></details>
+<details><summary>幾歲可以開始學游泳？</summary><p>3 歲起可報名親子水中適應班，4–6 歲可上幼兒班，7 歲以上依程度分班。</p></details>
+<details><summary>上課要自備什麼？</summary><p>泳帽、泳鏡、泳衣與毛巾；幼兒班家長需陪同下水，也請自備泳具。</p></details>
+<details><summary>可以請假補課嗎？</summary><p>可以，團體班每期可請假兩次、於同級別班別補課，細節請來電確認。</p></details>
+<details><summary>可以改期或退費嗎？</summary><p>開課前可改期；退費規則依報名時說明為準，請來電確認。</p></details>
+<details><summary>怎麼付款？有停車位嗎？</summary><p>付款方式與停車資訊請來電確認，現場會再說明。</p></details>
+</section>
+
+<section id="order">
+<h2>立即報名</h2>
+<p class="sub">填完表單會自動產生 LINE 訊息，複製後貼到 LINE 傳給我們即可。</p>
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label>學員姓名</label>
+<input id="fName" required placeholder="請輸入學員姓名">
+<label>聯絡電話（家長／本人）</label>
+<input id="fPhone" required placeholder="09xx-xxx-xxx（範例格式）">
+<label>配對推薦課程</label>
+<select id="fCourse">
+<option value="">尚未做配對（可直接選）</option>
+<option>親子水中適應（3–4 歲）NT$600／堂</option>
+<option>幼兒團體班（4–6 歲）NT$4,800／8 堂</option>
+<option>兒童初學班（7–12 歲）NT$5,200／8 堂</option>
+<option>兒童暑期密集班 NT$6,800／10 堂</option>
+<option>成人零基礎班 NT$5,600／8 堂</option>
+<option>成人自由式班 NT$6,000／8 堂</option>
+<option>救生員訓練班 NT$12,000／期</option>
+<option>一對一私人教練 NT$1,500／堂</option>
+</select>
+<label>學員年齡</label>
+<input id="fAge" placeholder="例如：8 歲">
+<label>希望時段</label>
+<select id="fTime"><option>平日晚上</option><option>週六上午</option><option>週六下午</option><option>週日上午</option><option>暑期密集</option></select>
+<label>備註（程度、怕水等）</label>
+<textarea id="fNote" rows="3" placeholder="例如：完全不會游泳、有點怕水"></textarea>
+<button class="btn" type="submit">產生 LINE 報名訊息</button>
+<div id="msgBox">
+<label>複製以下訊息，貼到 LINE 傳給我們：</label>
+<textarea id="msgText" readonly></textarea>
+<button class="btn copyBtn" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製</button>
+</div>
+</form>
+</section>
+
+<footer>
+<p>浪花游泳教學中心｜課程配對示範站</p>
+<p>電話、地址、營業時間請來電確認。本站為示範網站，店名、價目、評價皆為假設內容，正式使用前請換成真實資料。</p>
+<p>© 2026 浪花游泳教學中心（示範）</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">立即報名</a>
+<a class="alt" href="#order">傳 LINE 諮詢</a>
+</div>
+
+<script>
+var COURSES={
+"toddler|zero":{name:"親子水中適應（3–4 歲）",price:600,unit:"堂",desc:"家長陪同下水玩水，先建立對水的安全感。"},
+"toddler|basic":{name:"幼兒漂浮班（4–6 歲）",price:650,unit:"堂",desc:"漂浮、踢水、憋氣，幼兒的第一堂游泳課。"},
+"toddler|mid":{name:"幼兒團體班（4–6 歲）",price:4800,unit:"8 堂",desc:"小班制，8 堂學會基礎水中自救。"},
+"toddler|adv":{name:"幼兒團體班（4–6 歲）",price:4800,unit:"8 堂",desc:"小班制，8 堂學會基礎水中自救。"},
+"kid|zero":{name:"兒童初學班（7–12 歲）",price:5200,unit:"8 堂",desc:"零基礎入門，8 堂學會換氣游 25 公尺。"},
+"kid|basic":{name:"兒童初學班（7–12 歲）",price:5200,unit:"8 堂",desc:"零基礎入門，8 堂學會換氣游 25 公尺。"},
+"kid|mid":{name:"兒童進階班（7–12 歲）",price:5600,unit:"8 堂",desc:"自由式＋蛙式，8 堂打好兩式基礎。"},
+"kid|adv":{name:"兒童進階班（7–12 歲）",price:5600,unit:"8 堂",desc:"自由式＋蛙式，8 堂打好兩式基礎。"},
+"adult|zero":{name:"成人零基礎班",price:5600,unit:"8 堂",desc:"怕水也沒關係，從漂浮開始慢慢來。"},
+"adult|basic":{name:"成人零基礎班",price:5600,unit:"8 堂",desc:"怕水也沒關係，從漂浮開始慢慢來。"},
+"adult|mid":{name:"成人自由式班",price:6000,unit:"8 堂",desc:"換氣、划手、打水一次練到位。"},
+"adult|adv":{name:"救生員訓練班",price:12000,unit:"期",desc:"救生四式＋救生技能，為考照做準備。"}
+};
+var currentCourse=null;
+function doQuiz(){
+var age=document.getElementById("qAge").value;
+var lvl=document.querySelector('input[name="qLevel"]:checked');
+var mode=document.querySelector('input[name="qMode"]:checked');
+var r=document.getElementById("quizResult");
+if(!age||!lvl||!mode){r.style.display="block";r.textContent="請先選年齡、程度與上課方式，再看推薦結果。";return;}
+var key=age+"|"+lvl.value;
+var c=COURSES[key];
+if(mode.value==="private"){c={name:"一對一私人教練",price:1500,unit:"堂",desc:"完全客製進度，任何年齡與程度皆可。"};}
+if(mode.value==="intensive"&&age==="kid"){c={name:"兒童暑期密集班（7–12 歲）",price:6800,unit:"10 堂",desc:"兩週 10 堂密集學，暑假一次學會。"};}
+currentCourse=c;
+r.style.display="block";
+r.textContent="你的推薦課程是「"+c.name+"」——"+c.desc+"（NT$"+c.price.toLocaleString()+"／"+c.unit+"）";
+var sel=document.getElementById("fCourse");
+for(var i=0;i<sel.options.length;i++){
+if(sel.options[i].text.indexOf(c.name)===0){sel.selectedIndex=i;break;}
+}
+document.getElementById("calcBox").style.display="block";
+document.getElementById("calcText").textContent="「"+c.name+"」單價 NT$"+c.price.toLocaleString()+"／"+c.unit+"。";
+recalc();
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+function recalc(){
+if(!currentCourse)return;
+var n=parseInt(document.getElementById("calcN").value,10);
+var total;
+if(currentCourse.unit==="堂"){total=currentCourse.price*n;}
+else{total=currentCourse.price;}
+var note=currentCourse.unit==="堂"?"（單價 × "+n+" 堂）":"（整期費用，不按堂數計）";
+document.getElementById("calcResult").textContent="試算學費：NT$"+total.toLocaleString()+" "+note;
+}
+function filterItems(btn){
+var f=btn.getAttribute("data-filter");
+document.querySelectorAll(".filters button").forEach(function(b){b.classList.remove("active");});
+btn.classList.add("active");
+document.querySelectorAll("#priceList.card").forEach(function(c){
+c.style.display=(f==="all"||c.getAttribute("data-cat")===f)?"":"none";
+});
+}
+function makeMsg(e){
+e.preventDefault();
+var msg="\n學員姓名："+document.getElementById("fName").value
++"\n聯絡電話："+document.getElementById("fPhone").value
++"\n配對推薦課程："+(document.getElementById("fCourse").value||"未做配對")
++"\n學員年齡："+(document.getElementById("fAge").value||"未填")
++"\n希望時段："+document.getElementById("fTime").value
++"\n備註："+(document.getElementById("fNote").value||"無")
++"\n（示範訊息，請來電確認班別與時段）";
+document.getElementById("msgText").value=msg;
+document.getElementById("msgBox").style.display="block";
+document.getElementById("copyBtn").textContent="一鍵複製";
+return false;
+}
+function copyMsg(){
+var t=document.getElementById("msgText");
+t.select();
+if(navigator.clipboard){navigator.clipboard.writeText(t.value).then(function(){okCopy();},function(){fallbackCopy(t);});}
+else{fallbackCopy(t);}
+}
+function fallbackCopy(t){try{document.execCommand("copy");okCopy();}catch(e){}}
+function okCopy(){var b=document.getElementById("copyBtn");b.textContent="已複製 ✓";setTimeout(function(){b.textContent="一鍵複製";},2500);}
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>型男理容 Barber｜男士理容示範站</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:#FAF6EF;color:#222;line-height:1.7}
+.demo{background:#B45309;color:#fff;text-align:center;padding:10px 14px;font-size:14px;font-weight:700;letter-spacing:1px}
+header{background:#1C1A17;color:#FAF6EF;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+header.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+header.logo span{color:#C89B6A}
+header nav a{color:#EDE3D3;text-decoration:none;margin-left:18px;font-size:15px}
+.hero{background:linear-gradient(135deg,#1C1A17 55%,#3B2A1A 100%);color:#FAF6EF;padding:64px 20px 72px;text-align:center}
+.hero.badge{display:inline-block;background:#C89B6A;color:#1C1A17;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.25;margin-bottom:14px}
+.hero p{max-width:640px;margin:0 auto 26px;color:#D8CBB6;font-size:17px}
+.btn{display:inline-block;background:#C89B6A;color:#1C1A17;font-weight:800;padding:14px 30px;border-radius:999px;text-decoration:none;font-size:17px;border:none;cursor:pointer}
+.btn.ghost{background:transparent;color:#FAF6EF;border:2px solid #C89B6A;margin-left:10px}
+section{padding:56px 20px;max-width:1080px;margin:0 auto}
+h2{font-size:28px;margin-bottom:8px;text-align:center}
+.sub{text-align:center;color:#6B6257;margin-bottom:32px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #E8DFD0;border-radius:16px;padding:22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card.price{color:#8A5A2B;font-weight:900;font-size:20px}
+.card.tag{display:inline-block;background:#F3E9D8;color:#8A5A2B;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.filters{text-align:center;margin-bottom:24px}
+.filters button{background:#fff;border:2px solid #C89B6A;color:#5B4632;padding:9px 20px;border-radius:999px;margin:4px;cursor:pointer;font-size:15px;font-weight:700}
+.filters button.active{background:#1C1A17;color:#FAF6EF;border-color:#1C1A17}
+.quiz{background:#1C1A17;color:#FAF6EF;border-radius:20px;padding:32px 24px;max-width:760px;margin:0 auto}
+.quiz h2{color:#FAF6EF}
+.quiz.q{margin-bottom:20px}
+.quiz.q p{font-weight:700;margin-bottom:10px}
+.quiz label{display:block;background:#2A2723;border:1px solid #4A4238;border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer}
+.quiz label:hover{border-color:#C89B6A}
+.quiz input{margin-right:8px}
+#quizResult{display:none;background:#C89B6A;color:#1C1A17;border-radius:12px;padding:18px;margin-top:16px;font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:#fff;border-top:5px solid #C89B6A;border-radius:12px;padding:20px;text-align:center}
+.step.num{font-size:34px;font-weight:900;color:#C89B6A}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.member{background:#fff;border-radius:16px;padding:22px;text-align:center;border:1px solid #E8DFD0}
+.member.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#3B2A1A,#C89B6A);display:flex;align-items:center;justify-content:center;font-size:34px;color:#fff}
+.review{background:#fff;border-left:5px solid #C89B6A;border-radius:12px;padding:20px;margin-bottom:14px}
+.review.stars{color:#B45309;letter-spacing:2px}
+details{background:#fff;border:1px solid #E8DFD0;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+details summary{font-weight:700;cursor:pointer}
+form{background:#fff;border:1px solid #E8DFD0;border-radius:20px;padding:28px 24px;max-width:680px;margin:0 auto}
+form label{display:block;font-weight:700;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;padding:12px;border:1.5px solid #D8CBB6;border-radius:10px;font-size:16px}
+form button{width:100%;margin-top:20px}
+#msgBox{display:none;margin-top:18px}
+#msgBox textarea{width:100%;min-height:150px;padding:12px;border:1.5px solid #C89B6A;border-radius:10px;font-size:15px;background:#FFF9F0}
+.copyBtn{background:#1C1A17;color:#FAF6EF;margin-top:10px}
+footer{background:#1C1A17;color:#B9AC97;text-align:center;padding:32px 20px 110px;font-size:14px}
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:99;background:#1C1A17;padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mobile-bar a{flex:1;text-align:center;background:#C89B6A;color:#1C1A17;font-weight:800;padding:13px 6px;border-radius:12px;text-decoration:none;font-size:16px}
+.mobile-bar a.alt{background:#FAF6EF;color:#1C1A17}
+@media(max-width:640px){
+.mobile-bar{display:flex}
+header nav{display:none}
+section{padding:40px 16px}
+.btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo">⚠ DEMO 示範網站｜店名、價目、評價皆為示範內容，非真實店家</div>
+<header>
+<div class="logo">型男理容 <span>BARBER</span></div>
+<nav><a href="#quiz">髮型測驗</a><a href="#price">價目表</a><a href="#team">理容師</a><a href="#faq">常見問題</a><a href="#order">立即預約</a></nav>
+</header>
+
+<section class="hero" style="max-width:none">
+<div class="badge">✂ 男士專屬理容空間</div>
+<h1>剪一個髮型，<br>換一種氣場。</h1>
+<p>經典油頭、韓系紋理、漸層推剪——先做 4 題測驗找到適合你的髮型，再由理容師為你量身修整。電話請來電確認，地址與營業時間請來電確認。</p>
+<a class="btn" href="#quiz">先做髮型測驗</a>
+<a class="btn ghost" href="#order">立即預約</a>
+</section>
+
+<section id="quiz">
+<h2>髮型測驗｜4 題找到你的髮型</h2>
+<p class="sub">回答四個問題，我們會推薦最適合你的髮型，結果會自動帶入下方預約表單。</p>
+<div class="quiz">
+<div class="q"><p>1. 你平常的穿著風格是？</p>
+<label><input type="radio" name="q1" value="classic">正裝、西裝、襯衫為主</label>
+<label><input type="radio" name="q1" value="korean">韓系寬鬆、簡約休閒</label>
+<label><input type="radio" name="q1" value="fade">街頭、運動、機能風</label>
+<label><input type="radio" name="q1" value="buzz">越簡單越好，T 恤牛仔褲</label>
+</div>
+<div class="q"><p>2. 你每天願意花多少時間整理頭髮？</p>
+<label><input type="radio" name="q2" value="classic">10 分鐘以上，喜歡用髮品抓型</label>
+<label><input type="radio" name="q2" value="korean">5 分鐘左右，吹乾加一點造型</label>
+<label><input type="radio" name="q2" value="fade">3 分鐘，快速抓一下就出門</label>
+<label><input type="radio" name="q2" value="buzz">幾乎不想整理，洗完就好</label>
+</div>
+<div class="q"><p>3. 你的髮量與髮質？</p>
+<label><input type="radio" name="q3" value="classic">髮量多、髮質偏硬，撐得起來</label>
+<label><input type="radio" name="q3" value="korean">髮量中等、髮質偏軟，想看起來蓬鬆</label>
+<label><input type="radio" name="q3" value="fade">髮量中等，兩側容易翹</label>
+<label><input type="radio" name="q3" value="buzz">髮量少或髮線後退，想清爽俐落</label>
+</div>
+<div class="q"><p>4. 你希望給人的第一印象是？</p>
+<label><input type="radio" name="q4" value="classic">成熟穩重、有質感</label>
+<label><input type="radio" name="q4" value="korean">溫柔清爽、好親近</label>
+<label><input type="radio" name="q4" value="fade">陽光有型、很有精神</label>
+<label><input type="radio" name="q4" value="buzz">乾淨俐落、不拖泥帶水</label>
+</div>
+<button class="btn" type="button" onclick="doQuiz()">看我的推薦髮型</button>
+<div id="quizResult"></div>
+</div>
+</section>
+
+<section id="price">
+<h2>價目表</h2>
+<p class="sub">點下方分類篩選服務。價格為示範價目，實際價格請來電確認。</p>
+<div class="filters">
+<button class="active" data-filter="all" onclick="filterItems(this)">全部</button>
+<button data-filter="cut" onclick="filterItems(this)">剪髮造型</button>
+<button data-filter="shave" onclick="filterItems(this)">修容刮鬍</button>
+<button data-filter="scalp" onclick="filterItems(this)">頭皮護理</button>
+<button data-filter="combo" onclick="filterItems(this)">套餐組合</button>
+</div>
+<div class="cards" id="priceList">
+<div class="card" data-cat="cut"><span class="tag">剪髮造型</span><h3>經典油頭剪裁</h3><p>髮油定型教學＋兩側修整，紳士首選。</p><p class="price">NT$600</p></div>
+<div class="card" data-cat="cut"><span class="tag">剪髮造型</span><h3>韓式紋理剪裁</h3><p>空氣感紋理、蓬鬆不厚重，適合軟髮。</p><p class="price">NT$650</p></div>
+<div class="card" data-cat="cut"><span class="tag">剪髮造型</span><h3>漸層推剪</h3><p>由短漸長的俐落漸層，兩側清爽。</p><p class="price">NT$550</p></div>
+<div class="card" data-cat="cut"><span class="tag">剪髮造型</span><h3>寸頭清爽剪裁</h3><p>極短好整理，洗完即乾，夏日最愛。</p><p class="price">NT$450</p></div>
+<div class="card" data-cat="shave"><span class="tag">修容刮鬍</span><h3>熱毛巾修容刮鬍</h3><p>熱敷軟化鬍根、順刮修容，附保濕修護。</p><p class="price">NT$400</p></div>
+<div class="card" data-cat="shave"><span class="tag">修容刮鬍</span><h3>鬍型設計修整</h3><p>依臉型設計鬍型線條，修出俐落輪廓。</p><p class="price">NT$350</p></div>
+<div class="card" data-cat="shave"><span class="tag">修容刮鬍</span><h3>眉型修整</h3><p>修掉雜毛、調整眉型，神情立刻有神。</p><p class="price">NT$200</p></div>
+<div class="card" data-cat="scalp"><span class="tag">頭皮護理</span><h3>頭皮檢測＋深層清潔</h3><p>頭皮鏡檢測後深層洗淨，帶走油垢。</p><p class="price">NT$800</p></div>
+<div class="card" data-cat="scalp"><span class="tag">頭皮護理</span><h3>控油頭皮護理</h3><p>控油洗護＋頭皮精華，適合易出油髮質。</p><p class="price">NT$900</p></div>
+<div class="card" data-cat="scalp"><span class="tag">頭皮護理</span><h3>頭皮舒壓按摩</h3><p>20 分鐘指壓按摩，放鬆緊繃頭皮。</p><p class="price">NT$500</p></div>
+<div class="card" data-cat="combo"><span class="tag">套餐組合</span><h3>紳士全套</h3><p>剪髮＋熱毛巾修容＋頭皮護理，一次到位。</p><p class="price">NT$1,490</p></div>
+<div class="card" data-cat="combo"><span class="tag">套餐組合</span><h3>新手體驗套餐</h3><p>剪髮＋眉型修整＋造型教學，第一次來最適合。</p><p class="price">NT$990</p></div>
+<div class="card" data-cat="combo"><span class="tag">套餐組合</span><h3>父子同行套餐</h3><p>兩位剪髮＋兩份造型品，一起變帥。</p><p class="price">NT$1,090</p></div>
+<div class="card" data-cat="combo"><span class="tag">套餐組合</span><h3>每月會員保養套餐</h3><p>每月剪髮一次＋頭皮清潔，定期維持造型。</p><p class="price">NT$1,200／月</p></div>
+</div>
+<p style="text-align:center;color:#6B6257;margin-top:16px;font-size:14px">以上為示範價目，實際價格與營業時間請來電確認。</p>
+</section>
+
+<section>
+<h2>預約流程｜四步變帥</h2>
+<p class="sub">從測驗到走出店門，全程約 60 分鐘。</p>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>做測驗</h3><p>4 題找到適合你的髮型方向。</p></div>
+<div class="step"><div class="num">02</div><h3>填表預約</h3><p>選服務、日期與理容師，送出即產生 LINE 訊息。</p></div>
+<div class="step"><div class="num">03</div><h3>到店諮詢</h3><p>理容師依臉型與髮質確認最終髮型。</p></div>
+<div class="step"><div class="num">04</div><h3>剪髮修容</h3><p>剪裁、修容、造型一次完成。</p></div>
+<div class="step"><div class="num">05</div><h3>帶走造型教學</h3><p>教你回家自己抓出同款髮型。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>理容師團隊</h2>
+<p class="sub">每位理容師都有自己的拿手風格，預約時可指定。</p>
+<div class="team">
+<div class="member"><div class="avatar">✂</div><h3>阿哲</h3><p>店長｜10 年經驗<br>拿手：經典油頭、漸層推剪</p></div>
+<div class="member"><div class="avatar">💈</div><h3>小凱</h3><p>理容師｜7 年經驗<br>拿手：韓式紋理、燙髮造型</p></div>
+<div class="member"><div class="avatar">🧔</div><h3>阿勳</h3><p>修容師｜8 年經驗<br>拿手：熱毛巾修容、鬍型設計</p></div>
+<div class="member"><div class="avatar">🪮</div><h3>阿廷</h3><p>理容師｜5 年經驗<br>拿手：寸頭、頭皮護理</p></div>
+</div>
+</section>
+
+<section>
+<h2>客人怎麼說</h2>
+<div class="review"><div class="stars">★★★★★</div><p>「第一次做測驗再剪，推薦的油頭真的很適合我，回家照教學抓，隔天上班被問是不是去相親。」—— 陳先生（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「熱毛巾刮鬍太舒服了，差點睡著。鬍型修完臉看起來小一圈。」—— 林先生（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「兒子跟我一起剪父子套餐，他現在每個月都吵著要來。」—— 王爸爸（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「頭皮護理做完頭很輕，理容師還提醒我洗頭水溫不要太熱，很細心。」—— 張先生（示範評價）</p></div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<details><summary>需要先預約嗎？可以現場等嗎？</summary><p>建議先預約，現場依當日空檔安排，可能需要等候，時間請來電確認。</p></details>
+<details><summary>第一次來不知道要剪什麼怎麼辦？</summary><p>先做頁面上的 4 題髮型測驗，理容師到店也會再依臉型與髮質給建議。</p></details>
+<details><summary>可以指定理容師嗎？</summary><p>可以，預約表單備註欄寫上理容師姓名即可，若該時段已滿會再與你協調。</p></details>
+<details><summary>剪髮大概要多久？</summary><p>單純剪髮約 40 分鐘，紳士全套約 90 分鐘，請預留充裕時間。</p></details>
+<details><summary>可以改期或取消嗎？</summary><p>可以，請至少提前一天以 LINE 告知，方便把時段讓給其他客人。</p></details>
+<details><summary>怎麼付款？有停車位嗎？</summary><p>付款方式與停車資訊請來電確認，現場會再說明。</p></details>
+</section>
+
+<section id="order">
+<h2>立即預約</h2>
+<p class="sub">填完表單會自動產生 LINE 訊息，複製後貼到 LINE 傳給我們即可。</p>
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label>姓名</label>
+<input id="fName" required placeholder="請輸入姓名">
+<label>電話</label>
+<input id="fPhone" required placeholder="09xx-xxx-xxx（範例格式）">
+<label>測驗推薦髮型</label>
+<select id="fStyle">
+<option value="">尚未做測驗（可直接選）</option>
+<option>經典油頭</option><option>韓系紋理</option>
+<option>漸層短髮</option><option>自然寸頭</option>
+</select>
+<label>想預約的服務</label>
+<select id="fService">
+<option>經典油頭剪裁 NT$600</option><option>韓式紋理剪裁 NT$650</option>
+<option>漸層推剪 NT$550</option><option>寸頭清爽剪裁 NT$450</option>
+<option>熱毛巾修容刮鬍 NT$400</option><option>頭皮檢測＋深層清潔 NT$800</option>
+<option>紳士全套 NT$1,490</option><option>新手體驗套餐 NT$990</option>
+</select>
+<label>希望日期</label>
+<input id="fDate" type="date">
+<label>備註（指定理容師等）</label>
+<textarea id="fNote" rows="3" placeholder="例如：想指定阿哲、想剪短一點"></textarea>
+<button class="btn" type="submit">產生 LINE 預約訊息</button>
+<div id="msgBox">
+<label>複製以下訊息，貼到 LINE 傳給我們：</label>
+<textarea id="msgText" readonly></textarea>
+<button class="btn copyBtn" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製</button>
+</div>
+</form>
+</section>
+
+<footer>
+<p>型男理容 Barber｜男士理容示範站</p>
+<p>電話、地址、營業時間請來電確認。本站為示範網站，店名、價目、評價皆為假設內容，正式使用前請換成真實資料。</p>
+<p>© 2026 型男理容 Barber（示範）</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">立即預約</a>
+<a class="alt" href="#order">傳 LINE 諮詢</a>
+</div>
+
+<script>
+var STYLES={classic:{name:"經典油頭",desc:"你適合俐落有型的經典油頭：兩側修短、頂部抓出光澤，成熟穩重又有質感。建議服務：經典油頭剪裁 NT$600。"},
+korean:{name:"韓系紋理",desc:"你適合清爽蓬鬆的韓系紋理：空氣感瀏海、自然弧度，溫柔好親近。建議服務：韓式紋理剪裁 NT$650。"},
+fade:{name:"漸層短髮",desc:"你適合俐落有精神的漸層短髮：由短漸長的推剪層次，陽光又有型。建議服務：漸層推剪 NT$550。"},
+buzz:{name:"自然寸頭",desc:"你適合乾淨俐落的自然寸頭：極短好整理，洗完即乾、清爽到底。建議服務：寸頭清爽剪裁 NT$450。"}};
+function doQuiz(){
+var score={classic:0,korean:0,fade:0,buzz:0},done=true;
+["q1","q2","q3","q4"].forEach(function(q){
+var c=document.querySelector('input[name="'+q+'"]:checked');
+if(!c){done=false;} else {score[c.value]++;}
+});
+var r=document.getElementById("quizResult");
+if(!done){r.style.display="block";r.textContent="請先回答全部 4 題，再看推薦結果。";return;}
+var best="classic";
+Object.keys(score).forEach(function(k){if(score[k]>score[best])best=k;});
+var s=STYLES[best];
+r.style.display="block";
+r.textContent="你的推薦髮型是「"+s.name+"」——"+s.desc;
+var sel=document.getElementById("fStyle");
+sel.value=s.name;
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+function filterItems(btn){
+var f=btn.getAttribute("data-filter");
+document.querySelectorAll(".filters button").forEach(function(b){b.classList.remove("active");});
+btn.classList.add("active");
+document.querySelectorAll("#priceList.card").forEach(function(c){
+c.style.display=(f==="all"||c.getAttribute("data-cat")===f)?"":"none";
+});
+}
+function makeMsg(e){
+e.preventDefault();
+var msg="\n姓名："+document.getElementById("fName").value
++"\n電話："+document.getElementById("fPhone").value
++"\n測驗推薦髮型："+(document.getElementById("fStyle").value||"未做測驗")
++"\n預約服務："+document.getElementById("fService").value
++"\n希望日期："+(document.getElementById("fDate").value||"再約")
++"\n備註："+(document.getElementById("fNote").value||"無")
++"\n（示範訊息，請來電確認時段）";
+document.getElementById("msgText").value=msg;
+document.getElementById("msgBox").style.display="block";
+document.getElementById("copyBtn").textContent="一鍵複製";
+return false;
+}
+function copyMsg(){
+var t=document.getElementById("msgText");
+t.select();
+if(navigator.clipboard){navigator.clipboard.writeText(t.value).then(function(){okCopy();},function(){fallbackCopy(t);});}
+else{fallbackCopy(t);}
+}
+function fallbackCopy(t){try{document.execCommand("copy");okCopy();}catch(e){}}
+function okCopy(){var b=document.getElementById("copyBtn");b.textContent="已複製 ✓";setTimeout(function(){b.textContent="一鍵複製";},2500);}
+</script>
+</body>
+</html>

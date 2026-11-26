@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衡衡營養諮詢工作室｜飲食配對與衛教示範站</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;background:#FBF8EF;color:#2B2B22;line-height:1.7}
+.demo{background:#3F6212;color:#fff;text-align:center;padding:10px 14px;font-size:14px;font-weight:700;letter-spacing:1px}
+header{background:#2F4A1E;color:#FBF8EF;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+header.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+header.logo span{color:#F2C94C}
+header nav a{color:#EDEBD8;text-decoration:none;margin-left:18px;font-size:15px}
+.hero{background:linear-gradient(135deg,#2F4A1E 55%,#5B7A35 100%);color:#FBF8EF;padding:64px 20px 72px;text-align:center}
+.hero.badge{display:inline-block;background:#F2C94C;color:#2F4A1E;font-weight:800;padding:6px 16px;border-radius:999px;font-size:14px;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.25;margin-bottom:14px}
+.hero p{max-width:640px;margin:0 auto 26px;color:#E4E8D2;font-size:17px}
+.notice{display:inline-block;background:rgba(242,201,76,.18);border:1px solid #F2C94C;color:#FBEFC0;padding:8px 16px;border-radius:10px;font-size:14px;margin-bottom:24px}
+.btn{display:inline-block;background:#F2C94C;color:#2F4A1E;font-weight:800;padding:14px 30px;border-radius:999px;text-decoration:none;font-size:17px;border:none;cursor:pointer}
+.btn.ghost{background:transparent;color:#FBF8EF;border:2px solid #F2C94C;margin-left:10px}
+section{padding:56px 20px;max-width:1080px;margin:0 auto}
+h2{font-size:28px;margin-bottom:8px;text-align:center}
+.sub{text-align:center;color:#6B6B58;margin-bottom:32px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #E6E0CC;border-radius:16px;padding:22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card.price{color:#3F6212;font-weight:900;font-size:20px}
+.card.tag{display:inline-block;background:#EDF3DC;color:#3F6212;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.filters{text-align:center;margin-bottom:24px}
+.filters button{background:#fff;border:2px solid #5B7A35;color:#2F4A1E;padding:9px 20px;border-radius:999px;margin:4px;cursor:pointer;font-size:15px;font-weight:700}
+.filters button.active{background:#2F4A1E;color:#FBF8EF;border-color:#2F4A1E}
+.quiz{background:#2F4A1E;color:#FBF8EF;border-radius:20px;padding:32px 24px;max-width:760px;margin:0 auto}
+.quiz h2{color:#FBF8EF}
+.quiz.q{margin-bottom:20px}
+.quiz.q p{font-weight:700;margin-bottom:10px}
+.quiz label{display:block;background:#3A5A28;border:1px solid #557A3E;border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer}
+.quiz label:hover{border-color:#F2C94C}
+.quiz input{margin-right:8px}
+#quizResult{display:none;background:#F2C94C;color:#2F4A1E;border-radius:12px;padding:18px;margin-top:16px;font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:#fff;border-top:5px solid #5B7A35;border-radius:12px;padding:20px;text-align:center}
+.step.num{font-size:34px;font-weight:900;color:#5B7A35}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.member{background:#fff;border-radius:16px;padding:22px;text-align:center;border:1px solid #E6E0CC}
+.member.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#5B7A35,#F2C94C);display:flex;align-items:center;justify-content:center;font-size:34px;color:#fff}
+.review{background:#fff;border-left:5px solid #5B7A35;border-radius:12px;padding:20px;margin-bottom:14px}
+.review.stars{color:#B45309;letter-spacing:2px}
+details{background:#fff;border:1px solid #E6E0CC;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+details summary{font-weight:700;cursor:pointer}
+form{background:#fff;border:1px solid #E6E0CC;border-radius:20px;padding:28px 24px;max-width:680px;margin:0 auto}
+form label{display:block;font-weight:700;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;padding:12px;border:1.5px solid #D8D2B8;border-radius:10px;font-size:16px}
+form button{width:100%;margin-top:20px}
+#msgBox{display:none;margin-top:18px}
+#msgBox textarea{width:100%;min-height:150px;padding:12px;border:1.5px solid #5B7A35;border-radius:10px;font-size:15px;background:#FBF8EF}
+.copyBtn{background:#2F4A1E;color:#FBF8EF;margin-top:10px}
+.disclaimer{background:#FFF7D6;border:1px solid #E8C84A;border-radius:12px;padding:18px 20px;font-size:15px;margin-top:24px}
+footer{background:#2F4A1E;color:#C9D2B4;text-align:center;padding:32px 20px 110px;font-size:14px}
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:99;background:#2F4A1E;padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mobile-bar a{flex:1;text-align:center;background:#F2C94C;color:#2F4A1E;font-weight:800;padding:13px 6px;border-radius:12px;text-decoration:none;font-size:16px}
+.mobile-bar a.alt{background:#FBF8EF;color:#2F4A1E}
+@media(max-width:640px){
+.mobile-bar{display:flex}
+header nav{display:none}
+section{padding:40px 16px}
+.btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo">⚠ DEMO 示範網站｜店名、價目、評價皆為示範內容，非真實工作室</div>
+<header>
+<div class="logo">衡衡營養諮詢 <span>工作室</span></div>
+<nav><a href="#quiz">飲食配對</a><a href="#price">服務價目</a><a href="#team">營養師</a><a href="#faq">常見問題</a><a href="#order">立即預約</a></nav>
+</header>
+
+<section class="hero" style="max-width:none">
+<div class="badge">🥗 吃得均衡，活得自在</div>
+<h1>先懂你的生活，<br>再談怎麼吃。</h1>
+<p>我們只做飲食配對與衛教：先做 4 題配對，找到適合你的飲食方案，再由營養師陪你把計畫落實到日常三餐。電話請來電確認，地址與營業時間請來電確認。</p>
+<div class="notice">⚠ 本工作室提供飲食配對與衛教資訊，非醫療診斷；有身體狀況或用藥問題，請先諮詢醫師。</div>
+<br>
+<a class="btn" href="#quiz">先做飲食配對</a>
+<a class="btn ghost" href="#order">立即預約</a>
+</section>
+
+<section id="quiz">
+<h2>飲食配對｜4 題找到你的方案</h2>
+<p class="sub">回答四個問題，我們會推薦最適合你的飲食方案，結果會自動帶入下方預約表單。</p>
+<div class="quiz">
+<div class="q"><p>1. 你目前最想調整的是？</p>
+<label><input type="radio" name="q1" value="balance">三餐不固定，想吃得均衡一點</label>
+<label><input type="radio" name="q1" value="weight">體重管理，想建立可持續的飲食習慣</label>
+<label><input type="radio" name="q1" value="family">全家人的飲食，想一次規劃好</label>
+<label><input type="radio" name="q1" value="group">想學觀念，帶回公司或社群分享</label>
+</div>
+<div class="q"><p>2. 你平常怎麼吃飯？</p>
+<label><input type="radio" name="q2" value="balance">自己煮為主，偶爾外食</label>
+<label><input type="radio" name="q2" value="weight">幾乎天天外食，便當手搖不能少</label>
+<label><input type="radio" name="q2" value="family">要煮全家人的飯，口味很難喬</label>
+<label><input type="radio" name="q2" value="group">聚餐應酬多，很難照自己的節奏吃</label>
+</div>
+<div class="q"><p>3. 你一週能為飲食花多少時間？</p>
+<label><input type="radio" name="q3" value="balance">每天都有一點時間備餐</label>
+<label><input type="radio" name="q3" value="weight">時間很少，希望方法越簡單越好</label>
+<label><input type="radio" name="q3" value="family">週末能一次備好一週的菜</label>
+<label><input type="radio" name="q3" value="group">時間不固定，只想先建立正確觀念</label>
+</div>
+<div class="q"><p>4. 你希望用什麼方式開始？</p>
+<label><input type="radio" name="q4" value="balance">一對一聊聊，先了解我的狀況</label>
+<label><input type="radio" name="q4" value="weight">拿一份清楚的飲食計畫照著做</label>
+<label><input type="radio" name="q4" value="family">全家人一起參與、一起調整</label>
+<label><input type="radio" name="q4" value="group">聽講座或上工作坊，一次學起來</label>
+</div>
+<button class="btn" type="button" onclick="doQuiz()">看我的推薦方案</button>
+<div id="quizResult"></div>
+</div>
+</section>
+
+<section id="price">
+<h2>服務價目</h2>
+<p class="sub">點下方分類篩選服務。價格為示範價目，實際價格請來電確認。</p>
+<div class="filters">
+<button class="active" data-filter="all" onclick="filterItems(this)">全部</button>
+<button data-filter="consult" onclick="filterItems(this)">一對一諮詢</button>
+<button data-filter="plan" onclick="filterItems(this)">飲食計畫</button>
+<button data-filter="family" onclick="filterItems(this)">家庭飲食</button>
+<button data-filter="talk" onclick="filterItems(this)">講座工作坊</button>
+</div>
+<div class="cards" id="priceList">
+<div class="card" data-cat="consult"><span class="tag">一對一諮詢</span><h3>初次飲食諮詢 60 分鐘</h3><p>了解飲食習慣與生活節奏，討論調整方向。</p><p class="price">NT$1,500</p></div>
+<div class="card" data-cat="consult"><span class="tag">一對一諮詢</span><h3>追蹤諮詢 30 分鐘</h3><p>回顧執行狀況，一起調整下一步做法。</p><p class="price">NT$800</p></div>
+<div class="card" data-cat="consult"><span class="tag">一對一諮詢</span><h3>線上諮詢 45 分鐘</h3><p>視訊進行，適合外縣市或時間難配合的朋友。</p><p class="price">NT$1,200</p></div>
+<div class="card" data-cat="plan"><span class="tag">飲食計畫</span><h3>4 週飲食計畫</h3><p>依生活型態設計的四週餐食安排與採買清單。</p><p class="price">NT$3,600</p></div>
+<div class="card" data-cat="plan"><span class="tag">飲食計畫</span><h3>12 週飲食計畫</h3><p>三個月的飲食安排，含每月一次追蹤諮詢。</p><p class="price">NT$8,800</p></div>
+<div class="card" data-cat="plan"><span class="tag">飲食計畫</span><h3>外食族飲食計畫</h3><p>專為天天外食設計：便當挑選與便利商店搭配法。</p><p class="price">NT$2,800</p></div>
+<div class="card" data-cat="family"><span class="tag">家庭飲食</span><h3>家庭飲食規劃</h3><p>一家人的餐桌一次規劃：菜單、份量與採買。</p><p class="price">NT$4,200</p></div>
+<div class="card" data-cat="family"><span class="tag">家庭飲食</span><h3>孩童飲食諮詢</h3><p>挑食、偏食與成長期的飲食衛教，陪家長聊聊。</p><p class="price">NT$1,200</p></div>
+<div class="card" data-cat="family"><span class="tag">家庭飲食</span><h3>銀髮飲食諮詢</h3><p>長輩的飲食衛教：好咀嚼、好消化、營養均衡。</p><p class="price">NT$1,300</p></div>
+<div class="card" data-cat="talk"><span class="tag">講座工作坊</span><h3>企業健康講座 90 分鐘</h3><p>到公司分享均衡飲食觀念，附講義與問答。</p><p class="price">NT$8,000</p></div>
+<div class="card" data-cat="talk"><span class="tag">講座工作坊</span><h3>社區飲食講座 60 分鐘</h3><p>社區、學校、社團都可邀約，輕鬆好懂。</p><p class="price">NT$5,000</p></div>
+<div class="card" data-cat="talk"><span class="tag">講座工作坊</span><h3>團體工作坊（每人）</h3><p>6–12 人小班：一起做餐盤練習與採買演練。</p><p class="price">NT$600／人</p></div>
+<div class="card" data-cat="talk"><span class="tag">講座工作坊</span><h3>線上飲食衛教課（每人）</h3><p>90 分鐘線上課，含課後問答與講義下載。</p><p class="price">NT$450／人</p></div>
+</div>
+<p style="text-align:center;color:#6B6B58;margin-top:16px;font-size:14px">以上為示範價目，實際價格與營業時間請來電確認。</p>
+<div class="disclaimer">⚠ 免責聲明：本工作室提供飲食配對與衛教資訊，非醫療診斷；內容不涉及疾病判斷與用藥建議。如有身體不適或正在服藥，請先諮詢醫師或相關專業人員。</div>
+</section>
+
+<section>
+<h2>服務流程｜五步開始</h2>
+<p class="sub">從配對到落實，每一步都陪你走。</p>
+<div class="steps">
+<div class="step"><div class="num">01</div><h3>做配對</h3><p>4 題找到適合你的飲食方案方向。</p></div>
+<div class="step"><div class="num">02</div><h3>填表預約</h3><p>選服務與時段，送出即產生 LINE 訊息。</p></div>
+<div class="step"><div class="num">03</div><h3>初次聊聊</h3><p>營養師了解你的生活與飲食習慣。</p></div>
+<div class="step"><div class="num">04</div><h3>拿到計畫</h3><p>依你的節奏設計飲食安排與採買清單。</p></div>
+<div class="step"><div class="num">05</div><h3>追蹤調整</h3><p>定期回顧執行狀況，一起調整做法。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>營養師團隊</h2>
+<p class="sub">衛教與配對由營養師親自進行，預約時可指定。</p>
+<div class="team">
+<div class="member"><div class="avatar">🥗</div><h3>衡衡</h3><p>創辦營養師｜12 年經驗<br>專長：均衡飲食、外食族配對</p></div>
+<div class="member"><div class="avatar">🍎</div><h3>怡君</h3><p>營養師｜8 年經驗<br>專長：家庭飲食、孩童飲食衛教</p></div>
+<div class="member"><div class="avatar">🥕</div><h3>志豪</h3><p>營養師｜6 年經驗<br>專長：體重管理、運動飲食搭配</p></div>
+<div class="member"><div class="avatar">🍵</div><h3>淑芬</h3><p>營養師｜10 年經驗<br>專長：銀髮飲食、社區講座</p></div>
+</div>
+</section>
+
+<section>
+<h2>學員怎麼說</h2>
+<div class="review"><div class="stars">★★★★★</div><p>「外食族計畫很實用，便當怎麼挑、飲料怎麼選都寫得清清楚楚，終於不用每餐都煩惱。」—— 上班族小美（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「家庭規劃幫我們家解決了每天『吃什麼』的戰爭，孩子也開始願意吃青菜了。」—— 兩個孩子的媽媽（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「諮詢時營養師很會聽，不會一直叫我忌口，而是教我怎麼在原本的生活裡調整。」—— 林先生（示範評價）</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「社區講座聽完，長輩們都在問下一場什麼時候，講得很生活化。」—— 里長陳先生（示範評價）</p></div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<details><summary>你們會幫我看檢查報告、判斷身體狀況嗎？</summary><p>不會。本工作室只做飲食配對與衛教，非醫療診斷；檢查報告與身體狀況請諮詢醫師。</p></details>
+<details><summary>第一次來要準備什麼？</summary><p>帶上你平常一週的飲食紀錄（手寫或拍照都可以），營養師會先了解你的習慣再討論。</p></details>
+<details><summary>飲食計畫會很難執行嗎？</summary><p>計畫會依你的生活節奏設計，從你做得到的小改變開始，不會一次要求全部換掉。</p></details>
+<details><summary>可以線上諮詢嗎？</summary><p>可以，線上諮詢 45 分鐘，視訊進行，預約時在備註寫「線上」即可。</p></details>
+<details><summary>可以改期或取消嗎？</summary><p>可以，請至少提前一天以 LINE 告知，方便把時段讓給其他人。</p></details>
+<details><summary>怎麼付款？有停車位嗎？</summary><p>付款方式與停車資訊請來電確認，現場會再說明。</p></details>
+</section>
+
+<section id="order">
+<h2>立即預約</h2>
+<p class="sub">填完表單會自動產生 LINE 訊息，複製後貼到 LINE 傳給我們即可。</p>
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label>姓名</label>
+<input id="fName" required placeholder="請輸入姓名">
+<label>電話</label>
+<input id="fPhone" required placeholder="09xx-xxx-xxx（範例格式）">
+<label>配對推薦方案</label>
+<select id="fPlan">
+<option value="">尚未做配對（可直接選）</option>
+<option>均衡飲食方案</option><option>體重管理方案</option>
+<option>家庭飲食方案</option><option>講座學習方案</option>
+</select>
+<label>想預約的服務</label>
+<select id="fService">
+<option>初次飲食諮詢 60 分鐘 NT$1,500</option><option>追蹤諮詢 30 分鐘 NT$800</option>
+<option>線上諮詢 45 分鐘 NT$1,200</option><option>4 週飲食計畫 NT$3,600</option>
+<option>外食族飲食計畫 NT$2,800</option><option>家庭飲食規劃 NT$4,200</option>
+<option>孩童飲食諮詢 NT$1,200</option><option>企業健康講座 NT$8,000</option>
+</select>
+<label>希望日期</label>
+<input id="fDate" type="date">
+<label>備註（想聊的主題、飲食習慣等）</label>
+<textarea id="fNote" rows="3" placeholder="例如：天天外食、想幫孩子調整飲食"></textarea>
+<button class="btn" type="submit">產生 LINE 預約訊息</button>
+<div id="msgBox">
+<label>複製以下訊息，貼到 LINE 傳給我們：</label>
+<textarea id="msgText" readonly></textarea>
+<button class="btn copyBtn" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製</button>
+</div>
+</form>
+</section>
+
+<footer>
+<p>衡衡營養諮詢工作室｜飲食配對與衛教示範站</p>
+<p>電話、地址、營業時間請來電確認。本站為示範網站，店名、價目、評價皆為假設內容，正式使用前請換成真實資料。本工作室提供飲食配對與衛教資訊，非醫療診斷。</p>
+<p>© 2026 衡衡營養諮詢工作室（示範）</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">立即預約</a>
+<a class="alt" href="#order">傳 LINE 諮詢</a>
+</div>
+
+<script>
+var PLANS={balance:{name:"均衡飲食方案",desc:"你適合從一對一諮詢開始：先聊聊生活節奏，再討論怎麼把三餐吃得均衡。建議服務：初次飲食諮詢 60 分鐘 NT$1,500。"},
+weight:{name:"體重管理方案",desc:"你適合拿一份清楚的飲食計畫照著做：外食挑選法＋簡單備餐，循序建立習慣。建議服務：外食族飲食計畫 NT$2,800。"},
+family:{name:"家庭飲食方案",desc:"你適合全家人一起的飲食規劃：菜單、份量與採買一次安排好。建議服務：家庭飲食規劃 NT$4,200。"},
+group:{name:"講座學習方案",desc:"你適合先從講座或工作坊建立觀念：輕鬆好懂，學完帶回去用。建議服務：社區飲食講座 NT$5,000。"}};
+function doQuiz(){
+var score={balance:0,weight:0,family:0,group:0},done=true;
+["q1","q2","q3","q4"].forEach(function(q){
+var c=document.querySelector('input[name="'+q+'"]:checked');
+if(!c){done=false;} else {score[c.value]++;}
+});
+var r=document.getElementById("quizResult");
+if(!done){r.style.display="block";r.textContent="請先回答全部 4 題，再看推薦結果。";return;}
+var best="balance";
+Object.keys(score).forEach(function(k){if(score[k]>score[best])best=k;});
+var s=PLANS[best];
+r.style.display="block";
+r.textContent="你的推薦方案是「"+s.name+"」——"+s.desc;
+document.getElementById("fPlan").value=s.name;
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+function filterItems(btn){
+var f=btn.getAttribute("data-filter");
+document.querySelectorAll(".filters button").forEach(function(b){b.classList.remove("active");});
+btn.classList.add("active");
+document.querySelectorAll("#priceList.card").forEach(function(c){
+c.style.display=(f==="all"||c.getAttribute("data-cat")===f)?"":"none";
+});
+}
+function makeMsg(e){
+e.preventDefault();
+var msg="\n姓名："+document.getElementById("fName").value
++"\n電話："+document.getElementById("fPhone").value
++"\n配對推薦方案："+(document.getElementById("fPlan").value||"未做配對")
++"\n預約服務："+document.getElementById("fService").value
++"\n希望日期："+(document.getElementById("fDate").value||"再約")
++"\n備註："+(document.getElementById("fNote").value||"無")
++"\n（示範訊息，請來電確認時段；本工作室提供飲食配對與衛教資訊，非醫療診斷）";
+document.getElementById("msgText").value=msg;
+document.getElementById("msgBox").style.display="block";
+document.getElementById("copyBtn").textContent="一鍵複製";
+return false;
+}
+function copyMsg(){
+var t=document.getElementById("msgText");
+t.select();
+if(navigator.clipboard){navigator.clipboard.writeText(t.value).then(function(){okCopy();},function(){fallbackCopy(t);});}
+else{fallbackCopy(t);}
+}
+function fallbackCopy(t){try{document.execCommand("copy");okCopy();}catch(e){}}
+function okCopy(){var b=document.getElementById("copyBtn");b.textContent="已複製 ✓";setTimeout(function(){b.textContent="一鍵複製";},2500);}
+</script>
+</body>
+</html>

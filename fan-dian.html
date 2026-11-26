@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雲來飯店商旅｜住宿訂房示範站</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;color:#2e3440;background:#f5f1e8;line-height:1.7}
+a{color:inherit}
+.demo-bar{background:#c9a227;color:#1e2a4a;text-align:center;padding:8px 12px;font-size:14px;letter-spacing:2px;font-weight:700}
+header{background:linear-gradient(135deg,#16233f,#1e2a4a 55%,#2c3e63);color:#fff;padding:26px 20px;text-align:center}
+header.logo{font-size:15px;letter-spacing:6px;color:#d9b64a}
+header h1{font-size:34px;margin:10px 0 6px;letter-spacing:4px}
+header p{color:#dfe3ea;max-width:640px;margin:0 auto}
+.hero{background:linear-gradient(120deg,#f5f1e8,#e8dfc8 60%,#d9c98f);padding:56px 20px;text-align:center}
+.hero h2{font-size:30px;color:#1e2a4a;margin-bottom:12px}
+.hero p{max-width:620px;margin:0 auto 22px;color:#4a5265}
+.btn{display:inline-block;background:#1e2a4a;color:#fff;padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:16px}
+.btn.gold{background:#c9a227;color:#1e2a4a}
+.btn.ghost{background:transparent;color:#1e2a4a;border:2px solid #1e2a4a;margin-left:10px}
+section{max-width:1020px;margin:0 auto;padding:48px 20px}
+h2.sec{font-size:26px;color:#1e2a4a;text-align:center;margin-bottom:8px}
+p.sub{text-align:center;color:#7a8194;margin-bottom:28px}
+.filters{text-align:center;margin-bottom:24px}
+.filters button{background:#fff;border:2px solid #c9a227;color:#1e2a4a;padding:9px 20px;border-radius:24px;margin:4px;cursor:pointer;font-size:15px}
+.filters button.active{background:#1e2a4a;color:#fff;border-color:#1e2a4a}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.08)}
+.card.pic{height:150px;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,#2c3e63,#c9a227)}
+.card.body{padding:18px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card.tag{display:inline-block;background:#f5f1e8;color:#8a6d1f;font-size:12px;padding:2px 10px;border-radius:12px;margin-bottom:8px}
+.card.price{color:#1e2a4a;font-weight:700;font-size:19px;margin-top:8px}
+.tool{background:#fff;border:2px solid #c9a227;border-radius:16px;padding:28px;max-width:760px;margin:0 auto}
+.tool label{display:block;font-weight:700;margin:14px 0 6px}
+.tool input,.tool select{width:100%;padding:11px;border:1.5px solid #c9b89a;border-radius:8px;font-size:16px;background:#fff}
+.tool.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.result{background:#f5f1e8;border-radius:10px;padding:16px;margin-top:18px;font-size:17px}
+.result b{color:#1e2a4a;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.step{background:#fff;border-radius:12px;padding:20px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.step.num{width:44px;height:44px;border-radius:50%;background:#1e2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;margin:0 auto 10px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.member{background:#fff;border-radius:14px;padding:22px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.member.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#1e2a4a,#c9a227);display:flex;align-items:center;justify-content:center;font-size:34px;color:#fff}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.review{background:#fff;border-radius:14px;padding:22px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.review.stars{color:#c9a227;font-size:18px;letter-spacing:2px}
+.faq details{background:#fff;border-radius:10px;padding:16px 20px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+form.order{background:#fff;border-radius:16px;padding:28px;max-width:760px;margin:0 auto;box-shadow:0 3px 16px rgba(0,0,0,.08)}
+form.order label{display:block;font-weight:700;margin:14px 0 6px}
+form.order input,form.order select,form.order textarea{width:100%;padding:11px;border:1.5px solid #c9b89a;border-radius:8px;font-size:16px}
+#msgBox{margin-top:20px;background:#f5f1e8;border-radius:10px;padding:18px;display:none}
+#msgBox pre{white-space:pre-wrap;font-family:inherit;font-size:15px;background:#fff;border-radius:8px;padding:14px;margin:10px 0}
+.copy-btn{background:#1e2a4a;color:#fff;border:none;padding:10px 22px;border-radius:24px;cursor:pointer;font-size:15px}
+footer{background:#16233f;color:#c9cdd6;text-align:center;padding:34px 20px;font-size:14px}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;display:flex;z-index:99;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.15)}
+.mobile-bar a{flex:1;text-align:center;padding:15px 0;text-decoration:none;font-weight:700;font-size:16px}
+.mobile-bar a:first-child{background:#f5f1e8;color:#1e2a4a}
+.mobile-bar a:last-child{background:#c9a227;color:#1e2a4a}
+@media(min-width:769px){.mobile-bar{display:none}}
+@media(max-width:768px){
+header h1{font-size:26px}
+.hero h2{font-size:23px}
+.tool.row{grid-template-columns:1fr}
+body{padding-bottom:56px}
+.btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站｜本頁為一頁式網站示範，店名、價目與評價皆為假設內容</div>
+<header>
+<div class="logo">YUNLAI HOTEL</div>
+<h1>雲來飯店商旅</h1>
+<p>出差、旅行、家庭出遊，一個安靜舒適的落腳處</p>
+</header>
+
+<div class="hero">
+<h2>今晚，住得舒服一點</h2>
+<p>免費 Wi-Fi、24 小時櫃檯、乾濕分離衛浴。先試算房價，再決定要不要訂房，價格透明不怕踩雷。</p>
+<a class="btn gold" href="#order">立即訂房</a>
+<a class="btn ghost" href="#calc">房型房價試算</a>
+</div>
+
+<section id="menu">
+<h2 class="sec">房型與服務價目</h2>
+<p class="sub">以下為示範價目，實際房價以訂房當日公告為準</p>
+<div class="filters">
+<button class="active" data-filter="all">全部</button>
+<button data-filter="standard">標準客房</button>
+<button data-filter="suite">套房系列</button>
+<button data-filter="addon">加購服務</button>
+<button data-filter="dining">餐飲專案</button>
+</div>
+<div class="grid" id="priceGrid">
+<div class="card" data-cat="standard"><div class="pic">🛏️</div><div class="body"><span class="tag">標準客房</span><h3>標準雙人房</h3><p>一大床，適合情侶與商務獨旅，附免費 Wi-Fi。</p><div class="price">NT$ 2,800／晚</div></div></div>
+<div class="card" data-cat="standard"><div class="pic">🛏️🛏️</div><div class="body"><span class="tag">標準客房</span><h3>標準雙床房</h3><p>兩張單人床，同事、朋友出遊好分床。</p><div class="price">NT$ 3,000／晚</div></div></div>
+<div class="card" data-cat="standard"><div class="pic">👨‍👩‍👧‍👦</div><div class="body"><span class="tag">標準客房</span><h3>家庭四人房</h3><p>兩大床＋加大空間，一家四口住得下。</p><div class="price">NT$ 5,200／晚</div></div></div>
+<div class="card" data-cat="suite"><div class="pic">🌆</div><div class="body"><span class="tag">套房系列</span><h3>豪華雙人房</h3><p>景觀窗＋加大浴缸，適合想放鬆的夜晚。</p><div class="price">NT$ 3,800／晚</div></div></div>
+<div class="card" data-cat="suite"><div class="pic">👑</div><div class="body"><span class="tag">套房系列</span><h3>行政套房</h3><p>客廳＋臥室分區，另享行政酒廊時段。</p><div class="price">NT$ 7,800／晚</div></div></div>
+<div class="card" data-cat="suite"><div class="pic">💍</div><div class="body"><span class="tag">套房系列</span><h3>蜜月套房</h3><p>圓形大床＋香檳迎賓，紀念日首選。</p><div class="price">NT$ 8,800／晚</div></div></div>
+<div class="card" data-cat="addon"><div class="pic">🍳</div><div class="body"><span class="tag">加購服務</span><h3>自助早餐</h3><p>中西式自助早餐，現煎蛋捲、粥品都有。</p><div class="price">NT$ 300／人</div></div></div>
+<div class="card" data-cat="addon"><div class="pic">🕐</div><div class="body"><span class="tag">加購服務</span><h3>延遲退房</h3><p>退房延至下午 2 點，睡飽再慢慢收行李。</p><div class="price">NT$ 500／次</div></div></div>
+<div class="card" data-cat="addon"><div class="pic">🚗</div><div class="body"><span class="tag">加購服務</span><h3>機場接送</h3><p>專車往返機場，依車程與人數報價。</p><div class="price">NT$ 900 起／趟</div></div></div>
+<div class="card" data-cat="dining"><div class="pic">🍽️</div><div class="body"><span class="tag">餐飲專案</span><h3>一泊二食專案</h3><p>住宿＋晚餐＋早餐，玩累了回飯店吃就好。</p><div class="price">房價＋ NT$ 1,200／人</div></div></div>
+<div class="card" data-cat="dining"><div class="pic">☕</div><div class="body"><span class="tag">餐飲專案</span><h3>下午茶套組</h3><p>大廳咖啡廳雙人下午茶，住客享優惠價。</p><div class="price">NT$ 680／組</div></div></div>
+<div class="card" data-cat="dining"><div class="pic">📅</div><div class="body"><span class="tag">餐飲專案</span><h3>長住七晚專案</h3><p>連住七晚享九折，含每週一次客房清潔加值。</p><div class="price">房價 × 7 晚 9 折</div></div></div>
+</div>
+</section>
+
+<section id="calc">
+<h2 class="sec">房型房價試算</h2>
+<p class="sub">選房型、晚數與人數，立刻算出總價，結果可直接帶入訂房表單</p>
+<div class="tool">
+<div class="row">
+<div>
+<label for="roomType">選擇房型</label>
+<select id="roomType">
+<option value="2800">標準雙人房｜NT$2,800／晚</option>
+<option value="3000">標準雙床房｜NT$3,000／晚</option>
+<option value="5200">家庭四人房｜NT$5,200／晚</option>
+<option value="3800" selected>豪華雙人房｜NT$3,800／晚</option>
+<option value="7800">行政套房｜NT$7,800／晚</option>
+<option value="8800">蜜月套房｜NT$8,800／晚</option>
+</select>
+</div>
+<div>
+<label for="nights">住宿晚數</label>
+<input type="number" id="nights" min="1" max="30" value="3">
+</div>
+</div>
+<div class="row">
+<div>
+<label for="guests">早餐人數（NT$300／人／晚）</label>
+<input type="number" id="guests" min="0" max="6" value="2">
+</div>
+<div>
+<label for="lateCheckout">延遲退房</label>
+<select id="lateCheckout">
+<option value="0">不需要</option>
+<option value="500">需要（＋NT$500）</option>
+</select>
+</div>
+</div>
+<div style="margin-top:18px"><button class="btn gold" type="button" onclick="calcRoom()">開始試算</button></div>
+<div class="result" id="calcResult">請選擇房型與晚數後點「開始試算」。</div>
+<div style="margin-top:14px"><button class="btn ghost" type="button" onclick="bringToForm()">把試算結果帶入訂房表單 ↓</button></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">入住流程</h2>
+<p class="sub">從訂房到退房，四個步驟</p>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>線上訂房</h3><p>填表或來電訂房，確認房型與日期。</p></div>
+<div class="step"><div class="num">2</div><h3>入住登記</h3><p>櫃檯出示證件登記，領取房卡。</p></div>
+<div class="step"><div class="num">3</div><h3>安心入住</h3><p>24 小時櫃檯服務，有需要隨時找我們。</p></div>
+<div class="step"><div class="num">4</div><h3>退房結帳</h3><p>中午 12 點前退房，結清費用即可。</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">我們的團隊</h2>
+<p class="sub">櫃檯、房務、餐飲，各有專人把關</p>
+<div class="team">
+<div class="member"><div class="avatar">👩‍💼</div><h3>吳經理｜前廳經理</h3><p>10 年飯店經驗，入住大小事都找得到她。</p></div>
+<div class="member"><div class="avatar">🧹</div><h3>阿梅｜房務領班</h3><p>每間房親自檢查，乾淨是她的基本要求。</p></div>
+<div class="member"><div class="avatar">👨‍🍳</div><h3>阿志｜餐飲主廚</h3><p>早餐現煎蛋捲與粥品，都是他的拿手菜。</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="sec">住客怎麼說</h2>
+<p class="sub">以下為示範評價</p>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「床很好睡，隔音也不錯，出差連住三晚都睡得很好。」</p><p>— 陳先生｜商務出差</p></div>
+<div class="review"><div class="stars">★★★★★</div><p>「家庭房空間夠大，兩個小孩跑來跑去也不擠。」</p><p>— 林小姐｜家庭旅遊</p></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「早餐種類多，現煎蛋捲好吃，櫃檯服務很親切。」</p><p>— 黃先生｜夫妻小旅行</p></div>
+</div>
+</section>
+
+<section class="faq">
+<h2 class="sec">常見問題</h2>
+<p class="sub">訂房、入住、取消一次問清楚</p>
+<details><summary>入住與退房時間是幾點？</summary><p>入住為下午 3 點後，退房為中午 12 點前；需延遲退房可加購延遲退房服務。</p></details>
+<details><summary>可以免費取消訂房嗎？</summary><p>入住前 3 天免費取消，3 天內取消依訂房約定收取費用，詳情請來電確認。</p></details>
+<details><summary>有提供停車位嗎？</summary><p>有提供停車位，數量有限，先到先停，停車資訊請來電確認。</p></details>
+<details><summary>可以加床或加人嗎？</summary><p>部分房型可加床，加床費用與人數上限依房型而定，請於訂房時告知。</p></details>
+<details><summary>有接送服務嗎？</summary><p>有機場接送加購服務，費用依車程與人數而定，建議提前預約。</p></details>
+<details><summary>房價包含早餐嗎？</summary><p>房價不含早餐，早餐可於試算時加購，每人每晚 NT$300。</p></details>
+</section>
+
+<section id="order">
+<h2 class="sec">線上訂房</h2>
+<p class="sub">填完表單會自動產生 LINE 訊息，複製貼到 LINE 就能傳給我們</p>
+<form class="order" id="orderForm">
+<label for="fName">姓名</label>
+<input type="text" id="fName" required placeholder="請輸入姓名">
+<label for="fPhone">電話</label>
+<input type="tel" id="fPhone" required placeholder="例如 09xx-xxx-xxx">
+<label for="fType">房型</label>
+<select id="fType">
+<option>標準雙人房</option>
+<option>標準雙床房</option>
+<option>家庭四人房</option>
+<option>豪華雙人房</option>
+<option>行政套房</option>
+<option>蜜月套房</option>
+</select>
+<label for="fDate">入住日期</label>
+<input type="date" id="fDate">
+<label for="fNote">備註（試算結果會自動帶入這裡）</label>
+<textarea id="fNote" rows="3" placeholder="例如：住 3 晚，2 人要早餐"></textarea>
+<div style="margin-top:20px"><button class="btn gold" type="submit">產生 LINE 訂房訊息</button></div>
+<div id="msgBox">
+<strong>複製以下訊息，貼到 LINE 傳給我們：</strong>
+<pre id="lineMsg"></pre>
+<button class="copy-btn" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製訊息</button>
+<span id="copyTip" style="margin-left:10px;color:#2e7d32"></span>
+</div>
+</form>
+<p style="text-align:center;margin-top:16px;color:#7a8194">電話請來電確認｜地址與營業資訊請來電確認</p>
+</section>
+
+<footer>
+<p>雲來飯店商旅｜一頁式網站示範站</p>
+<p>本頁為示範網站，店名、價目、評價與成交內容皆為假設，正式使用前請換成真實資料。電話、地址與營業時間請來電確認。</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">立即訂房</a>
+<a href="#calc">房價試算</a>
+</div>
+
+<script>
+var calcText='';
+document.querySelectorAll('.filters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('.filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+document.querySelectorAll('#priceGrid.card').forEach(function(card){
+card.style.display=(f==='all'||card.getAttribute('data-cat')===f)?'':'none';
+});
+});
+});
+function calcRoom(){
+var price=parseInt(document.getElementById('roomType').value,10);
+var roomName=document.getElementById('roomType').selectedOptions[0].textContent.split('｜')[0];
+var nights=parseInt(document.getElementById('nights').value,10);
+var guests=parseInt(document.getElementById('guests').value,10);
+var late=parseInt(document.getElementById('lateCheckout').value,10);
+if(!nights||nights<1){document.getElementById('calcResult').textContent='請輸入正確的住宿晚數。';return;}
+if(isNaN(guests)||guests<0){guests=0;}
+var roomTotal=price*nights;
+var bfTotal=300*guests*nights;
+var total=roomTotal+bfTotal+late;
+var parts=['房價 '+roomName+' NT$'+price.toLocaleString()+' × '+nights+' 晚 = NT$'+roomTotal.toLocaleString()];
+if(bfTotal>0){parts.push('早餐 NT$300 × '+guests+' 人 × '+nights+' 晚 = NT$'+bfTotal.toLocaleString());}
+if(late>0){parts.push('延遲退房 NT$500');}
+calcText=''+roomName+'，'+nights+' 晚，'+parts.join('；')+'，預估總價 NT$'+total.toLocaleString()+'（示範估價，實際以訂房當日公告為準）';
+document.getElementById('calcResult').innerHTML='預估總價：<b>NT$'+total.toLocaleString()+'</b><br><span style="font-size:15px;color:#4a5265">'+parts.join('<br>')+'</span><br><span style="font-size:14px;color:#7a8194">示範估價，實際以訂房當日公告為準。</span>';
+}
+function bringToForm(){
+if(!calcText){calcRoom();}
+var note=document.getElementById('fNote');
+note.value=(note.value?note.value+'\n':'')+calcText;
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var type=document.getElementById('fType').value;
+var date=document.getElementById('fDate').value||'未指定';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n房型：'+type+'\n入住日期：'+date+'\n備註：'+note+'\n（本訊息由示範網站表單產生）';
+document.getElementById('lineMsg').textContent=msg;
+document.getElementById('msgBox').style.display='block';
+document.getElementById('copyTip').textContent='';
+});
+function copyMsg(){
+var text=document.getElementById('lineMsg').textContent;
+function done(){document.getElementById('copyTip').textContent='已複製';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallbackCopy(text);done();});}
+else{fallbackCopy(text);done();}
+}
+function fallbackCopy(text){
+var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');}catch(e){}
+document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>

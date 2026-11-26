@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>乾爽防水抓漏工程｜漏水部位配對・防水抓漏服務（示範站）</title>
+<style>
+
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:#f4f8fb;color:#232a33;line-height:1.7;padding-bottom:76px}
+@media(min-width:769px){body{padding-bottom:0}}
+:root{--a:#16324f;--ad:#16324fD;--b:#7dd3fc;--bd:#7dd3fcD;--cream:#e0f2fe;--card:#fff;--muted:#6b7280;--line:#c8d9e8}
+a{color:inherit}
+button,select,input,textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#7dd3fc;color:#16324fD;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:var(--a);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--a);color:var(--b);display:grid;place-items:center;font-style:normal;font-size:19px}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--cream)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}}
+.eyebrow{display:inline-flex;background:#e0f2fe;color:var(--a);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px}
+.hero h1{font-size:44px;line-height:1.25;margin:12px 0 10px}
+.hero .lead{font-size:17px;color:#444c57}
+.hero-visual{border-radius:20px;min-height:300px;background:linear-gradient(150deg,#16324f 0%,#0369a1 55%,#7dd3fc 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.hero-visual b{font-size:26px}
+.hero-visual p{margin:6px 0 0;opacity:.92}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;border:0;cursor:pointer}
+.btn-a{background:var(--a);color:#fff}
+.btn-line{background:#fff;border:2px solid var(--a);color:var(--a)}
+section{max-width:1120px;margin:0 auto;padding:28px 20px}
+h2{font-size:28px;margin:0 0 6px;color:var(--a)}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:820px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid var(--a);background:#fff;color:var(--a);border-radius:999px;padding:9px 18px;font-weight:800;cursor:pointer;font-size:15px}
+.filters button.active{background:var(--a);color:#fff}
+.svc .cover{height:130px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:12px}
+.svc h3{margin:0 0 4px;font-size:18px}
+.svc p{margin:0;color:var(--muted);font-size:14px}
+.price{font-weight:900;color:var(--bd);font-size:18px;margin-top:8px}
+.tag{display:inline-block;font-size:12px;font-weight:800;background:#e0f2fe;color:var(--a);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.calc label{display:block;font-weight:800;margin:14px 0 6px}
+.calc select,.calc input{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.calc .opt{display:block;font-weight:400;margin:6px 0}
+.calc .opt input{min-height:20px;width:18px;vertical-align:middle;margin-right:8px}
+.result{background:#eef6fb;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;display:none}
+.result.show{display:block}
+.result h3{margin:0 0 6px;color:var(--a)}
+.result .total{font-size:24px;font-weight:900;color:var(--bd)}
+.disclaimer{font-size:13px;color:var(--muted);margin-top:10px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{text-align:center}
+.step .num{width:52px;height:52px;border-radius:50%;background:var(--a);color:var(--b);display:grid;place-items:center;font-size:22px;font-weight:900;margin:0 auto 10px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;margin-bottom:10px}
+.review{font-size:15px}
+.review .stars{color:var(--bd);font-size:18px;letter-spacing:2px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;font-size:16px}
+form label{display:block;font-weight:800;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.msgbox{background:#e0f2fe;border:1px dashed var(--bd);border-radius:12px;padding:16px;white-space:pre-wrap;margin-top:16px;display:none}
+.msgbox.show{display:block}
+.feedback{color:var(--a);font-weight:800;margin-top:8px;min-height:24px}
+footer{background:var(--ad);color:#d8dee8;padding:32px 20px;text-align:center;font-size:14px}
+footer p{max-width:760px;margin:8px auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--a);color:#fff}
+.mobile-bar a:last-child{background:#fff;border:2px solid var(--a);color:var(--a)}
+
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+<header class="topnav">
+<div class="logo"><i>乾</i>乾爽防水抓漏工程</div>
+<nav class="navlinks"><a href="#match">漏水配對</a><a href="#services">服務</a><a href="#steps">流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">預約檢測</a></nav>
+</header>
+
+<section class="hero">
+<div>
+<span class="eyebrow">💧 示範防水工程・抓漏／防水／修繕</span>
+<h1>漏水找得到，<br>修好才安心</h1>
+<p class="lead">先用漏水部位配對工具：選漏水部位＋症狀，馬上配對建議工法與預估費用，再把結果帶進預約表單。</p>
+<p style="color:var(--muted);font-size:14px">📍 示範地區（詳細地址請來電確認）・營業時間請來電確認・電話請來電確認</p>
+<div class="cta-row">
+<a class="btn btn-a" href="#match">漏水部位配對</a>
+<a class="btn btn-line" href="#services">看服務價目</a>
+</div>
+</div>
+<div class="hero-visual"><b>「先找到漏水點，再談怎麼修。」</b><p>紅外線檢測先定位，不亂敲、不亂猜，修完附閉水測試與保固書。</p></div>
+</section>
+
+<section id="match">
+<h2>漏水部位配對</h2>
+<p class="sub">選漏水部位與症狀，配對建議工法與預估費用區間。以下工法與金額皆為示範估算。</p>
+<div class="card calc">
+<label for="cPlace">1．漏水部位</label>
+<select id="cPlace">
+<option value="roof">屋頂</option>
+<option value="wall">外牆</option>
+<option value="bath">浴室／廚房</option>
+<option value="window">窗框</option>
+<option value="basement">地下室</option>
+<option value="balcony">陽台</option>
+</select>
+<label for="cSymptom">2．症狀</label>
+<select id="cSymptom">
+<option value="seep">牆面滲水、水漬</option>
+<option value="drip">天花板滴水</option>
+<option value="mold">壁癌、發霉、油漆剝落</option>
+<option value="floor">地板積水、磁磚空鼓</option>
+</select>
+<p class="disclaimer">配對規則（示範）：部位 × 症狀對應建議工法，例如屋頂＋滲水＝PU 防水塗層；地下室＋滴水＝負壓防水＋導水工法。正式工法以現場檢測為準。</p>
+<div style="margin-top:18px"><button class="btn btn-a" type="button" onclick="doMatch()" style="width:100%">配對建議工法</button></div>
+<div class="result" id="matchResult"></div>
+</div>
+</section>
+
+<section id="services">
+<h2>服務價目</h2>
+<p class="sub">以下服務內容與收費皆為示範。點品類按鈕可以篩選服務。</p>
+<div class="filters" id="svcFilters">
+<button class="active" data-cat="all">全部</button>
+<button data-cat="屋頂防水">屋頂防水</button>
+<button data-cat="外牆防水">外牆防水</button>
+<button data-cat="浴室廚房">浴室廚房</button>
+<button data-cat="抓漏檢測">抓漏檢測</button>
+</div>
+<div class="grid g4" id="svcGrid">
+<div class="card svc" data-cat="屋頂防水"><div class="cover" style="background:linear-gradient(135deg,#16324f,#0369a1)">🏠</div><span class="tag">屋頂防水</span><h3>屋頂 PU 防水塗層</h3><p>底漆＋中塗＋面漆三層工法，附保固書（示範）。</p><div class="price">NT$1,800／坪起（示範）</div></div><div class="card svc" data-cat="屋頂防水"><div class="cover" style="background:linear-gradient(135deg,#0369a1,#7dd3fc)">🧱</div><span class="tag">屋頂防水</span><h3>屋頂隔熱防水磚</h3><p>防水層＋隔熱磚一次完成，降溫又防水。</p><div class="price">NT$2,600／坪起（示範）</div></div><div class="card svc" data-cat="屋頂防水"><div class="cover" style="background:linear-gradient(135deg,#0e2237,#2e5a84)">🔧</div><span class="tag">屋頂防水</span><h3>屋頂裂縫修補</h3><p>裂縫切 V 槽填補彈性填縫材，再上防水塗層。</p><div class="price">NT$3,500 起（示範）</div></div><div class="card svc" data-cat="外牆防水"><div class="cover" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">🏢</div><span class="tag">外牆防水</span><h3>外牆透明防水漆</h3><p>不改外觀的透明防水，磁磚面也適用。</p><div class="price">NT$1,200／坪起（示範）</div></div><div class="card svc" data-cat="外牆防水"><div class="cover" style="background:linear-gradient(135deg,#16324f,#3a5a80)">🧱</div><span class="tag">外牆防水</span><h3>外牆磁磚填縫防水</h3><p>磁磚縫重新填補，阻斷雨水從縫隙滲入。</p><div class="price">NT$900／坪起（示範）</div></div><div class="card svc" data-cat="外牆防水"><div class="cover" style="background:linear-gradient(135deg,#7dd3fc,#bae6fd)">🪟</div><span class="tag">外牆防水</span><h3>窗框周邊防水</h3><p>窗框矽利康重打＋外牆接縫防水處理。</p><div class="price">NT$2,800／窗起（示範）</div></div><div class="card svc" data-cat="浴室廚房"><div class="cover" style="background:linear-gradient(135deg,#0369a1,#7dd3fc)">🚿</div><span class="tag">浴室廚房</span><h3>浴室防水重做</h3><p>打除至結構層重做防水，附閉水測試。</p><div class="price">NT$38,000 起（示範）</div></div><div class="card svc" data-cat="浴室廚房"><div class="cover" style="background:linear-gradient(135deg,#16324f,#2e5a84)">🍳</div><span class="tag">浴室廚房</span><h3>廚房牆面防水</h3><p>水槽周邊與牆面防水處理，防滲又防霉。</p><div class="price">NT$12,000 起（示範）</div></div><div class="card svc" data-cat="浴室廚房"><div class="cover" style="background:linear-gradient(135deg,#0e7490,#22d3ee)">🚰</div><span class="tag">浴室廚房</span><h3>浴室管線滲漏修復</h3><p>給排水管滲漏檢修，換管後重做防水層。</p><div class="price">依現場報價（示範）</div></div><div class="card svc" data-cat="抓漏檢測"><div class="cover" style="background:linear-gradient(135deg,#16324f,#0369a1)">🔍</div><span class="tag">抓漏檢測</span><h3>紅外線抓漏檢測</h3><p>熱顯像儀找滲水路徑，不用大面積敲打。</p><div class="price">NT$3,000 起（示範）</div></div><div class="card svc" data-cat="抓漏檢測"><div class="cover" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">💧</div><span class="tag">抓漏檢測</span><h3>壓力測試抓漏</h3><p>管路加壓測試，精準定位漏水點。</p><div class="price">NT$4,500 起（示範）</div></div><div class="card svc" data-cat="抓漏檢測"><div class="cover" style="background:linear-gradient(135deg,#2e5a84,#7ba7c9)">📋</div><span class="tag">抓漏檢測</span><h3>漏水鑑定報告</h3><p>書面鑑定報告，附照片與建議工法。</p><div class="price">NT$6,000 起（示範）</div></div>
+</div>
+</section>
+
+<section id="steps">
+<h2>施工流程</h2>
+<p class="sub">從檢測到保固，五個步驟。</p>
+<div class="steps">
+<div class="card step"><div class="num">1</div><h3>部位配對</h3><p>線上選部位與症狀，先配對建議工法。</p></div>
+<div class="card step"><div class="num">2</div><h3>預約檢測</h3><p>填表單預約，師傅帶儀器到場檢測。</p></div>
+<div class="card step"><div class="num">3</div><h3>報價確認</h3><p>檢測報告＋正式報價，確認後才施工。</p></div>
+<div class="card step"><div class="num">4</div><h3>施工修復</h3><p>依工法施工，完工做閉水測試驗收。</p></div>
+<div class="card step"><div class="num">5</div><h3>保固追蹤</h3><p>附保固書（示範），保固期內定期追蹤。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>團隊介紹</h2>
+<p class="sub">以下人名皆為示範。</p>
+<div class="team">
+<div class="card"><div class="avatar" style="background:#16324f">👷</div><h3>陳大偉（示範人名）</h3><p><b>創辦人・防水技師</b><br>防水工程 15 年（示範），經手示範案件逾 800 件（示範數字）。</p></div>
+<div class="card"><div class="avatar" style="background:#0369a1">🔍</div><h3>林志豪（示範人名）</h3><p><b>抓漏檢測技師</b><br>紅外線熱顯像檢測專長，不敲牆也能找到漏水點。</p></div>
+<div class="card"><div class="avatar" style="background:#7dd3fc">🛠️</div><h3>阿明（示範人名）</h3><p><b>施工組長</b><br>現場施工第一線，每道工序都拍照留存給客人看。</p></div>
+</div>
+</section>
+
+<section>
+<h2>客人評價</h2>
+<p class="sub">以下評價皆為示範內容。</p>
+<div class="grid g3">
+<div class="card review"><div class="stars">★★★★★</div><p>「頂樓漏了三年，紅外線一照就找到漏水點，修完兩個雨季都沒再漏。」</p><p><b>— 黃先生（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★★</div><p>「浴室防水重做有做閉水測試，師傅每天拍照回報，施工很透明。」</p><p><b>— 吳小姐（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★☆</div><p>「配對工具選完大概就知道要花多少，正式報價跟配對的區間差不多。」</p><p><b>— 李先生（示範評價）</b></p></div>
+</div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<div>
+<details><summary>防水工程費用怎麼算？</summary><p>示範價目以坪數或項目計價，配對工具顯示的費用區間為示範估算，實際費用以現場檢測後的正式報價為準。</p></details>
+<details><summary>怎麼預約檢測？</summary><p>先用上方漏水部位配對工具，再填寫下方表單產生 LINE 訊息，複製後貼到 LINE 傳給我們即完成預約（示範流程）。</p></details>
+<details><summary>施工可以改期或取消嗎？取消規則是什麼？</summary><p>示範規則：施工前 3 天可免費改期一次；已備料後取消須負擔材料費，細節以合約為準。</p></details>
+<details><summary>你們在哪裡服務？交通與停車方便嗎？</summary><p>本公司位於示範地區，詳細地址請來電確認。示範地區鄰近捷運站與公車站，附近有示範停車場，實際交通資訊以現場公告為準。</p></details>
+<details><summary>營業時間是幾點？</summary><p>營業時間請來電確認。假日採預約制，建議先以 LINE 預約檢測時間。</p></details>
+<details><summary>防水工程有保固嗎？</summary><p>示範保固：屋頂與外牆防水工程保固 3 年、浴室防水重做保固 5 年（示範年期），保固內容以合約為準。</p></details>
+</div>
+</section>
+
+<section id="order">
+<h2>預約檢測表單</h2>
+<p class="sub">填完按下「產生 LINE 訊息」，複製後貼到 LINE 傳給我們即可（示範表單，不會真的送出預約）。</p>
+<div class="card">
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label for="fName">姓名</label>
+<input id="fName" required placeholder="例如：王小明">
+<label for="fPhone">電話</label>
+<input id="fPhone" type="tel" required placeholder="例如：09xx-xxx-xxx">
+<label for="fPlace">漏水部位</label>
+<select id="fPlace"><option>屋頂</option><option>外牆</option><option>浴室／廚房</option><option>窗框</option><option>地下室</option><option>陽台</option></select>
+<label for="fSymptom">症狀</label>
+<select id="fSymptom"><option>牆面滲水、水漬</option><option>天花板滴水</option><option>壁癌、發霉、油漆剝落</option><option>地板積水、磁磚空鼓</option></select>
+<label for="fNote">備註（例如：下雨才漏、已經漏三年了）</label>
+<textarea id="fNote" rows="3" placeholder="選填"></textarea>
+<div style="margin-top:18px"><button class="btn btn-a" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msgbox" id="msgBox"></div>
+<button class="btn btn-line" type="button" id="copyBtn" style="display:none;margin-top:12px;width:100%" onclick="copyMsg()">一鍵複製訊息</button>
+<div class="feedback" id="copyFb"></div>
+</div>
+</section>
+
+<footer>
+<p><b>乾爽防水抓漏工程（示範站）</b></p>
+<p>本頁為 DEMO 示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。電話與營業時間請來電確認，地址為示範地區寫法，請以現場公告為準。配對結果為示範建議，正式工法以現場檢測為準。</p>
+<p>示範製作：MONO AI 影像工作室一頁式網站示範產線</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">📞 請來電確認</a>
+<a href="#order">💧 預約檢測</a>
+</div>
+
+<script>
+var matchText="";
+var MATCH={"roof|seep":["PU 防水塗層","NT$18,000–30,000（示範）","屋頂面滲水多為塗層老化或裂縫，建議重新施作 PU 防水塗層。"],
+"roof|drip":["屋頂裂縫修補＋PU 防水塗層","NT$20,000–35,000（示範）","天花板滴水表示水已穿透結構層，先修補裂縫再做防水塗層。"],
+"roof|mold":["屋頂防水＋壁癌處理","NT$25,000–40,000（示範）","壁癌表示長期滲水，需先處理壁癌再重做防水層。"],
+"roof|floor":["屋頂防水＋排水改善","NT$22,000–38,000（示範）","屋頂積水多為排水不良，建議改善排水並重做防水。"],
+"wall|seep":["外牆透明防水漆","NT$12,000–25,000（示範）","外牆滲水多從磁磚縫或裂縫進入，透明防水漆可阻斷雨水。"],
+"wall|drip":["外牆磁磚填縫防水＋裂縫修補","NT$15,000–28,000（示範）","建議先修補裂縫與磁磚縫，再施作外牆防水。"],
+"wall|mold":["外牆防水＋室內壁癌處理","NT$18,000–32,000（示範）","壁癌需先刮除處理，內外同時處理才不易復發。"],
+"wall|floor":["外牆防水＋窗框周邊防水","NT$14,000–26,000（示範）","建議檢查外牆與窗框接縫，一併做防水處理。"],
+"bath|seep":["浴室防水重做","NT$38,000–60,000（示範）","浴室滲水多為防水層失效，建議打除重做防水並做閉水測試。"],
+"bath|drip":["浴室管線滲漏修復＋防水重做","NT$40,000–65,000（示範）","滴水可能來自管線滲漏，建議先檢修管線再重做防水。"],
+"bath|mold":["浴室防水重做＋防霉處理","NT$38,000–60,000（示範）","發霉多為長期潮濕，防水重做後再做防霉處理。"],
+"bath|floor":["浴室防水重做＋磁磚重鋪","NT$45,000–70,000（示範）","地板積水或磁磚空鼓，建議防水重做並重鋪磁磚。"],
+"window|seep":["窗框周邊防水","NT$2,800–6,000／窗（示範）","窗框滲水多為矽利康老化，重打矽利康並做接縫防水。"],
+"window|drip":["窗框周邊防水＋外牆裂縫修補","NT$5,000–10,000／窗（示範）","建議窗框與外牆接縫一併處理。"],
+"window|mold":["窗框防水＋室內壁癌處理","NT$6,000–12,000／窗（示範）","窗邊壁癌需先處理，再做窗框防水。"],
+"window|floor":["窗框防水＋陽台排水改善","NT$5,000–10,000／窗（示範）","建議檢查窗框與陽台排水，一併改善。"],
+"basement|seep":["負壓防水＋導水工法","NT$30,000–60,000（示範）","地下室滲水多為地下水壓造成，建議負壓防水搭配導水。"],
+"basement|drip":["負壓防水＋裂縫高壓灌注","NT$35,000–70,000（示範）","滴水點先做高壓灌注止水，再施作負壓防水。"],
+"basement|mold":["負壓防水＋壁癌處理＋除濕建議","NT$35,000–65,000（示範）","地下室潮濕需防水與除濕並行處理。"],
+"basement|floor":["負壓防水＋地板防水層重做","NT$40,000–75,000（示範）","地板積水建議重做地板防水層並改善排水。"],
+"balcony|seep":["陽台防水塗層","NT$10,000–20,000（示範）","陽台滲水多為防水層老化，建議重新施作防水塗層。"],
+"balcony|drip":["陽台防水＋排水改善","NT$12,000–22,000（示範）","建議改善陽台排水並重做防水塗層。"],
+"balcony|mold":["陽台防水＋壁癌處理","NT$14,000–25,000（示範）","陽台壁癌需先處理，再重做防水層。"],
+"balcony|floor":["陽台防水＋磁磚重鋪","NT$15,000–28,000（示範）","磁磚空鼓建議防水重做並重鋪磁磚。"]};
+function doMatch(){
+var p=document.getElementById('cPlace');
+var s=document.getElementById('cSymptom');
+var place=p.options[p.selectedIndex].text;
+var symptom=s.options[s.selectedIndex].text;
+var m=MATCH[p.value+"|"+s.value];
+var r=document.getElementById('matchResult');
+matchText="漏水配對結果（示範）：部位 "+place+"、症狀 "+symptom+"，建議工法 "+m[0]+"，預估費用 "+m[1]+"。正式工法以現場檢測為準。";
+r.classList.add('show');
+r.innerHTML="<h3>建議工法："+m[0]+"</h3><p>部位："+place+"　症狀："+symptom+"</p><p>"+m[2]+"</p><p class=\"total\">預估費用 "+m[1]+"</p><p class=\"disclaimer\">以上為示範配對建議，正式工法與費用以現場檢測後的正式報價為準。</p><button class=\"btn btn-a\" type=\"button\" onclick=\"useMatch()\">把配對結果帶進預約表單</button>";
+r.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function useMatch(){
+var p=document.getElementById('cPlace');
+var s=document.getElementById('cSymptom');
+document.getElementById('fPlace').selectedIndex=p.selectedIndex;
+document.getElementById('fSymptom').selectedIndex=s.selectedIndex;
+document.getElementById('order').scrollIntoView({behavior:"smooth"});
+}
+
+document.querySelectorAll('#svcFilters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('#svcFilters button').forEach(function(b){b.classList.remove('active');});
+btn.classList.add('active');
+var cat=btn.getAttribute('data-cat');
+document.querySelectorAll('#svcGrid .svc').forEach(function(card){
+card.style.display=(cat==='all'||card.getAttribute('data-cat')===cat)?'':'none';
+});
+});
+});
+
+var lastMsg="";
+function makeMsg(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var place=document.getElementById('fPlace').value;
+var symptom=document.getElementById('fSymptom').value;
+var note=document.getElementById('fNote').value.trim()||"無";
+var match=matchText?matchText:"漏水配對：未使用配對工具";
+lastMsg="\n姓名："+name+"\n電話："+phone+"\n漏水部位："+place+"\n症狀："+symptom+"\n"+match+"\n備註："+note;
+var box=document.getElementById('msgBox');
+box.textContent=lastMsg;box.classList.add('show');
+document.getElementById('copyBtn').style.display="block";
+document.getElementById('copyFb').textContent="";
+box.scrollIntoView({behavior:"smooth",block:"center"});
+return false;
+}
+
+var lastMsg="";
+function copyMsg(){
+var fb=document.getElementById('copyFb');
+function done(){fb.textContent="\u2713 \u5df2\u8907\u88fd\uff01\u8cbc\u5230 LINE \u50b3\u7d66\u6211\u5011\u5373\u53ef\u3002";}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(lastMsg).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){
+var ta=document.createElement('textarea');ta.value=lastMsg;document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');done();}catch(err){fb.textContent="\u8907\u88fd\u5931\u6557\uff0c\u8acb\u624b\u52d5\u9577\u6309\u8a0a\u606f\u8907\u88fd\u3002";}
+document.body.removeChild(ta);
+}
+}
+
+</script>
+</body>
+</html>

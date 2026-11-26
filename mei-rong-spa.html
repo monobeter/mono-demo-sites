@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>芳療美容 SPA 館｜芳療美容示範店</title>
+<style>
+:root{
+--purple:#7b5ea7; --purple-dark:#5b4382; --purple-light:#efe8f6;
+--gold:#c9a86a; --gold-light:#f7efdd;
+--cream:#fdfaf3; --cream2:#f3ecdd; --ink:#2a2333; --ink-dark:#1d1826;
+--bg:#fdfaf3; --card:#fffdf8; --text:#2e2836; --muted:#7a7268; --line:#e8dfd0; --chip:#f3ecdd;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden;max-width:100%}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:var(--ink-dark);color:#f5d9a8;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:900;font-size:22px;color:var(--ink);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--purple-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}}
+.eyebrow{display:inline-flex;background:var(--purple-light);color:var(--purple-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-size:52px;line-height:1.05;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:20px;font-weight:700;color:var(--purple);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--purple);color:#fff;box-shadow:0 10px 24px rgba(123,94,167,.28)}
+.btn-secondary{background:var(--card);color:var(--purple-dark);border:1.5px solid var(--purple)}
+.btn-ink{background:var(--ink);color:#fff}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(42,35,51,.22);background:linear-gradient(135deg,#5b4382,#7b5ea7 45%,#c9a86a 80%,#f3ecdd);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff}
+.hero-img .big{font-size:64px;line-height:1.1}
+.hero-img p{margin:12px 0 0;font-size:16px;font-weight:700}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--ink);color:#f5ead2;border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.dish.hide{display:none}
+.dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.dish h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--purple-light);color:var(--purple-dark);white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--purple)}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--purple-light);color:var(--purple-dark);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="time"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--purple);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--purple);outline-offset:2px}
+.quiz-q{margin-bottom:18px}
+.quiz-q p{font-weight:800;margin:0 0 8px}
+.result{background:var(--ink);color:#f5ead2;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px;color:#f5ead2}
+.result-line{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(245,234,210,.35);font-size:15px}
+.result-total{font-size:28px;font-weight:900;margin:14px 0 4px;color:#fff}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:var(--ink-dark);width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:linear-gradient(135deg,var(--purple-light),var(--cream2));border-radius:24px;padding:26px;border:1px solid var(--line)}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--ink);color:#f5ead2;display:grid;place-items:center;font-size:36px;font-weight:900;margin-bottom:14px}
+.member h3{font-size:22px;margin:0 0 4px}
+.member .role{color:var(--purple);font-weight:800;font-size:14px;margin:0 0 10px}
+.member p{color:var(--muted);margin:0 0 8px;font-size:15px}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--purple);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0;color:var(--text)}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--purple);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#1d1826;color:#faf6ee;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:150px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--purple)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--purple-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--purple);color:#fff}
+.mobile-bar a:last-child{background:var(--gold-light);color:var(--ink);border:1.5px solid var(--purple)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>芳</i> 芳療美容 SPA 館</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">服務項目</a><a href="#calc">課程配對</a><a href="#flow">體驗流程</a><a href="#team">芳療團隊</a><a href="#faq">常見問題</a><a href="#order">預約表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">示範地區・芳療美容 SPA ・ 一對一服務（示範）</span>
+<h1><small>AROMA SPA</small>芳療美容 SPA 館</h1>
+<p class="lead">給自己一個好好放鬆的下午。<br>精油現調、手法溫和、空間安靜——<strong>四題測驗配對課程，配好再預約</strong>，第一次來也不怕選錯。</p>
+<div class="hero-meta">
+<span class="pill">📍 示範地區（詳細地址請來電確認）</span>
+<span class="pill">🕙 營業時間：請來電確認</span>
+<span class="pill">🌿 人氣：全身芳療按摩・保濕臉部護理</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🌿 立即預約</a>
+<a class="btn btn-secondary" href="#menu">看服務項目</a>
+<a class="btn btn-ink" href="#calc">先課程配對 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">回答四個問題，馬上配對最適合你的課程，配對結果一鍵帶進預約表單。</p>
+</div>
+<div>
+<div class="hero-img"><div class="big">🌿<br>精油・按摩・臉部護理</div><p>招牌組合：全身芳療按摩＋保濕臉部護理（示範圖片為色塊示意）</p></div>
+<p class="hero-note">招牌組合：芳療按摩、臉部護理、手足保養（示範）</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="menu">
+<div class="sec-head">
+<h2>服務項目</h2>
+<p>一對一服務，全程使用示範精油與保養品；以下為示範價目。</p>
+</div>
+<div class="filters" role="group" aria-label="服務分類篩選">
+<button class="filter-btn active" type="button" data-filter="all">全部</button>
+<button class="filter-btn" type="button" data-filter="face">臉部護理</button>
+<button class="filter-btn" type="button" data-filter="body">身體按摩</button>
+<button class="filter-btn" type="button" data-filter="aroma">芳療舒壓</button>
+<button class="filter-btn" type="button" data-filter="hands">手足護理</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 14px"></p>
+<div class="menu-grid" id="menuGrid">
+
+<article class="dish" data-cat="face">
+<div class="dish-top"><h3>保濕臉部護理</h3><span class="tag">臉部第一名</span></div>
+<div class="price">NT$1,200 <small>/ 60 分鐘</small></div>
+<p class="desc">清潔、保濕面膜與臉部按摩，膚觸水潤有光澤；適合想好好保濕的日常保養。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('保濕臉部護理')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="face">
+<div class="dish-top"><h3>亮白臉部護理</h3><span class="tag">提亮膚色</span></div>
+<div class="price">NT$1,500 <small>/ 75 分鐘</small></div>
+<p class="desc">溫和去角質、亮白面膜與臉部按摩，膚色看起來更均勻明亮；適合重要場合前。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('亮白臉部護理')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="face">
+<div class="dish-top"><h3>舒緩臉部護理</h3><span class="tag">敏感肌友善</span></div>
+<div class="price">NT$1,300 <small>/ 60 分鐘</small></div>
+<p class="desc">溫和清潔、舒緩面膜與輕柔臉部按摩，手法輕、產品溫和；適合膚況不穩定的時候。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('舒緩臉部護理')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="body">
+<div class="dish-top"><h3>全身芳療按摩</h3><span class="tag">身體第一名</span></div>
+<div class="price">NT$1,800 <small>/ 90 分鐘</small></div>
+<p class="desc">全身精油按摩，肩頸、背部、手腳一次照顧到；力道可調整，想放鬆就說一聲。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('全身芳療按摩')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="body">
+<div class="dish-top"><h3>肩頸背部按摩</h3><span class="tag">上班族最愛</span></div>
+<div class="price">NT$1,000 <small>/ 50 分鐘</small></div>
+<p class="desc">專注肩頸與背部，久坐、久站後的緊繃感，適合午休或下班後來一趟。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('肩頸背部按摩')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="body">
+<div class="dish-top"><h3>腿部舒緩按摩</h3><span class="tag">輕盈雙腿</span></div>
+<div class="price">NT$900 <small>/ 50 分鐘</small></div>
+<p class="desc">小腿與大腿按摩，搭配保濕乳液；久站、久走後，雙腿感覺輕盈許多。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('腿部舒緩按摩')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="aroma">
+<div class="dish-top"><h3>薰衣草芳療舒壓</h3><span class="tag">芳療第一名</span></div>
+<div class="price">NT$1,600 <small>/ 80 分鐘</small></div>
+<p class="desc">薰衣草精油全身按摩，香氣溫柔、節奏緩慢；適合想好好睡一覺的前一晚。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('薰衣草芳療舒壓')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="aroma">
+<div class="dish-top"><h3>甜橙活力芳療</h3><span class="tag">香氣明亮</span></div>
+<div class="price">NT$1,500 <small>/ 75 分鐘</small></div>
+<p class="desc">甜橙與葡萄柚精油，香氣清新明亮；適合心情悶悶的時候，聞著就想微笑。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('甜橙活力芳療')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="aroma">
+<div class="dish-top"><h3>檀香深層放鬆</h3><span class="tag">沉穩香氣</span></div>
+<div class="price">NT$2,000 <small>/ 100 分鐘</small></div>
+<p class="desc">檀香精油全身按摩，香氣沉穩、節奏更慢；適合想徹底放空的長時段課程。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('檀香深層放鬆')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="hands">
+<div class="dish-top"><h3>手部保養護理</h3><span class="tag">手足第一名</span></div>
+<div class="price">NT$800 <small>/ 45 分鐘</small></div>
+<p class="desc">手部去角質、保濕護理與指緣保養，雙手柔嫩細緻；適合常做家事、常打字的人。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('手部保養護理')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="hands">
+<div class="dish-top"><h3>足部保養護理</h3><span class="tag">足部放鬆</span></div>
+<div class="price">NT$900 <small>/ 50 分鐘</small></div>
+<p class="desc">足浴、去角質與足部按摩，雙腳輕鬆許多；適合久站、常穿高跟鞋的人。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('足部保養護理')">用課程配對 →</button>
+</article>
+
+<article class="dish" data-cat="hands">
+<div class="dish-top"><h3>手足保養組合</h3><span class="tag">一次照顧</span></div>
+<div class="price">NT$1,500 <small>/ 80 分鐘</small></div>
+<p class="desc">手部與足部保養一次完成，去角質、保濕、按摩全包；適合想一次照顧好手腳的人。</p>
+<button class="mini-btn" type="button" onclick="pickCourse('手足保養組合')">用課程配對 →</button>
+</article>
+
+</div>
+<p style="color:var(--muted);font-size:13px;margin-top:14px">以上皆為示範價目，正式價目以店家現場公告為準。服務內容為一般美容保養，不涉及醫療行為。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head">
+<h2>課程配對測驗</h2>
+<p>回答四個問題，馬上配對最適合你的課程；配對結果一鍵帶進下方預約表單。</p>
+</div>
+<div class="calc-box">
+<div>
+<div class="quiz-q">
+<p>1. 今天最想照顧哪裡？</p>
+<div class="chips">
+<label class="chip"><input type="radio" name="q1" value="臉部" data-cat="face" checked><span>臉部</span></label>
+<label class="chip"><input type="radio" name="q1" value="肩頸背部" data-cat="body"><span>肩頸背部</span></label>
+<label class="chip"><input type="radio" name="q1" value="全身" data-cat="aroma"><span>全身</span></label>
+<label class="chip"><input type="radio" name="q1" value="手腳" data-cat="hands"><span>手腳</span></label>
+</div>
+</div>
+<div class="quiz-q">
+<p>2. 你現在的狀態是？</p>
+<div class="chips">
+<label class="chip"><input type="radio" name="q2" value="想好好放鬆" data-cat="aroma" checked><span>想好好放鬆</span></label>
+<label class="chip"><input type="radio" name="q2" value="膚色暗沉想提亮" data-cat="face"><span>膚色暗沉想提亮</span></label>
+<label class="chip"><input type="radio" name="q2" value="肩頸背部緊繃" data-cat="body"><span>肩頸背部緊繃</span></label>
+<label class="chip"><input type="radio" name="q2" value="手腳乾燥粗糙" data-cat="hands"><span>手腳乾燥粗糙</span></label>
+</div>
+</div>
+<div class="quiz-q">
+<p>3. 你喜歡的感覺是？</p>
+<div class="chips">
+<label class="chip"><input type="radio" name="q3" value="香氣環繞" data-cat="aroma" checked><span>香氣環繞</span></label>
+<label class="chip"><input type="radio" name="q3" value="清爽保濕" data-cat="face"><span>清爽保濕</span></label>
+<label class="chip"><input type="radio" name="q3" value="深層按壓" data-cat="body"><span>深層按壓</span></label>
+<label class="chip"><input type="radio" name="q3" value="輕柔呵護" data-cat="hands"><span>輕柔呵護</span></label>
+</div>
+</div>
+<div class="quiz-q">
+<p>4. 你今天有多少時間？</p>
+<div class="chips">
+<label class="chip"><input type="radio" name="q4" value="約 45–50 分鐘" data-cat="hands" checked><span>約 45–50 分鐘</span></label>
+<label class="chip"><input type="radio" name="q4" value="約 60 分鐘" data-cat="face"><span>約 60 分鐘</span></label>
+<label class="chip"><input type="radio" name="q4" value="約 80–90 分鐘" data-cat="aroma"><span>約 80–90 分鐘</span></label>
+<label class="chip"><input type="radio" name="q4" value="100 分鐘以上" data-cat="body"><span>100 分鐘以上</span></label>
+</div>
+</div>
+</div>
+
+<div class="result">
+<h3>🌿 你的配對課程</h3>
+<div class="result-line"><span>配對方向</span><span id="rCat">芳療舒壓</span></div>
+<div class="result-line"><span>推薦課程</span><span id="rCourse">薰衣草芳療舒壓</span></div>
+<div class="result-line"><span>課程時間</span><span id="rTime">80 分鐘</span></div>
+<div class="result-total" id="rTotal">NT$1,600</div>
+<div class="result-sub" id="rUnit">依你的四題回答配對（示範價格）</div>
+<button class="btn" type="button" onclick="sendToOrder()">一鍵帶進預約表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head">
+<h2>體驗流程</h2>
+<p>從進門到離開，五個步驟，第一次來也安心。</p>
+</div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上配對預約</h3><p>四題測驗配對課程，填表單傳 LINE，店家回覆確認時間與芳療師。</p></div>
+<div class="step"><b>2</b><h3>到店諮詢溝通</h3><p>到店先換拖鞋、喝杯花草茶，芳療師會問膚況、力道偏好與不喜歡的香氣。</p></div>
+<div class="step"><b>3</b><h3>更衣準備</h3><p>換上美容袍，貴重物品放上鎖置物櫃；課程全程一對一，隱私不用擔心。</p></div>
+<div class="step"><b>4</b><h3>課程進行</h3><p>精油現調、手法溫和，力道隨時可以調整；想睡就睡，不用硬撐著聊天。</p></div>
+<div class="step"><b>5</b><h3>茶點收尾離開</h3><p>課程結束後喝杯花草茶、吃點小點心，慢慢起身；櫃台結帳，可預約下次。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head">
+<h2>芳療團隊</h2>
+<p>三個人，一間 SPA 館。臉、身體、香氣，各有人顧。</p>
+</div>
+<div class="team">
+<div class="member">
+<div class="avatar">芸</div>
+<h3>林芸</h3>
+<p class="role">店主・芳療師</p>
+<p>芳療 12 年，精油現調是她的強項，薰衣草、甜橙、檀香的配方比例全是自己調的。手法溫和緩慢，客人常做到一半就睡著。</p>
+<p>「香氣不用濃，剛剛好聞得到，身體自己會放鬆。」</p>
+</div>
+<div class="member">
+<div class="avatar">慧</div>
+<h3>陳慧</h3>
+<p class="role">美容師・臉部護理</p>
+<p>負責臉部護理，保濕、亮白、舒緩三種課程都由她主導。膚況不穩定的客人，她會先問最近用的保養品，再決定手法。</p>
+<p>「臉部護理不用急，慢慢做，膚觸自己會說話。」</p>
+</div>
+<div class="member">
+<div class="avatar">柔</div>
+<h3>王小柔</h3>
+<p class="role">按摩師・身體與手足</p>
+<p>負責身體按摩與手足保養，肩頸背部與腿部的力道拿捏很準。久坐、久站的客人，她一眼就看得出哪裡最緊繃。</p>
+<p>「力道不用重，找對地方，輕輕按就很有感。」</p>
+</div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head">
+<h2>客人評價</h2>
+<p>以下為示範評價，正式上線將換成真實客人回饋。</p>
+</div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「薰衣草芳療舒壓做完，整個人鬆鬆的，香氣很溫柔不嗆。芳療師手法很慢很穩，我做到一半真的睡著了。」</p><footer>— 阿傑・上班族・薰衣草芳療舒壓</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「保濕臉部護理做完，臉摸起來水潤有光澤，妝也比較服貼。美容師會問膚況，不會硬推產品，很安心。」</p><footer>— 小芬・臉部護理・保濕臉部護理</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「肩頸背部按摩 50 分鐘剛剛好，午休來一趟，下午上班精神好很多。力道可以調整，怕痛先說一聲就好。」</p><footer>— 志明・第一次來・肩頸背部按摩</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「手足保養組合一次照顧好手腳，去角質後擦保濕乳液，雙手雙腳都柔嫩細緻。店裡很安靜，花草茶也好喝。」</p><footer>— 雅婷・手足保養・手足保養組合</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head">
+<h2>常見問題</h2>
+<p>價格、預約、取消、交通，一次說清楚。</p>
+</div>
+<div class="faq">
+<details><summary>課程多少錢？一次要多久？</summary><p>臉部護理 NT$1,200–1,500（60–75 分鐘）、身體按摩 NT$900–1,800（50–90 分鐘）、芳療舒壓 NT$1,500–2,000（75–100 分鐘）、手足護理 NT$800–1,500（45–80 分鐘）。以上為示範價目，以店家現場公告為準。</p></details>
+<details><summary>怎麼預約？一定要先預約嗎？</summary><p>填寫下方預約表單，產生 LINE 訊息後複製傳給店家，店家回覆確認才算預約成功。課程皆為一對一，建議至少提前一天預約；當天臨時想來，請先 LINE 詢問有沒有空檔。</p></details>
+<details><summary>預約後可以取消或改時間嗎？</summary><p>可以。課程前 3 小時以上，LINE 傳訊告知姓名與原訂時間即可免費取消或改期一次；3 小時內取消請來電告知。無故未到兩次，之後預約需先付訂金。</p></details>
+<details><summary>第一次來，要注意什麼？</summary><p>不用特別準備。建議提早 10 分鐘到，換拖鞋、喝杯花草茶，芳療師會先問膚況、力道偏好與不喜歡的香氣。課程中想調整力道或溫度，隨時說一聲就好。</p></details>
+<details><summary>懷孕或身體不舒服可以做嗎？</summary><p>懷孕、皮膚有傷口或正在看醫生的客人，請先告知店家，芳療師會評估是否適合當天的課程，或建議改做較溫和的項目。服務內容為一般美容保養，不涉及醫療行為，身體不適請先諮詢醫師。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>店址在示範地區（詳細地址請來電確認），鄰近公車站，步行約 3 分鐘。開車請停附近收費停車場，店門口無專用停車位；騎機車可停店前機車格，假日一位難求，建議搭公車或騎車來。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head">
+<h2>預約表單</h2>
+<p>填完自動產生 LINE 訊息，複製貼到 LINE 傳給店家，店家回覆確認才算預約成功。</p>
+</div>
+<div class="form-box">
+<div class="form-grid">
+<div>
+<label for="fName">姓名 *</label>
+<input type="text" id="fName" placeholder="例如：王小明">
+</div>
+<div>
+<label for="fPhone">電話 *</label>
+<input type="tel" id="fPhone" placeholder="例如：09XX-XXX-XXX">
+</div>
+<div>
+<label for="fDate">預約日期</label>
+<input type="date" id="fDate">
+</div>
+<div>
+<label for="fTime">預約時段</label>
+<select id="fTime">
+<option value="10:00">10:00（上午）</option>
+<option value="11:00">11:00（上午）</option>
+<option value="13:00">13:00（下午）</option>
+<option value="14:00">14:00（下午）</option>
+<option value="15:00">15:00（下午）</option>
+<option value="16:00">16:00（下午）</option>
+<option value="17:00">17:00（下午）</option>
+<option value="18:00">18:00（晚上）</option>
+<option value="19:00">19:00（晚上）</option>
+<option value="20:00">20:00（晚上）</option>
+</select>
+</div>
+<div>
+<label for="fCourse">課程</label>
+<select id="fCourse">
+<option value="保濕臉部護理">保濕臉部護理 NT$1,200／60 分鐘</option>
+<option value="亮白臉部護理">亮白臉部護理 NT$1,500／75 分鐘</option>
+<option value="舒緩臉部護理">舒緩臉部護理 NT$1,300／60 分鐘</option>
+<option value="全身芳療按摩">全身芳療按摩 NT$1,800／90 分鐘</option>
+<option value="肩頸背部按摩">肩頸背部按摩 NT$1,000／50 分鐘</option>
+<option value="腿部舒緩按摩">腿部舒緩按摩 NT$900／50 分鐘</option>
+<option value="薰衣草芳療舒壓">薰衣草芳療舒壓 NT$1,600／80 分鐘</option>
+<option value="甜橙活力芳療">甜橙活力芳療 NT$1,500／75 分鐘</option>
+<option value="檀香深層放鬆">檀香深層放鬆 NT$2,000／100 分鐘</option>
+<option value="手部保養護理">手部保養護理 NT$800／45 分鐘</option>
+<option value="足部保養護理">足部保養護理 NT$900／50 分鐘</option>
+<option value="手足保養組合">手足保養組合 NT$1,500／80 分鐘</option>
+</select>
+</div>
+<div>
+<label for="fTherapist">指定芳療師</label>
+<select id="fTherapist">
+<option value="不指定">不指定</option>
+<option value="林芸（店主・芳療師）">林芸（店主・芳療師）</option>
+<option value="陳慧（美容師・臉部護理）">陳慧（美容師・臉部護理）</option>
+<option value="王小柔（按摩師・身體與手足）">王小柔（按摩師・身體與手足）</option>
+</select>
+</div>
+<div>
+<label for="fPressure">力道偏好</label>
+<select id="fPressure">
+<option value="輕柔">輕柔</option>
+<option value="適中" selected>適中</option>
+<option value="深層">深層</option>
+</select>
+</div>
+<div>
+<label for="fScent">不喜歡的香氣（可不填）</label>
+<select id="fScent">
+<option value="無">無</option>
+<option value="薰衣草">薰衣草</option>
+<option value="甜橙">甜橙</option>
+<option value="檀香">檀香</option>
+<option value="其他（請寫在備註）">其他（請寫在備註）</option>
+</select>
+</div>
+</div>
+<label for="fNote">備註（膚況、過敏、懷孕、其他需求）</label>
+<textarea id="fNote" rows="3" placeholder="例如：皮膚較敏感、對堅果類精油過敏"></textarea>
+<div class="msg-box" id="msgBox"></div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+
+<div class="info-grid">
+<div class="info"><h3>📍 店址（示範）</h3><p>示範地區（詳細地址請來電確認）</p></div>
+<div class="info"><h3>📞 電話（示範）</h3><p>請來電確認</p></div>
+<div class="info"><h3>🕙 營業時間（示範）</h3><p>請來電確認<br>每週一公休（示範）</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>芳療美容 SPA 館｜一頁式示範網站</strong></p>
+<p>本頁為示範網站：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。全部是假設訂單示範，電話與地址皆為示範寫法（請來電確認），請勿以此聯繫。服務內容為一般美容保養，不涉及醫療行為。</p>
+<p>© 2026 芳療美容 SPA 館（示範）・MONO AI 影像工作室示範站第 75 間</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">🌿 立即預約</a>
+<a href="#menu">看服務項目</a>
+</div>
+
+<script>
+var COURSES={
+"face":{label:"臉部護理",course:"保濕臉部護理",time:"60 分鐘",price:1200},
+"body":{label:"身體按摩",course:"全身芳療按摩",time:"90 分鐘",price:1800},
+"aroma":{label:"芳療舒壓",course:"薰衣草芳療舒壓",time:"80 分鐘",price:1600},
+"hands":{label:"手足護理",course:"手部保養護理",time:"45 分鐘",price:800}
+};
+var COURSE_PRICES={"保濕臉部護理":1200,"亮白臉部護理":1500,"舒緩臉部護理":1300,"全身芳療按摩":1800,"肩頸背部按摩":1000,"腿部舒緩按摩":900,"薰衣草芳療舒壓":1600,"甜橙活力芳療":1500,"檀香深層放鬆":2000,"手部保養護理":800,"足部保養護理":900,"手足保養組合":1500};
+var COURSE_TIMES={"保濕臉部護理":"60 分鐘","亮白臉部護理":"75 分鐘","舒緩臉部護理":"60 分鐘","全身芳療按摩":"90 分鐘","肩頸背部按摩":"50 分鐘","腿部舒緩按摩":"50 分鐘","薰衣草芳療舒壓":"80 分鐘","甜橙活力芳療":"75 分鐘","檀香深層放鬆":"100 分鐘","手部保養護理":"45 分鐘","足部保養護理":"50 分鐘","手足保養組合":"80 分鐘"};
+var matchedCourse="薰衣草芳療舒壓";
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.dish').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 項服務（示範價目）';
+});
+});
+document.getElementById('menuCount').textContent='目前顯示 '+document.querySelectorAll('.dish').length+' 項服務（示範價目）';
+
+// --- Quiz ---
+function getQuiz(){
+var scores={face:0,body:0,aroma:0,hands:0};
+var answers=[];
+['q1','q2','q3','q4'].forEach(function(q){
+var el=document.querySelector('input[name="'+q+'"]:checked');
+if(el){scores[el.getAttribute('data-cat')]++;answers.push(el.value);}
+});
+var top='aroma'; var best=-1;
+['face','body','aroma','hands'].forEach(function(k){if(scores[k]>best){best=scores[k];top=k;}});
+return {top:top,scores:scores,answers:answers};
+}
+function renderQuiz(){
+var q=getQuiz();
+var c=COURSES[q.top];
+matchedCourse=c.course;
+document.getElementById('rCat').textContent=c.label;
+document.getElementById('rCourse').textContent=c.course;
+document.getElementById('rTime').textContent=c.time;
+document.getElementById('rTotal').textContent='NT$'+c.price.toLocaleString('en-US');
+document.getElementById('rUnit').textContent='依你的四題回答配對（示範價格）';
+}
+document.querySelectorAll('.quiz-q input').forEach(function(el){el.addEventListener('change',renderQuiz);});
+renderQuiz();
+
+function pickCourse(course){
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+
+// --- Send quiz result to order form ---
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function sendToOrder(){
+setSelect('fCourse',matchedCourse);
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已把配對課程「'+matchedCourse+'」帶進預約表單，再填姓名、電話就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var date=document.getElementById('fDate').value||'（請選日期）';
+var time=document.getElementById('fTime').value;
+var course=document.getElementById('fCourse').value;
+var therapist=document.getElementById('fTherapist').value;
+var pressure=document.getElementById('fPressure').value;
+var scent=document.getElementById('fScent').value;
+var note=document.getElementById('fNote').value.trim();
+var q=getQuiz();
+var price=COURSE_PRICES[course]||0;
+var ctime=COURSE_TIMES[course]||'';
+var lines=[
+'您好，我想預約芳療美容課程🌿',
+'姓名：'+name,
+'電話：'+phone,
+'預約日期：'+date,
+'預約時段：'+time,
+'課程：'+course+'（'+ctime+'／NT$'+price.toLocaleString('en-US')+'，示範價格）',
+'配對測驗結果：'+q.answers.join('、')+' → 推薦「'+matchedCourse+'」',
+'指定芳療師：'+therapist,
+'力道偏好：'+pressure,
+'不喜歡的香氣：'+scent
+];
+if(note)lines.push('備註：'+note);
+lines.push('（以上為示範預約，請店家回覆確認）');
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fDate','fTime','fCourse','fTherapist','fPressure','fScent','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE 傳給店家即可。';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+}
+</script>
+</body>
+</html>
