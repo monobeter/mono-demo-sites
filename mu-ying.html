@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>寶貝母嬰用品｜新生兒禮盒・衣物・玩具（示範站）</title>
+<style>
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:#fff9f7;color:#3a3230;line-height:1.7;padding-bottom:76px}
+@media(min-width:769px){body{padding-bottom:0}}
+:root{--pink:#e89aa8;--pink-d:#c96f80;--mint:#7fc8a9;--mint-d:#3f8f6d;--cream:#fff9f7;--card:#fff;--muted:#8a7f7a;--line:#f2ddd8}
+a{color:inherit}
+button,select,input,textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#c96f80;color:#fff;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:var(--pink-d);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:#fbe9e7}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr.95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:34px}}
+.eyebrow{display:inline-flex;background:#fbe9e7;color:var(--pink-d);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px}
+.hero h1{font-size:44px;line-height:1.25;margin:12px 0 10px}
+.hero.lead{font-size:17px;color:#5c514c}
+.hero-visual{border-radius:20px;min-height:300px;background:linear-gradient(150deg,#f6c6cf 0%,#e89aa8 45%,#7fc8a9 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;box-shadow:0 12px 30px rgba(201,111,128,.25)}
+.hero-visual b{font-size:26px}
+.hero-visual p{margin:6px 0 0;opacity:.95}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;border:0;cursor:pointer}
+.btn-pink{background:var(--pink-d);color:#fff}
+.btn-line{background:#fff;border:2px solid var(--pink-d);color:var(--pink-d)}
+section{max-width:1120px;margin:0 auto;padding:28px 20px}
+h2{font-size:28px;margin:0 0 6px;color:var(--pink-d)}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:820px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g3,.g4,.g2{grid-template-columns:1fr}}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid var(--pink-d);background:#fff;color:var(--pink-d);border-radius:999px;padding:9px 18px;font-weight:800;cursor:pointer;font-size:15px}
+.filters button.active{background:var(--pink-d);color:#fff}
+.prod.cover{height:150px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:44px;margin-bottom:12px}
+.prod h3{margin:0 0 4px;font-size:18px}
+.prod p{margin:0;color:var(--muted);font-size:14px}
+.price{font-weight:900;color:var(--pink-d);font-size:18px;margin-top:8px}
+.tag{display:inline-block;font-size:12px;font-weight:800;background:#fbe9e7;color:var(--pink-d);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.calc label{display:block;font-weight:800;margin:14px 0 6px}
+.calc select,.calc input{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.checks{display:flex;gap:10px;flex-wrap:wrap}
+.checks label{border:2px solid var(--line);border-radius:12px;padding:10px 16px;cursor:pointer;font-weight:700;background:#fff}
+.checks input{accent-color:var(--pink-d)}
+.checks label:has(input:checked){border-color:var(--pink-d);background:#fbe9e7}
+.result{background:#eafaf1;border:1px solid #bfe6cf;border-radius:14px;padding:18px;margin-top:14px;display:none}
+.result.show{display:block}
+.result h3{margin:0 0 6px;color:var(--mint-d)}
+.result.total{font-size:24px;font-weight:900;color:var(--pink-d)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media(max-width:820px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{text-align:center}
+.step.num{width:52px;height:52px;border-radius:50%;background:var(--pink-d);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:900;margin:0 auto 10px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#fff;margin-bottom:10px}
+.review{font-size:15px}
+.review.stars{color:#e8a13c;font-size:18px;letter-spacing:2px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;font-size:16px}
+form label{display:block;font-weight:800;margin:14px 0 6px}
+form input,form select,form textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;background:#fff}
+.msgbox{background:#fdf3f0;border:1px dashed var(--pink-d);border-radius:12px;padding:16px;white-space:pre-wrap;margin-top:16px;display:none}
+.msgbox.show{display:block}
+.feedback{color:var(--mint-d);font-weight:800;margin-top:8px;min-height:24px}
+footer{background:#3a3230;color:#f2e4e0;padding:32px 20px;text-align:center;font-size:14px}
+footer p{max-width:760px;margin:8px auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--pink-d);color:#fff}
+.mobile-bar a:last-child{background:#fff;border:2px solid var(--pink-d);color:var(--pink-d)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+<header class="topnav">
+<div class="logo"><i>寶</i>寶貝母嬰用品</div>
+<nav class="navlinks"><a href="#calc">禮盒試算</a><a href="#goods">商品</a><a href="#steps">流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">訂購</a></nav>
+</header>
+
+<section class="hero">
+<div>
+<span class="eyebrow">🍼 示範母嬰店・新生兒禮盒專賣</span>
+<h1>把第一份禮物，<br>送得剛剛好</h1>
+<p class="lead">新生兒禮盒、衣物、玩具、用品一次備齊。不知道送什麼？先用禮盒試算器算算看，再把結果帶進訂購表單。</p>
+<p style="color:var(--muted);font-size:14px">📍 示範地區（詳細地址請來電確認）・營業時間請來電確認</p>
+<div class="cta-row">
+<a class="btn btn-pink" href="#calc">禮盒試算</a>
+<a class="btn btn-line" href="#goods">直接看商品</a>
+</div>
+</div>
+<div class="hero-visual"><b>「寶寶的第一個禮物，媽媽收到會笑。」</b><p>每份禮盒都附手寫小卡與提袋，送禮直接帶走不用再包裝。</p></div>
+</section>
+
+<section id="calc">
+<h2>新生兒禮盒試算</h2>
+<p class="sub">選禮盒等級、寶寶月齡與加購品，算出總價。以下價格皆為示範價，結果可帶進下方訂購表單。</p>
+<div class="card calc">
+<label for="cLevel">1．禮盒等級</label>
+<select id="cLevel">
+<option value="1280">經典禮盒 NT$1,280（示範價）</option>
+<option value="1980">豪華禮盒 NT$1,980（示範價）</option>
+<option value="2880">尊榮禮盒 NT$2,880（示範價）</option>
+</select>
+<label for="cAge">2．寶寶月齡（尺寸調整費）</label>
+<select id="cAge">
+<option value="0">0–3 個月：＋NT$0</option>
+<option value="150">4–6 個月：＋NT$150（示範價）</option>
+<option value="200">7–12 個月：＋NT$200（示範價）</option>
+</select>
+<label>3．加購品（可複選）</label>
+<div class="checks">
+<label><input type="checkbox" class="addon" value="450" data-name="純棉衣物組 NT$450"> 純棉衣物組 ＋NT$450</label>
+<label><input type="checkbox" class="addon" value="380" data-name="安撫玩具 NT$380"> 安撫玩具 ＋NT$380</label>
+<label><input type="checkbox" class="addon" value="520" data-name="日常用品組 NT$520"> 日常用品組 ＋NT$520</label>
+</div>
+<label for="cQty">4．數量</label>
+<select id="cQty"><option value="1">1 盒</option><option value="2">2 盒</option><option value="3">3 盒</option></select>
+<div style="margin-top:18px"><button class="btn btn-pink" type="button" onclick="calcGift()" style="width:100%">算出總價</button></div>
+<div class="result" id="calcResult"></div>
+</div>
+</section>
+
+<section id="goods">
+<h2>商品</h2>
+<p class="sub">以下商品與售價皆為示範。點品類按鈕可以篩選商品。</p>
+<div class="filters" id="goodsFilters">
+<button class="active" data-cat="all">全部</button>
+<button data-cat="禮盒">禮盒</button>
+<button data-cat="衣物">衣物</button>
+<button data-cat="玩具">玩具</button>
+<button data-cat="用品">用品</button>
+</div>
+<div class="grid g4" id="goodsGrid">
+<div class="card prod" data-cat="禮盒"><div class="cover" style="background:linear-gradient(135deg,#f6c6cf,#e89aa8)">🎁</div><span class="tag">禮盒</span><h3>經典新生兒禮盒</h3><p>包巾、口水巾、紗布衣一次備齊的入門禮盒。</p><div class="price">NT$1,280（示範價）</div></div>
+<div class="card prod" data-cat="禮盒"><div class="cover" style="background:linear-gradient(135deg,#e89aa8,#c96f80)">🎀</div><span class="tag">禮盒</span><h3>豪華新生兒禮盒</h3><p>經典款再加安撫巾與彌月小卡，最受歡迎的送禮款。</p><div class="price">NT$1,980（示範價）</div></div>
+<div class="card prod" data-cat="禮盒"><div class="cover" style="background:linear-gradient(135deg,#c9a35c,#f2ddb0)">👑</div><span class="tag">禮盒</span><h3>尊榮新生兒禮盒</h3><p>全品項升級＋精緻禮盒包裝，彌月送禮體面首選。</p><div class="price">NT$2,880（示範價）</div></div>
+<div class="card prod" data-cat="衣物"><div class="cover" style="background:linear-gradient(135deg,#bfe6cf,#7fc8a9)">👶</div><span class="tag">衣物</span><h3>純棉紗布衣三件組</h3><p>柔軟透氣，0–6 個月寶寶日常穿搭。</p><div class="price">NT$450（示範價）</div></div>
+<div class="card prod" data-cat="衣物"><div class="cover" style="background:linear-gradient(135deg,#f7d9a0,#e8a13c)">🧦</div><span class="tag">衣物</span><h3>寶寶襪子帽子組</h3><p>外出保暖小配件組，柔軟不咬皮膚。</p><div class="price">NT$320（示範價）</div></div>
+<div class="card prod" data-cat="玩具"><div class="cover" style="background:linear-gradient(135deg,#cfe3f2,#7ba7c9)">🧸</div><span class="tag">玩具</span><h3>安撫小熊玩偶</h3><p>可水洗材質，陪寶寶睡覺的安心好朋友。</p><div class="price">NT$380（示範價）</div></div>
+<div class="card prod" data-cat="玩具"><div class="cover" style="background:linear-gradient(135deg,#d9a7d9,#8a5a8a)">🎵</div><span class="tag">玩具</span><h3>音樂搖鈴組</h3><p>輕柔鈴聲刺激聽覺發展，抓握尺寸剛剛好。</p><div class="price">NT$420（示範價）</div></div>
+<div class="card prod" data-cat="用品"><div class="cover" style="background:linear-gradient(135deg,#e3ecdf,#5c7a5e)">🍼</div><span class="tag">用品</span><h3>日常用品組</h3><p>奶瓶刷、口水巾、收納袋，育兒日常必備。</p><div class="price">NT$520（示範價）</div></div>
+</div>
+</section>
+
+<section id="steps">
+<h2>訂購流程</h2>
+<p class="sub">從試算到收到禮盒，五個步驟。</p>
+<div class="steps">
+<div class="card step"><div class="num">1</div><h3>禮盒試算</h3><p>選等級、月齡與加購品，算出總價。</p></div>
+<div class="card step"><div class="num">2</div><h3>填寫表單</h3><p>留下姓名、電話與需求，產生 LINE 訊息。</p></div>
+<div class="card step"><div class="num">3</div><h3>客服確認</h3><p>我們回覆確認品項、數量與取貨方式（示範流程）。</p></div>
+<div class="card step"><div class="num">4</div><h3>包裝出貨</h3><p>禮盒附手寫小卡與提袋，仔細包裝後出貨。</p></div>
+<div class="card step"><div class="num">5</div><h3>收到禮物</h3><p>送到寶寶手上，歡迎回來分享開箱照片。</p></div>
+</div>
+</section>
+
+<section id="team">
+<h2>團隊介紹</h2>
+<p class="sub">以下人名皆為示範。</p>
+<div class="team">
+<div class="card"><div class="avatar" style="background:#e89aa8">🤱</div><h3>心怡（示範人名）</h3><p><b>店長・選品負責人</b><br>兩個孩子的媽媽，親自試用每一款商品才上架。</p></div>
+<div class="card"><div class="avatar" style="background:#7fc8a9">🎁</div><h3>小安（示範人名）</h3><p><b>禮盒包裝師</b><br>負責禮盒搭配與包裝，每份禮盒都包得像要送給自己孩子。</p></div>
+<div class="card"><div class="avatar" style="background:#c9a35c">💬</div><h3>雅婷（示範人名）</h3><p><b>客服・彌月顧問</b><br>幫新手爸媽挑禮盒最有耐心，彌月送禮問題問她就對了。</p></div>
+</div>
+</section>
+
+<section>
+<h2>爸媽評價</h2>
+<p class="sub">以下評價皆為示範內容。</p>
+<div class="grid g3">
+<div class="card review"><div class="stars">★★★★★</div><p>「豪華禮盒送朋友彌月，對方收到立刻拍照給我，說包裝美、東西也實用。」</p><p><b>— 佩君（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★★</div><p>「試算器很方便，選一選就知道總價，客服還幫我確認寶寶月齡的尺寸。」</p><p><b>— 俊傑（示範評價）</b></p></div>
+<div class="card review"><div class="stars">★★★★☆</div><p>「純棉衣物組洗過幾次還是很軟，寶寶穿了不會紅紅的，會再回購。」</p><p><b>— 淑芬（示範評價）</b></p></div>
+</div>
+</section>
+
+<section id="faq">
+<h2>常見問題</h2>
+<div>
+<details><summary>禮盒價格怎麼算？</summary><p>禮盒等級 NT$1,280／1,980／2,880（示範價），再加月齡尺寸調整費與加購品，用上方試算器就能算出總價。</p></details>
+<details><summary>怎麼訂購？</summary><p>先用試算器算好總價，填寫下方表單產生 LINE 訊息，複製後貼到 LINE 傳給我們即完成訂購（示範流程）。</p></details>
+<details><summary>可以取消或換貨嗎？</summary><p>出貨前來訊告知可免費取消或更換品項（示範規則）；已拆封的貼身衣物基於衛生考量恕不退換，瑕疵品可換貨。</p></details>
+<details><summary>門市在哪裡？交通與停車方便嗎？</summary><p>本店位於示範地區，詳細地址請來電確認。示範地區鄰近公車站，附近有示範停車場，實際交通資訊以現場公告為準。</p></details>
+<details><summary>營業時間是幾點？</summary><p>營業時間請來電確認。假日人潮較多，建議先以 LINE 預約取貨時間。</p></details>
+<details><summary>可以宅配嗎？運費怎麼算？</summary><p>示範運費：單筆滿 NT$2,000 免運（示範價），未滿收 NT$80 運費，實際運費以客服確認為準。</p></details>
+</div>
+</section>
+
+<section id="order">
+<h2>訂購表單</h2>
+<p class="sub">填完按下「產生 LINE 訊息」，複製後貼到 LINE 傳給我們即可（示範表單，不會真的送出訂單）。</p>
+<div class="card">
+<form id="orderForm" onsubmit="return makeMsg(event)">
+<label for="fName">姓名</label>
+<input id="fName" required placeholder="例如：王小明">
+<label for="fPhone">電話</label>
+<input id="fPhone" type="tel" required placeholder="例如：09xx-xxx-xxx">
+<label for="fGift">訂購內容（試算結果會自動帶入）</label>
+<select id="fGift">
+<option>經典禮盒 NT$1,280（示範價）</option>
+<option>豪華禮盒 NT$1,980（示範價）</option>
+<option>尊榮禮盒 NT$2,880（示範價）</option>
+<option>其他商品，請客服協助</option>
+</select>
+<label for="fDate">希望取貨／出貨日期</label>
+<input id="fDate" type="date">
+<label for="fNote">備註（例如：寶寶月齡、要附手寫小卡）</label>
+<textarea id="fNote" rows="3" placeholder="選填"></textarea>
+<div style="margin-top:18px"><button class="btn btn-pink" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msgbox" id="msgBox"></div>
+<button class="btn btn-line" type="button" id="copyBtn" style="display:none;margin-top:12px;width:100%" onclick="copyMsg()">一鍵複製訊息</button>
+<div class="feedback" id="copyFb"></div>
+</div>
+</section>
+
+<footer>
+<p><b>寶貝母嬰用品（示範站）</b></p>
+<p>本頁為 DEMO 示範網站，全部是假設訂單示範：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。電話與營業時間請來電確認，地址為示範地區寫法，請以店家現場公告為準。</p>
+<p>示範製作：MONO AI 影像工作室一頁式網站示範產線</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">📞 請來電確認</a>
+<a href="#order">🍼 立即訂購</a>
+</div>
+
+<script>
+var calcText="";
+function calcGift(){
+var level=document.getElementById('cLevel');
+var levelName=level.options[level.selectedIndex].text;
+var base=parseInt(level.value,10);
+var age=document.getElementById('cAge');
+var ageName=age.options[age.selectedIndex].text;
+var ageFee=parseInt(age.value,10);
+var qty=parseInt(document.getElementById('cQty').value,10);
+var addons=[],addFee=0;
+document.querySelectorAll('.addon:checked').forEach(function(a){addons.push(a.getAttribute('data-name'));addFee+=parseInt(a.value,10);});
+var unit=base+ageFee+addFee;
+var total=unit*qty;
+calcText="禮盒試算："+levelName+"，"+ageName+"，加購："+(addons.length?addons.join("、"):"無")+"，數量 "+qty+" 盒，單盒 NT$"+unit.toLocaleString()+"，總價 NT$"+total.toLocaleString()+"（示範價）";
+var r=document.getElementById('calcResult');
+r.classList.add('show');
+r.innerHTML="<h3>試算結果</h3><p>"+levelName+"<br>"+ageName+"<br>加購："+(addons.length?addons.join("、"):"無")+"<br>數量："+qty+" 盒</p><p>單盒 NT$"+unit.toLocaleString()+" × "+qty+" 盒</p><p class=\"total\">總價 NT$"+total.toLocaleString()+"（示範價）</p><button class=\"btn btn-pink\" type=\"button\" onclick=\"useCalc()\">把試算結果帶進訂購表單</button>";
+r.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function useCalc(){
+document.getElementById('order').scrollIntoView({behavior:"smooth"});
+}
+document.querySelectorAll('#goodsFilters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('#goodsFilters button').forEach(function(b){b.classList.remove('active');});
+btn.classList.add('active');
+var cat=btn.getAttribute('data-cat');
+document.querySelectorAll('#goodsGrid.prod').forEach(function(card){
+card.style.display=(cat==='all'||card.getAttribute('data-cat')===cat)?'':'none';
+});
+});
+});
+var lastMsg="";
+function makeMsg(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var gift=document.getElementById('fGift').value;
+var date=document.getElementById('fDate').value||"未指定";
+var note=document.getElementById('fNote').value.trim()||"無";
+var calc=calcText?calcText:"禮盒試算：未使用試算器";
+lastMsg="\n姓名："+name+"\n電話："+phone+"\n訂購內容："+gift+"\n"+calc+"\n希望取貨／出貨日期："+date+"\n備註："+note;
+var box=document.getElementById('msgBox');
+box.textContent=lastMsg;box.classList.add('show');
+document.getElementById('copyBtn').style.display="block";
+document.getElementById('copyFb').textContent="";
+box.scrollIntoView({behavior:"smooth",block:"center"});
+return false;
+}
+function copyMsg(){
+var fb=document.getElementById('copyFb');
+function done(){fb.textContent="✓ 已複製！貼到 LINE 傳給我們即可。";}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(lastMsg).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){
+var ta=document.createElement('textarea');ta.value=lastMsg;document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');done();}catch(err){fb.textContent="複製失敗，請手動長按訊息複製。";}
+document.body.removeChild(ta);
+}
+}
+</script>
+</body>
+</html>

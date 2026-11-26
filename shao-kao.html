@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>炭火串燒居酒屋｜示範網站・串燒拼盤試算＋線上訂位</title>
+<meta name="description" content="炭火串燒居酒屋示範網站：串燒、烤物、炸物、飲品菜單，人數拼盤試算器，線上訂位表單自動產生 LINE 訊息。店名價目皆為示範。">
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:#f7f1e8;color:#2b2118;line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input,textarea{font-family:inherit;font-size:16px}
+button,select,input:not([type=checkbox],[type=radio]),textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#14100d;color:#f0b429;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:#14100d;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:40px;height:40px;flex:none;border-radius:50%;background:#14100d;color:#f0b429;display:grid;place-items:center;font-style:normal;font-size:20px;border:2px solid #f0b429}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px}
+.navlinks a:hover{background:#efe3cd}
+.hero{background:linear-gradient(135deg,#14100d 0%,#3a2415 55%,#7a2e1d 100%);color:#fdf6e9;border-radius:20px;padding:56px 28px 48px;margin:10px 0 28px;overflow:hidden;position:relative}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.25}
+.hero h1 em{color:#f0b429;font-style:normal}
+.hero p{margin:0 0 22px;max-width:640px;color:#f3e2c2;font-size:17px}
+.hero.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;text-align:center;font-weight:800;border-radius:12px;padding:13px 24px;border:none;cursor:pointer}
+.btn-gold{background:#f0b429;color:#14100d}
+.btn-red{background:#b03a2e;color:#fff}
+.btn-ghost{background:transparent;color:#fdf6e9;border:2px solid #f0b429}
+.btn-dark{background:#14100d;color:#f0b429}
+.hero.flame{position:absolute;right:24px;top:18px;font-size:88px;opacity:.25}
+section{margin:0 0 44px}
+.sec-head{margin-bottom:16px}
+.sec-head h2{margin:0;font-size:26px;color:#14100d}
+.sec-head p{margin:4px 0 0;color:#6d5a44}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid #d9c7a7;background:#fffdf8;color:#5b4630;border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer;min-height:44px}
+.filters button.active{background:#14100d;color:#f0b429;border-color:#14100d}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:#fffdf8;border:1px solid #e6d9bf;border-radius:14px;padding:18px}
+.card.thumb{height:96px;border-radius:10px;background:linear-gradient(135deg,#f0b429,#b03a2e);display:grid;place-items:center;font-size:40px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:18px}
+.card p{margin:0 0 10px;color:#6d5a44;font-size:14px}
+.card.price{font-weight:900;color:#b03a2e;font-size:18px}
+.card.price small{font-size:12px;color:#8a7a63;font-weight:400}
+.card.tag{display:inline-block;background:#f3e8cf;color:#7a5a1e;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin-left:6px}
+.calc{background:#14100d;color:#fdf6e9;border-radius:20px;padding:28px 24px}
+.calc h2{margin:0 0 6px;color:#f0b429;font-size:26px}
+.calc p{margin:0 0 18px;color:#e8d5ae}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.calc label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.calc select,.calc input{width:100%;border-radius:10px;border:1px solid #5b4630;background:#241b12;color:#fdf6e9;padding:10px 12px}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap}
+.radio-row label{border:2px solid #5b4630;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:700;margin:0}
+.radio-row input{accent-color:#f0b429}
+.radio-row label:has(input:checked){border-color:#f0b429;background:#3a2a12}
+.result{background:#241b12;border:1px solid #f0b429;border-radius:12px;padding:18px;margin-top:18px;font-size:16px}
+.result b{color:#f0b429}
+.result.total{font-size:22px;font-weight:900;color:#f0b429}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.step{background:#fffdf8;border:1px solid #e6d9bf;border-radius:14px;padding:18px}
+.step.num{width:38px;height:38px;border-radius:50%;background:#b03a2e;color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:17px}
+.step p{margin:0;color:#6d5a44;font-size:14px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.member{background:#fffdf8;border:1px solid #e6d9bf;border-radius:14px;padding:20px;text-align:center}
+.member.ava{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#14100d,#b03a2e);color:#f0b429;display:grid;place-items:center;font-size:30px;font-weight:900;margin:0 auto 12px;border:3px solid #f0b429}
+.member h3{margin:0 0 2px}
+.member.role{color:#b03a2e;font-weight:700;font-size:14px;margin-bottom:8px}
+.member p{margin:0;color:#6d5a44;font-size:14px;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.review{background:#fffdf8;border:1px solid #e6d9bf;border-radius:14px;padding:18px}
+.review.stars{color:#f0b429;font-size:18px;letter-spacing:2px}
+.review p{margin:8px 0}
+.review.who{color:#8a7a63;font-size:13px}
+details{background:#fffdf8;border:1px solid #e6d9bf;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+details summary{font-weight:800;cursor:pointer;font-size:16px}
+details p{margin:10px 0 0;color:#6d5a44}
+.form-card{background:#fffdf8;border:1px solid #e6d9bf;border-radius:20px;padding:26px 22px}
+.form-card h2{margin:0 0 6px;font-size:24px}
+.form-card p{margin:0 0 18px;color:#6d5a44}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.f-grid label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.f-grid input,.f-grid select,.f-grid textarea{width:100%;border-radius:10px;border:1px solid #d9c7a7;padding:10px 12px;background:#fff}
+.f-grid textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+#calcSummary{grid-column:1/-1}
+#calcSummary textarea{width:100%;min-height:76px}
+.msg-box{margin-top:18px}
+.msg-box label{font-weight:800;display:block;margin-bottom:6px}
+#msgOutput{width:100%;min-height:150px;border-radius:10px;border:1px solid #d9c7a7;padding:12px;background:#fdf6e9;white-space:pre-wrap}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+footer{background:#14100d;color:#cbb894;text-align:center;padding:28px 20px 20px;font-size:14px;border-radius:20px 20px 0 0}
+footer b{color:#f0b429}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(20,16,13,.96);backdrop-filter:blur(4px)}
+.mobile-bar a{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:10px;padding:12px 8px;min-height:48px;display:grid;place-items:center}
+.mobile-bar.m1{background:#f0b429;color:#14100d}
+.mobile-bar.m2{background:#b03a2e;color:#fff}
+@media(min-width:769px){.mobile-bar{display:none}}
+@media(max-width:768px){
+.hero{padding:40px 20px 36px}
+.hero.flame{display:none}
+.navlinks{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>｜本頁為一頁式網站示範，店名、價目、評價皆為示範內容，非真實店家</span></div>
+
+<div class="wrap">
+<header class="topnav">
+<div class="logo"><i>炭</i>炭火串燒居酒屋</div>
+<nav class="navlinks">
+<a href="#menu">菜單</a><a href="#calc">拼盤試算</a><a href="#flow">用餐流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">訂位</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="flame">🔥</div>
+<h1>炭火現烤，<em>一串入魂</em><br>今晚就來居酒屋小酌一杯</h1>
+<p>備長炭直火現烤、醬汁當日現調，串燒、烤物、炸物配一杯冰啤酒，是下班後最剛好的慰勞。價目皆為示範，訂位請來電確認。</p>
+<div class="cta-row">
+<a class="btn btn-gold" href="#calc">先試算拼盤</a>
+<a class="btn btn-ghost" href="#menu">看完整菜單</a>
+</div>
+</section>
+
+<section id="menu">
+<div class="sec-head"><h2>菜單價目（示範）</h2><p>點分類按鈕篩選品項，價格皆為示範價，現場價目請來電確認。</p></div>
+<div class="filters" id="filters">
+<button class="active" data-filter="all">全部</button>
+<button data-filter="skewer">串燒</button>
+<button data-filter="grill">烤物</button>
+<button data-filter="fried">炸物</button>
+<button data-filter="drink">飲品</button>
+</div>
+<div class="grid" id="menuGrid">
+<div class="card" data-cat="skewer"><div class="thumb">🍢</div><h3>鹽烤雞腿串<span class="tag">人氣</span></h3><p>炭香雞腿肉，鹽烤帶出肉汁原味。</p><div class="price">NT$65 <small>/ 串・示範價</small></div></div>
+<div class="card" data-cat="skewer"><div class="thumb">🍢</div><h3>明太子雞肉串</h3><p>雞肉串刷上明太子醬，微辣鹹香。</p><div class="price">NT$75 <small>/ 串・示範價</small></div></div>
+<div class="card" data-cat="skewer"><div class="thumb">🍢</div><h3>醬烤牛五花串</h3><p>牛五花刷特製醬汁，炭火炙烤。</p><div class="price">NT$85 <small>/ 串・示範價</small></div></div>
+<div class="card" data-cat="skewer"><div class="thumb">🍢</div><h3>醬烤豬五花串</h3><p>肥瘦適中，醬香配啤酒最對味。</p><div class="price">NT$70 <small>/ 串・示範價</small></div></div>
+<div class="card" data-cat="skewer"><div class="thumb">🍢</div><h3>鹽烤香菇串</h3><p>厚切香菇，炭烤後多汁有嚼勁。</p><div class="price">NT$45 <small>/ 串・示範價</small></div></div>
+<div class="card" data-cat="grill"><div class="thumb">🐟</div><h3>鹽烤鯖魚</h3><p>整尾鯖魚鹽烤，外皮酥脆魚肉細嫩。</p><div class="price">NT$180 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="grill"><div class="thumb">🍗</div><h3>炭烤雞翅</h3><p>雞翅炭烤至表皮金黃微焦。</p><div class="price">NT$90 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="grill"><div class="thumb">🌽</div><h3>烤玉米筍</h3><p>帶殼烤玉米筍，清甜爽口。</p><div class="price">NT$60 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="grill"><div class="thumb">🍙</div><h3>明太子烤飯糰</h3><p>飯糰烤到微焦，鋪上明太子醬。</p><div class="price">NT$70 <small>/ 個・示範價</small></div></div>
+<div class="card" data-cat="fried"><div class="thumb">🍗</div><h3>唐揚炸雞<span class="tag">人氣</span></h3><p>日式唐揚炸雞，外酥內嫩附檸檬。</p><div class="price">NT$120 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="fried"><div class="thumb">🍤</div><h3>炸蝦天婦羅</h3><p>鮮蝦裹薄粉酥炸，附天婦羅醬汁。</p><div class="price">NT$150 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="fried"><div class="thumb">🍟</div><h3>海苔炸薯條</h3><p>粗薯條撒海苔粉，追劇下酒都適合。</p><div class="price">NT$80 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="fried"><div class="thumb">🧀</div><h3>炸起司可樂餅</h3><p>馬鈴薯可樂餅包起司，趁熱吃會牽絲。</p><div class="price">NT$90 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🍺</div><h3>生啤酒</h3><p>冰鎮生啤，大杯暢快。</p><div class="price">NT$120 <small>/ 杯・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🍶</div><h3>清酒</h3><p>溫潤清酒，配串燒剛剛好。</p><div class="price">NT$180 <small>/ 壺・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🍷</div><h3>梅酒</h3><p>酸甜梅酒，冰飲或加冰塊皆宜。</p><div class="price">NT$160 <small>/ 杯・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🥤</div><h3>無酒精氣泡飲</h3><p>氣泡飲加新鮮水果，不喝酒也有儀式感。</p><div class="price">NT$80 <small>/ 杯・示範價</small></div></div>
+</div>
+</section>
+
+<section id="calc" class="calc">
+<h2>🔥 人數拼盤試算</h2>
+<p>選人數、每人串數偏好與飲品，自動算出建議拼盤組合與總價，結果會帶進下方訂位表單。價格皆為示範。</p>
+<div class="calc-grid">
+<div>
+<label for="people">用餐人數</label>
+<select id="people">
+<option value="2">2 人</option>
+<option value="4" selected>4 人</option>
+<option value="6">6 人</option>
+<option value="8">8 人</option>
+<option value="10">10 人</option>
+</select>
+</div>
+<div>
+<label>每人串數偏好</label>
+<div class="radio-row">
+<label><input type="radio" name="appetite" value="3"> 小鳥胃 3 串</label>
+<label><input type="radio" name="appetite" value="5" checked> 一般 5 串</label>
+<label><input type="radio" name="appetite" value="8"> 大胃王 8 串</label>
+</div>
+</div>
+<div>
+<label for="drink">飲品（每人計價）</label>
+<select id="drink">
+<option value="0">不喝酒・NT$0</option>
+<option value="120" selected>生啤酒・NT$120 / 人</option>
+<option value="180">清酒・NT$180 / 人</option>
+<option value="80">無酒精氣泡飲・NT$80 / 人</option>
+</select>
+</div>
+</div>
+<div class="result" id="calcResult">請按下方按鈕試算。</div>
+<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-gold" type="button" onclick="calcPlatter()">算出建議拼盤</button>
+<button class="btn btn-ghost" type="button" onclick="calcPlatter();document.getElementById('order').scrollIntoView({behavior:'smooth'})">帶入訂位表單 ↓</button>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>用餐流程</h2><p>從訂位到結帳，五個步驟輕鬆搞定。</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>線上訂位</h3><p>填表單或來電確認座位，留下人數與時間。</p></div>
+<div class="step"><div class="num">2</div><h3>入座點餐</h3><p>先看菜單，用拼盤試算抓份量再點。</p></div>
+<div class="step"><div class="num">3</div><h3>炭火現烤</h3><p>師傅備長炭直火現烤，串串新鮮上桌。</p></div>
+<div class="step"><div class="num">4</div><h3>小酌聊天</h3><p>串燒配冰啤酒，慢慢吃、慢慢聊。</p></div>
+<div class="step"><div class="num">5</div><h3>結帳離場</h3><p>現場結帳，歡迎下次再來。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>我們的團隊（示範人名）</h2><p>炭火前的三雙手，顧好每一串的火候。</p></div>
+<div class="team">
+<div class="member"><div class="ava">哲</div><h3>阿哲</h3><div class="role">店長・炭火職人</div><p>十年串燒經驗，堅持備長炭直火現烤，火候差一秒都不放過。示範人物。</p></div>
+<div class="member"><div class="ava">香</div><h3>美香</h3><div class="role">副店長・清酒與配菜</div><p>負責清酒搭配與季節小菜，幫客人把串燒和酒搭出最好組合。示範人物。</p></div>
+<div class="member"><div class="ava">健</div><h3>阿健</h3><div class="role">串燒師傅</div><p>每天清晨備料、手工串製，講究每一串大小一致、受熱均勻。示範人物。</p></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>客人評價（示範）</h2><p>以下評價皆為示範內容。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「雞腿串炭香超足，拼盤份量剛好，四個人吃得很滿足，下班聚餐首選。」</p><div class="who">— 小文・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「清酒配醬烤牛五花太對味，店員會推薦搭配，第一次來也不怕點錯。」</p><div class="who">— 阿凱・示範評價</div></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「唐揚炸雞外酥內嫩，假日人多建議先訂位，炭烤香氣一進門就聞到。」</p><div class="who">— 怡君・示範評價</div></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2></div>
+<details><summary>Q1：拼盤價格怎麼算？可以只點單串嗎？</summary><p>拼盤依串數分小／中／大／豪華四種組合，單串也可以單點，菜單價目皆為示範，實際價格請來電確認。</p></details>
+<details><summary>Q2：怎麼預約訂位？</summary><p>填下方訂位表單產生 LINE 訊息後貼到官方 LINE，或直接來電確認座位。示範站無真實電話，請來電確認。</p></details>
+<details><summary>Q3：可以取消或改期嗎？</summary><p>可以。用餐前一日來電或傳 LINE 告知即可取消或改期；當日臨時取消請盡早來電確認，規則以店家現場公告為準。</p></details>
+<details><summary>Q4：有包廂或大桌嗎？10 人以上怎麼訂？</summary><p>示範設定有 8–10 人大桌，10 人以上團體請先來電確認座位安排與拼盤份量。</p></details>
+<details><summary>Q5：交通與停車方便嗎？</summary><p>示範地區鄰近捷運站與公車站，開車請使用附近收費停車場，實際交通與停車資訊請來電確認。</p></details>
+<details><summary>Q6：營業時間是幾點？</summary><p>營業時間請來電確認，示範站不刊登未經查證的營業時間。</p></details>
+</section>
+
+<section id="order">
+<div class="form-card">
+<h2>線上訂位</h2>
+<p>填完按「產生 LINE 訊息」，複製後貼到官方 LINE 即可傳送。本頁為示範，訂單為假設訂單。</p>
+<form id="orderForm" onsubmit="return genMsg(event)">
+<div class="f-grid">
+<div><label for="fName">姓名 *</label><input id="fName" required placeholder="例：王小明"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" required inputmode="tel" placeholder="例：09xx-xxx-xxx"></div>
+<div><label for="fDate">用餐日期</label><input id="fDate" type="date"></div>
+<div><label for="fTime">用餐時段</label><select id="fTime"><option>18:00</option><option>18:30</option><option selected>19:00</option><option>19:30</option><option>20:00</option></select></div>
+<div id="calcSummary"><label for="fCalc">拼盤試算結果</label><textarea id="fCalc" readonly placeholder="請先在上方試算區按「算出建議拼盤」，結果會自動帶入這裡"></textarea></div>
+<div><label for="fNote">備註（過敏、座位需求等）</label><textarea id="fNote" placeholder="例：一位吃素、希望靠窗座位"></textarea></div>
+</div>
+<div style="margin-top:16px"><button class="btn btn-red" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msg-box">
+<label for="msgOutput">LINE 訊息預覽（複製後貼到 LINE 傳送）</label>
+<textarea id="msgOutput" readonly placeholder="填完表單並按下「產生 LINE 訊息」後，這裡會出現訊息內容"></textarea>
+<div class="copy-row">
+<button class="btn btn-dark" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製訊息</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer>
+<b>炭火串燒居酒屋｜一頁式網站示範</b><br>
+本頁為示範網站：店名、價目、評價、團隊與數字皆為示範內容，訂單為假設訂單。<br>
+地址為示範地區，電話與營業時間請來電確認。未滿 18 歲請勿飲酒，飲酒過量有害健康。
+</footer>
+
+<div class="mobile-bar">
+<a class="m1" href="#order">立即訂位</a>
+<a class="m2" href="#calc">拼盤試算</a>
+</div>
+
+<script>
+/* 菜單篩選 */
+document.getElementById('filters').addEventListener('click',function(e){
+var btn=e.target.closest('button'); if(!btn) return;
+document.querySelectorAll('#filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.dataset.filter;
+document.querySelectorAll('#menuGrid.card').forEach(function(card){
+card.style.display=(f==='all'||card.dataset.cat===f)?'':'none';
+});
+});
+
+/* 拼盤試算：手算核對例：4人×一般5串=20串→中拼盤24串 NT$1,280；啤酒4×120=480；小計1,760；服務費10% 176；總計 NT$1,936 */
+function calcPlatter(){
+var people=parseInt(document.getElementById('people').value,10);
+var app=document.querySelector('input[name=appetite]:checked').value;
+var perPerson=parseInt(app,10);
+var drinkPrice=parseInt(document.getElementById('drink').value,10);
+var drinkName=document.getElementById('drink').selectedOptions[0].textContent;
+var needed=people*perPerson;
+var tier;
+if(needed<=12){tier={name:'招牌小拼盤',skewers:12,price:660,count:1}}
+else if(needed<=24){tier={name:'招牌中拼盤',skewers:24,price:1280,count:1}}
+else if(needed<=40){tier={name:'招牌大拼盤',skewers:40,price:1980,count:1}}
+else{var c=Math.ceil(needed/56);tier={name:'豪華拼盤',skewers:56,price:2680*c,count:c}}
+var drinks=people*drinkPrice;
+var subtotal=tier.price+drinks;
+var service=Math.round(subtotal*0.10);
+var total=subtotal+service;
+var appLabel=perPerson===3?'小鳥胃（每人 3 串）':perPerson===5?'一般（每人 5 串）':'大胃王（每人 8 串）';
+var summary=''+people+' 人・'+appLabel+'・共需約 '+needed+' 串\n建議組合：'+tier.name+'（'+tier.skewers+' 串）× '+tier.count+' 組 NT$'+tier.price.toLocaleString()+'\n飲品：'+drinkName+' × '+people+' 人 NT$'+drinks.toLocaleString()+'\n小計 NT$'+subtotal.toLocaleString()+'＋服務費 10% NT$'+service.toLocaleString()+'\n預估總價 NT$'+total.toLocaleString()+'（示範價）';
+document.getElementById('calcResult').innerHTML=
+'建議組合：<b>'+tier.name+'</b>（'+tier.skewers+' 串）× '+tier.count+' 組　<b>NT$'+tier.price.toLocaleString()+'</b><br>'+
+'預計串數：約 '+needed+' 串（'+people+' 人 × 每人 '+perPerson+' 串）<br>'+
+'飲品小計：NT$'+drinks.toLocaleString()+'（'+drinkName+' × '+people+' 人）<br>'+
+'小計 NT$'+subtotal.toLocaleString()+' ＋ 服務費 10% NT$'+service.toLocaleString()+'<br>'+
+'<span class="total">預估總價 NT$'+total.toLocaleString()+'</span>（示範價）';
+document.getElementById('fCalc').value=summary;
+return summary;
+}
+calcPlatter();
+
+/* 表單 → LINE 訊息 */
+function genMsg(e){
+if(e) e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var date=document.getElementById('fDate').value||'未指定';
+var time=document.getElementById('fTime').value;
+var calc=document.getElementById('fCalc').value.trim()||'未試算';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n用餐日期：'+date+'\n用餐時段：'+time+'\n'+calc+'\n備註：'+note+'\n（本訊息由示範網站產生，訂單為假設訂單）';
+document.getElementById('msgOutput').value=msg;
+document.getElementById('msgOutput').scrollIntoView({behavior:'smooth',block:'center'});
+return false;
+}
+
+/* 一鍵複製 */
+function copyMsg(){
+var ta=document.getElementById('msgOutput');
+var btn=document.getElementById('copyBtn');
+if(!ta.value){btn.textContent='請先產生訊息';setTimeout(function(){btn.textContent='一鍵複製訊息'},2000);return}
+function done(){
+btn.textContent='已複製 ✓';
+setTimeout(function(){btn.textContent='一鍵複製訊息'},2500);
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(ta.value).then(done).catch(function(){fallbackCopy(ta,done)});
+}else{fallbackCopy(ta,done)}
+}
+function fallbackCopy(ta,done){
+ta.select();
+try{document.execCommand('copy');done()}catch(e){/* 複製失敗時維持原按鈕文字 */}
+}
+</script>
+</body>
+</html>

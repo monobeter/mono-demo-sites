@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>花嫁婚禮顧問｜示範網站・婚禮預算試算＋免費諮詢</title>
+<meta name="description" content="花嫁婚禮顧問示範網站：婚禮企劃、佈置、當日統籌、攝影錄影服務，婚禮預算試算器，線上諮詢表單自動產生 LINE 訊息。店名價目皆為示範。">
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:#faf7f0;color:#4a3f35;line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input,textarea{font-family:inherit;font-size:16px}
+button,select,input:not([type=checkbox],[type=radio]),textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#8a6d2b;color:#fff8e6;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:#8a6d2b;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:40px;height:40px;flex:none;border-radius:50%;background:#c9a24b;color:#fff;display:grid;place-items:center;font-style:normal;font-size:20px}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px}
+.navlinks a:hover{background:#f3e8d2}
+.hero{background:linear-gradient(135deg,#f7ead0 0%,#f2d7d5 55%,#e8cfa8 100%);color:#4a3f35;border-radius:20px;padding:56px 28px 48px;margin:10px 0 28px;overflow:hidden;position:relative;border:1px solid #e3cf9f}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.25}
+.hero h1 em{color:#8a6d2b;font-style:normal}
+.hero p{margin:0 0 22px;max-width:640px;color:#6d5a44;font-size:17px}
+.hero.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;text-align:center;font-weight:800;border-radius:12px;padding:13px 24px;border:none;cursor:pointer}
+.btn-gold{background:#c9a24b;color:#fff}
+.btn-brown{background:#8a6d2b;color:#fff}
+.btn-ghost{background:transparent;color:#8a6d2b;border:2px solid #c9a24b}
+.hero.ring{position:absolute;right:24px;top:18px;font-size:88px;opacity:.3}
+section{margin:0 0 44px}
+.sec-head{margin-bottom:16px}
+.sec-head h2{margin:0;font-size:26px;color:#8a6d2b}
+.sec-head p{margin:4px 0 0;color:#8a7a63}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid #dcc79a;background:#fffdf8;color:#6d5a44;border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer;min-height:44px}
+.filters button.active{background:#8a6d2b;color:#fff8e6;border-color:#8a6d2b}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:#fffdf8;border:1px solid #e8dcc0;border-radius:14px;padding:18px}
+.card.thumb{height:96px;border-radius:10px;background:linear-gradient(135deg,#c9a24b,#f2d7d5);display:grid;place-items:center;font-size:40px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:18px}
+.card p{margin:0 0 10px;color:#8a7a63;font-size:14px}
+.card.price{font-weight:900;color:#8a6d2b;font-size:18px}
+.card.price small{font-size:12px;color:#8a7a63;font-weight:400}
+.card.tag{display:inline-block;background:#fbeed3;color:#8a6d2b;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin-left:6px}
+.calc{background:#fffdf8;border:2px solid #c9a24b;border-radius:20px;padding:28px 24px}
+.calc h2{margin:0 0 6px;color:#8a6d2b;font-size:26px}
+.calc p{margin:0 0 18px;color:#8a7a63}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.calc label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.calc select,.calc input{width:100%;border-radius:10px;border:1px solid #dcc79a;background:#fff;padding:10px 12px}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap}
+.radio-row label{border:2px solid #dcc79a;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:700;margin:0;background:#fff}
+.radio-row input{accent-color:#c9a24b}
+.radio-row label:has(input:checked){border-color:#c9a24b;background:#fbeed3}
+.check-row{display:flex;gap:8px;flex-wrap:wrap}
+.check-row label{border:2px solid #dcc79a;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:700;margin:0;background:#fff}
+.check-row input{accent-color:#c9a24b}
+.check-row label:has(input:checked){border-color:#c9a24b;background:#fbeed3}
+.result{background:#fbeed3;border:1px solid #c9a24b;border-radius:12px;padding:18px;margin-top:18px;font-size:16px}
+.result b{color:#8a6d2b}
+.result.total{font-size:22px;font-weight:900;color:#8a6d2b}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.step{background:#fffdf8;border:1px solid #e8dcc0;border-radius:14px;padding:18px}
+.step.num{width:38px;height:38px;border-radius:50%;background:#c9a24b;color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:17px}
+.step p{margin:0;color:#8a7a63;font-size:14px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.member{background:#fffdf8;border:1px solid #e8dcc0;border-radius:14px;padding:20px;text-align:center}
+.member.ava{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#c9a24b,#f2d7d5);color:#8a6d2b;display:grid;place-items:center;font-size:30px;font-weight:900;margin:0 auto 12px;border:3px solid #e3cf9f}
+.member h3{margin:0 0 2px}
+.member.role{color:#8a6d2b;font-weight:700;font-size:14px;margin-bottom:8px}
+.member p{margin:0;color:#8a7a63;font-size:14px;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.review{background:#fffdf8;border:1px solid #e8dcc0;border-radius:14px;padding:18px}
+.review.stars{color:#c9a24b;font-size:18px;letter-spacing:2px}
+.review p{margin:8px 0}
+.review.who{color:#8a7a63;font-size:13px}
+details{background:#fffdf8;border:1px solid #e8dcc0;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+details summary{font-weight:800;cursor:pointer;font-size:16px}
+details p{margin:10px 0 0;color:#8a7a63}
+.form-card{background:#fffdf8;border:1px solid #e8dcc0;border-radius:20px;padding:26px 22px}
+.form-card h2{margin:0 0 6px;font-size:24px;color:#8a6d2b}
+.form-card p{margin:0 0 18px;color:#8a7a63}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.f-grid label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.f-grid input,.f-grid select,.f-grid textarea{width:100%;border-radius:10px;border:1px solid #dcc79a;padding:10px 12px;background:#fff}
+.f-grid textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+#calcSummary{grid-column:1/-1}
+#calcSummary textarea{width:100%;min-height:76px}
+.msg-box{margin-top:18px}
+.msg-box label{font-weight:800;display:block;margin-bottom:6px}
+#msgOutput{width:100%;min-height:150px;border-radius:10px;border:1px solid #dcc79a;padding:12px;background:#fdf6e3;white-space:pre-wrap}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+footer{background:#4a3f35;color:#d9c2a3;text-align:center;padding:28px 20px 20px;font-size:14px;border-radius:20px 20px 0 0}
+footer b{color:#e8cfa8}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(74,63,53,.96);backdrop-filter:blur(4px)}
+.mobile-bar a{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:10px;padding:12px 8px;min-height:48px;display:grid;place-items:center}
+.mobile-bar.m1{background:#c9a24b;color:#fff}
+.mobile-bar.m2{background:#8a6d2b;color:#fff}
+@media(min-width:769px){.mobile-bar{display:none}}
+@media(max-width:768px){
+.hero{padding:40px 20px 36px}
+.hero.ring{display:none}
+.navlinks{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>｜本頁為一頁式網站示範，店名、價目、評價皆為示範內容，非真實店家</span></div>
+
+<div class="wrap">
+<header class="topnav">
+<div class="logo"><i>花</i>花嫁婚禮顧問</div>
+<nav class="navlinks">
+<a href="#services">服務</a><a href="#calc">預算試算</a><a href="#flow">服務流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">諮詢</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="ring">💍</div>
+<h1>把一生一次的婚禮，<em>交給最懂你們的人</em></h1>
+<p>從主題企劃、花藝佈置到當日統籌與攝影錄影，花嫁陪你們把每一個細節都做到位。先用預算試算抓個範圍，再預約免費諮詢聊聊。價目皆為示範，詳情請來電確認。</p>
+<div class="cta-row">
+<a class="btn btn-gold" href="#calc">試算婚禮預算</a>
+<a class="btn btn-ghost" href="#order">預約免費諮詢</a>
+</div>
+</section>
+
+<section id="services">
+<div class="sec-head"><h2>服務項目（示範價）</h2><p>點分類按鈕篩選服務，價格皆為示範價，實際報價請來電確認。</p></div>
+<div class="filters" id="filters">
+<button class="active" data-filter="all">全部</button>
+<button data-filter="plan">企劃</button>
+<button data-filter="decor">佈置</button>
+<button data-filter="day">當日統籌</button>
+<button data-filter="photo">攝影錄影</button>
+</div>
+<div class="grid" id="menuGrid">
+<div class="card" data-cat="plan"><div class="thumb">💡</div><h3>婚禮主題企劃<span class="tag">熱門</span></h3><p>依你們的故事定主題，從色調到流程一次規劃。</p><div class="price">NT$88,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="plan"><div class="thumb">📋</div><h3>流程設計</h3><p>證婚、進場、敬酒到送客，流程表精算到分鐘。</p><div class="price">NT$36,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="plan"><div class="thumb">💰</div><h3>預算管家</h3><p>幫你們控管整場預算，每筆花費都清楚明白。</p><div class="price">NT$28,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="decor"><div class="thumb">💐</div><h3>證婚佈置</h3><p>證婚區花藝與拱門佈置，浪漫開場。</p><div class="price">NT$38,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="decor"><div class="thumb">🌸</div><h3>宴會廳花藝佈置<span class="tag">熱門</span></h3><p>主桌、舞台與桌花整體花藝設計。</p><div class="price">NT$68,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="decor"><div class="thumb">🎀</div><h3>迎賓區佈置</h3><p>迎賓背板、相片牆與簽名區佈置。</p><div class="price">NT$26,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="day"><div class="thumb">🎤</div><h3>當日流程統籌</h3><p>婚禮當天全程控場，新人只要享受當下。</p><div class="price">NT$42,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="day"><div class="thumb">🎭</div><h3>彩排指導</h3><p>婚前彩排走位，進場、敬酒一次到位。</p><div class="price">NT$12,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="day"><div class="thumb">🤝</div><h3>親友接待安排</h3><p>接待、座位與動線安排，親友賓至如歸。</p><div class="price">NT$16,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="photo"><div class="thumb">📷</div><h3>婚禮平面攝影<span class="tag">熱門</span></h3><p>雙機攝影，捕捉每一個真情瞬間。</p><div class="price">NT$48,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="photo"><div class="thumb">🎥</div><h3>婚禮錄影</h3><p>電影感婚禮影片，值得一再回味。</p><div class="price">NT$58,000 起 <small>・示範價</small></div></div>
+<div class="card" data-cat="photo"><div class="thumb">⚡</div><h3>快剪快播</h3><p>當天精華快剪，晚宴現場就能播。</p><div class="price">NT$22,000 起 <small>・示範價</small></div></div>
+</div>
+</section>
+
+<section id="calc" class="calc">
+<h2>💍 婚禮預算試算</h2>
+<p>選桌數、方案等級與加購項目，自動算出預算區間，結果會帶進下方諮詢表單。價格皆為示範，正式報價請來電確認。</p>
+<div class="calc-grid">
+<div>
+<label for="tables">桌數</label>
+<select id="tables">
+<option value="10">10 桌</option>
+<option value="15">15 桌</option>
+<option value="20" selected>20 桌</option>
+<option value="25">25 桌</option>
+<option value="30">30 桌</option>
+</select>
+</div>
+<div>
+<label>方案等級（每桌單價・示範）</label>
+<div class="radio-row">
+<label><input type="radio" name="tier" value="12800" data-name="溫馨方案"> 溫馨 NT$12,800 / 桌</label>
+<label><input type="radio" name="tier" value="16800" data-name="經典方案" checked> 經典 NT$16,800 / 桌</label>
+<label><input type="radio" name="tier" value="22800" data-name="豪華方案"> 豪華 NT$22,800 / 桌</label>
+</div>
+</div>
+<div>
+<label>加購項目</label>
+<div class="check-row">
+<label><input type="checkbox" id="addDecor"> 佈置 ＋NT$38,000</label>
+<label><input type="checkbox" id="addPhoto"> 攝影 ＋NT$48,000</label>
+<label><input type="checkbox" id="addHost"> 主持 ＋NT$18,000</label>
+</div>
+</div>
+</div>
+<div class="result" id="calcResult">請按下方按鈕試算。</div>
+<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-gold" type="button" onclick="calcBudget()">算出預算區間</button>
+<button class="btn btn-ghost" type="button" onclick="calcBudget();document.getElementById('order').scrollIntoView({behavior:'smooth'})">帶入諮詢表單 ↓</button>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>服務流程</h2><p>從第一次見面到婚禮當天，五個步驟。</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>免費諮詢</h3><p>聊聊你們的故事、日期與預算範圍。</p></div>
+<div class="step"><div class="num">2</div><h3>企劃提案</h3><p>提出主題、流程與報價，確認方案等級。</p></div>
+<div class="step"><div class="num">3</div><h3>細節確認</h3><p>佈置、攝影、主持逐項定案並簽約。</p></div>
+<div class="step"><div class="num">4</div><h3>彩排演練</h3><p>婚前彩排走位，流程順過一次再上場。</p></div>
+<div class="step"><div class="num">5</div><h3>婚禮當天</h3><p>團隊全程統籌，新人安心享受大日子。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>我們的團隊（示範人名）</h2><p>陪你們走過人生最重要的一天。</p></div>
+<div class="team">
+<div class="member"><div class="ava">雅</div><h3>林雅婷</h3><div class="role">創辦人・婚禮企劃總監</div><p>策劃超過 200 場婚禮（示範數字），最擅長把新人的故事變成婚禮主題。示範人物。</p></div>
+<div class="member"><div class="ava">凱</div><h3>陳凱文</h3><div class="role">當日統籌・主持人</div><p>婚禮當天控場與主持，流程精準、氣氛拿捏剛好。示範人物。</p></div>
+<div class="member"><div class="ava">彤</div><h3>王曉彤</h3><div class="role">花藝佈置總監</div><p>負責全場花藝與佈置設計，讓每個角落都值得拍照。示範人物。</p></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>新人評價（示範）</h2><p>以下評價皆為示範內容。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「從第一次諮詢就很安心，當天流程順到不行，長輩都說這場婚禮辦得很有質感。」</p><div class="who">— 欣怡＆俊傑・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「花藝佈置美到捨不得拆，攝影師抓到的瞬間每一張都想留下來。」</p><div class="who">— 佳玲＆志偉・示範評價</div></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「預算試算很透明，加購項目一項一項講清楚，沒有隱藏費用，推一個。」</p><div class="who">— 郁婷＆家豪・示範評價</div></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2></div>
+<details><summary>Q1：婚禮費用怎麼算？預算區間是什麼意思？</summary><p>方案以每桌單價計（溫馨 NT$12,800、經典 NT$16,800、豪華 NT$22,800，示範價），再加選購項目；區間上限為預估總價加一成彈性，正式報價請來電確認。</p></details>
+<details><summary>Q2：怎麼預約諮詢？諮詢要收費嗎？</summary><p>填下方諮詢表單產生 LINE 訊息後貼到官方 LINE，或直接來電確認。首次諮詢免費，示範站無真實電話，請來電確認。</p></details>
+<details><summary>Q3：可以取消或改期嗎？訂金怎麼算？</summary><p>可以。簽約前免費取消；簽約後改期請提前三個月來電確認，訂金與取消規則以合約為準，細節請來電確認。</p></details>
+<details><summary>Q4：最晚多久前要預約？</summary><p>建議婚期前 6–12 個月預約，熱門檔期請提早；3 個月內的急件請先來電確認檔期是否還有空位。</p></details>
+<details><summary>Q5：交通與停車怎麼安排？</summary><p>婚宴場地多鄰近捷運站，開車賓客請使用場地配合停車場；實際交通與停車資訊依選定場地而定，請來電確認。</p></details>
+<details><summary>Q6：可以只請你們做其中一項服務嗎？</summary><p>可以。企劃、佈置、當日統籌、攝影錄影皆可單項委託，單項報價請來電確認。</p></details>
+</section>
+
+<section id="order">
+<div class="form-card">
+<h2>預約免費諮詢</h2>
+<p>填完按「產生 LINE 訊息」，複製後貼到官方 LINE 即可傳送。本頁為示範，諮詢為假設需求。</p>
+<form id="orderForm" onsubmit="return genMsg(event)">
+<div class="f-grid">
+<div><label for="fName">姓名 *</label><input id="fName" required placeholder="例：王小明"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" required inputmode="tel" placeholder="例：09xx-xxx-xxx"></div>
+<div><label for="fDate">預計婚期</label><input id="fDate" type="date"></div>
+<div><label for="fVenue">預計場地／地區</label><input id="fVenue" placeholder="例：示範地區宴會廳"></div>
+<div id="calcSummary"><label for="fCalc">預算試算結果</label><textarea id="fCalc" readonly placeholder="請先在上方試算區按「算出預算區間」，結果會自動帶入這裡"></textarea></div>
+<div><label for="fNote">想跟我們說的話</label><textarea id="fNote" placeholder="例：喜歡森林系佈置、預計 20 桌"></textarea></div>
+</div>
+<div style="margin-top:16px"><button class="btn btn-brown" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msg-box">
+<label for="msgOutput">LINE 訊息預覽（複製後貼到 LINE 傳送）</label>
+<textarea id="msgOutput" readonly placeholder="填完表單並按下「產生 LINE 訊息」後，這裡會出現訊息內容"></textarea>
+<div class="copy-row">
+<button class="btn btn-gold" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製訊息</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer>
+<b>花嫁婚禮顧問｜一頁式網站示範</b><br>
+本頁為示範網站：店名、價目、評價、團隊與數字皆為示範內容，諮詢為假設需求。<br>
+地址為示範地區，電話與營業時間請來電確認。
+</footer>
+
+<div class="mobile-bar">
+<a class="m1" href="#order">預約諮詢</a>
+<a class="m2" href="#calc">預算試算</a>
+</div>
+
+<script>
+/* 服務篩選 */
+document.getElementById('filters').addEventListener('click',function(e){
+var btn=e.target.closest('button'); if(!btn) return;
+document.querySelectorAll('#filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.dataset.filter;
+document.querySelectorAll('#menuGrid.card').forEach(function(card){
+card.style.display=(f==='all'||card.dataset.cat===f)?'':'none';
+});
+});
+
+/* 預算試算：手算核對例：20桌×經典16,800＝336,000；＋佈置38,000＋攝影48,000＝422,000；區間上限 422,000×1.1＝464,200 */
+function calcBudget(){
+var tables=parseInt(document.getElementById('tables').value,10);
+var tierEl=document.querySelector('input[name=tier]:checked');
+var perTable=parseInt(tierEl.value,10);
+var tierName=tierEl.dataset.name;
+var addDecor=document.getElementById('addDecor').checked;
+var addPhoto=document.getElementById('addPhoto').checked;
+var addHost=document.getElementById('addHost').checked;
+var addons=(addDecor?38000:0)+(addPhoto?48000:0)+(addHost?18000:0);
+var base=tables*perTable;
+var low=base+addons;
+var high=Math.round(low*1.1/100)*100;
+var addonText=[];
+if(addDecor) addonText.push('佈置 NT$38,000');
+if(addPhoto) addonText.push('攝影 NT$48,000');
+if(addHost) addonText.push('主持 NT$18,000');
+var summary=''+tables+' 桌・'+tierName+' NT$'+perTable.toLocaleString()+'／桌\n方案小計 NT$'+base.toLocaleString()+'\n加購：'+(addonText.length?addonText.join('、'):'無')+'（NT$'+addons.toLocaleString()+'）\n預算區間 NT$'+low.toLocaleString()+' – NT$'+high.toLocaleString()+'（示範價）';
+document.getElementById('calcResult').innerHTML=
+'桌數：<b>'+tables+' 桌</b> × '+tierName+' NT$'+perTable.toLocaleString()+'／桌 ＝ <b>NT$'+base.toLocaleString()+'</b><br>'+
+'加購：'+(addonText.length?addonText.join('、'):'無')+'（NT$'+addons.toLocaleString()+'）<br>'+
+'<span class="total">預算區間 NT$'+low.toLocaleString()+' – NT$'+high.toLocaleString()+'</span>（示範價，含一成彈性）';
+document.getElementById('fCalc').value=summary;
+return summary;
+}
+calcBudget();
+
+/* 表單 → LINE 訊息 */
+function genMsg(e){
+if(e) e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var date=document.getElementById('fDate').value||'未指定';
+var venue=document.getElementById('fVenue').value.trim()||'未指定';
+var calc=document.getElementById('fCalc').value.trim()||'未試算';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n預計婚期：'+date+'\n預計場地／地區：'+venue+'\n'+calc+'\n想說的話：'+note+'\n（本訊息由示範網站產生，諮詢為假設需求）';
+document.getElementById('msgOutput').value=msg;
+document.getElementById('msgOutput').scrollIntoView({behavior:'smooth',block:'center'});
+return false;
+}
+
+/* 一鍵複製 */
+function copyMsg(){
+var ta=document.getElementById('msgOutput');
+var btn=document.getElementById('copyBtn');
+if(!ta.value){btn.textContent='請先產生訊息';setTimeout(function(){btn.textContent='一鍵複製訊息'},2000);return}
+function done(){
+btn.textContent='已複製 ✓';
+setTimeout(function(){btn.textContent='一鍵複製訊息'},2500);
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(ta.value).then(done).catch(function(){fallbackCopy(ta,done)});
+}else{fallbackCopy(ta,done)}
+}
+function fallbackCopy(ta,done){
+ta.select();
+try{document.execCommand('copy');done()}catch(e){/* 複製失敗時維持原按鈕文字 */}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動能物理治療所｜徒手・運動治療・儀器・居家指導（示範站）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;color:#1f2a33;background:#f4f8f7;line-height:1.7;overflow-x:hidden}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.demo-banner{background:#b3261e;color:#fff;text-align:center;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:1px}
+header{background:#123a5c;color:#fff;position:sticky;top:0;z-index:50}
+header.wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px}
+.logo small{display:block;font-size:11px;letter-spacing:4px;color:#7fd6b8;font-weight:400}
+nav a{margin-left:18px;text-decoration:none;font-size:15px}
+nav a:hover{color:#7fd6b8}
+.hero{background:linear-gradient(135deg,#123a5c 0%,#1d6a8a 55%,#2bb673 100%);color:#fff;padding:64px 0 72px}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.3;margin-bottom:14px}
+.hero p{font-size:18px;opacity:.93;max-width:640px;margin-bottom:26px}
+.btn{display:inline-block;background:#2bb673;color:#fff;font-weight:800;padding:13px 28px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;font-size:16px}
+.btn:hover{background:#34c984}
+.btn.ghost{background:transparent;color:#fff;border:2px solid #fff;margin-left:10px}
+.hero-visual{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hero-visual div{border-radius:14px;padding:22px 18px;color:#fff;min-height:120px}
+.hero-visual b{display:block;font-size:18px;margin-bottom:6px}
+.hv1{background:linear-gradient(160deg,#2b7ba0,#123a5c)}
+.hv2{background:linear-gradient(160deg,#2bb673,#177a4b)}
+.hv3{background:linear-gradient(160deg,#5b8fa8,#2c5a72)}
+section{padding:56px 0}
+h2{font-size:28px;color:#123a5c;margin-bottom:8px;text-align:center}
+.sub{text-align:center;color:#6b7d86;margin-bottom:32px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+.filters button{padding:9px 20px;border-radius:999px;border:2px solid #123a5c;background:#fff;color:#123a5c;font-size:15px;cursor:pointer;font-weight:700}
+.filters button.active{background:#123a5c;color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #d8e4e0;border-radius:16px;padding:22px}
+.card.tag{display:inline-block;background:#dff3e8;color:#177a4b;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.card h3{font-size:19px;margin-bottom:6px;color:#123a5c}
+.card.price{font-size:20px;font-weight:800;color:#1d6a8a;margin:10px 0 4px}
+.card.price small{font-size:12px;color:#6b7d86;font-weight:400}
+.card p{font-size:15px;color:#55676f}
+.note{font-size:13px;color:#6b7d86;text-align:center;margin-top:18px}
+.quiz{background:#fff;border:2px solid #2bb673;border-radius:20px;padding:30px;max-width:760px;margin:0 auto}
+.quiz h3{font-size:22px;color:#123a5c;margin-bottom:6px;text-align:center}
+.quiz.q{margin-top:22px}
+.quiz.q p{font-weight:700;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts button{padding:10px 18px;border-radius:999px;border:2px solid #9db8c4;background:#f6fbf9;font-size:15px;cursor:pointer}
+.opts button.sel{background:#123a5c;color:#fff;border-color:#123a5c}
+.quiz.cta{text-align:center;margin-top:26px}
+.result{display:none;background:#e8f6ef;border-radius:14px;padding:22px;margin-top:24px}
+.result.show{display:block}
+.result h4{font-size:20px;color:#123a5c;margin-bottom:8px}
+.result p{font-size:15px}
+.disclaimer{background:#fdf6e3;border:1px dashed #c9a24b;border-radius:10px;padding:12px 16px;font-size:14px;color:#7d6534;margin-top:20px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:#fff;border-radius:16px;padding:22px;text-align:center;border:1px solid #d8e4e0}
+.step.n{width:46px;height:46px;border-radius:50%;background:#123a5c;color:#fff;font-size:20px;font-weight:800;line-height:46px;margin:0 auto 12px}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{font-size:14px;color:#55676f}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.member{background:#fff;border-radius:16px;padding:24px;text-align:center;border:1px solid #d8e4e0}
+.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,#1d6a8a,#2bb673);color:#fff;font-size:34px;font-weight:800;line-height:84px}
+.member h3{font-size:18px;color:#123a5c}
+.member.role{font-size:13px;color:#177a4b;font-weight:700;margin:4px 0 8px}
+.member p{font-size:14px;color:#55676f;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.review{background:#fff;border-radius:16px;padding:22px;border:1px solid #d8e4e0}
+.review.stars{color:#e8a13a;font-size:18px;letter-spacing:2px}
+.review p{font-size:15px;margin:10px 0}
+.review.who{font-size:13px;color:#6b7d86}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:#fff;border:1px solid #d8e4e0;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;color:#123a5c}
+.faq p{font-size:15px;color:#55676f;margin-top:8px}
+form{background:#fff;border-radius:20px;padding:30px;max-width:760px;margin:0 auto;border:1px solid #d8e4e0}
+form label{display:block;font-weight:700;margin:14px 0 6px;color:#123a5c}
+form input,form select,form textarea{width:100%;padding:12px;border:1px solid #b9cdd6;border-radius:10px;font-size:16px;font-family:inherit}
+form.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.line-msg{display:none;background:#e8f6ef;border-radius:14px;padding:20px;margin-top:22px;white-space:pre-wrap;font-size:15px}
+.line-msg.show{display:block}
+.copy-btn{margin-top:12px}
+.copied-msg{color:#177a4b;font-weight:700;margin-left:10px}
+footer{background:#123a5c;color:#c8dbe6;text-align:center;padding:36px 20px;font-size:14px;line-height:1.9}
+.mobile-bar{display:none}
+@media (max-width:767px){
+nav{display:none}
+.hero-visual{grid-template-columns:1fr}
+form.row{grid-template-columns:1fr}
+section{padding:40px 0}
+.mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:100;background:#fff;border-top:1px solid #ddd;box-shadow:0 -2px 12px rgba(0,0,0,.12)}
+.mobile-bar a{flex:1;text-align:center;padding:14px 0;font-weight:800;text-decoration:none;font-size:16px}
+.mobile-bar a:first-child{background:#123a5c;color:#fff}
+.mobile-bar a:last-child{background:#2bb673;color:#fff}
+body{padding-bottom:52px}
+}
+@media (min-width:768px){.mobile-bar{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-banner">DEMO 示範網站｜本頁店名、價目、評價皆為示範內容，非真實店家資訊</div>
+<header><div class="wrap">
+<div class="logo">動能<small>物理治療所・示範</small></div>
+<nav><a href="#services">課程方案</a><a href="#quiz">症狀方案配對</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#booking">預約</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<h1>動起來，找回身體的自在</h1>
+<p>動能物理治療所提供徒手、運動治療、儀器與居家指導服務。先選部位與情境，配對適合你的課程方案，再由專業人員現場評估確認。</p>
+<a class="btn" href="#quiz">開始症狀配對</a>
+<a class="btn ghost" href="#booking">立即預約</a>
+<div class="hero-visual">
+<div class="hv1"><b>徒手服務</b>由物理治療師以手法協助放鬆與活動。</div>
+<div class="hv2"><b>運動治療</b>依個人狀況設計動作練習與肌力課程。</div>
+<div class="hv3"><b>居家指導</b>提供可在家進行的動作練習建議。</div>
+</div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>課程方案與價目</h2>
+<p class="sub">以下皆為示範價目，實際收費以現場公告為準</p>
+<div class="filters" id="filters">
+<button class="active" data-cat="all">全部</button>
+<button data-cat="manual">徒手</button>
+<button data-cat="exercise">運動治療</button>
+<button data-cat="device">儀器</button>
+<button data-cat="home">居家指導</button>
+</div>
+<div class="cards" id="cards">
+<div class="card" data-cat="manual"><span class="tag">徒手</span><h3>徒手放鬆課程</h3><p>由物理治療師以手法協助肩頸、腰背放鬆。</p><div class="price">NT$1,200 <small>／50 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="manual"><span class="tag">徒手</span><h3>關節活動課程</h3><p>協助關節活動度練習，依個人狀況安排。</p><div class="price">NT$1,200 <small>／50 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="exercise"><span class="tag">運動治療</span><h3>運動治療課程</h3><p>依個人狀況設計動作練習，包含肌力與穩定訓練。</p><div class="price">NT$1,500 <small>／50 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="exercise"><span class="tag">運動治療</span><h3>核心肌力課程</h3><p>針對核心肌群的動作練習課程。</p><div class="price">NT$1,500 <small>／50 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="exercise"><span class="tag">運動治療</span><h3>運動傷害防護課程</h3><p>運動前後的動作練習與防護建議。</p><div class="price">NT$1,500 <small>／50 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="device"><span class="tag">儀器</span><h3>儀器輔助課程</h3><p>搭配儀器設備進行的輔助課程，依評估安排。</p><div class="price">NT$800 <small>／30 分鐘・示範價</small></div><p>依評估安排</p></div>
+<div class="card" data-cat="device"><span class="tag">儀器</span><h3>儀器＋徒手組合課程</h3><p>儀器輔助搭配徒手服務的組合課程。</p><div class="price">NT$1,600 <small>／60 分鐘・示範價</small></div><p>一對一進行</p></div>
+<div class="card" data-cat="home"><span class="tag">居家指導</span><h3>居家動作指導</h3><p>提供可在家進行的動作練習建議與書面資料。</p><div class="price">NT$600 <small>／30 分鐘・示範價</small></div><p>可搭配課程進行</p></div>
+</div>
+<p class="note">價目皆為示範，實際收費與服務內容以現場公告為準。</p>
+</div></section>
+
+<section id="quiz" style="background:#e6f1f4"><div class="wrap">
+<h2>症狀方案配對</h2>
+<p class="sub">選部位與情境，找到適合你的課程方案</p>
+<div class="quiz">
+<h3>你想改善哪裡？</h3>
+<div class="q" data-q="part"><p>1. 主要部位</p><div class="opts">
+<button data-v="shoulder">肩頸</button>
+<button data-v="back">腰背</button>
+<button data-v="knee">膝蓋</button>
+<button data-v="wrist">手腕</button>
+</div></div>
+<div class="q" data-q="scene"><p>2. 生活情境</p><div class="opts">
+<button data-v="sit">久坐上班族</button>
+<button data-v="sport">運動愛好者</button>
+<button data-v="postop">術後復健</button>
+</div></div>
+<div class="cta"><button class="btn" id="quizBtn">查看推薦方案</button></div>
+<div class="result" id="quizResult"></div>
+<div class="disclaimer">配對結果僅供參考，實際方案以專業評估為準。術後復健請來電確認。</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>預約流程</h2>
+<p class="sub">五個步驟，完成你的第一次預約</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><h3>症狀配對</h3><p>選部位與情境，找到合適的課程方案。</p></div>
+<div class="step"><div class="n">2</div><h3>選擇課程</h3><p>依配對結果挑選徒手、運動治療或儀器課程。</p></div>
+<div class="step"><div class="n">3</div><h3>填寫預約表單</h3><p>留下姓名、電話與希望時段，產生 LINE 訊息。</p></div>
+<div class="step"><div class="n">4</div><h3>傳送 LINE 確認</h3><p>複製訊息貼到 LINE，收到回覆即完成預約。</p></div>
+<div class="step"><div class="n">5</div><h3>現場評估</h3><p>依約到所，由專業人員評估後確認實際方案。</p></div>
+</div>
+</div></section>
+
+<section id="team" style="background:#e6f1f4"><div class="wrap">
+<h2>團隊介紹</h2>
+<p class="sub">以下皆為示範人名與簡介</p>
+<div class="team">
+<div class="member"><div class="avatar">吳</div><h3>吳承翰</h3><div class="role">物理治療師</div><p>專長：徒手服務、運動治療。關注久坐族群的肩頸與腰背狀況。</p></div>
+<div class="member"><div class="avatar">黃</div><h3>黃郁婷</h3><div class="role">物理治療師</div><p>專長：運動治療、核心肌力課程。擅長以動作練習協助學員建立習慣。</p></div>
+<div class="member"><div class="avatar">劉</div><h3>劉子豪</h3><div class="role">物理治療師</div><p>專長：儀器輔助課程、居家指導。重視課後的居家練習追蹤。</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>客人回饋</h2>
+<p class="sub">以下皆為示範評價</p>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「久坐肩頸很緊，配對推薦徒手課程，現場評估後安排得很清楚。」</p><div class="who">— 俊傑・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「運動治療課程的動作說明很細，回家照著練習也很好上手。」</p><div class="who">— 雅婷・示範評價</div></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「居家指導附的書面資料很實用，預約流程也很順暢。」</p><div class="who">— 國華・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「第一次來先做配對再預約，選課程不怕選錯，體驗很好。」</p><div class="who">— 佩珊・示範評價</div></div>
+</div>
+</div></section>
+
+<section id="faq" style="background:#e6f1f4"><div class="wrap">
+<h2>常見問題</h2>
+<p class="sub">以下內容皆為示範</p>
+<div class="faq">
+<details><summary>Q1：收費怎麼算？</summary><p>各項課程皆有示範價目，實際收費以現場公告為準，預約時可先來電確認。</p></details>
+<details><summary>Q2：如何預約？</summary><p>填寫下方預約表單，產生 LINE 訊息後複製貼到官方 LINE 傳送，收到回覆即完成預約；也可直接來電預約。</p></details>
+<details><summary>Q3：可以取消或改期嗎？</summary><p>可以。請於預約時間前一天來電或以 LINE 告知，示範規則：當天臨時取消請來電確認是否酌收費用。</p></details>
+<details><summary>Q4：交通與停車方便嗎？</summary><p>治療所位於示範地區，附近有公車站與機車停車格，汽車停車請來電確認周邊停車場位置。</p></details>
+<details><summary>Q5：第一次來要做什麼？</summary><p>第一次會先由專業人員進行評估，再確認實際方案內容，請提前 10 分鐘到達。</p></details>
+<details><summary>Q6：術後復健可以直接預約嗎？</summary><p>術後復健請先來電確認，由專業人員了解狀況後再安排，不建議直接線上選課。</p></details>
+</div>
+</div></section>
+
+<section id="booking"><div class="wrap">
+<h2>預約表單</h2>
+<p class="sub">填完自動產生 LINE 訊息，複製貼上即可傳送</p>
+<form id="bookForm">
+<div class="row">
+<div><label for="fName">姓名 *</label><input id="fName" required placeholder="請輸入姓名"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" required placeholder="請輸入電話"></div>
+</div>
+<label for="fService">想預約的課程 *</label>
+<select id="fService" required>
+<option value="">請選擇課程</option>
+<option>徒手放鬆課程</option>
+<option>關節活動課程</option>
+<option>運動治療課程</option>
+<option>核心肌力課程</option>
+<option>運動傷害防護課程</option>
+<option>儀器輔助課程</option>
+<option>儀器＋徒手組合課程</option>
+<option>居家動作指導</option>
+</select>
+<div class="row">
+<div><label for="fDate">希望日期</label><input id="fDate" type="date"></div>
+<div><label for="fTime">希望時段</label><select id="fTime"><option value="">請選擇時段</option><option>上午</option><option>下午</option><option>晚上</option></select></div>
+</div>
+<label for="fNote">備註（配對結果會自動帶入）</label>
+<textarea id="fNote" rows="3" placeholder="例如：久坐肩頸緊，想先做徒手放鬆課程"></textarea>
+<div style="text-align:center;margin-top:22px"><button class="btn" type="submit">產生 LINE 預約訊息</button></div>
+<div class="line-msg" id="lineMsg"></div>
+<div style="text-align:center"><button class="btn copy-btn" type="button" id="copyBtn" style="display:none">一鍵複製訊息</button><span class="copied-msg" id="copiedMsg"></span></div>
+</form>
+</div></section>
+
+<footer>
+<p>動能物理治療所｜示範網站</p>
+<p>地址：示範地區，詳細地址請來電確認｜電話：請來電確認｜營業時間：請來電確認</p>
+<p>本頁為示範網站，店名、價目、評價、團隊與所有數字皆為假設內容，正式使用前請換成真實資料。</p>
+<p>配對結果僅供參考，實際方案以專業評估為準。</p>
+</footer>
+
+<div class="mobile-bar"><a href="#booking">立即預約</a><a href="#quiz">方案配對</a></div>
+
+<script>
+// 篩選
+document.querySelectorAll('#filters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('#filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var cat=btn.dataset.cat;
+document.querySelectorAll('#cards.card').forEach(function(c){
+c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+});
+});
+});
+// 配對矩陣：部位 × 情境 → 推薦課程
+var MATRIX={
+'shoulder|sit':{t:'徒手放鬆課程',d:'肩頸部位搭配久坐情境，建議先從「徒手放鬆課程」開始，現場由專業人員評估後確認內容。'},
+'shoulder|sport':{t:'運動治療課程',d:'肩頸部位搭配運動情境，建議選擇「運動治療課程」，由專業人員設計動作練習。'},
+'back|sit':{t:'運動治療課程',d:'腰背部位搭配久坐情境，建議選擇「運動治療課程」，包含核心肌力與動作練習，現場評估後確認。'},
+'back|sport':{t:'運動治療課程',d:'腰背部位搭配運動情境，建議選擇「運動治療課程」，由專業人員設計動作練習。'},
+'knee|sit':{t:'徒手放鬆課程',d:'膝蓋部位搭配久坐情境，建議先從「徒手放鬆課程」開始，現場評估後再搭配居家指導。'},
+'knee|sport':{t:'核心肌力課程',d:'膝蓋部位搭配運動情境，建議選擇「核心肌力課程」，由專業人員設計動作練習。'},
+'wrist|sit':{t:'徒手放鬆課程',d:'手腕部位搭配久坐情境，建議先從「徒手放鬆課程」開始，現場評估後再搭配居家指導。'},
+'wrist|sport':{t:'運動治療課程',d:'手腕部位搭配運動情境，建議選擇「運動治療課程」，由專業人員設計動作練習。'}
+};
+var picked={};
+document.querySelectorAll('.quiz.q').forEach(function(q){
+q.querySelectorAll('button').forEach(function(b){
+b.addEventListener('click',function(){
+q.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});
+b.classList.add('sel');
+picked[q.dataset.q]=b.dataset.v;
+});
+});
+});
+document.getElementById('quizBtn').addEventListener('click',function(){
+if(!picked.part||!picked.scene){alert('請先選部位與情境，再查看推薦方案。');return;}
+var box=document.getElementById('quizResult');
+if(picked.scene==='postop'){
+box.innerHTML='<h4>術後復健：請來電確認</h4><p>術後復健的狀況因人而異，請先來電確認，由專業人員了解狀況後再安排合適的課程，不建議直接線上選課。</p>';
+box.classList.add('show');
+return;
+}
+var r=MATRIX[picked.part+'|'+picked.scene];
+box.innerHTML='<h4>推薦方案：'+r.t+'</h4><p>'+r.d+'</p><p style="margin-top:10px"><button class="btn" type="button" id="toFormBtn">把「'+r.t+'」帶進預約表單</button></p>';
+box.classList.add('show');
+document.getElementById('toFormBtn').addEventListener('click',function(){
+document.getElementById('fService').value=r.t;
+document.getElementById('fNote').value='症狀配對結果：'+r.t+'（配對結果僅供參考，實際方案以專業評估為準）';
+document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+});
+});
+// 表單 → LINE 訊息
+document.getElementById('bookForm').addEventListener('submit',function(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var service=document.getElementById('fService').value;
+var date=document.getElementById('fDate').value||'未指定';
+var time=document.getElementById('fTime').value||'未指定';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n想預約的課程：'+service+'\n希望日期：'+date+'\n希望時段：'+time+'\n備註：'+note;
+var box=document.getElementById('lineMsg');
+box.textContent=msg;
+box.classList.add('show');
+document.getElementById('copyBtn').style.display='inline-block';
+document.getElementById('copiedMsg').textContent='';
+});
+document.getElementById('copyBtn').addEventListener('click',function(){
+var text=document.getElementById('lineMsg').textContent;
+function done(){var m=document.getElementById('copiedMsg');m.textContent='已複製 ✓';setTimeout(function(){m.textContent='';},2500);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}
+else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+});
+</script>
+</body>
+</html>

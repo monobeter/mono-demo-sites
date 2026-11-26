@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title>雪丘冰淇淋｜冰淇淋示範店</title>
+<style>
+:root{
+--ice:#5aa9c9; --ice-dark:#2f7ea3; --ice-light:#dceef7;
+--cream:#fffaf0; --cream2:#fdf1e3; --pink:#e89bb0; --pink-dark:#c96a86; --pink-light:#fbe4ea;
+--bg:#fffaf0; --card:#fffdf8; --text:#33302c; --muted:#7a7268; --line:#eadfd2; --chip:#f3ece1;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:76px;overflow-x:hidden;max-width:100%}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#2f3a42;color:#d8ecf7;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.topnav{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:900;font-size:22px;color:var(--text);display:flex;align-items:center;gap:10px;white-space:nowrap;flex:none}
+.logo i{width:38px;height:38px;flex:none;border-radius:50%;background:var(--ice);color:#fff;display:grid;place-items:center;font-style:normal;font-size:19px}
+@media(max-width:560px){.topnav{flex-wrap:wrap}.logo{font-size:20px}.navlinks a{padding:8px 9px;font-size:13px}}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:10px 12px;border-radius:999px}
+.navlinks a:hover{background:var(--ice-light)}
+.hero{max-width:1120px;margin:0 auto;padding:10px 20px 28px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:4px}.hero h1{font-size:38px}}
+.eyebrow{display:inline-flex;background:var(--ice-light);color:var(--ice-dark);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;letter-spacing:.04em}
+h1{font-size:52px;line-height:1.05;margin:14px 0 8px;letter-spacing:.02em}
+h1 small{display:block;font-size:20px;font-weight:700;color:var(--ice-dark);letter-spacing:.18em;margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted);margin:0 0 18px}
+.lead strong{color:var(--text)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 20px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;font-weight:900;font-size:16px;cursor:pointer;text-decoration:none;min-height:50px}
+.btn-primary{background:var(--ice-dark);color:#fff;box-shadow:0 10px 24px rgba(47,126,163,.28)}
+.btn-secondary{background:var(--card);color:var(--ice-dark);border:1.5px solid var(--ice)}
+.btn-pink{background:var(--pink-dark);color:#fff}
+.hero-img{border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 50px rgba(51,48,44,.22);background:linear-gradient(135deg,#2f7ea3,#5aa9c9 40%,#e89bb0 75%,#fdf1e3);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff}
+.hero-img .big{font-size:64px;line-height:1.1}
+.hero-img p{margin:12px 0 0;font-size:16px;font-weight:700}
+.hero-note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:36px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:32px;margin:0 0 6px}
+.sec-head p{color:var(--muted);margin:0}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;font-size:15px;min-height:44px}
+.filter-btn.active{background:var(--ice-dark);color:#e6f3fa;border-color:var(--ice-dark)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.dish.hide{display:none}
+.dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.dish h3{margin:0;font-size:18px}
+.tag{font-size:12px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--cream2);color:var(--pink-dark);white-space:nowrap}
+.price{font-size:22px;font-weight:900;color:var(--ice-dark)}
+.price small{font-size:13px;color:var(--muted);font-weight:500}
+.desc{color:var(--muted);font-size:14px;margin:0;flex:1}
+.mini-btn{margin-top:8px;align-self:flex-start;background:var(--ice-light);color:var(--ice-dark);border:0;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;min-height:40px}
+.calc-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+@media(max-width:820px){.calc-box{grid-template-columns:1fr}}
+label{font-weight:800;font-size:14px;display:block;margin:14px 0 8px}
+label:first-child{margin-top:0}
+select,input[type="text"],input[type="tel"],input[type="date"],input[type="time"],input[type="number"],textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;font-size:16px;background:var(--card);color:var(--text);font-family:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:8px 14px;border-radius:999px;background:var(--chip);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.chip input:checked+span{background:var(--ice-dark);color:#fff}
+.chip input:focus-visible+span{outline:2px solid var(--ice-dark);outline-offset:2px}
+.toppings{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:480px){.toppings{grid-template-columns:1fr}}
+.top-item{display:flex;align-items:center;gap:10px;background:var(--chip);border-radius:12px;padding:10px 12px;min-height:48px;cursor:pointer;font-weight:600;font-size:15px}
+.top-item input{width:20px;height:20px;accent-color:var(--ice-dark)}
+.qty-row{display:flex;align-items:center;gap:12px}
+.qty-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-size:20px;font-weight:900;cursor:pointer}
+.qty-num{font-size:20px;font-weight:900;min-width:36px;text-align:center}
+.result{background:#2f3a42;color:#e6f3fa;border-radius:18px;padding:20px;display:flex;flex-direction:column}
+.result h3{margin:0 0 10px;font-size:18px;color:#e6f3fa}
+.result-line{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(230,243,250,.35);font-size:15px}
+.result-total{font-size:34px;font-weight:900;margin:14px 0 4px;color:#fff}
+.result-sub{opacity:.9;font-size:14px;margin-bottom:16px}
+.result .btn{background:#fff;color:#2f3a42;width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step b{width:36px;height:36px;border-radius:50%;background:var(--ice-dark);color:#fff;display:grid;place-items:center;font-size:17px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.team{grid-template-columns:1fr}}
+.member{background:linear-gradient(135deg,var(--ice-light),var(--pink-light));border-radius:24px;padding:26px;border:1px solid var(--line)}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--ice-dark);color:#e6f3fa;display:grid;place-items:center;font-size:36px;font-weight:900;margin-bottom:14px}
+.member h3{font-size:22px;margin:0 0 4px}
+.member .role{color:var(--ice-dark);font-weight:800;font-size:14px;margin:0 0 10px}
+.member p{color:var(--muted);margin:0 0 8px;font-size:15px}
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.stars{color:var(--pink-dark);letter-spacing:2px;font-size:17px}
+.review p{margin:8px 0;color:var(--text)}
+.review footer{color:var(--muted);font-size:14px}
+.faq{display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--ice-dark);font-size:20px}
+details[open] summary::after{content:"－"}
+details p{color:var(--muted);margin:0 0 14px}
+.form-box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.msg-box{background:#2f3a42;color:#fffaf0;border-radius:14px;padding:16px;white-space:pre-wrap;font-size:15px;line-height:1.8;min-height:150px;margin-top:16px}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.copy-feedback{font-weight:800;color:var(--ice-dark)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.info h3{margin:0 0 6px;font-size:15px;color:var(--ice-dark)}
+.info p{margin:0;color:var(--muted);font-size:15px}
+footer.site{border-top:1px solid var(--line);margin-top:20px;padding:28px 20px 36px;text-align:center;color:var(--muted);font-size:14px;max-width:900px;margin-left:auto;margin-right:auto}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+@media(max-width:768px){.mobile-bar{display:grid}}
+.mobile-bar a{text-decoration:none;text-align:center;border-radius:999px;padding:13px;font-weight:900;font-size:16px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.mobile-bar a:first-child{background:var(--ice-dark);color:#fff}
+.mobile-bar a:last-child{background:var(--cream2);color:var(--text);border:1.5px solid var(--ice)}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>・ 店名、價目、評價皆為示範，正式上線將換成店家真實資料</span></div>
+
+<header class="topnav">
+<div class="logo"><i>雪</i> 雪丘冰淇淋</div>
+<nav class="navlinks" aria-label="主導覽">
+<a href="#menu">冰淇淋菜單</a><a href="#calc">口味搭配試算</a><a href="#flow">點餐流程</a><a href="#team">製冰團隊</a><a href="#faq">常見問題</a><a href="#order">訂購表單</a>
+</nav>
+</header>
+
+<div class="hero">
+<div>
+<span class="eyebrow">示範地區・手工冰淇淋 ・ 每日現做小批量（示範）</span>
+<h1><small>SNOW HILL ICE CREAM</small>雪丘冰淇淋</h1>
+<p class="lead">冰淇淋，是每天現做的快樂。<br>基底用<strong>鮮奶＋鮮奶油當天現打</strong>，小批量、賣完就收——<strong>先選口味、加配料、挑份量，總價先算好再訂</strong>，不用到現場才猜價錢。</p>
+<div class="hero-meta">
+<span class="pill">📍 示範地區（詳細地址請來電確認）</span>
+<span class="pill">🕙 營業時間：請來電確認</span>
+<span class="pill">🍦 人氣：開心果・香草・草莓聖代</span>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#order">🍦 立即訂購</a>
+<a class="btn btn-secondary" href="#menu">看冰淇淋菜單</a>
+<a class="btn btn-pink" href="#calc">先口味搭配試算 →</a>
+</div>
+<p style="color:var(--muted);font-size:14px;margin-top:14px">先在下面選基底口味、挑配料、選份量，總價即時算給你看，喜歡再一鍵帶進訂購表單。</p>
+</div>
+<div>
+<div class="hero-img"><div class="big">🍦<br>香草・抹茶・開心果</div><p>招牌冰淇淋：每日現做小批量、賣完就收（示範圖片為色塊示意）</p></div>
+<p class="hero-note">招牌口味：香草、抹茶、巧克力、草莓、芒果、開心果（示範）</p>
+</div>
+</div>
+
+<div class="wrap">
+
+<section id="menu">
+<div class="sec-head">
+<h2>冰淇淋菜單</h2>
+<p>冰淇淋每日現做小批量，聖代現點現做；以下為示範價目。</p>
+</div>
+<div class="filters" role="group" aria-label="菜單分類篩選">
+<button class="filter-btn active" type="button" data-filter="all">全部</button>
+<button class="filter-btn" type="button" data-filter="ice">冰淇淋</button>
+<button class="filter-btn" type="button" data-filter="sundae">聖代</button>
+<button class="filter-btn" type="button" data-filter="drink">飲品</button>
+<button class="filter-btn" type="button" data-filter="takeout">外帶盒</button>
+</div>
+<p id="menuCount" style="color:var(--muted);font-size:14px;margin:0 0 14px"></p>
+<div class="menu-grid" id="menuGrid">
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>香草冰淇淋</h3><span class="tag">經典・店內第一名</span></div>
+<div class="price">NT$90 <small>/ 單球</small></div>
+<p class="desc">馬達加斯加香草莢現刮，奶香濃郁不死甜；配什麼配料都對味。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('香草')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>抹茶冰淇淋</h3><span class="tag">微苦回甘</span></div>
+<div class="price">NT$90 <small>/ 單球</small></div>
+<p class="desc">宇治抹茶粉現打，苦味回甘；配紅豆或白玉最對味。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('抹茶')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>巧克力冰淇淋</h3><span class="tag">濃郁</span></div>
+<div class="price">NT$90 <small>/ 單球</small></div>
+<p class="desc">70% 黑巧克力現融，濃郁帶苦；巧克力控的第一選擇。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('巧克力')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>草莓冰淇淋</h3><span class="tag">酸甜</span></div>
+<div class="price">NT$90 <small>/ 單球</small></div>
+<p class="desc">新鮮草莓現打成果泥再製冰，酸甜清爽；小朋友的最愛。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('草莓')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>芒果冰淇淋</h3><span class="tag">季節限定</span></div>
+<div class="price">NT$90 <small>/ 單球</small></div>
+<p class="desc">愛文芒果現打，香氣濃郁；芒果產季才有，賣完就等明年。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('芒果')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="ice">
+<div class="dish-top"><h3>開心果冰淇淋</h3><span class="tag">期間限定・＋NT$20</span></div>
+<div class="price">NT$110 <small>/ 單球</small></div>
+<p class="desc">西西里開心果醬現打，堅果香濃郁；成本高，單球加價 NT$20。</p>
+<button class="mini-btn" type="button" onclick="pickFlavor('開心果')">用這個口味試算 →</button>
+</article>
+
+<article class="dish" data-cat="sundae">
+<div class="dish-top"><h3>草莓聖代</h3><span class="tag">聖代第一名</span></div>
+<div class="price">NT$190</div>
+<p class="desc">香草＋草莓雙球、鮮奶油、新鮮草莓、餅乾棒；拍照打卡首選。</p>
+<button class="mini-btn" type="button" onclick="pickSize('聖代')">用聖代份量試算 →</button>
+</article>
+
+<article class="dish" data-cat="sundae">
+<div class="dish-top"><h3>巧克力布朗尼聖代</h3><span class="tag">濃郁派</span></div>
+<div class="price">NT$210</div>
+<p class="desc">巧克力冰淇淋＋現烤布朗尼＋巧克力醬＋堅果碎；吃完很有飽足感。</p>
+<button class="mini-btn" type="button" onclick="pickSize('聖代')">用聖代份量試算 →</button>
+</article>
+
+<article class="dish" data-cat="sundae">
+<div class="dish-top"><h3>抹茶紅豆聖代</h3><span class="tag">日式風味</span></div>
+<div class="price">NT$200</div>
+<p class="desc">抹茶冰淇淋＋蜜紅豆＋白玉＋抹茶醬；微苦回甘，不愛太甜就點它。</p>
+<button class="mini-btn" type="button" onclick="pickSize('聖代')">用聖代份量試算 →</button>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>冰淇淋漂浮汽水</h3><span class="tag">夏日限定</span></div>
+<div class="price">NT$120</div>
+<p class="desc">汽水＋一球香草冰淇淋，冰火交融；喝到最後一口還是冰的。</p>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>香草奶昔</h3><span class="tag">濃郁</span></div>
+<div class="price">NT$130</div>
+<p class="desc">香草冰淇淋＋鮮奶現打，濃郁滑順；吸管要粗一點才吸得動。</p>
+</article>
+
+<article class="dish" data-cat="drink">
+<div class="dish-top"><h3>冰美式咖啡</h3><span class="tag">無糖</span></div>
+<div class="price">NT$80</div>
+<p class="desc">中焙咖啡豆現沖放涼，配冰淇淋吃剛剛好；怕甜的人點它解膩。</p>
+</article>
+
+<article class="dish" data-cat="takeout">
+<div class="dish-top"><h3>外帶小盒（2 球份）</h3><span class="tag">保冷 1 小時</span></div>
+<div class="price">NT$220</div>
+<p class="desc">任選 2 種口味裝盒，附保冷袋；帶回家放冷凍，保冷約 1 小時。</p>
+</article>
+
+<article class="dish" data-cat="takeout">
+<div class="dish-top"><h3>外帶大盒（4 球份）</h3><span class="tag">家庭分享</span></div>
+<div class="price">NT$380</div>
+<p class="desc">任選 4 種口味裝盒，附保冷袋與木湯匙 4 支；家庭聚會、派對首選。</p>
+</article>
+
+<article class="dish" data-cat="takeout">
+<div class="dish-top"><h3>外帶迷你杯（6 杯組）</h3><span class="tag">派對分享</span></div>
+<div class="price">NT$300</div>
+<p class="desc">6 杯迷你杯、3 種口味各 2 杯，附木湯匙；生日派對、公司聚會最方便。</p>
+</article>
+
+</div>
+<p style="color:var(--muted);font-size:13px;margin-top:14px">以上皆為示範價目，正式價目以店家現場公告為準。</p>
+</section>
+
+<section id="calc">
+<div class="sec-head">
+<h2>口味搭配試算</h2>
+<p>選基底口味、挑配料、選份量，總價即時算給你看；算好一鍵帶進下方訂購表單。</p>
+</div>
+<div class="calc-box">
+<div>
+<label>1. 選基底口味</label>
+<div class="chips" id="flavorChips">
+<label class="chip"><input type="radio" name="cFlavor" value="香草" data-price="0" checked><span>香草</span></label>
+<label class="chip"><input type="radio" name="cFlavor" value="抹茶" data-price="0"><span>抹茶</span></label>
+<label class="chip"><input type="radio" name="cFlavor" value="巧克力" data-price="0"><span>巧克力</span></label>
+<label class="chip"><input type="radio" name="cFlavor" value="草莓" data-price="0"><span>草莓</span></label>
+<label class="chip"><input type="radio" name="cFlavor" value="芒果" data-price="0"><span>芒果</span></label>
+<label class="chip"><input type="radio" name="cFlavor" value="開心果" data-price="20"><span>開心果 ＋NT$20</span></label>
+</div>
+<p style="color:var(--muted);font-size:13px;margin:8px 0 0">開心果為期間限定口味，單份加價 NT$20；其餘口味不加價。</p>
+
+<label>2. 選份量</label>
+<div class="chips">
+<label class="chip"><input type="radio" name="cSize" value="單球" data-price="90" checked><span>單球 NT$90</span></label>
+<label class="chip"><input type="radio" name="cSize" value="雙球" data-price="150"><span>雙球 NT$150</span></label>
+<label class="chip"><input type="radio" name="cSize" value="聖代" data-price="190"><span>聖代 NT$190</span></label>
+</div>
+
+<label>3. 份數</label>
+<div class="qty-row">
+<button class="qty-btn" type="button" onclick="changeQty(-1)" aria-label="減少一份">−</button>
+<span class="qty-num" id="calcQtyNum">1</span>
+<button class="qty-btn" type="button" onclick="changeQty(1)" aria-label="增加一份">＋</button>
+<span style="color:var(--muted);font-size:14px">份（配料以每份計）</span>
+</div>
+
+<label>4. 加配料（每份加價）</label>
+<div class="toppings" id="calcToppings">
+<label class="top-item"><input type="checkbox" value="巧克力醬" data-price="20"> 巧克力醬 ＋NT$20</label>
+<label class="top-item"><input type="checkbox" value="焦糖醬" data-price="20"> 焦糖醬 ＋NT$20</label>
+<label class="top-item"><input type="checkbox" value="堅果碎" data-price="25"> 堅果碎 ＋NT$25</label>
+<label class="top-item"><input type="checkbox" value="彩虹糖針" data-price="15"> 彩虹糖針 ＋NT$15</label>
+<label class="top-item"><input type="checkbox" value="新鮮莓果" data-price="30"> 新鮮莓果 ＋NT$30</label>
+<label class="top-item"><input type="checkbox" value="餅乾碎" data-price="20"> 餅乾碎 ＋NT$20</label>
+</div>
+</div>
+
+<div class="result">
+<h3>🍦 你的冰淇淋搭配</h3>
+<div class="result-line"><span>基底口味</span><span id="rFlavor">香草</span></div>
+<div class="result-line"><span>份量</span><span id="rSize">單球 NT$90</span></div>
+<div class="result-line"><span>份數</span><span id="rQty">1 份</span></div>
+<div class="result-line"><span>配料（每份）</span><span id="rTop">無配料 ＋NT$0</span></div>
+<div class="result-total" id="rTotal">NT$90</div>
+<div class="result-sub" id="rUnit">每份 NT$90 × 1 份（示範價格）</div>
+<button class="btn" type="button" onclick="sendToOrder()">一鍵帶進訂購表單 →</button>
+</div>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head">
+<h2>點餐流程</h2>
+<p>從進門到吃完，五個步驟，平均約 20 分鐘。</p>
+</div>
+<div class="steps">
+<div class="step"><b>1</b><h3>線上搭配訂購</h3><p>選口味、挑配料、選份量，總價先算好；表單填完傳 LINE，店家回覆確認。</p></div>
+<div class="step"><b>2</b><h3>到店取餐</h3><p>到店告知姓名與訂購內容；冰淇淋現挖現做，聖代現點現組裝。</p></div>
+<div class="step"><b>3</b><h3>現挖現吃</h3><p>冰淇淋現挖上桌，建議 10 分鐘內吃完；聖代先吃冰淇淋再喝融化的醬。</p></div>
+<div class="step"><b>4</b><h3>加點飲品</h3><p>想再坐一下，點一杯冰美式或奶昔；漂浮汽水配冰淇淋最消暑。</p></div>
+<div class="step"><b>5</b><h3>結帳離場</h3><p>櫃台結帳，可用現金與行動支付；外帶盒附保冷袋，回家放冷凍。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head">
+<h2>製冰團隊</h2>
+<p>三個人，一球冰淇淋。奶、果、醬，各有人顧。</p>
+</div>
+<div class="team">
+<div class="member">
+<div class="avatar">丘</div>
+<h3>林雪丘</h3>
+<p class="role">店主・製冰師</p>
+<p>做冰淇淋 9 年，曾在義大利學 Gelato。堅持鮮奶＋鮮奶油當天現打、小批量製作；她的信念是冰淇淋不能只靠甜，要吃得出奶香與果香。</p>
+<p>「冰淇淋的口感，溫度差 2 度就全變了。」</p>
+</div>
+<div class="member">
+<div class="avatar">果</div>
+<h3>陳小果</h3>
+<p class="role">副店長・水果與配料</p>
+<p>負責水果、果醬與配料，草莓、芒果都是當天現打成果泥。對堅果、乳製品過敏的客人，點餐時她會逐項確認成分。</p>
+<p>「水果不新鮮，打出來的冰淇淋會有生味。」</p>
+</div>
+<div class="member">
+<div class="avatar">安</div>
+<h3>王宇安</h3>
+<p class="role">外場・訂購接待</p>
+<p>開店第一天就在，記得八成常客的固定口味。負責訂購、取餐與外帶包裝，尖峰時段一個人顧全場不亂套。</p>
+<p>「客人一進門，我就知道他今天想吃香草還是開心果。」</p>
+</div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="sec-head">
+<h2>客人評價</h2>
+<p>以下為示範評價，正式上線將換成真實客人回饋。</p>
+</div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「開心果冰淇淋堅果香超濃，配新鮮莓果剛剛好。雙球份量很實在，兩個人分一杯也夠吃。」</p><footer>— 阿傑・上班族・開心果雙球</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「草莓聖代拍照超好看，鮮奶油不會太甜。帶小孩來，迷你杯 6 杯組剛好一人一杯，不會搶。」</p><footer>— 小芬・媽媽・草莓聖代</footer></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「平日下午不用排太久，店員會先問要不要加配料。芒果是季節限定，建議先問當天有沒有再點。」</p><footer>— 志明・第一次來・芒果單球</footer></div>
+<div class="review"><div class="stars">★★★★★</div><p>「巧克力布朗尼聖代超濃郁，布朗尼是現烤的、還溫溫的。外帶大盒帶回家，保冷袋真的保冷 1 小時。」</p><footer>— 雅婷・冰淇淋愛好者・巧克力布朗尼聖代</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head">
+<h2>常見問題</h2>
+<p>價格、訂購、取消、交通，一次說清楚。</p>
+</div>
+<div class="faq">
+<details><summary>冰淇淋一份多少錢？配料怎麼算？</summary><p>單球 NT$90、雙球 NT$150、聖代 NT$190；開心果口味每份加價 NT$20。配料以每份計：巧克力醬 +NT$20、焦糖醬 +NT$20、堅果碎 +NT$25、彩虹糖針 +NT$15、新鮮莓果 +NT$30、餅乾碎 +NT$20。以上為示範價目，以店家現場公告為準。</p></details>
+<details><summary>怎麼訂購？一定要先訂嗎？</summary><p>填寫下方訂購表單，產生 LINE 訊息後複製傳給店家，店家回覆確認才算訂購成功。平日離峰可直接walk-in，週末下午與假日建議先訂購；現場保留一半份量給現場客人。</p></details>
+<details><summary>訂購後可以取消或改時間嗎？</summary><p>可以。取餐前 1 小時以上，LINE 傳訊告知姓名與原訂時間即可免費取消或改期一次；1 小時內取消請來電告知，店家會把份量釋出給現場客人。無故未到兩次，之後訂購需先付訂金。</p></details>
+<details><summary>可以外帶或外送嗎？</summary><p>可以外帶：外帶小盒 NT$220（2 球份）、大盒 NT$380（4 球份）、迷你杯 6 杯組 NT$300，皆附保冷袋，保冷約 1 小時。外送目前只接店家周邊範圍，請 LINE 詢問是否在外送區內；外送不提供聖代（現做現吃）。</p></details>
+<details><summary>有無乳糖或素食的選擇嗎？</summary><p>冰淇淋基底含鮮奶與鮮奶油，乳糖不耐者請告知，店家可建議水果雪酪（依當日供應）。全素者請先問當日有無水果雪酪；堅果、乳製品過敏請務必在備註寫明。</p></details>
+<details><summary>怎麼去？附近好停車嗎？</summary><p>店址在示範地區（詳細地址請來電確認），鄰近公車站，步行約 3 分鐘。開車請停附近收費停車場，店門口無專用停車位；騎機車可停店前機車格，假日一位難求，建議搭公車或騎車來。</p></details>
+</div>
+</section>
+
+<section id="order">
+<div class="sec-head">
+<h2>訂購表單</h2>
+<p>填完自動產生 LINE 訊息，複製貼到 LINE 傳給店家，店家回覆確認才算訂購成功。</p>
+</div>
+<div class="form-box">
+<div class="form-grid">
+<div>
+<label for="fName">姓名 *</label>
+<input type="text" id="fName" placeholder="例如：王小明">
+</div>
+<div>
+<label for="fPhone">電話 *</label>
+<input type="tel" id="fPhone" placeholder="例如：09XX-XXX-XXX">
+</div>
+<div>
+<label for="fDate">取餐日期</label>
+<input type="date" id="fDate">
+</div>
+<div>
+<label for="fTime">取餐時間</label>
+<select id="fTime">
+<option value="11:00">11:00</option>
+<option value="12:00">12:00</option>
+<option value="13:00">13:00</option>
+<option value="14:00">14:00</option>
+<option value="15:00">15:00</option>
+<option value="16:00">16:00</option>
+<option value="17:00">17:00</option>
+<option value="18:00">18:00</option>
+<option value="19:00">19:00</option>
+<option value="20:00">20:00</option>
+</select>
+</div>
+<div>
+<label for="fFlavor">基底口味</label>
+<select id="fFlavor">
+<option value="香草">香草</option>
+<option value="抹茶">抹茶</option>
+<option value="巧克力">巧克力</option>
+<option value="草莓">草莓</option>
+<option value="芒果">芒果</option>
+<option value="開心果">開心果（＋NT$20）</option>
+</select>
+</div>
+<div>
+<label for="fSize">份量</label>
+<select id="fSize">
+<option value="單球">單球 NT$90</option>
+<option value="雙球">雙球 NT$150</option>
+<option value="聖代">聖代 NT$190</option>
+</select>
+</div>
+<div>
+<label for="fQty">份數</label>
+<select id="fQty">
+<option value="1 份">1 份</option>
+<option value="2 份">2 份</option>
+<option value="3 份">3 份</option>
+<option value="4 份">4 份</option>
+</select>
+</div>
+<div>
+<label for="fTake">內用／外帶</label>
+<select id="fTake">
+<option value="內用">內用</option>
+<option value="外帶（自取）">外帶（自取）</option>
+<option value="外帶盒（請於備註寫盒型）">外帶盒（請於備註寫盒型）</option>
+</select>
+</div>
+</div>
+<label>加配料（可複選，每份計）</label>
+<div class="toppings" id="orderToppings">
+<label class="top-item"><input type="checkbox" value="巧克力醬"> 巧克力醬 ＋NT$20</label>
+<label class="top-item"><input type="checkbox" value="焦糖醬"> 焦糖醬 ＋NT$20</label>
+<label class="top-item"><input type="checkbox" value="堅果碎"> 堅果碎 ＋NT$25</label>
+<label class="top-item"><input type="checkbox" value="彩虹糖針"> 彩虹糖針 ＋NT$15</label>
+<label class="top-item"><input type="checkbox" value="新鮮莓果"> 新鮮莓果 ＋NT$30</label>
+<label class="top-item"><input type="checkbox" value="餅乾碎"> 餅乾碎 ＋NT$20</label>
+</div>
+<label for="fNote">備註（過敏、乳糖不耐、外帶盒型、其他需求）</label>
+<textarea id="fNote" rows="3" placeholder="例如：對堅果過敏、要外帶大盒"></textarea>
+<div class="msg-box" id="msgBox"></div>
+<div class="copy-row">
+<button class="btn btn-primary" type="button" onclick="copyMsg()">📋 一鍵複製 LINE 訊息</button>
+<span class="copy-feedback" id="copyFeedback"></span>
+</div>
+</div>
+
+<div class="info-grid">
+<div class="info"><h3>📍 店址（示範）</h3><p>示範地區（詳細地址請來電確認）</p></div>
+<div class="info"><h3>📞 電話（示範）</h3><p>請來電確認</p></div>
+<div class="info"><h3>🕙 營業時間（示範）</h3><p>請來電確認<br>每週一公休（製冰日，示範）</p></div>
+</div>
+</section>
+
+</div>
+
+<footer class="site">
+<p><strong>雪丘冰淇淋｜一頁式示範網站</strong></p>
+<p>本頁為示範網站：店名、價目、地點、評價皆為示範，正式上線將換成店家真實資料。全部是假設訂單示範，電話與地址皆為示範寫法（請來電確認），請勿以此聯繫。</p>
+<p>© 2026 雪丘冰淇淋（示範）・MONO AI 影像工作室示範站第 63 間</p>
+</footer>
+
+<div class="mobile-bar">
+<a href="#order">🍦 立即訂購</a>
+<a href="#menu">看冰淇淋菜單</a>
+</div>
+
+<script>
+var SIZE_PRICES={"單球":90,"雙球":150,"聖代":190};
+var FLAVOR_EXTRA={"香草":0,"抹茶":0,"巧克力":0,"草莓":0,"芒果":0,"開心果":20};
+var TOP_PRICES={"巧克力醬":20,"焦糖醬":20,"堅果碎":25,"彩虹糖針":15,"新鮮莓果":30,"餅乾碎":20};
+var calcQty=1;
+
+// --- Menu filter ---
+var filterBtns=document.querySelectorAll('.filter-btn');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click',function(){
+filterBtns.forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.getAttribute('data-filter');
+var n=0;
+document.querySelectorAll('.dish').forEach(function(card){
+var show=(f==='all'||card.getAttribute('data-cat')===f);
+card.classList.toggle('hide',!show);
+if(show)n++;
+});
+document.getElementById('menuCount').textContent='目前顯示 '+n+' 款品項（示範價目）';
+});
+});
+document.getElementById('menuCount').textContent='目前顯示 '+document.querySelectorAll('.dish').length+' 款品項（示範價目）';
+
+// --- Calculator ---
+function getCalc(){
+var flavorEl=document.querySelector('input[name="cFlavor"]:checked');
+var flavor=flavorEl.value;
+var flavorExtra=parseInt(flavorEl.getAttribute('data-price'),10);
+var sizeEl=document.querySelector('input[name="cSize"]:checked');
+var size=sizeEl.value;
+var sizePrice=parseInt(sizeEl.getAttribute('data-price'),10);
+var tops=[]; var topSum=0;
+document.querySelectorAll('#calcToppings input:checked').forEach(function(cb){tops.push(cb.value);topSum+=parseInt(cb.getAttribute('data-price'),10);});
+var unit=sizePrice+flavorExtra+topSum;
+return {flavor:flavor,flavorExtra:flavorExtra,size:size,sizePrice:sizePrice,tops:tops,topSum:topSum,qty:calcQty,unit:unit,total:unit*calcQty};
+}
+function renderCalc(){
+var c=getCalc();
+document.getElementById('rFlavor').textContent=c.flavor+(c.flavorExtra?' ＋NT$'+c.flavorExtra:'');
+document.getElementById('rSize').textContent=c.size+' NT$'+c.sizePrice;
+document.getElementById('rQty').textContent=c.qty+' 份';
+document.getElementById('rTop').textContent=(c.tops.length?c.tops.join('、'):'無配料')+' ＋NT$'+c.topSum;
+document.getElementById('rTotal').textContent='NT$'+c.total;
+document.getElementById('rUnit').textContent='每份 NT$'+c.unit+' × '+c.qty+' 份（示範價格）';
+document.getElementById('calcQtyNum').textContent=c.qty;
+}
+function changeQty(d){calcQty=Math.min(10,Math.max(1,calcQty+d));renderCalc();}
+document.querySelectorAll('input[name="cFlavor"],input[name="cSize"],#calcToppings input').forEach(function(el){el.addEventListener('change',renderCalc);});
+renderCalc();
+
+function pickFlavor(flavor){
+var radios=document.querySelectorAll('input[name="cFlavor"]');
+radios.forEach(function(r){if(r.value===flavor)r.checked=true;});
+renderCalc();
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+function pickSize(size){
+var radios=document.querySelectorAll('input[name="cSize"]');
+radios.forEach(function(r){if(r.value===size)r.checked=true;});
+renderCalc();
+document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+}
+
+// --- Send calc to order form ---
+function setSelect(id,val){var s=document.getElementById(id);for(var i=0;i<s.options.length;i++){if(s.options[i].value===val||s.options[i].text===val){s.selectedIndex=i;return;}}}
+function sendToOrder(){
+var c=getCalc();
+setSelect('fFlavor',c.flavor);
+setSelect('fSize',c.size);
+setSelect('fQty',c.qty+' 份');
+document.querySelectorAll('#orderToppings input').forEach(function(cb){cb.checked=c.tops.indexOf(cb.value)>-1;});
+updateMsg();
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+var fb=document.getElementById('copyFeedback');fb.textContent='✓ 已把試算結果帶進訂購表單，再填姓名、電話就能複製訊息。';
+}
+
+// --- Order form message ---
+function updateMsg(){
+var name=document.getElementById('fName').value.trim()||'（請填姓名）';
+var phone=document.getElementById('fPhone').value.trim()||'（請填電話）';
+var date=document.getElementById('fDate').value||'（請選日期）';
+var time=document.getElementById('fTime').value;
+var flavor=document.getElementById('fFlavor').value;
+var size=document.getElementById('fSize').value;
+var qty=document.getElementById('fQty').value;
+var take=document.getElementById('fTake').value;
+var note=document.getElementById('fNote').value.trim();
+var tops=[];
+document.querySelectorAll('#orderToppings input:checked').forEach(function(cb){tops.push(cb.value);});
+var sizePrice=SIZE_PRICES[size]||0;
+var flavorExtra=FLAVOR_EXTRA[flavor]||0;
+var topSum=0; tops.forEach(function(t){topSum+=TOP_PRICES[t]||0;});
+var qtyNum=parseInt(qty,10)||1;
+var unit=sizePrice+flavorExtra+topSum;
+var total=unit*qtyNum;
+var lines=[
+'您好，我想訂購冰淇淋🍦',
+'姓名：'+name,
+'電話：'+phone,
+'取餐日期：'+date,
+'取餐時間：'+time,
+'基底口味：'+flavor+(flavorExtra?'（＋NT$'+flavorExtra+'）':''),
+'份量：'+size,
+'份數：'+qty,
+'內用／外帶：'+take,
+'配料：'+(tops.length?tops.join('、'):'無配料'),
+'口味搭配試算：每份 NT$'+unit+'（份量 NT$'+sizePrice+'＋口味加價 NT$'+flavorExtra+'＋配料 NT$'+topSum+'）× '+qtyNum+' 份＝NT$'+total+'（示範價格）'
+];
+if(note)lines.push('備註：'+note);
+lines.push('（以上為示範訂購，請店家回覆確認）');
+document.getElementById('msgBox').textContent=lines.join('\n');
+}
+['fName','fPhone','fDate','fTime','fFlavor','fSize','fQty','fTake','fNote'].forEach(function(id){document.getElementById(id).addEventListener('input',updateMsg);document.getElementById(id).addEventListener('change',updateMsg);});
+document.querySelectorAll('#orderToppings input').forEach(function(cb){cb.addEventListener('change',updateMsg);});
+updateMsg();
+
+function copyMsg(){
+var text=document.getElementById('msgBox').textContent;
+var fb=document.getElementById('copyFeedback');
+function done(){fb.textContent='✓ 已複製！貼到 LINE 傳給店家即可。';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fb.textContent='複製失敗，請長按訊息框手動複製。';}document.body.removeChild(ta);}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>老張牛肉麵｜示範網站・湯頭辣度客製＋線上訂購</title>
+<meta name="description" content="老張牛肉麵示範網站：紅燒、清燉、番茄湯頭，辣度與麵條客製試算，牛肉麵、乾麵小菜、湯品、飲品菜單，線上訂購表單自動產生 LINE 訊息。店名價目皆為示範。">
+<link rel="icon" href="data:,">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;background:#faf5ec;color:#3a2a1a;line-height:1.7;padding-bottom:76px;overflow-x:hidden}
+@media(min-width:769px){body{padding-bottom:0}}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,select,input,textarea{font-family:inherit;font-size:16px}
+button,select,input:not([type=checkbox],[type=radio]),textarea{min-height:44px}
+.demo-bar{position:sticky;top:0;z-index:50;background:#8c2f26;color:#fff3e0;text-align:center;font-size:13px;letter-spacing:.06em;padding:9px 14px;font-weight:700}
+.demo-bar span{opacity:.85;font-weight:400}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap}
+.logo{font-weight:900;font-size:22px;color:#8c2f26;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:40px;height:40px;flex:none;border-radius:50%;background:#8c2f26;color:#fff3e0;display:grid;place-items:center;font-style:normal;font-size:20px}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px}
+.navlinks a:hover{background:#f3e3cf}
+.hero{background:linear-gradient(135deg,#8c2f26 0%,#b03a2e 55%,#7a5230 100%);color:#fff8ee;border-radius:20px;padding:56px 28px 48px;margin:10px 0 28px;overflow:hidden;position:relative}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);line-height:1.25}
+.hero h1 em{color:#ffd9a0;font-style:normal}
+.hero p{margin:0 0 22px;max-width:640px;color:#ffeeda;font-size:17px}
+.hero.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;text-align:center;font-weight:800;border-radius:12px;padding:13px 24px;border:none;cursor:pointer}
+.btn-red{background:#8c2f26;color:#fff}
+.btn-cream{background:#fff8ee;color:#8c2f26}
+.btn-ghost{background:transparent;color:#fff8ee;border:2px solid #ffd9a0}
+.btn-brown{background:#7a5230;color:#fff}
+.hero.bowl{position:absolute;right:24px;top:18px;font-size:88px;opacity:.25}
+section{margin:0 0 44px}
+.sec-head{margin-bottom:16px}
+.sec-head h2{margin:0;font-size:26px;color:#8c2f26}
+.sec-head p{margin:4px 0 0;color:#7a6a55}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{border:2px solid #d9c2a3;background:#fffdf6;color:#5b4630;border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer;min-height:44px}
+.filters button.active{background:#8c2f26;color:#fff3e0;border-color:#8c2f26}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:#fffdf6;border:1px solid #e8d9bf;border-radius:14px;padding:18px}
+.card.thumb{height:96px;border-radius:10px;background:linear-gradient(135deg,#b03a2e,#7a5230);display:grid;place-items:center;font-size:40px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:18px}
+.card p{margin:0 0 10px;color:#7a6a55;font-size:14px}
+.card.price{font-weight:900;color:#8c2f26;font-size:18px}
+.card.price small{font-size:12px;color:#8a7a63;font-weight:400}
+.card.tag{display:inline-block;background:#fbe3d3;color:#8c2f26;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin-left:6px}
+.calc{background:#7a5230;color:#fff8ee;border-radius:20px;padding:28px 24px}
+.calc h2{margin:0 0 6px;color:#ffd9a0;font-size:26px}
+.calc p{margin:0 0 18px;color:#f3e2c8}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.calc label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.calc select,.calc input{width:100%;border-radius:10px;border:1px solid #a97e55;background:#5d3d20;color:#fff8ee;padding:10px 12px}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap}
+.radio-row label{border:2px solid #a97e55;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:700;margin:0}
+.radio-row input{accent-color:#ffd9a0}
+.radio-row label:has(input:checked){border-color:#ffd9a0;background:#8c2f26}
+.check-row{display:flex;gap:8px;flex-wrap:wrap}
+.check-row label{border:2px solid #a97e55;border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:700;margin:0}
+.check-row input{accent-color:#ffd9a0}
+.check-row label:has(input:checked){border-color:#ffd9a0;background:#8c2f26}
+.result{background:#5d3d20;border:1px solid #ffd9a0;border-radius:12px;padding:18px;margin-top:18px;font-size:16px}
+.result b{color:#ffd9a0}
+.result.total{font-size:22px;font-weight:900;color:#ffd9a0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.step{background:#fffdf6;border:1px solid #e8d9bf;border-radius:14px;padding:18px}
+.step.num{width:38px;height:38px;border-radius:50%;background:#8c2f26;color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;margin-bottom:10px}
+.step h3{margin:0 0 6px;font-size:17px}
+.step p{margin:0;color:#7a6a55;font-size:14px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.member{background:#fffdf6;border:1px solid #e8d9bf;border-radius:14px;padding:20px;text-align:center}
+.member.ava{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#8c2f26,#7a5230);color:#ffd9a0;display:grid;place-items:center;font-size:30px;font-weight:900;margin:0 auto 12px;border:3px solid #ffd9a0}
+.member h3{margin:0 0 2px}
+.member.role{color:#8c2f26;font-weight:700;font-size:14px;margin-bottom:8px}
+.member p{margin:0;color:#7a6a55;font-size:14px;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.review{background:#fffdf6;border:1px solid #e8d9bf;border-radius:14px;padding:18px}
+.review.stars{color:#c98a2e;font-size:18px;letter-spacing:2px}
+.review p{margin:8px 0}
+.review.who{color:#8a7a63;font-size:13px}
+details{background:#fffdf6;border:1px solid #e8d9bf;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+details summary{font-weight:800;cursor:pointer;font-size:16px}
+details p{margin:10px 0 0;color:#7a6a55}
+.form-card{background:#fffdf6;border:1px solid #e8d9bf;border-radius:20px;padding:26px 22px}
+.form-card h2{margin:0 0 6px;font-size:24px;color:#8c2f26}
+.form-card p{margin:0 0 18px;color:#7a6a55}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.f-grid label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.f-grid input,.f-grid select,.f-grid textarea{width:100%;border-radius:10px;border:1px solid #d9c2a3;padding:10px 12px;background:#fff}
+.f-grid textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+#calcSummary{grid-column:1/-1}
+#calcSummary textarea{width:100%;min-height:76px}
+.msg-box{margin-top:18px}
+.msg-box label{font-weight:800;display:block;margin-bottom:6px}
+#msgOutput{width:100%;min-height:150px;border-radius:10px;border:1px solid #d9c2a3;padding:12px;background:#fdf3e3;white-space:pre-wrap}
+.copy-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+footer{background:#3a2a1a;color:#d9c2a3;text-align:center;padding:28px 20px 20px;font-size:14px;border-radius:20px 20px 0 0}
+footer b{color:#ffd9a0}
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(58,42,26,.96);backdrop-filter:blur(4px)}
+.mobile-bar a{flex:1;text-align:center;text-decoration:none;font-weight:800;border-radius:10px;padding:12px 8px;min-height:48px;display:grid;place-items:center}
+.mobile-bar.m1{background:#ffd9a0;color:#8c2f26}
+.mobile-bar.m2{background:#8c2f26;color:#fff}
+@media(min-width:769px){.mobile-bar{display:none}}
+@media(max-width:768px){
+.hero{padding:40px 20px 36px}
+.hero.bowl{display:none}
+.navlinks{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">DEMO 示範網站 <span>｜本頁為一頁式網站示範，店名、價目、評價皆為示範內容，非真實店家</span></div>
+
+<div class="wrap">
+<header class="topnav">
+<div class="logo"><i>張</i>老張牛肉麵</div>
+<nav class="navlinks">
+<a href="#menu">菜單</a><a href="#calc">客製試算</a><a href="#flow">點餐流程</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#order">訂購</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="bowl">🍜</div>
+<h1>一碗熬了八小時的湯，<em>就是家的味道</em></h1>
+<p>牛大骨慢熬湯頭，牛肉滷到入口即化。湯頭、辣度、麵條都能照你的口味客製，現場吃或外帶都方便。價目皆為示範，訂購請來電確認。</p>
+<div class="cta-row">
+<a class="btn btn-cream" href="#calc">客製我的牛肉麵</a>
+<a class="btn btn-ghost" href="#menu">看完整菜單</a>
+</div>
+</section>
+
+<section id="menu">
+<div class="sec-head"><h2>菜單價目（示範）</h2><p>點分類按鈕篩選品項，價格皆為示範價，現場價目請來電確認。</p></div>
+<div class="filters" id="filters">
+<button class="active" data-filter="all">全部</button>
+<button data-filter="noodle">牛肉麵</button>
+<button data-filter="side">乾麵小菜</button>
+<button data-filter="soup">湯品</button>
+<button data-filter="drink">飲品</button>
+</div>
+<div class="grid" id="menuGrid">
+<div class="card" data-cat="noodle"><div class="thumb">🍜</div><h3>紅燒牛肉麵<span class="tag">招牌</span></h3><p>牛大骨紅燒湯頭，滷牛肉大塊實在。</p><div class="price">NT$160 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="noodle"><div class="thumb">🍜</div><h3>清燉牛肉麵</h3><p>清甜牛骨湯底，喝得到牛肉原味。</p><div class="price">NT$160 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="noodle"><div class="thumb">🍜</div><h3>番茄牛肉麵</h3><p>新鮮番茄熬湯，酸甜開胃。</p><div class="price">NT$170 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="noodle"><div class="thumb">🍜</div><h3>半筋半肉牛肉麵</h3><p>牛筋 Q 彈、牛肉軟嫩，一次兩種口感。</p><div class="price">NT$190 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="side"><div class="thumb">🍝</div><h3>乾拌麻醬麵</h3><p>濃郁麻醬拌麵，簡單卻耐吃。</p><div class="price">NT$70 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="side"><div class="thumb">🍝</div><h3>炸醬麵</h3><p>手炒炸醬配小黃瓜絲，鹹香下飯。</p><div class="price">NT$75 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="side"><div class="thumb">🥩</div><h3>滷味拼盤</h3><p>滷牛腱、豆干、海帶一次滿足。</p><div class="price">NT$120 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="side"><div class="thumb">🥬</div><h3>燙青菜</h3><p>當季青菜燙熟淋蒜蓉醬油。</p><div class="price">NT$50 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="side"><div class="thumb">🥒</div><h3>涼拌小黃瓜</h3><p>酸辣開胃，配牛肉麵最解膩。</p><div class="price">NT$40 <small>/ 份・示範價</small></div></div>
+<div class="card" data-cat="soup"><div class="thumb">🍲</div><h3>牛肉清湯</h3><p>清燉牛骨湯，暖胃不油膩。</p><div class="price">NT$80 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="soup"><div class="thumb">🍲</div><h3>貢丸湯</h3><p>彈牙貢丸配芹菜末，古早味。</p><div class="price">NT$50 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="soup"><div class="thumb">🍲</div><h3>蛋花湯</h3><p>滑嫩蛋花湯，小朋友也愛喝。</p><div class="price">NT$45 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="soup"><div class="thumb">🍲</div><h3>紫菜蛋花湯</h3><p>紫菜加蛋花，鮮香簡單。</p><div class="price">NT$45 <small>/ 碗・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🥤</div><h3>酸梅湯</h3><p>自煮酸梅湯，酸甜解膩。</p><div class="price">NT$40 <small>/ 杯・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🥤</div><h3>豆漿</h3><p>濃豆漿，配麵剛剛好。</p><div class="price">NT$35 <small>/ 杯・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🥤</div><h3>麥茶</h3><p>無糖麥茶，清爽去油。</p><div class="price">NT$30 <small>/ 杯・示範價</small></div></div>
+<div class="card" data-cat="drink"><div class="thumb">🥤</div><h3>可樂</h3><p>冰鎮可樂，吃麵配汽水最過癮。</p><div class="price">NT$35 <small>/ 罐・示範價</small></div></div>
+</div>
+</section>
+
+<section id="calc" class="calc">
+<h2>🍜 湯頭辣度客製試算</h2>
+<p>選湯頭、辣度、麵條粗細，再加肉加蛋，自動算出客製價格，結果會帶進下方訂購表單。價格皆為示範。</p>
+<div class="calc-grid">
+<div>
+<label for="soup">湯頭</label>
+<select id="soup">
+<option value="160" selected>紅燒・NT$160 / 碗</option>
+<option value="160">清燉・NT$160 / 碗</option>
+<option value="170">番茄・NT$170 / 碗</option>
+</select>
+</div>
+<div>
+<label>辣度</label>
+<div class="radio-row">
+<label><input type="radio" name="spice" value="不辣" checked> 不辣</label>
+<label><input type="radio" name="spice" value="微辣"> 微辣</label>
+<label><input type="radio" name="spice" value="小辣"> 小辣</label>
+<label><input type="radio" name="spice" value="中辣"> 中辣</label>
+<label><input type="radio" name="spice" value="大辣"> 大辣</label>
+</div>
+</div>
+<div>
+<label>麵條粗細</label>
+<div class="radio-row">
+<label><input type="radio" name="noodle" value="粗麵" checked> 粗麵</label>
+<label><input type="radio" name="noodle" value="細麵"> 細麵</label>
+<label><input type="radio" name="noodle" value="寬麵"> 寬麵</label>
+</div>
+</div>
+<div>
+<label>加料（每碗計價）</label>
+<div class="check-row">
+<label><input type="checkbox" id="addMeat"> 加肉 ＋NT$60</label>
+<label><input type="checkbox" id="addEgg"> 加滷蛋 ＋NT$15</label>
+</div>
+</div>
+<div>
+<label for="bowls">碗數</label>
+<select id="bowls">
+<option value="1" selected>1 碗</option>
+<option value="2">2 碗</option>
+<option value="3">3 碗</option>
+<option value="4">4 碗</option>
+<option value="5">5 碗</option>
+<option value="6">6 碗</option>
+</select>
+</div>
+</div>
+<div class="result" id="calcResult">請按下方按鈕試算。</div>
+<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn btn-cream" type="button" onclick="calcNoodle()">算出客製價格</button>
+<button class="btn btn-ghost" type="button" onclick="calcNoodle();document.getElementById('order').scrollIntoView({behavior:'smooth'})">帶入訂購表單 ↓</button>
+</div>
+</section>
+
+<section id="flow">
+<div class="sec-head"><h2>點餐流程</h2><p>從客製到上桌，四個步驟。</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><h3>選湯頭口味</h3><p>紅燒、清燉或番茄，照今天的心情挑。</p></div>
+<div class="step"><div class="num">2</div><h3>客製辣度麵條</h3><p>辣度、麵條粗細、加肉加蛋自由配。</p></div>
+<div class="step"><div class="num">3</div><h3>師傅現煮</h3><p>麵條現煮、牛肉現切現放，熱騰騰上桌。</p></div>
+<div class="step"><div class="num">4</div><h3>內用或外帶</h3><p>內用趁熱吃，外帶湯麵分裝不怕糊。</p></div>
+</div>
+</section>
+
+<section id="team">
+<div class="sec-head"><h2>我們的團隊（示範人名）</h2><p>一碗麵背後，是三個人每天清晨的堅持。</p></div>
+<div class="team">
+<div class="member"><div class="ava">張</div><h3>老張</h3><div class="role">創辦人・湯頭主廚</div><p>三十年熬湯功力，每天清晨四點起床熬牛骨湯，湯頭是店的靈魂。示範人物。</p></div>
+<div class="member"><div class="ava">慧</div><h3>阿慧</h3><div class="role">二代傳人・滷味主理</div><p>負責滷牛肉與滷味拼盤，堅持用老滷汁慢火滷，味道才會透。示範人物。</p></div>
+<div class="member"><div class="ava">明</div><h3>小明</h3><div class="role">麵檯師傅</div><p>掌管煮麵檯，麵條軟硬度全憑手感，粗麵細麵寬麵都拿手。示範人物。</p></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>客人評價（示範）</h2><p>以下評價皆為示範內容。</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「紅燒湯頭濃而不膩，牛肉給得很大方，加肉加蛋吃完超滿足。」</p><div class="who">— 志豪・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「清燉的湯很清甜，寬麵有嚼勁，天冷來一碗整個人都暖了。」</p><div class="who">— 佩如・示範評價</div></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「番茄牛肉麵酸甜開胃，小孩也愛吃，午餐時間人多建議早點來。」</p><div class="who">— 家瑋・示範評價</div></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="sec-head"><h2>常見問題</h2></div>
+<details><summary>Q1：客製加價怎麼算？</summary><p>湯頭價為每碗基本價，加肉每碗＋NT$60、加滷蛋每碗＋NT$15，辣度與麵條粗細不加價。價格皆為示範，現場價目請來電確認。</p></details>
+<details><summary>Q2：怎麼訂購？可以外帶嗎？</summary><p>填下方訂購表單產生 LINE 訊息後貼到官方 LINE，或直接來電確認。內用與外帶皆可，外帶湯麵分裝。</p></details>
+<details><summary>Q3：可以取消或更改訂單嗎？</summary><p>可以。取餐前來電或傳 LINE 告知即可更改或取消；大量訂單請提前一日通知，規則以店家現場公告為準。</p></details>
+<details><summary>Q4：有提供素食或不吃牛的選項嗎？</summary><p>示範菜單有乾拌麻醬麵、炸醬麵、燙青菜等無牛肉品項，點餐時可備註需求，實際供應請來電確認。</p></details>
+<details><summary>Q5：交通與停車方便嗎？</summary><p>示範地區鄰近捷運站與公車站，開車請使用附近收費停車場，實際交通與停車資訊請來電確認。</p></details>
+<details><summary>Q6：營業時間是幾點？</summary><p>營業時間請來電確認，示範站不刊登未經查證的營業時間。</p></details>
+</section>
+
+<section id="order">
+<div class="form-card">
+<h2>線上訂購</h2>
+<p>填完按「產生 LINE 訊息」，複製後貼到官方 LINE 即可傳送。本頁為示範，訂單為假設訂單。</p>
+<form id="orderForm" onsubmit="return genMsg(event)">
+<div class="f-grid">
+<div><label for="fName">姓名 *</label><input id="fName" required placeholder="例：王小明"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" required inputmode="tel" placeholder="例：09xx-xxx-xxx"></div>
+<div><label for="fDate">取餐日期</label><input id="fDate" type="date"></div>
+<div><label for="fWay">取餐方式</label><select id="fWay"><option>內用</option><option selected>外帶自取</option><option>外送（請來電確認範圍）</option></select></div>
+<div id="calcSummary"><label for="fCalc">客製試算結果</label><textarea id="fCalc" readonly placeholder="請先在上方試算區按「算出客製價格」，結果會自動帶入這裡"></textarea></div>
+<div><label for="fNote">備註（過敏、不要蔥等）</label><textarea id="fNote" placeholder="例：不要香菜、湯少一點"></textarea></div>
+</div>
+<div style="margin-top:16px"><button class="btn btn-red" type="submit" style="width:100%">產生 LINE 訊息</button></div>
+</form>
+<div class="msg-box">
+<label for="msgOutput">LINE 訊息預覽（複製後貼到 LINE 傳送）</label>
+<textarea id="msgOutput" readonly placeholder="填完表單並按下「產生 LINE 訊息」後，這裡會出現訊息內容"></textarea>
+<div class="copy-row">
+<button class="btn btn-brown" type="button" id="copyBtn" onclick="copyMsg()">一鍵複製訊息</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer>
+<b>老張牛肉麵｜一頁式網站示範</b><br>
+本頁為示範網站：店名、價目、評價、團隊與數字皆為示範內容，訂單為假設訂單。<br>
+地址為示範地區，電話與營業時間請來電確認。
+</footer>
+
+<div class="mobile-bar">
+<a class="m1" href="#order">立即訂購</a>
+<a class="m2" href="#calc">客製試算</a>
+</div>
+
+<script>
+/* 菜單篩選 */
+document.getElementById('filters').addEventListener('click',function(e){
+var btn=e.target.closest('button'); if(!btn) return;
+document.querySelectorAll('#filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var f=btn.dataset.filter;
+document.querySelectorAll('#menuGrid.card').forEach(function(card){
+card.style.display=(f==='all'||card.dataset.cat===f)?'':'none';
+});
+});
+
+/* 客製試算：手算核對例：番茄170＋加肉60＋加蛋15＝245／碗 ×3碗＝NT$735 */
+function calcNoodle(){
+var soupEl=document.getElementById('soup');
+var base=parseInt(soupEl.value,10);
+var soupName=soupEl.selectedOptions[0].textContent.split('・')[0];
+var spice=document.querySelector('input[name=spice]:checked').value;
+var noodle=document.querySelector('input[name=noodle]:checked').value;
+var addMeat=document.getElementById('addMeat').checked;
+var addEgg=document.getElementById('addEgg').checked;
+var bowls=parseInt(document.getElementById('bowls').value,10);
+var extras=(addMeat?60:0)+(addEgg?15:0);
+var perBowl=base+extras;
+var total=perBowl*bowls;
+var extrasText=[];
+if(addMeat) extrasText.push('加肉 ＋NT$60');
+if(addEgg) extrasText.push('加滷蛋 ＋NT$15');
+var summary=''+soupName+'湯頭・'+spice+'・'+noodle+'・'+bowls+' 碗\n加料：'+(extrasText.length?extrasText.join('、'):'無')+'\n單價 NT$'+perBowl.toLocaleString()+'／碗 × '+bowls+' 碗\n客製總價 NT$'+total.toLocaleString()+'（示範價）';
+document.getElementById('calcResult').innerHTML=
+'湯頭：<b>'+soupName+'</b> NT$'+base.toLocaleString()+' ／ 辣度：<b>'+spice+'</b> ／ 麵條：<b>'+noodle+'</b><br>'+
+'加料：'+(extrasText.length?extrasText.join('、'):'無')+'<br>'+
+'單價 NT$'+perBowl.toLocaleString()+'／碗 × '+bowls+' 碗<br>'+
+'<span class="total">客製總價 NT$'+total.toLocaleString()+'</span>（示範價）';
+document.getElementById('fCalc').value=summary;
+return summary;
+}
+calcNoodle();
+
+/* 表單 → LINE 訊息 */
+function genMsg(e){
+if(e) e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var date=document.getElementById('fDate').value||'未指定';
+var way=document.getElementById('fWay').value;
+var calc=document.getElementById('fCalc').value.trim()||'未試算';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n取餐日期：'+date+'\n取餐方式：'+way+'\n'+calc+'\n備註：'+note+'\n（本訊息由示範網站產生，訂單為假設訂單）';
+document.getElementById('msgOutput').value=msg;
+document.getElementById('msgOutput').scrollIntoView({behavior:'smooth',block:'center'});
+return false;
+}
+
+/* 一鍵複製 */
+function copyMsg(){
+var ta=document.getElementById('msgOutput');
+var btn=document.getElementById('copyBtn');
+if(!ta.value){btn.textContent='請先產生訊息';setTimeout(function(){btn.textContent='一鍵複製訊息'},2000);return}
+function done(){
+btn.textContent='已複製 ✓';
+setTimeout(function(){btn.textContent='一鍵複製訊息'},2500);
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(ta.value).then(done).catch(function(){fallbackCopy(ta,done)});
+}else{fallbackCopy(ta,done)}
+}
+function fallbackCopy(ta,done){
+ta.select();
+try{document.execCommand('copy');done()}catch(e){/* 複製失敗時維持原按鈕文字 */}
+}
+</script>
+</body>
+</html>

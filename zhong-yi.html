@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回春堂中醫診所｜調理諮詢・針灸・推拿・藥膳建議（示範站）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;color:#3d3428;background:#f7f3ea;line-height:1.7;overflow-x:hidden}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.demo-banner{background:#7a1f1f;color:#fff;text-align:center;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:1px}
+header{background:#2f4a38;color:#f7f3ea;position:sticky;top:0;z-index:50}
+header.wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px}
+.logo small{display:block;font-size:11px;letter-spacing:4px;color:#d8b56a;font-weight:400}
+nav a{margin-left:18px;text-decoration:none;font-size:15px}
+nav a:hover{color:#d8b56a}
+.hero{background:linear-gradient(135deg,#2f4a38 0%,#4a6b52 55%,#8a6d3b 100%);color:#fff;padding:64px 0 72px}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.3;margin-bottom:14px}
+.hero p{font-size:18px;opacity:.92;max-width:640px;margin-bottom:26px}
+.btn{display:inline-block;background:#c9a24b;color:#2c2416;font-weight:800;padding:13px 28px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;font-size:16px}
+.btn:hover{background:#dcb765}
+.btn.ghost{background:transparent;color:#fff;border:2px solid #fff;margin-left:10px}
+.hero-visual{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hero-visual div{border-radius:14px;padding:22px 18px;color:#fff;min-height:120px}
+.hero-visual b{display:block;font-size:18px;margin-bottom:6px}
+.hv1{background:linear-gradient(160deg,#5d7d63,#33503d)}
+.hv2{background:linear-gradient(160deg,#a98a4e,#7d6534)}
+.hv3{background:linear-gradient(160deg,#6b5a3e,#4a3f2c)}
+section{padding:56px 0}
+h2{font-size:28px;color:#2f4a38;margin-bottom:8px;text-align:center}
+.sub{text-align:center;color:#8a7a5f;margin-bottom:32px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+.filters button{padding:9px 20px;border-radius:999px;border:2px solid #2f4a38;background:#fff;color:#2f4a38;font-size:15px;cursor:pointer;font-weight:700}
+.filters button.active{background:#2f4a38;color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #e5dcc8;border-radius:16px;padding:22px}
+.card.tag{display:inline-block;background:#efe6cf;color:#7d6534;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.card h3{font-size:19px;margin-bottom:6px;color:#2f4a38}
+.card.price{font-size:20px;font-weight:800;color:#8a6d3b;margin:10px 0 4px}
+.card.price small{font-size:12px;color:#8a7a5f;font-weight:400}
+.card p{font-size:15px;color:#6b5d49}
+.note{font-size:13px;color:#8a7a5f;text-align:center;margin-top:18px}
+.quiz{background:#fff;border:2px solid #c9a24b;border-radius:20px;padding:30px;max-width:760px;margin:0 auto}
+.quiz h3{font-size:22px;color:#2f4a38;margin-bottom:6px;text-align:center}
+.quiz.q{margin-top:22px}
+.quiz.q p{font-weight:700;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts button{padding:10px 18px;border-radius:999px;border:2px solid #b9ab8a;background:#fbf8f1;font-size:15px;cursor:pointer}
+.opts button.sel{background:#2f4a38;color:#fff;border-color:#2f4a38}
+.quiz.cta{text-align:center;margin-top:26px}
+.result{display:none;background:#f2ecdc;border-radius:14px;padding:22px;margin-top:24px}
+.result.show{display:block}
+.result h4{font-size:20px;color:#2f4a38;margin-bottom:8px}
+.result p{font-size:15px}
+.disclaimer{background:#fdf6e3;border:1px dashed #c9a24b;border-radius:10px;padding:12px 16px;font-size:14px;color:#7d6534;margin-top:20px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.step{background:#fff;border-radius:16px;padding:22px;text-align:center;border:1px solid #e5dcc8}
+.step.n{width:46px;height:46px;border-radius:50%;background:#2f4a38;color:#fff;font-size:20px;font-weight:800;line-height:46px;margin:0 auto 12px}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{font-size:14px;color:#6b5d49}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.member{background:#fff;border-radius:16px;padding:24px;text-align:center;border:1px solid #e5dcc8}
+.avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,#4a6b52,#c9a24b);color:#fff;font-size:34px;font-weight:800;line-height:84px}
+.member h3{font-size:18px;color:#2f4a38}
+.member.role{font-size:13px;color:#8a6d3b;font-weight:700;margin:4px 0 8px}
+.member p{font-size:14px;color:#6b5d49;text-align:left}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.review{background:#fff;border-radius:16px;padding:22px;border:1px solid #e5dcc8}
+.review.stars{color:#c9a24b;font-size:18px;letter-spacing:2px}
+.review p{font-size:15px;margin:10px 0}
+.review.who{font-size:13px;color:#8a7a5f}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:#fff;border:1px solid #e5dcc8;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;color:#2f4a38}
+.faq p{font-size:15px;color:#6b5d49;margin-top:8px}
+form{background:#fff;border-radius:20px;padding:30px;max-width:760px;margin:0 auto;border:1px solid #e5dcc8}
+form label{display:block;font-weight:700;margin:14px 0 6px;color:#2f4a38}
+form input,form select,form textarea{width:100%;padding:12px;border:1px solid #cfc4a8;border-radius:10px;font-size:16px;font-family:inherit}
+form.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.line-msg{display:none;background:#f2ecdc;border-radius:14px;padding:20px;margin-top:22px;white-space:pre-wrap;font-size:15px}
+.line-msg.show{display:block}
+.copy-btn{margin-top:12px}
+.copied-msg{color:#2f7a4a;font-weight:700;margin-left:10px}
+footer{background:#2f4a38;color:#d8cfba;text-align:center;padding:36px 20px;font-size:14px;line-height:1.9}
+.mobile-bar{display:none}
+@media (max-width:767px){
+nav{display:none}
+.hero-visual{grid-template-columns:1fr}
+form.row{grid-template-columns:1fr}
+section{padding:40px 0}
+.mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:100;background:#fff;border-top:1px solid #ddd;box-shadow:0 -2px 12px rgba(0,0,0,.12)}
+.mobile-bar a{flex:1;text-align:center;padding:14px 0;font-weight:800;text-decoration:none;font-size:16px}
+.mobile-bar a:first-child{background:#2f4a38;color:#fff}
+.mobile-bar a:last-child{background:#c9a24b;color:#2c2416}
+body{padding-bottom:52px}
+}
+@media (min-width:768px){.mobile-bar{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-banner">DEMO 示範網站｜本頁店名、價目、評價皆為示範內容，非真實店家資訊</div>
+<header><div class="wrap">
+<div class="logo">回春堂<small>中醫診所・示範</small></div>
+<nav><a href="#services">服務價目</a><a href="#quiz">體質測驗</a><a href="#team">團隊</a><a href="#faq">常見問題</a><a href="#booking">預約</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<h1>慢慢調理，好好生活</h1>
+<p>回春堂以傳統中醫調理諮詢、針灸、推拿與藥膳建議，陪你從日常作息與飲食開始調整。先做體質測驗，找到適合你的調理方向。</p>
+<a class="btn" href="#quiz">開始體質測驗</a>
+<a class="btn ghost" href="#booking">立即預約</a>
+<div class="hero-visual">
+<div class="hv1"><b>調理諮詢</b>依個人生活習慣，提供調理方向建議。</div>
+<div class="hv2"><b>針灸・推拿</b>由專業人員依個人狀況安排服務內容。</div>
+<div class="hv3"><b>藥膳建議</b>依季節與體質，提供日常飲食參考。</div>
+</div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>服務與價目</h2>
+<p class="sub">以下皆為示範價目，實際收費以現場公告為準</p>
+<div class="filters" id="filters">
+<button class="active" data-cat="all">全部</button>
+<button data-cat="consult">調理諮詢</button>
+<button data-cat="acu">針灸</button>
+<button data-cat="tuina">推拿</button>
+<button data-cat="food">藥膳建議</button>
+</div>
+<div class="cards" id="cards">
+<div class="card" data-cat="consult"><span class="tag">調理諮詢</span><h3>初次調理諮詢</h3><p>了解生活作息、飲食與睡眠狀況，提供調理方向建議。</p><div class="price">NT$600 <small>／次・示範價</small></div><p>約 40 分鐘</p></div>
+<div class="card" data-cat="consult"><span class="tag">調理諮詢</span><h3>體質追蹤諮詢</h3><p>回診追蹤，依近況調整日常調理建議。</p><div class="price">NT$400 <small>／次・示範價</small></div><p>約 30 分鐘</p></div>
+<div class="card" data-cat="acu"><span class="tag">針灸</span><h3>針灸調理</h3><p>由中醫師依個人狀況安排針灸服務內容。</p><div class="price">NT$800 <small>／次・示範價</small></div><p>約 40 分鐘</p></div>
+<div class="card" data-cat="acu"><span class="tag">針灸</span><h3>針灸＋拔罐組合</h3><p>針灸搭配拔罐，依個人狀況安排。</p><div class="price">NT$1,200 <small>／次・示範價</small></div><p>約 60 分鐘</p></div>
+<div class="card" data-cat="tuina"><span class="tag">推拿</span><h3>全身推拿放鬆</h3><p>肩頸、腰背與四肢推拿放鬆。</p><div class="price">NT$900 <small>／60 分鐘・示範價</small></div><p>約 60 分鐘</p></div>
+<div class="card" data-cat="tuina"><span class="tag">推拿</span><h3>肩頸重點推拿</h3><p>針對肩頸部位的推拿放鬆。</p><div class="price">NT$600 <small>／30 分鐘・示範價</small></div><p>約 30 分鐘</p></div>
+<div class="card" data-cat="food"><span class="tag">藥膳建議</span><h3>季節藥膳建議</h3><p>依季節與個人狀況，提供藥膳與日常飲食參考。</p><div class="price">NT$300 <small>／次・示範價</small></div><p>約 20 分鐘</p></div>
+<div class="card" data-cat="food"><span class="tag">藥膳建議</span><h3>藥膳茶飲搭配建議</h3><p>日常茶飲搭配建議，附書面參考資料。</p><div class="price">NT$200 <small>／次・示範價</small></div><p>約 20 分鐘</p></div>
+</div>
+<p class="note">價目皆為示範，實際收費與服務內容以現場公告為準。</p>
+</div></section>
+
+<section id="quiz" style="background:#efe9d8"><div class="wrap">
+<h2>體質測驗配對</h2>
+<p class="sub">回答 4 題生活習慣，找到適合你的調理方向</p>
+<div class="quiz">
+<h3>你的日常習慣是？</h3>
+<div class="q" data-q="sleep"><p>1. 最近的睡眠狀況？</p><div class="opts">
+<button data-v="sleep-bad">常睡不好、容易醒</button>
+<button data-v="sleep-ok">大多睡得還可以</button>
+<button data-v="sleep-late">常熬夜、睡得晚</button>
+</div></div>
+<div class="q" data-q="cold"><p>2. 手腳冷熱感覺？</p><div class="opts">
+<button data-v="cold-yes">手腳常覺得冰冷</button>
+<button data-v="cold-no">手腳大多溫暖</button>
+<button data-v="cold-hot">常覺得燥熱、怕熱</button>
+</div></div>
+<div class="q" data-q="diet"><p>3. 飲食偏好？</p><div class="opts">
+<button data-v="diet-cold">愛喝冰飲、吃生冷食物</button>
+<button data-v="diet-heavy">口味重、常吃油炸或宵夜</button>
+<button data-v="diet-light">飲食清淡、定時定量</button>
+</div></div>
+<div class="q" data-q="tired"><p>4. 疲勞感？</p><div class="opts">
+<button data-v="tired-yes">常覺得累、精神不太好</button>
+<button data-v="tired-some">偶爾累，休息後會恢復</button>
+<button data-v="tired-no">精神大多不錯</button>
+</div></div>
+<div class="cta"><button class="btn" id="quizBtn">查看我的調理方向</button></div>
+<div class="result" id="quizResult"></div>
+<div class="disclaimer">測驗僅供參考，非醫療診斷。實際調理方向請以現場專業人員評估為準。</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>預約流程</h2>
+<p class="sub">四個步驟，完成你的第一次預約</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><h3>做體質測驗</h3><p>回答 4 題生活習慣，找到調理方向。</p></div>
+<div class="step"><div class="n">2</div><h3>選擇服務</h3><p>依測驗結果挑選諮詢、針灸或推拿服務。</p></div>
+<div class="step"><div class="n">3</div><h3>填寫預約表單</h3><p>留下姓名、電話與希望時段，產生 LINE 訊息。</p></div>
+<div class="step"><div class="n">4</div><h3>傳送 LINE 確認</h3><p>複製訊息貼到 LINE，收到回覆即完成預約。</p></div>
+<div class="step"><div class="n">5</div><h3>依約到診所</h3><p>請提前 10 分鐘到達，攜帶健保卡（示範流程）。</p></div>
+</div>
+</div></section>
+
+<section id="team" style="background:#efe9d8"><div class="wrap">
+<h2>團隊介紹</h2>
+<p class="sub">以下皆為示範人名與簡介</p>
+<div class="team">
+<div class="member"><div class="avatar">許</div><h3>許安和</h3><div class="role">中醫師</div><p>專長：調理諮詢、針灸。關注日常作息與飲食對身體狀態的影響。</p></div>
+<div class="member"><div class="avatar">林</div><h3>林靜怡</h3><div class="role">中醫師</div><p>專長：針灸、藥膳建議。擅長以生活化的方式說明調理方向。</p></div>
+<div class="member"><div class="avatar">陳</div><h3>陳柏宇</h3><div class="role">推拿師</div><p>專長：推拿放鬆、肩頸與腰背調理。重視施作前的溝通與確認。</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>客人回饋</h2>
+<p class="sub">以下皆為示範評價</p>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>「第一次做體質測驗，結果帶進預約很方便，諮詢時人員說明得很清楚。」</p><div class="who">— 美玲・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「推拿完肩頸放鬆很多，環境安靜，流程說明也很完整。」</p><div class="who">— 家豪・示範評價</div></div>
+<div class="review"><div class="stars">★★★★☆</div><p>「藥膳建議很實用，回家照著調整飲食，作息也比較規律了。」</p><div class="who">— 淑芬・示範評價</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>「線上預約表單產生的 LINE 訊息很清楚，確認回覆也很快。」</p><div class="who">— 志明・示範評價</div></div>
+</div>
+</div></section>
+
+<section id="faq" style="background:#efe9d8"><div class="wrap">
+<h2>常見問題</h2>
+<p class="sub">以下內容皆為示範</p>
+<div class="faq">
+<details><summary>Q1：收費怎麼算？</summary><p>各項服務皆有示範價目，實際收費以現場公告為準，預約時可先來電確認。</p></details>
+<details><summary>Q2：如何預約？</summary><p>填寫下方預約表單，產生 LINE 訊息後複製貼到官方 LINE 傳送，收到回覆即完成預約；也可直接來電預約。</p></details>
+<details><summary>Q3：可以取消或改期嗎？</summary><p>可以。請於預約時間前一天來電或以 LINE 告知，示範規則：當天臨時取消請來電確認是否酌收費用。</p></details>
+<details><summary>Q4：交通與停車方便嗎？</summary><p>診所位於示範地區，附近有公車站與機車停車格，汽車停車請來電確認周邊停車場位置。</p></details>
+<details><summary>Q5：第一次來需要準備什麼？</summary><p>請攜帶健保卡（示範流程），並提前 10 分鐘到達填寫基本資料。</p></details>
+<details><summary>Q6：體質測驗的結果準確嗎？</summary><p>測驗僅供參考，非醫療診斷，目的是協助你挑選合適的諮詢方向，實際狀況以現場專業人員評估為準。</p></details>
+</div>
+</div></section>
+
+<section id="booking"><div class="wrap">
+<h2>預約表單</h2>
+<p class="sub">填完自動產生 LINE 訊息，複製貼上即可傳送</p>
+<form id="bookForm">
+<div class="row">
+<div><label for="fName">姓名 *</label><input id="fName" required placeholder="請輸入姓名"></div>
+<div><label for="fPhone">電話 *</label><input id="fPhone" required placeholder="請輸入電話"></div>
+</div>
+<label for="fService">想預約的服務 *</label>
+<select id="fService" required>
+<option value="">請選擇服務</option>
+<option>初次調理諮詢</option>
+<option>體質追蹤諮詢</option>
+<option>針灸調理</option>
+<option>針灸＋拔罐組合</option>
+<option>全身推拿放鬆</option>
+<option>肩頸重點推拿</option>
+<option>季節藥膳建議</option>
+<option>藥膳茶飲搭配建議</option>
+</select>
+<div class="row">
+<div><label for="fDate">希望日期</label><input id="fDate" type="date"></div>
+<div><label for="fTime">希望時段</label><select id="fTime"><option value="">請選擇時段</option><option>上午</option><option>下午</option><option>晚上</option></select></div>
+</div>
+<label for="fNote">備註（測驗結果會自動帶入）</label>
+<textarea id="fNote" rows="3" placeholder="例如：想先做調理諮詢"></textarea>
+<div style="text-align:center;margin-top:22px"><button class="btn" type="submit">產生 LINE 預約訊息</button></div>
+<div class="line-msg" id="lineMsg"></div>
+<div style="text-align:center"><button class="btn copy-btn" type="button" id="copyBtn" style="display:none">一鍵複製訊息</button><span class="copied-msg" id="copiedMsg"></span></div>
+</form>
+</div></section>
+
+<footer>
+<p>回春堂中醫診所｜示範網站</p>
+<p>地址：示範地區，詳細地址請來電確認｜電話：請來電確認｜營業時間：請來電確認</p>
+<p>本頁為示範網站，店名、價目、評價、團隊與所有數字皆為假設內容，正式使用前請換成真實資料。</p>
+<p>測驗僅供參考，非醫療診斷。</p>
+</footer>
+
+<div class="mobile-bar"><a href="#booking">立即預約</a><a href="#quiz">體質測驗</a></div>
+
+<script>
+// 篩選
+document.querySelectorAll('#filters button').forEach(function(btn){
+btn.addEventListener('click',function(){
+document.querySelectorAll('#filters button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+var cat=btn.dataset.cat;
+document.querySelectorAll('#cards.card').forEach(function(c){
+c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+});
+});
+});
+// 測驗：每題答案對四個方向計分
+var SCORE={
+'sleep-bad':{rest:2},'sleep-ok':{balanced:1},'sleep-late':{rest:2},
+'cold-yes':{consult:3},'cold-no':{balanced:1},'cold-hot':{diet:1},
+'diet-cold':{diet:2},'diet-heavy':{diet:2},'diet-light':{balanced:1},
+'tired-yes':{relax:2},'tired-some':{relax:1},'tired-no':{balanced:1}
+};
+var RESULT_TEXT={
+rest:{t:'作息調整方向',d:'你的回答顯示睡眠與作息較不規律，建議先從「初次調理諮詢」開始，由專業人員協助你檢視作息，提供日常調整建議。',s:'初次調理諮詢'},
+diet:{t:'飲食建議方向',d:'你的回答顯示飲食習慣值得留意，建議選擇「季節藥膳建議」或「藥膳茶飲搭配建議」，由專業人員提供日常飲食參考。',s:'季節藥膳建議'},
+consult:{t:'體質調理諮詢方向',d:'你的回答顯示手腳常覺得冰冷，建議先做「初次調理諮詢」，由專業人員了解你的狀況後提供調理方向建議。',s:'初次調理諮詢'},
+relax:{t:'放鬆調理方向',d:'你的回答顯示常覺得疲勞，建議考慮「全身推拿放鬆」或「肩頸重點推拿」，依個人狀況安排放鬆服務。',s:'全身推拿放鬆'},
+balanced:{t:'日常保養方向',d:'你的回答顯示整體狀況大致穩定，建議可從「體質追蹤諮詢」或「藥膳茶飲搭配建議」開始，維持日常保養。',s:'體質追蹤諮詢'}
+};
+var picked={};
+document.querySelectorAll('.quiz.q').forEach(function(q){
+q.querySelectorAll('button').forEach(function(b){
+b.addEventListener('click',function(){
+q.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});
+b.classList.add('sel');
+picked[q.dataset.q]=b.dataset.v;
+});
+});
+});
+var quizResultKey='';
+document.getElementById('quizBtn').addEventListener('click',function(){
+if(Object.keys(picked).length<4){alert('請先回答全部 4 題，再查看結果。');return;}
+var totals={rest:0,diet:0,consult:0,relax:0,balanced:0};
+Object.keys(picked).forEach(function(k){
+var s=SCORE[picked[k]];
+Object.keys(s).forEach(function(key){totals[key]+=s[key];});
+});
+var order=['rest','diet','consult','relax','balanced'],best='balanced',bestScore=-1;
+order.forEach(function(k){if(totals[k]>bestScore){bestScore=totals[k];best=k;}});
+quizResultKey=best;
+var r=RESULT_TEXT[best];
+var box=document.getElementById('quizResult');
+box.innerHTML='<h4>推薦方向：'+r.t+'</h4><p>'+r.d+'</p><p style="margin-top:10px"><button class="btn" type="button" id="toFormBtn">把「'+r.s+'」帶進預約表單</button></p>';
+box.classList.add('show');
+document.getElementById('toFormBtn').addEventListener('click',function(){
+document.getElementById('fService').value=r.s;
+document.getElementById('fNote').value='體質測驗結果：'+r.t+'（測驗僅供參考，非醫療診斷）';
+document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+});
+});
+// 表單 → LINE 訊息
+document.getElementById('bookForm').addEventListener('submit',function(e){
+e.preventDefault();
+var name=document.getElementById('fName').value.trim();
+var phone=document.getElementById('fPhone').value.trim();
+var service=document.getElementById('fService').value;
+var date=document.getElementById('fDate').value||'未指定';
+var time=document.getElementById('fTime').value||'未指定';
+var note=document.getElementById('fNote').value.trim()||'無';
+var msg='\n姓名：'+name+'\n電話：'+phone+'\n想預約的服務：'+service+'\n希望日期：'+date+'\n希望時段：'+time+'\n備註：'+note;
+var box=document.getElementById('lineMsg');
+box.textContent=msg;
+box.classList.add('show');
+document.getElementById('copyBtn').style.display='inline-block';
+document.getElementById('copiedMsg').textContent='';
+});
+document.getElementById('copyBtn').addEventListener('click',function(){
+var text=document.getElementById('lineMsg').textContent;
+function done(){var m=document.getElementById('copiedMsg');m.textContent='已複製 ✓';setTimeout(function(){m.textContent='';},2500);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});}
+else{fallback();}
+function fallback(){var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);done();}
+});
+</script>
+</body>
+</html>
